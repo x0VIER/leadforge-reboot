@@ -18,3 +18,4 @@
 - Tightened collector quality gates to reject low-signal rows and ignore third-party social links as first-party contact paths.
 - Merged an owner-enriched Miami roofing lead into master while preserving weaker Miami plumbing rows for later review.
 - Added raw-batch triage so each run can preserve rejected and pending-enrichment rows with explicit reasons.
+- Forced a fresh Florida lane rotation after the Miami batch, verified the Cape Coral/Tallahassee window as zero-yield, and reset the next live window to Jacksonville/Tampa/Orlando/St. Petersburg.

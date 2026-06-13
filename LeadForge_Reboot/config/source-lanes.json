@@ -21,7 +21,7 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Fort Lauderdale",
+                      "city":  "Jacksonville",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -30,7 +30,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Miami",
+                      "city":  "Tampa",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -39,7 +39,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Hialeah",
+                      "city":  "Orlando",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -48,7 +48,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Port St. Lucie",
+                      "city":  "St. Petersburg",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
