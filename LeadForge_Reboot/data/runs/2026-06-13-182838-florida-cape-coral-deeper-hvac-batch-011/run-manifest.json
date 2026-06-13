@@ -1,0 +1,24 @@
+{
+    "run_name":  "florida-cape-coral-deeper-hvac-batch-011",
+    "slug":  "florida-cape-coral-deeper-hvac-batch-011",
+    "created_at":  "2026-06-13T18:28:38",
+    "status":  "merged_to_master_partial",
+    "owner":  "Hermes",
+    "notes":  "Merged one reviewed public-source owner-enriched Coral Air lead; rejected Captain Cold Cooling because public evidence indicates inactive or mismatched business identity.",
+    "raw_files":  [
+                      "2026-06-13T22-26-10-797Z-florida-home-services-reboot-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-13-florida-coral-air-owner-enriched-batch-011.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-13-florida-coral-air-owner-enriched-batch-011.csv"
+                    ],
+    "staged_at":  "2026-06-13T18:28:39",
+    "pending_files":  [
+
+                      ],
+    "rejected_files":  [
+                           "2026-06-13T22-26-10-797Z-florida-home-services-reboot-fresh-leads.rejected.csv"
+                       ]
+}

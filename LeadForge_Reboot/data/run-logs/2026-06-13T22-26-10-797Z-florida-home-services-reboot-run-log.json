@@ -1,0 +1,153 @@
+{
+  "createdAt": "2026-06-13T22:28:32.958Z",
+  "config": "florida-home-services-reboot",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-13T22-26-10-797Z-florida-home-services-reboot-fresh-leads.csv",
+  "rowsWritten": 2,
+  "lanes": [
+    {
+      "city": "Cape Coral",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Cape Coral",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Cape Coral",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 5,
+      "added": 0,
+      "rejected": 5,
+      "note": ""
+    },
+    {
+      "city": "Cape Coral",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 5,
+      "added": 2,
+      "rejected": 3,
+      "note": ""
+    },
+    {
+      "city": "Tallahassee",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Tallahassee",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Tallahassee",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Tallahassee",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Pembroke Pines",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Pembroke Pines",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Pembroke Pines",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Pembroke Pines",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Gainesville",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Gainesville",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Gainesville",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Gainesville",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}
