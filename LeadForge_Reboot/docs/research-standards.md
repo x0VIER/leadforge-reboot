@@ -28,4 +28,5 @@
 - Alternate official email domains can be valid when the brand root clearly matches the business domain and the address is publicly shown on the company site.
 - Treat marketplace forms and social pages as weaker contact paths than first-party contact or estimate pages.
 - Ambiguous city names must be state-anchored before a source batch is accepted into review.
+- Reject low-signal rows that surface neither a public website nor a public phone number.
 - If a reviewed lead carries a non-obvious exception, record the reason in the run manifest before merge.

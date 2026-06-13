@@ -1,0 +1,20 @@
+{
+    "run_name":  "florida-owner-batch-004",
+    "slug":  "florida-owner-batch-004",
+    "created_at":  "2026-06-13T17:08:39",
+    "status":  "merged_to_master_partial",
+    "owner":  "Hermes",
+    "notes":  "Orian Roofing And Construction reviewed and owner-enriched. Miami RooterPRO remains raw pending public owner verification. Plumbers of miami remains rejected as low-signal.",
+    "raw_files":  [
+                      "2026-06-13T21-06-03-107Z-florida-home-services-reboot-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-13-florida-owner-enriched-batch-004.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-13-florida-owner-enriched-batch-004.csv"
+                    ],
+    "staged_at":  "2026-06-13T17:08:39",
+    "reviewed_at":  "2026-06-13T17:08:53",
+    "merged_at":  "2026-06-13T17:09:09"
+}

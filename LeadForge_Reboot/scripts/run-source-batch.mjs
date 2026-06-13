@@ -120,6 +120,20 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function isThirdPartyContactUrl(urlString) {
+  const host = normalizeHost(urlString);
+  return [
+    "facebook.com",
+    "instagram.com",
+    "x.com",
+    "twitter.com",
+    "linkedin.com",
+    "youtube.com",
+    "tiktok.com",
+    "housecallpro.com"
+  ].some((domain) => host === domain || host.endsWith(`.${domain}`));
+}
+
 async function safeReadJson(filePath) {
   try {
     return JSON.parse(await fs.readFile(filePath, "utf8"));
@@ -354,11 +368,12 @@ async function getWebsiteSignals(website) {
     return !/\.(css|js|png|jpg|jpeg|svg|webp|gif|ico)(\?|$)/i.test(href);
   });
   const contactUrl = contactCandidate ? absolutize(home.url, contactCandidate) : "";
+  const acceptedContactUrl = isThirdPartyContactUrl(contactUrl) ? "" : contactUrl;
 
   let contactEmails = [];
   let keywordSource = home.html;
-  if (contactUrl && normalizeHost(contactUrl) === normalizeHost(home.url) && contactUrl !== home.url) {
-    const contact = await fetchText(contactUrl);
+  if (acceptedContactUrl && normalizeHost(acceptedContactUrl) === normalizeHost(home.url) && acceptedContactUrl !== home.url) {
+    const contact = await fetchText(acceptedContactUrl);
     keywordSource += ` ${contact.html}`;
     contactEmails = unique([...(contact.html.match(emailRegex) || [])].filter((email) => isAcceptedEmailForSite(email, home.url)));
   }
@@ -375,14 +390,16 @@ async function getWebsiteSignals(website) {
   if (publicEmail) {
     evidenceBits.push(`Public website exposed email ${publicEmail}.`);
   }
-  if (contactUrl) {
-    evidenceBits.push(`Website exposed a contact path at ${contactUrl}.`);
+  if (acceptedContactUrl) {
+    evidenceBits.push(`Website exposed a contact path at ${acceptedContactUrl}.`);
+  } else if (contactUrl) {
+    evidenceBits.push("Website linked to a third-party contact surface instead of a first-party contact path.");
   }
   if (keywordFlags.estimate) {
     evidenceBits.push("Website mentions estimate, quote, inspection, or scheduling language.");
   }
 
-  return { publicEmail, contactUrl, evidenceBits, keywordFlags, phoneMentions };
+  return { publicEmail, contactUrl: acceptedContactUrl, evidenceBits, keywordFlags, phoneMentions };
 }
 
 function inferGapAndOffer({ niche, website, publicEmail, contactUrl, keywordFlags, phoneMentions }) {
@@ -554,13 +571,18 @@ async function main() {
           scanned += 1;
           const tags = element.tags || {};
           const businessName = pickFirst(tags.name, tags.operator, tags.brand);
-          const website = pickFirst(tags.website, tags["contact:website"], tags.url);
-          const publicPhone = pickFirst(tags.phone, tags["contact:phone"]);
+        const website = pickFirst(tags.website, tags["contact:website"], tags.url);
+        const publicPhone = pickFirst(tags.phone, tags["contact:phone"]);
 
-          if (!businessName) {
-            rejected += 1;
-            continue;
-          }
+        if (!businessName) {
+          rejected += 1;
+          continue;
+        }
+
+        if (!website && !publicPhone) {
+          rejected += 1;
+          continue;
+        }
 
           const provisionalRow = {
             business_name: businessName,

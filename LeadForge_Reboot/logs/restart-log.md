@@ -15,3 +15,5 @@
 - Added deterministic reviewed-only master rebuild logging to recover from raw-output contamination.
 - Added Florida lane rotation so zero-yield collector passes advance to fresh city windows automatically.
 - Fixed state leakage in Overpass city queries so ambiguous city names stay anchored to the requested state.
+- Tightened collector quality gates to reject low-signal rows and ignore third-party social links as first-party contact paths.
+- Merged an owner-enriched Miami roofing lead into master while preserving weaker Miami plumbing rows for later review.
