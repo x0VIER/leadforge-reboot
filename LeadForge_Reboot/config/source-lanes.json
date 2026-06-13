@@ -1,6 +1,8 @@
 {
     "batchName":  "florida-home-services-reboot",
     "collectorName":  "Hermes",
+    "targetState":  "FL",
+    "targetStateName":  "Florida",
     "maxOutputRows":  18,
     "overpassPauseMs":  7000,
     "lanePauseMs":  2500,

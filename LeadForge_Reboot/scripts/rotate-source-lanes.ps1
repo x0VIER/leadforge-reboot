@@ -17,6 +17,13 @@ if (-not $Force -and $status -and $status.state -notin @('complete_no_rows', 'co
 }
 
 $windowSize = if ($config.activeLaneWindowSize) { [int]$config.activeLaneWindowSize } else { 4 }
+$targetState = if ($config.targetState) {
+    $config.targetState
+} elseif ($config.lanes -and $config.lanes[0].state) {
+    $config.lanes[0].state
+} else {
+    'FL'
+}
 $pool = @($config.lanePool)
 if ($pool.Count -lt $windowSize) {
     throw "lanePool must contain at least $windowSize cities."
@@ -50,7 +57,7 @@ $templateLane = $config.lanes[0]
 $newLanes = foreach ($city in $nextCities) {
     [pscustomobject]@{
         city = $city
-        state = 'FL'
+        state = $targetState
         niches = @($templateLane.niches)
         perNicheLimit = $templateLane.perNicheLimit
     }
@@ -59,6 +66,8 @@ $newLanes = foreach ($city in $nextCities) {
 $updatedConfig = [ordered]@{
     batchName = $config.batchName
     collectorName = $config.collectorName
+    targetState = $targetState
+    targetStateName = $config.targetStateName
     maxOutputRows = $config.maxOutputRows
     overpassPauseMs = $config.overpassPauseMs
     lanePauseMs = $config.lanePauseMs

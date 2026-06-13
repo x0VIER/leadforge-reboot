@@ -38,7 +38,8 @@
 - `scripts/build-master-contamination-audit.ps1` scans the live master for suspicious duplicate-website and cloned-row patterns so low-trust rows can be reviewed before more enrichment work lands on them.
 - `scripts/quarantine-suspicious-leads.ps1` exports suspicious master rows and lead IDs into `data/quarantine/` so `scripts/rebuild-master.ps1` can rebuild a cleaner live master without deleting audit evidence.
 - Fresh source batches write to temp files first and then move into `data/output/` and `data/run-logs/`.
-- If a completed pass returns no fresh rows, rotate to the next Florida city window before the next sourcing run.
+- `config/source-lanes.json` is the state selector: update `targetState`, `targetStateName`, `lanePool`, and `lanes` together when moving the factory to another state.
+- If a completed pass returns no fresh rows, rotate to the next configured city window before the next sourcing run.
 - When triaging a partial run, exclude already reviewed rows so pending-enrichment artifacts represent only unresolved work.
 - `data/master_leads.csv` should be rebuilt from archive plus reviewed batches if a raw merge ever contaminates master.
 - When a just-written status report matters, rebuild it and re-read it sequentially instead of relying on parallel reads from immediately adjacent writes.

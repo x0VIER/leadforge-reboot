@@ -1,0 +1,27 @@
+version = 1
+id = "leadforge-florida-loop"
+kind = "heartbeat"
+name = "LeadForge Lead Factory Loop"
+status = "ACTIVE"
+rrule = "FREQ=MINUTELY;INTERVAL=45"
+
+# This file is the repo-owned reference for the Codex app heartbeat.
+# The live automation lives under CODEX_HOME/automations and should match this intent.
+prompt = """
+Continue the LeadForge reboot inside C:\Users\loc9o\Desktop\AGR 1226.
+Read LeadForge_Reboot\config\source-lanes.json first and use targetState as the current sourcing state; FL is only the default, not a hardcoded limit.
+Refresh status files for that target state with:
+- LeadForge_Reboot\scripts\build-pending-enrichment-report.ps1
+- LeadForge_Reboot\scripts\build-owner-enrichment-backlog.ps1 -State <targetState>
+- LeadForge_Reboot\scripts\build-master-contamination-audit.ps1 -State <targetState>
+- LeadForge_Reboot\scripts\build-ops-snapshot.ps1 -State <targetState>
+Read LeadForge_Reboot\agent_shared\status\OPS_SNAPSHOT.json before deciding the next action.
+Before any collector run, run LeadForge_Reboot\scripts\get-collector-guard-status.ps1 and treat it as the source of truth for overlap and stale-claim detection.
+Resolve immediate pending enrichment rows first. Audit or quarantine suspicious cloned, dead-domain, or duplicate-website rows before spending enrichment work on them.
+If the collector is not clear, work on owner enrichment, contamination review, QA, triage, documentation, or reviewed-run cleanup.
+Keep writes serialized in the main thread. Re-read freshly rebuilt status files sequentially.
+Never merge raw output directly into master. Stage fresh raw batches for review, QA reviewed CSVs before merge, rebuild master if contaminated, and quarantine suspicious rows when appropriate.
+If the latest source pass completed with no fresh rows, run LeadForge_Reboot\scripts\rotate-source-lanes.ps1 before the next collector run.
+Prioritize clean public business leads with owner_name, owner_title, owner_source, website, public_phone, public_email, contact_url, source evidence, validation status, and priority tier.
+Keep logs, run manifests, queues, snapshots, and status files current, and commit/push durable repo changes when the remote is available.
+"""

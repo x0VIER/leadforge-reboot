@@ -1,4 +1,6 @@
-param()
+param(
+    [string]$State
+)
 
 $ScriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
 $root = Join-Path $ScriptDir '..'
@@ -11,14 +13,23 @@ $lastSuccessPath = Join-Path $statusDir 'LAST_SUCCESS.json'
 $pendingQueuePath = Join-Path $statusDir 'PENDING_ENRICHMENT_QUEUE.json'
 $outputPath = Join-Path $statusDir 'OPS_SNAPSHOT.json'
 $workingDir = Join-Path $root 'agent_shared\working'
-$ownerBacklogPath = Join-Path $statusDir 'OWNER_ENRICHMENT_BACKLOG_FL.json'
-$contaminationAuditPath = Join-Path $statusDir 'MASTER_CONTAMINATION_AUDIT_FL.json'
 $staleClaimHours = 2
 
 New-Item -ItemType Directory -Force -Path $statusDir | Out-Null
 
 $masterCount = if (Test-Path -LiteralPath $masterCsv) { (Import-Csv -LiteralPath $masterCsv).Count } else { 0 }
 $config = if (Test-Path -LiteralPath $configPath) { Get-Content -LiteralPath $configPath -Raw | ConvertFrom-Json } else { $null }
+$targetState = if ($State) {
+    $State.ToUpper()
+} elseif ($config -and $config.targetState) {
+    $config.targetState.ToString().ToUpper()
+} elseif ($config -and $config.lanes -and $config.lanes[0].state) {
+    $config.lanes[0].state.ToString().ToUpper()
+} else {
+    'FL'
+}
+$ownerBacklogPath = Join-Path $statusDir "OWNER_ENRICHMENT_BACKLOG_$targetState.json"
+$contaminationAuditPath = Join-Path $statusDir "MASTER_CONTAMINATION_AUDIT_$targetState.json"
 $currentStatus = if (Test-Path -LiteralPath $currentStatusPath) { Get-Content -LiteralPath $currentStatusPath -Raw | ConvertFrom-Json } else { $null }
 $lastSuccess = if (Test-Path -LiteralPath $lastSuccessPath) { Get-Content -LiteralPath $lastSuccessPath -Raw | ConvertFrom-Json } else { $null }
 $pendingQueue = if (Test-Path -LiteralPath $pendingQueuePath) { Get-Content -LiteralPath $pendingQueuePath -Raw | ConvertFrom-Json } else { $null }
@@ -137,6 +148,7 @@ $pendingBlockedButDocumented = @($pendingItems | Where-Object { $_.pending_state
 
 $snapshot = [ordered]@{
     generated_at = (Get-Date).ToString('s')
+    target_state = $targetState
     master_lead_rows = $masterCount
     active_lane_window = if ($config) { @($config.lanes | ForEach-Object { "$($_.city), $($_.state)" }) } else { @() }
     pending_queue_rows = if ($pendingQueue) { [int]$pendingQueue.pending_rows } else { 0 }
