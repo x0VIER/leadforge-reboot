@@ -1,0 +1,17 @@
+{
+  "trigger_id": "2026-06-13-reboot-sprint",
+  "created_at": "2026-06-13T00:00:00",
+  "owner": "CEO",
+  "supervisor": "Hermes",
+  "goal": "Restart lead sourcing from the recovered schema and produce a new reviewed batch.",
+  "focus": [
+    "roofing",
+    "plumbing",
+    "electrician"
+  ],
+  "states": [
+    "FL",
+    "NY"
+  ],
+  "status": "queued"
+}

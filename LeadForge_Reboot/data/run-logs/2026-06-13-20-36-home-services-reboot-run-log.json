@@ -1,0 +1,81 @@
+{
+  "createdAt": "2026-06-13T20:37:09.481Z",
+  "config": "home-services-reboot",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "20260613-home-services-reboot-fresh-leads.csv",
+  "rowsWritten": 10,
+  "lanes": [
+    {
+      "city": "St. Petersburg",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "St. Petersburg",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Jacksonville",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 5,
+      "added": 5,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Jacksonville",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 5,
+      "added": 5,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Fort Lauderdale",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Fort Lauderdale",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Yonkers",
+      "state": "NY",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Yonkers",
+      "state": "NY",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}

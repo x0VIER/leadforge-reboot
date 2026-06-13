@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "name": "LeadForge CRM & Dossiers",
+      "path": ".."
+    },
+    {
+      "name": "Elevor Flow Web App & Agents",
+      "path": "C:/Users/loc9o/Desktop/Design, design, design/ai-ops-studio-site"
+    }
+  ],
+  "settings": {
+    "workbench.colorTheme": "Default Dark Modern",
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/node_modules": true
+    },
+    "editor.minimap.enabled": true,
+    "editor.fontSize": 14,
+    "terminal.integrated.defaultProfile.windows": "PowerShell"
+  }
+}

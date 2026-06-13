@@ -1,0 +1,10 @@
+{
+  "name": "leadforge-reboot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rebooted LeadForge workspace for sourcing and scoring public business leads.",
+  "type": "module",
+  "scripts": {
+    "source:batch": "node scripts/run-source-batch.mjs"
+  }
+}

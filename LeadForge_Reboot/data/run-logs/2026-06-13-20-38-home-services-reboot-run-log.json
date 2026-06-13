@@ -1,0 +1,99 @@
+{
+  "createdAt": "2026-06-13T20:39:58.975Z",
+  "config": "home-services-reboot",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "20260613-home-services-reboot-fresh-leads.csv",
+  "rowsWritten": 14,
+  "lanes": [
+    {
+      "city": "Jacksonville",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A30%5D%3B%0Aarea%5B%22name%22%3D%22Jacksonville%22%5D%5B%22boundary%22%3D%22administrative%22%5D-%3E.searchArea%3B%0A(%0A%20%20nwr%5B%22craft%22%3D%22roofer%22%5D(area.searchArea)%3B%0A)%3B%0Aout%20center%2015%3B"
+    },
+    {
+      "city": "Jacksonville",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A30%5D%3B%0Aarea%5B%22name%22%3D%22Jacksonville%22%5D%5B%22boundary%22%3D%22administrative%22%5D-%3E.searchArea%3B%0A(%0A%20%20nwr%5B%22craft%22%3D%22plumber%22%5D(area.searchArea)%3B%0A)%3B%0Aout%20center%2015%3B"
+    },
+    {
+      "city": "Tampa",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A30%5D%3B%0Aarea%5B%22name%22%3D%22Tampa%22%5D%5B%22boundary%22%3D%22administrative%22%5D-%3E.searchArea%3B%0A(%0A%20%20nwr%5B%22craft%22%3D%22roofer%22%5D(area.searchArea)%3B%0A)%3B%0Aout%20center%2012%3B"
+    },
+    {
+      "city": "Tampa",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 4,
+      "added": 4,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Orlando",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 3,
+      "added": 3,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Orlando",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A30%5D%3B%0Aarea%5B%22name%22%3D%22Orlando%22%5D%5B%22boundary%22%3D%22administrative%22%5D-%3E.searchArea%3B%0A(%0A%20%20nwr%5B%22craft%22%3D%22plumber%22%5D(area.searchArea)%3B%0A)%3B%0Aout%20center%2012%3B"
+    },
+    {
+      "city": "Brooklyn",
+      "state": "NY",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Brooklyn",
+      "state": "NY",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A30%5D%3B%0Aarea%5B%22name%22%3D%22Brooklyn%22%5D%5B%22boundary%22%3D%22administrative%22%5D-%3E.searchArea%3B%0A(%0A%20%20nwr%5B%22craft%22%3D%22plumber%22%5D(area.searchArea)%3B%0A)%3B%0Aout%20center%2012%3B"
+    },
+    {
+      "city": "Queens",
+      "state": "NY",
+      "niche": "roofing",
+      "scanned": 3,
+      "added": 3,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Queens",
+      "state": "NY",
+      "niche": "plumbing",
+      "scanned": 4,
+      "added": 4,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}

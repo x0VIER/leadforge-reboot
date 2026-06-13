@@ -1,0 +1,36 @@
+{
+  "batchName": "home-services-reboot",
+  "maxOutputRows": 20,
+  "lanes": [
+    {
+      "city": "Jacksonville",
+      "state": "FL",
+      "niches": ["roofing", "plumbing"],
+      "perNicheLimit": 5
+    },
+    {
+      "city": "Tampa",
+      "state": "FL",
+      "niches": ["roofing", "plumbing"],
+      "perNicheLimit": 4
+    },
+    {
+      "city": "Orlando",
+      "state": "FL",
+      "niches": ["roofing", "plumbing"],
+      "perNicheLimit": 4
+    },
+    {
+      "city": "Brooklyn",
+      "state": "NY",
+      "niches": ["roofing", "plumbing"],
+      "perNicheLimit": 4
+    },
+    {
+      "city": "Queens",
+      "state": "NY",
+      "niches": ["roofing", "plumbing"],
+      "perNicheLimit": 4
+    }
+  ]
+}

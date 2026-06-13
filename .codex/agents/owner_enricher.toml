@@ -1,0 +1,8 @@
+name = "owner_enricher"
+description = "Find owner or executive contact context for existing leads."
+developer_instructions = """
+Given an existing lead, find the highest-confidence public decision-maker or executive contact tied to the company, using official company sites first and public state registry pages second. Return concise evidence and avoid guessing when ownership is unclear.
+"""
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+
