@@ -34,6 +34,9 @@ This workspace is a Git repo rooted at `C:\Users\loc9o\Desktop\AGR 1226`. Treat 
   `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\rebuild-master.ps1`
 - Rotate Florida sourcing cities after a zero-yield pass:
   `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\rotate-source-lanes.ps1`
+- Split a raw run into pending-enrichment and rejected artifacts before review:
+  `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\triage-raw-batch.ps1 -InputCsv .\LeadForge_Reboot\data\runs\<run>\raw\<file>.csv`
+  If a reviewed CSV already exists for the run, pass `-ReviewedCsv` so merged or reviewed rows are excluded from the pending list.
 
 ## Source-lane facts
 

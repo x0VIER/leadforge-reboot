@@ -29,4 +29,5 @@
 - Treat marketplace forms and social pages as weaker contact paths than first-party contact or estimate pages.
 - Ambiguous city names must be state-anchored before a source batch is accepted into review.
 - Reject low-signal rows that surface neither a public website nor a public phone number.
+- Preserve rejected and pending-enrichment rows as artifacts inside the run instead of silently dropping them.
 - If a reviewed lead carries a non-obvious exception, record the reason in the run manifest before merge.

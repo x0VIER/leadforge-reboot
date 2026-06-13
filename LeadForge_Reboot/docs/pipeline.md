@@ -18,11 +18,12 @@
 1. Create a run folder and manifest.
 2. Collect candidate businesses from public websites, directories, or search results.
 3. Store raw candidate rows in the run folder.
-4. Review evidence, visible gap, and offer angle.
-5. Score and tier the leads.
-6. Run QA against the reviewed CSV before merge.
-7. Merge approved rows into `data/master_leads.csv`.
-8. Log the run and preserve all artifacts.
+4. Triage raw rows into rejected, pending enrichment, and reviewed candidates.
+5. Review evidence, visible gap, and offer angle.
+6. Score and tier the leads.
+7. Run QA against the reviewed CSV before merge.
+8. Merge approved rows into `data/master_leads.csv`.
+9. Log the run and preserve all artifacts.
 
 ## Runtime guards
 
@@ -31,6 +32,7 @@
 - Successful runs update `agent_shared/status/LAST_SUCCESS.json`.
 - Fresh source batches write to temp files first and then move into `data/output/` and `data/run-logs/`.
 - If a completed pass returns no fresh rows, rotate to the next Florida city window before the next sourcing run.
+- When triaging a partial run, exclude already reviewed rows so pending-enrichment artifacts represent only unresolved work.
 - `data/master_leads.csv` should be rebuilt from archive plus reviewed batches if a raw merge ever contaminates master.
 
 ## Safety boundaries
