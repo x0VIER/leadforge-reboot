@@ -1,5 +1,5 @@
 {
-  "createdAt": "2026-06-13T20:41:35.239Z",
+  "createdAt": "2026-06-13T20:44:03.890Z",
   "config": "home-services-reboot",
   "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
   "outputCsv": "2026-06-13-20-40-home-services-reboot-fresh-leads.csv",
@@ -9,10 +9,10 @@
       "city": "Jacksonville",
       "state": "FL",
       "niche": "roofing",
-      "scanned": 5,
-      "added": 5,
+      "scanned": 0,
+      "added": 0,
       "rejected": 0,
-      "note": ""
+      "note": "query failed: HTTP 504 for https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A30%5D%3B%0Aarea%5B%22name%22%3D%22Jacksonville%22%5D%5B%22boundary%22%3D%22administrative%22%5D-%3E.searchArea%3B%0A(%0A%20%20nwr%5B%22craft%22%3D%22roofer%22%5D(area.searchArea)%3B%0A)%3B%0Aout%20center%2015%3B"
     },
     {
       "city": "Jacksonville",
@@ -54,10 +54,10 @@
       "city": "Orlando",
       "state": "FL",
       "niche": "plumbing",
-      "scanned": 0,
-      "added": 0,
+      "scanned": 1,
+      "added": 1,
       "rejected": 0,
-      "note": "query failed: HTTP 429 for https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A30%5D%3B%0Aarea%5B%22name%22%3D%22Orlando%22%5D%5B%22boundary%22%3D%22administrative%22%5D-%3E.searchArea%3B%0A(%0A%20%20nwr%5B%22craft%22%3D%22plumber%22%5D(area.searchArea)%3B%0A)%3B%0Aout%20center%2012%3B"
+      "note": ""
     },
     {
       "city": "Brooklyn",
@@ -66,7 +66,7 @@
       "scanned": 0,
       "added": 0,
       "rejected": 0,
-      "note": "query failed: HTTP 429 for https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A30%5D%3B%0Aarea%5B%22name%22%3D%22Brooklyn%22%5D%5B%22boundary%22%3D%22administrative%22%5D-%3E.searchArea%3B%0A(%0A%20%20nwr%5B%22craft%22%3D%22roofer%22%5D(area.searchArea)%3B%0A)%3B%0Aout%20center%2012%3B"
+      "note": ""
     },
     {
       "city": "Brooklyn",
@@ -90,10 +90,10 @@
       "city": "Queens",
       "state": "NY",
       "niche": "plumbing",
-      "scanned": 0,
-      "added": 0,
-      "rejected": 0,
-      "note": "query failed: HTTP 429 for https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A30%5D%3B%0Aarea%5B%22name%22%3D%22Queens%22%5D%5B%22boundary%22%3D%22administrative%22%5D-%3E.searchArea%3B%0A(%0A%20%20nwr%5B%22craft%22%3D%22plumber%22%5D(area.searchArea)%3B%0A)%3B%0Aout%20center%2012%3B"
+      "scanned": 10,
+      "added": 4,
+      "rejected": 6,
+      "note": ""
     }
   ]
 }

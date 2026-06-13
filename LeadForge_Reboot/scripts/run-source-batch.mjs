@@ -109,7 +109,36 @@ function isLikelyEmail(value) {
     return false;
   }
   const blockedSuffixes = [".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".css", ".js", ".ico"];
-  return !blockedSuffixes.some((suffix) => text.endsWith(suffix));
+  const blockedDomains = ["company.com", "example.com", "email.com"];
+  const domain = text.split("@")[1] || "";
+  return !blockedSuffixes.some((suffix) => text.endsWith(suffix)) && !blockedDomains.includes(domain);
+}
+
+function isAcceptedEmailForSite(email, siteUrl) {
+  const text = String(email || "").trim().toLowerCase();
+  if (!isLikelyEmail(text)) {
+    return false;
+  }
+
+  const domain = text.split("@")[1] || "";
+  const host = normalizeHost(siteUrl);
+  const commonMailDomains = new Set([
+    "gmail.com",
+    "outlook.com",
+    "hotmail.com",
+    "live.com",
+    "yahoo.com",
+    "icloud.com",
+    "aol.com",
+    "proton.me",
+    "protonmail.com"
+  ]);
+
+  if (commonMailDomains.has(domain)) {
+    return true;
+  }
+
+  return Boolean(host) && (domain === host || domain.endsWith(`.${host}`) || host.endsWith(`.${domain}`));
 }
 
 async function readExistingRows() {
@@ -202,7 +231,7 @@ async function getWebsiteSignals(website) {
 
   const emailRegex = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi;
   const hrefRegex = /href=["']([^"'#]+)["']/gi;
-  const emails = unique([...(home.html.match(emailRegex) || [])].filter(isLikelyEmail));
+  const emails = unique([...(home.html.match(emailRegex) || [])].filter((email) => isAcceptedEmailForSite(email, home.url)));
   const hrefs = [...home.html.matchAll(hrefRegex)].map((match) => match[1]);
   const contactCandidate = hrefs.find((href) => /(contact|estimate|quote|book|schedule)/i.test(href));
   const contactUrl = contactCandidate ? absolutize(home.url, contactCandidate) : "";
@@ -212,7 +241,7 @@ async function getWebsiteSignals(website) {
   if (contactUrl && normalizeHost(contactUrl) === normalizeHost(home.url) && contactUrl !== home.url) {
     const contact = await fetchText(contactUrl);
     keywordSource += ` ${contact.html}`;
-    contactEmails = unique([...(contact.html.match(emailRegex) || [])].filter(isLikelyEmail));
+    contactEmails = unique([...(contact.html.match(emailRegex) || [])].filter((email) => isAcceptedEmailForSite(email, home.url)));
   }
 
   const keywordFlags = {
