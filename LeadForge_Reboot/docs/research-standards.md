@@ -32,3 +32,4 @@
 - Preserve rejected and pending-enrichment rows as artifacts inside the run instead of silently dropping them.
 - When public company identity is clear but no decision-maker is named, keep the row pending and record the exact public-evidence gap instead of guessing an owner.
 - If a reviewed lead carries a non-obvious exception, record the reason in the run manifest before merge.
+- If the same website appears across multiple city-specific rows in a way that looks templated or cloned, treat those rows as contamination-review candidates before doing owner enrichment or outreach prep.

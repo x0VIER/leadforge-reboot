@@ -1,0 +1,17 @@
+{
+    "run_name":  "florida-owner-batch-005",
+    "slug":  "florida-owner-batch-005",
+    "created_at":  "2026-06-13T17:32:33",
+    "status":  "merged_to_master",
+    "owner":  "Hermes",
+    "notes":  "Reviewed four Florida master rows with public official owner evidence and merged the enrichments into master.",
+    "raw_files":  [
+
+                  ],
+    "reviewed_files":  [
+                           "2026-06-13-florida-owner-enriched-batch-005.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-13-florida-owner-enriched-batch-005.csv"
+                    ]
+}

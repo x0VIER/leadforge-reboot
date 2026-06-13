@@ -33,10 +33,15 @@
 - Pending enrichment rows are consolidated into `agent_shared/status/PENDING_ENRICHMENT_QUEUE.json`.
 - Pending queue entries should carry age and recommended-action context so wake-ups can tell the difference between fresh owner research and stale unresolved rows.
 - Overall operating state is consolidated into `agent_shared/status/OPS_SNAPSHOT.json`.
+- `scripts/get-collector-guard-status.ps1` is the explicit preflight check for overlap; it reports active claims, stale claims, and whether the collector is actually clear to start.
+- `scripts/build-owner-enrichment-backlog.ps1` builds a live owner-gap queue from `data/master_leads.csv` so enrichment work can be prioritized by state, niche, city, and priority tier.
+- `scripts/build-master-contamination-audit.ps1` scans the live master for suspicious duplicate-website and cloned-row patterns so low-trust rows can be reviewed before more enrichment work lands on them.
+- `scripts/quarantine-suspicious-leads.ps1` exports suspicious master rows and lead IDs into `data/quarantine/` so `scripts/rebuild-master.ps1` can rebuild a cleaner live master without deleting audit evidence.
 - Fresh source batches write to temp files first and then move into `data/output/` and `data/run-logs/`.
 - If a completed pass returns no fresh rows, rotate to the next Florida city window before the next sourcing run.
 - When triaging a partial run, exclude already reviewed rows so pending-enrichment artifacts represent only unresolved work.
 - `data/master_leads.csv` should be rebuilt from archive plus reviewed batches if a raw merge ever contaminates master.
+- When a just-written status report matters, rebuild it and re-read it sequentially instead of relying on parallel reads from immediately adjacent writes.
 
 ## Safety boundaries
 

@@ -1,0 +1,115 @@
+{
+    "generated_at":  "2026-06-13T17:38:53",
+    "state":  "FL",
+    "row_count":  244,
+    "missing_owner_rows":  232,
+    "owner_coverage_percent":  4.92,
+    "niches":  [
+                   {
+                       "niche":  "roofing",
+                       "count":  53
+                   },
+                   {
+                       "niche":  "home service",
+                       "count":  38
+                   },
+                   {
+                       "niche":  "hvac",
+                       "count":  38
+                   },
+                   {
+                       "niche":  "plumbing",
+                       "count":  36
+                   },
+                   {
+                       "niche":  "electrician",
+                       "count":  30
+                   },
+                   {
+                       "niche":  "restoration",
+                       "count":  18
+                   },
+                   {
+                       "niche":  "solar",
+                       "count":  11
+                   },
+                   {
+                       "niche":  "pest control",
+                       "count":  9
+                   },
+                   {
+                       "niche":  "med spa",
+                       "count":  7
+                   },
+                   {
+                       "niche":  "chiropractor",
+                       "count":  2
+                   },
+                   {
+                       "niche":  "garage door",
+                       "count":  2
+                   }
+               ],
+    "cities":  [
+                   {
+                       "city":  "Orlando",
+                       "count":  27
+                   },
+                   {
+                       "city":  "Riverview",
+                       "count":  24
+                   },
+                   {
+                       "city":  "Jacksonville",
+                       "count":  19
+                   },
+                   {
+                       "city":  "Gainesville",
+                       "count":  19
+                   },
+                   {
+                       "city":  "Miami",
+                       "count":  18
+                   },
+                   {
+                       "city":  "St. Petersburg",
+                       "count":  17
+                   },
+                   {
+                       "city":  "Tampa",
+                       "count":  16
+                   },
+                   {
+                       "city":  "Key West",
+                       "count":  15
+                   },
+                   {
+                       "city":  "Miami Lakes",
+                       "count":  15
+                   },
+                   {
+                       "city":  "Hialeah",
+                       "count":  13
+                   },
+                   {
+                       "city":  "Tallahassee",
+                       "count":  13
+                   },
+                   {
+                       "city":  "Fort Lauderdale",
+                       "count":  13
+                   },
+                   {
+                       "city":  "Sarasota",
+                       "count":  12
+                   },
+                   {
+                       "city":  "Fort Myers",
+                       "count":  12
+                   },
+                   {
+                       "city":  "West Palm Beach",
+                       "count":  9
+                   }
+               ]
+}

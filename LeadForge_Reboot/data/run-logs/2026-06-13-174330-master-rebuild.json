@@ -1,0 +1,32 @@
+{
+    "rebuilt_at":  "2026-06-13T17:43:32",
+    "archive_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\archive\\Recovered_Leads_Database_2026-06-12_snapshot.csv",
+    "reviewed_files":  [
+                           "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-13-165400-florida-owner-batch-002\\reviewed\\2026-06-13-florida-owner-enriched-batch-002.csv",
+                           "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-13-170839-florida-owner-batch-004\\reviewed\\2026-06-13-florida-owner-enriched-batch-004.csv",
+                           "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-13-173233-florida-owner-batch-005\\reviewed\\2026-06-13-florida-owner-enriched-batch-005.csv",
+                           "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-13-public-reboot-batch-001\\reviewed\\2026-06-13-florida-owner-enriched-batch-001.csv"
+                       ],
+    "excluded_lead_ids_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\quarantine\\2026-06-13-174326-florida-suspicious-lead-ids.csv",
+    "excluded_lead_ids_count":  159,
+    "output_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\master_leads.csv",
+    "final_rows":  348,
+    "merge_details":  [
+                          {
+                              "file":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-13-165400-florida-owner-batch-002\\reviewed\\2026-06-13-florida-owner-enriched-batch-002.csv",
+                              "summary":  "master_before          : 501\r\nnew_rows               : \r\nmerged_rows            : 502\r\nadded_rows             : \r\nenriched_existing_rows : 0\r\noutput_csv             : C:\\Users\\loc9o\\Desktop\\AGR \r\n                         1226\\LeadForge_Reboot\\data\\tmp\\master-rebuild-2026-06-13-174330.csv.partial"
+                          },
+                          {
+                              "file":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-13-170839-florida-owner-batch-004\\reviewed\\2026-06-13-florida-owner-enriched-batch-004.csv",
+                              "summary":  "master_before          : 502\r\nnew_rows               : \r\nmerged_rows            : 503\r\nadded_rows             : \r\nenriched_existing_rows : 0\r\noutput_csv             : C:\\Users\\loc9o\\Desktop\\AGR \r\n                         1226\\LeadForge_Reboot\\data\\tmp\\master-rebuild-2026-06-13-174330.csv.partial"
+                          },
+                          {
+                              "file":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-13-173233-florida-owner-batch-005\\reviewed\\2026-06-13-florida-owner-enriched-batch-005.csv",
+                              "summary":  "master_before          : 503\r\nnew_rows               : 4\r\nmerged_rows            : 503\r\nadded_rows             : 0\r\nenriched_existing_rows : 4\r\noutput_csv             : C:\\Users\\loc9o\\Desktop\\AGR \r\n                         1226\\LeadForge_Reboot\\data\\tmp\\master-rebuild-2026-06-13-174330.csv.partial"
+                          },
+                          {
+                              "file":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-13-public-reboot-batch-001\\reviewed\\2026-06-13-florida-owner-enriched-batch-001.csv",
+                              "summary":  "master_before          : 503\r\nnew_rows               : 6\r\nmerged_rows            : 507\r\nadded_rows             : 4\r\nenriched_existing_rows : 2\r\noutput_csv             : C:\\Users\\loc9o\\Desktop\\AGR \r\n                         1226\\LeadForge_Reboot\\data\\tmp\\master-rebuild-2026-06-13-174330.csv.partial"
+                          }
+                      ]
+}

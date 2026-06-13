@@ -23,3 +23,8 @@
 - Added an ops snapshot so automations can read one consolidated state file before deciding whether to enrich, rotate, or source.
 - Tightened the ops snapshot format so single pending rows and older run manifests serialize cleanly without null placeholder noise.
 - Added age and recommended-action context to pending-enrichment queue items so unresolved public owner gaps are explicit instead of vague.
+- Added an explicit collector-guard preflight script and folded claim freshness into the ops snapshot so wake-ups can block overlap from either live claims or stale status drift.
+- Added an owner-enrichment backlog builder so Florida and future state workflows can pull the next best missing-owner rows directly from the live master dataset.
+- Fixed reviewed-merge behavior so newer `last_checked` dates from enrichment batches can update existing master rows instead of leaving them looking stale after a successful owner merge.
+- Added a master contamination audit so suspicious duplicate-website and cloned Florida rows can be surfaced into a review queue before more enrichment effort is spent on them.
+- Added a reversible quarantine flow for suspicious master rows so contamination-review lead IDs can be excluded from rebuilt master output without destroying the audit trail.

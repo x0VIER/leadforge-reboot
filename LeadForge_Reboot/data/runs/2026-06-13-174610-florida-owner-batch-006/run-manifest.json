@@ -1,0 +1,15 @@
+{
+  "run_name": "florida-owner-batch-006",
+  "slug": "florida-owner-batch-006",
+  "created_at": "2026-06-13T17:46:10",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Reviewed two Florida master rows with live public owner evidence and one verified phone correction for Nona Med Spa.",
+  "raw_files": [],
+  "reviewed_files": [
+    "2026-06-13-florida-owner-enriched-batch-006.csv"
+  ],
+  "final_files": [
+    "2026-06-13-florida-owner-enriched-batch-006.csv"
+  ]
+}

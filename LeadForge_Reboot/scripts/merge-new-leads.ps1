@@ -91,6 +91,34 @@ function Merge-PreferredFields($targetRow, $incomingRow) {
         }
 
         $targetValue = $targetRow.$property
+        if ($property -eq 'last_checked') {
+            try {
+                $incomingDate = [datetime]$incomingValue
+                $targetDate = if ($targetValue) { [datetime]$targetValue } else { $null }
+                if (-not $targetDate -or $incomingDate -gt $targetDate) {
+                    $targetRow.$property = $incomingValue
+                }
+                continue
+            }
+            catch {
+                if (-not $targetValue) {
+                    $targetRow.$property = $incomingValue
+                }
+                continue
+            }
+        }
+
+        if ($property -eq 'public_phone') {
+            $targetDigits = if ($targetValue) { (($targetValue -replace '[^\d]', '')) } else { '' }
+            $incomingDigits = (($incomingValue -replace '[^\d]', ''))
+            $targetLooksPlaceholder = $targetDigits -match '^1?555' -or $targetDigits -match '555'
+            $incomingLooksReal = $incomingDigits -and -not ($incomingDigits -match '^1?555' -or $incomingDigits -match '555')
+            if ($targetLooksPlaceholder -and $incomingLooksReal) {
+                $targetRow.$property = $incomingValue
+                continue
+            }
+        }
+
         if (-not $targetValue) {
             $targetRow.$property = $incomingValue
         }

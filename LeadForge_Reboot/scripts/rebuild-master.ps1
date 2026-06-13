@@ -1,6 +1,7 @@
 param(
     [string]$ArchiveCsv,
-    [string]$OutputCsv
+    [string]$OutputCsv,
+    [string]$ExcludeLeadIdsCsv
 )
 
 $ScriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
@@ -35,6 +36,27 @@ foreach ($file in $reviewedFiles) {
     }
 }
 
+$excludedLeadIds = @()
+if ($ExcludeLeadIdsCsv -and (Test-Path -LiteralPath $ExcludeLeadIdsCsv)) {
+    $excludedLeadIds = @(
+        Import-Csv -LiteralPath (Resolve-Path -LiteralPath $ExcludeLeadIdsCsv) |
+            ForEach-Object { [string]$_.lead_id } |
+            Where-Object { $_ }
+    )
+    if ($excludedLeadIds.Count -gt 0) {
+        $excludeSet = New-Object System.Collections.Generic.HashSet[string]
+        foreach ($leadId in $excludedLeadIds) {
+            [void]$excludeSet.Add($leadId)
+        }
+
+        $filteredRows = @(
+            Import-Csv -LiteralPath $tempOutputPath |
+                Where-Object { -not $excludeSet.Contains([string]$_.lead_id) }
+        )
+        $filteredRows | Export-Csv -LiteralPath $tempOutputPath -NoTypeInformation
+    }
+}
+
 Move-Item -LiteralPath $tempOutputPath -Destination $outputPath -Force
 
 $finalRows = (Import-Csv -LiteralPath $outputPath).Count
@@ -42,6 +64,8 @@ $finalRows = (Import-Csv -LiteralPath $outputPath).Count
     rebuilt_at = (Get-Date).ToString('s')
     archive_csv = $archivePath
     reviewed_files = $reviewedFiles.FullName
+    excluded_lead_ids_csv = if ($ExcludeLeadIdsCsv -and (Test-Path -LiteralPath $ExcludeLeadIdsCsv)) { (Resolve-Path -LiteralPath $ExcludeLeadIdsCsv).Path } else { '' }
+    excluded_lead_ids_count = $excludedLeadIds.Count
     output_csv = (Resolve-Path -LiteralPath $outputPath).Path
     final_rows = $finalRows
     merge_details = $mergeSummaries
@@ -50,6 +74,7 @@ $finalRows = (Import-Csv -LiteralPath $outputPath).Count
 [pscustomobject]@{
     archive_csv = $archivePath
     reviewed_files = $reviewedFiles.Count
+    excluded_lead_ids_count = $excludedLeadIds.Count
     output_csv = (Resolve-Path -LiteralPath $outputPath).Path
     final_rows = $finalRows
     rebuild_log = (Resolve-Path -LiteralPath $rebuildLogPath).Path
