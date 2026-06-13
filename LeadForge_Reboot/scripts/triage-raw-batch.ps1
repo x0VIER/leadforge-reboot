@@ -15,6 +15,12 @@ $pendingPath = Join-Path $tmpDir "$baseName.pending-enrichment.csv"
 $rejectedPath = Join-Path $tmpDir "$baseName.rejected.csv"
 $summaryPath = Join-Path $tmpDir "$baseName.triage-summary.json"
 
+foreach ($stalePath in @($pendingPath, $rejectedPath, $summaryPath)) {
+    if (Test-Path -LiteralPath $stalePath) {
+        Remove-Item -LiteralPath $stalePath -Force
+    }
+}
+
 function Get-Host([string]$url) {
     try {
         return ([uri]$url).Host.ToLower().TrimStart('w','w','w','.')
@@ -28,6 +34,18 @@ function Test-ThirdPartyContactPath([string]$url) {
     if (-not $url) { return $false }
     $contactHost = Get-Host $url
     return $contactHost -match 'facebook\.com|instagram\.com|x\.com|twitter\.com|linkedin\.com|youtube\.com|tiktok\.com|housecallpro\.com'
+}
+
+function Test-NonLocalSupplierOrManufacturer($row) {
+    $name = ([string]$row.business_name).ToLower()
+    $websiteHost = Get-Host $row.website
+    if ($name -match '\b(distribution|distributor|wholesale|supply|manufacturing|manufacturer)\b') {
+        return $true
+    }
+    if ($websiteHost -match '(goodmanmfg|daikincomfort|carrierenterprise|ferguson|johnstonesupply)') {
+        return $true
+    }
+    return $false
 }
 
 $pending = @()
@@ -66,6 +84,9 @@ foreach ($row in $rows) {
     }
     if (-not $row.website -and -not $row.public_phone -and -not $row.public_email) {
         $reasons += 'low_signal_listing'
+    }
+    if (Test-NonLocalSupplierOrManufacturer $row) {
+        $reasons += 'non_local_supplier_or_manufacturer'
     }
 
     if ($reasons.Count -gt 0) {

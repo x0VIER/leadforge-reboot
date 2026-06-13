@@ -1,0 +1,153 @@
+{
+  "createdAt": "2026-06-13T22:12:02.520Z",
+  "config": "florida-home-services-reboot",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-13T22-09-38-682Z-florida-home-services-reboot-fresh-leads.csv",
+  "rowsWritten": 2,
+  "lanes": [
+    {
+      "city": "Jacksonville",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 6,
+      "added": 0,
+      "rejected": 6,
+      "note": ""
+    },
+    {
+      "city": "Jacksonville",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 3,
+      "added": 0,
+      "rejected": 3,
+      "note": ""
+    },
+    {
+      "city": "Jacksonville",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Jacksonville",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 6,
+      "added": 2,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Tampa",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 2,
+      "added": 0,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Tampa",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 6,
+      "added": 0,
+      "rejected": 6,
+      "note": ""
+    },
+    {
+      "city": "Tampa",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 2,
+      "added": 0,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Tampa",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Orlando",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 3,
+      "added": 0,
+      "rejected": 3,
+      "note": ""
+    },
+    {
+      "city": "Orlando",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Orlando",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 2,
+      "added": 0,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Orlando",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 3,
+      "added": 0,
+      "rejected": 3,
+      "note": ""
+    },
+    {
+      "city": "St. Petersburg",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "St. Petersburg",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "St. Petersburg",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "St. Petersburg",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}
