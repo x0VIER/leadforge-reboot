@@ -39,6 +39,8 @@ This workspace is a Git repo rooted at `C:\Users\loc9o\Desktop\AGR 1226`. Treat 
   If a reviewed CSV already exists for the run, pass `-ReviewedCsv` so merged or reviewed rows are excluded from the pending list.
 - Build the live pending-enrichment queue before a new sourcing sprint:
   `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\build-pending-enrichment-report.ps1`
+- Build the live ops snapshot before a new sourcing sprint or automation wake-up:
+  `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\build-ops-snapshot.ps1`
 
 ## Source-lane facts
 

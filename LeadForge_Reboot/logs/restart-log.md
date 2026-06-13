@@ -20,3 +20,5 @@
 - Added raw-batch triage so each run can preserve rejected and pending-enrichment rows with explicit reasons.
 - Forced a fresh Florida lane rotation after the Miami batch, verified the Cape Coral/Tallahassee window as zero-yield, and reset the next live window to Jacksonville/Tampa/Orlando/St. Petersburg.
 - Added a pending-enrichment queue report so unresolved rows across runs can be prioritized before new sourcing.
+- Added an ops snapshot so automations can read one consolidated state file before deciding whether to enrich, rotate, or source.
+- Tightened the ops snapshot format so single pending rows and older run manifests serialize cleanly without null placeholder noise.

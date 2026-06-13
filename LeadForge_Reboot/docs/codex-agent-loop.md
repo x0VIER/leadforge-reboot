@@ -24,7 +24,7 @@ For this project, the right loop is:
 ## Operating pattern
 
 1. Heartbeat wakes the thread.
-2. Hermes checks `agent_shared/status/CURRENT_STATUS.json` and `agent_shared/working/` before starting new sourcing.
+2. Hermes refreshes `agent_shared/status/OPS_SNAPSHOT.json`, checks `CURRENT_STATUS.json`, and inspects `agent_shared/working/` before starting new sourcing.
 3. If no active claim exists, the collector opens a claim and writes progress as it works through lanes.
 4. Refresh the pending-enrichment queue and prefer resolving those rows before starting a new collector pass.
 5. If the latest pass completed with no fresh rows, rotate Florida cities before the next collector run.
