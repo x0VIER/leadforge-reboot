@@ -37,6 +37,8 @@ This workspace is a Git repo rooted at `C:\Users\loc9o\Desktop\AGR 1226`. Treat 
 - Split a raw run into pending-enrichment and rejected artifacts before review:
   `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\triage-raw-batch.ps1 -InputCsv .\LeadForge_Reboot\data\runs\<run>\raw\<file>.csv`
   If a reviewed CSV already exists for the run, pass `-ReviewedCsv` so merged or reviewed rows are excluded from the pending list.
+- Build the live pending-enrichment queue before a new sourcing sprint:
+  `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\build-pending-enrichment-report.ps1`
 
 ## Source-lane facts
 

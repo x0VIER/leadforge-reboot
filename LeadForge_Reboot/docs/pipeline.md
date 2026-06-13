@@ -30,6 +30,7 @@
 - Only one source collector can be active at a time. It must claim `agent_shared/working/` before it runs.
 - Collector progress is written to `agent_shared/status/CURRENT_STATUS.json`.
 - Successful runs update `agent_shared/status/LAST_SUCCESS.json`.
+- Pending enrichment rows are consolidated into `agent_shared/status/PENDING_ENRICHMENT_QUEUE.json`.
 - Fresh source batches write to temp files first and then move into `data/output/` and `data/run-logs/`.
 - If a completed pass returns no fresh rows, rotate to the next Florida city window before the next sourcing run.
 - When triaging a partial run, exclude already reviewed rows so pending-enrichment artifacts represent only unresolved work.

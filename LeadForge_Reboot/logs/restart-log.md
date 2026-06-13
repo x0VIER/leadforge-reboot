@@ -19,3 +19,4 @@
 - Merged an owner-enriched Miami roofing lead into master while preserving weaker Miami plumbing rows for later review.
 - Added raw-batch triage so each run can preserve rejected and pending-enrichment rows with explicit reasons.
 - Forced a fresh Florida lane rotation after the Miami batch, verified the Cape Coral/Tallahassee window as zero-yield, and reset the next live window to Jacksonville/Tampa/Orlando/St. Petersburg.
+- Added a pending-enrichment queue report so unresolved rows across runs can be prioritized before new sourcing.
