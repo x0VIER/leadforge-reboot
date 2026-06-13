@@ -23,7 +23,7 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Jacksonville",
+                      "city":  "Cape Coral",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -34,7 +34,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Tampa",
+                      "city":  "Tallahassee",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -45,7 +45,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Orlando",
+                      "city":  "Pembroke Pines",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -56,7 +56,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "St. Petersburg",
+                      "city":  "Gainesville",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",

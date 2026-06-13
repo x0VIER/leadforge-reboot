@@ -5,6 +5,7 @@ param(
 $ScriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
 $configPath = Join-Path $ScriptDir '..\config\source-lanes.json'
 $statusPath = Join-Path $ScriptDir '..\agent_shared\status\CURRENT_STATUS.json'
+$runsRoot = Join-Path $ScriptDir '..\data\runs'
 
 $config = Get-Content -LiteralPath $configPath -Raw | ConvertFrom-Json
 $status = $null
@@ -38,7 +39,23 @@ if ($currentCities.Count -gt 0) {
     }
 }
 
-$advance = $Force -or ($status -and $status.state -eq 'complete_no_rows')
+$latestRunManifest = $null
+if (Test-Path -LiteralPath $runsRoot) {
+    $latestRunManifestFile = Get-ChildItem -LiteralPath $runsRoot -Recurse -File -Filter run-manifest.json |
+        Sort-Object LastWriteTime -Descending |
+        Select-Object -First 1
+    if ($latestRunManifestFile) {
+        try {
+            $latestRunManifest = Get-Content -LiteralPath $latestRunManifestFile.FullName -Raw | ConvertFrom-Json
+        }
+        catch {
+            $latestRunManifest = $null
+        }
+    }
+}
+
+$latestReviewedRunWasDry = $latestRunManifest -and $latestRunManifest.status -in @('rejected', 'merged_no_approved_rows')
+$advance = $Force -or ($status -and $status.state -eq 'complete_no_rows') -or $latestReviewedRunWasDry
 if (-not $advance) {
     [pscustomobject]@{
         rotated = $false
@@ -80,6 +97,12 @@ $updatedConfig | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $configPath
 
 [pscustomobject]@{
     rotated = $true
-    reason = if ($Force) { 'Forced rotation.' } else { 'Previous run completed with no fresh rows.' }
+    reason = if ($Force) {
+        'Forced rotation.'
+    } elseif ($latestReviewedRunWasDry) {
+        "Latest reviewed run was $($latestRunManifest.status); rotating away from low-yield cities."
+    } else {
+        'Previous run completed with no fresh rows.'
+    }
     cities = ($nextCities -join ', ')
 } | Format-List

@@ -23,11 +23,24 @@ foreach ($stalePath in @($pendingPath, $rejectedPath, $summaryPath)) {
 
 function Get-Host([string]$url) {
     try {
-        return ([uri]$url).Host.ToLower().TrimStart('w','w','w','.')
+        $candidate = $url
+        if ($candidate -and $candidate -notmatch '^https?://') {
+            $candidate = "https://$candidate"
+        }
+        return ([uri]$candidate).Host.ToLower().TrimStart('w','w','w','.')
     }
     catch {
         return ''
     }
+}
+
+function Get-ReviewKey($row) {
+    @(
+        ([string]$row.business_name).Trim().ToLower(),
+        ([string]$row.city).Trim().ToLower(),
+        ([string]$row.state).Trim().ToLower(),
+        (Get-Host $row.website)
+    ) -join '|'
 }
 
 function Test-ThirdPartyContactPath([string]$url) {
@@ -56,23 +69,13 @@ $reviewedKeys = New-Object System.Collections.Generic.HashSet[string]
 if ($ReviewedCsv -and (Test-Path -LiteralPath $ReviewedCsv)) {
     $reviewedRows = Import-Csv -LiteralPath (Resolve-Path -LiteralPath $ReviewedCsv)
     foreach ($row in $reviewedRows) {
-        $reviewedKey = @(
-            ([string]$row.business_name).Trim().ToLower(),
-            ([string]$row.city).Trim().ToLower(),
-            ([string]$row.state).Trim().ToLower(),
-            ([string]$row.website).Trim().ToLower()
-        ) -join '|'
+        $reviewedKey = Get-ReviewKey $row
         [void]$reviewedKeys.Add($reviewedKey)
     }
 }
 
 foreach ($row in $rows) {
-    $rowKey = @(
-        ([string]$row.business_name).Trim().ToLower(),
-        ([string]$row.city).Trim().ToLower(),
-        ([string]$row.state).Trim().ToLower(),
-        ([string]$row.website).Trim().ToLower()
-    ) -join '|'
+    $rowKey = Get-ReviewKey $row
     if ($reviewedKeys.Contains($rowKey)) {
         continue
     }
