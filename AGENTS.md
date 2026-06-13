@@ -32,6 +32,8 @@ This workspace is a Git repo rooted at `C:\Users\loc9o\Desktop\AGR 1226`. Treat 
   `node .\scripts\run-source-batch.mjs`
 - Rebuild master from archive plus reviewed batches only:
   `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\rebuild-master.ps1`
+- Rotate Florida sourcing cities after a zero-yield pass:
+  `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\rotate-source-lanes.ps1`
 
 ## Source-lane facts
 

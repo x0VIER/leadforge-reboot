@@ -30,6 +30,7 @@
 - Collector progress is written to `agent_shared/status/CURRENT_STATUS.json`.
 - Successful runs update `agent_shared/status/LAST_SUCCESS.json`.
 - Fresh source batches write to temp files first and then move into `data/output/` and `data/run-logs/`.
+- If a completed pass returns no fresh rows, rotate to the next Florida city window before the next sourcing run.
 - `data/master_leads.csv` should be rebuilt from archive plus reviewed batches if a raw merge ever contaminates master.
 
 ## Safety boundaries

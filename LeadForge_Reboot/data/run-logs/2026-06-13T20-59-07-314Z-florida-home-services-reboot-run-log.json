@@ -1,0 +1,81 @@
+{
+  "createdAt": "2026-06-13T21:01:00.327Z",
+  "config": "florida-home-services-reboot",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-13T20-59-07-314Z-florida-home-services-reboot-fresh-leads.csv",
+  "rowsWritten": 6,
+  "lanes": [
+    {
+      "city": "Cape Coral",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Cape Coral",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Tallahassee",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Tallahassee",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Pembroke Pines",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Pembroke Pines",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Gainesville",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Gainesville",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}

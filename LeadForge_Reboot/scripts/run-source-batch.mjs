@@ -28,6 +28,11 @@ const nicheToTag = {
   plumbing: "plumber"
 };
 
+const stateNameByCode = {
+  FL: "Florida",
+  NY: "New York"
+};
+
 function parseCsv(text) {
   const rows = [];
   let field = "";
@@ -463,9 +468,12 @@ function buildPriorityTier(riskScore, validationStatus) {
 
 async function queryLane(city, state, niche, limit) {
   const overpassNiche = nicheToTag[niche];
+  const stateName = stateNameByCode[state] || state;
   const query = `
 [out:json][timeout:25];
-area["name"="${city}"]["boundary"="administrative"]->.searchArea;
+area["name"="${stateName}"]["boundary"="administrative"]["admin_level"="4"]->.stateArea;
+rel(area.stateArea)["name"="${city}"]["boundary"="administrative"]["admin_level"~"8|9|10"];
+map_to_area->.searchArea;
 (
   nwr["craft"="${overpassNiche}"](area.searchArea);
 );

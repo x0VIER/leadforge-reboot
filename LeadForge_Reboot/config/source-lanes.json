@@ -1,33 +1,60 @@
 {
-  "batchName": "florida-home-services-reboot",
-  "collectorName": "Hermes",
-  "maxOutputRows": 18,
-  "overpassPauseMs": 7000,
-  "lanePauseMs": 2500,
-  "lanes": [
-    {
-      "city": "Jacksonville",
-      "state": "FL",
-      "niches": ["roofing", "plumbing"],
-      "perNicheLimit": 3
-    },
-    {
-      "city": "Tampa",
-      "state": "FL",
-      "niches": ["roofing", "plumbing"],
-      "perNicheLimit": 3
-    },
-    {
-      "city": "Orlando",
-      "state": "FL",
-      "niches": ["roofing", "plumbing"],
-      "perNicheLimit": 3
-    },
-    {
-      "city": "St. Petersburg",
-      "state": "FL",
-      "niches": ["roofing", "plumbing"],
-      "perNicheLimit": 3
-    }
-  ]
+    "batchName":  "florida-home-services-reboot",
+    "collectorName":  "Hermes",
+    "maxOutputRows":  18,
+    "overpassPauseMs":  7000,
+    "lanePauseMs":  2500,
+    "activeLaneWindowSize":  4,
+    "lanePool":  [
+                     "Jacksonville",
+                     "Tampa",
+                     "Orlando",
+                     "St. Petersburg",
+                     "Fort Lauderdale",
+                     "Miami",
+                     "Hialeah",
+                     "Port St. Lucie",
+                     "Cape Coral",
+                     "Tallahassee",
+                     "Pembroke Pines",
+                     "Gainesville"
+                 ],
+    "lanes":  [
+                  {
+                      "city":  "Fort Lauderdale",
+                      "state":  "FL",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing"
+                                 ],
+                      "perNicheLimit":  3
+                  },
+                  {
+                      "city":  "Miami",
+                      "state":  "FL",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing"
+                                 ],
+                      "perNicheLimit":  3
+                  },
+                  {
+                      "city":  "Hialeah",
+                      "state":  "FL",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing"
+                                 ],
+                      "perNicheLimit":  3
+                  },
+                  {
+                      "city":  "Port St. Lucie",
+                      "state":  "FL",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing"
+                                 ],
+                      "perNicheLimit":  3
+                  }
+              ]
 }

@@ -26,6 +26,7 @@ For this project, the right loop is:
 1. Heartbeat wakes the thread.
 2. Hermes checks `agent_shared/status/CURRENT_STATUS.json` and `agent_shared/working/` before starting new sourcing.
 3. If no active claim exists, the collector opens a claim and writes progress as it works through lanes.
-4. Research and owner enrichment run in parallel when useful.
-5. QA and merge run in sequence.
-6. Findings are reported back here and preserved in `LeadForge_Reboot`.
+4. If the latest pass completed with no fresh rows, rotate Florida cities before the next collector run.
+5. Research and owner enrichment run in parallel when useful.
+6. QA and merge run in sequence.
+7. Findings are reported back here and preserved in `LeadForge_Reboot`.

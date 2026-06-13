@@ -22,3 +22,10 @@
 3. Confirm the owner or executive field is grounded in a source URL when available.
 4. Confirm the visible gap and offer angle are specific, not generic filler.
 5. Confirm the row will not duplicate an existing business/website in the master file.
+
+## QA notes
+
+- Alternate official email domains can be valid when the brand root clearly matches the business domain and the address is publicly shown on the company site.
+- Treat marketplace forms and social pages as weaker contact paths than first-party contact or estimate pages.
+- Ambiguous city names must be state-anchored before a source batch is accepted into review.
+- If a reviewed lead carries a non-obvious exception, record the reason in the run manifest before merge.

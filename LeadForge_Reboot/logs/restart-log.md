@@ -13,3 +13,5 @@
 - Tightened the Node sourcing script to filter fake email captures from asset filenames.
 - Added claim-based collector locking, status-first loop files, and temp-file output staging.
 - Added deterministic reviewed-only master rebuild logging to recover from raw-output contamination.
+- Added Florida lane rotation so zero-yield collector passes advance to fresh city windows automatically.
+- Fixed state leakage in Overpass city queries so ambiguous city names stay anchored to the requested state.

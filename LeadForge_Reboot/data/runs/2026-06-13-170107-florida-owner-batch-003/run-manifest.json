@@ -1,0 +1,19 @@
+{
+    "run_name":  "florida-owner-batch-003",
+    "slug":  "florida-owner-batch-003",
+    "created_at":  "2026-06-13T17:01:07",
+    "status":  "invalid_state_mismatch",
+    "owner":  "Hermes",
+    "notes":  "Raw batch preserved for audit only. Collector bug allowed ambiguous city names to resolve outside Florida before state-anchored query fix.",
+    "raw_files":  [
+                      "2026-06-13T20-59-07-314Z-florida-home-services-reboot-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+
+                       ],
+    "final_files":  [
+
+                    ],
+    "staged_at":  "2026-06-13T17:01:07",
+    "invalidated_at":  "2026-06-13T17:01:55"
+}
