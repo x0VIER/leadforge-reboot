@@ -77,6 +77,30 @@ function Ensure-LeadId($rows) {
     return $rows
 }
 
+function Get-WebsiteHost([string]$Url) {
+    try {
+        return ([uri]$Url).Host.ToLower() -replace '^www\.', ''
+    }
+    catch {
+        return ''
+    }
+}
+
+function Test-HostResolves([string]$Url) {
+    $hostName = Get-WebsiteHost $Url
+    if (-not $hostName) {
+        return $false
+    }
+
+    try {
+        [System.Net.Dns]::GetHostEntry($hostName) | Out-Null
+        return $true
+    }
+    catch {
+        return $false
+    }
+}
+
 function Merge-PreferredFields($targetRow, $incomingRow) {
     foreach ($property in $incomingRow.PSObject.Properties.Name) {
         $incomingValue = $incomingRow.$property
@@ -114,6 +138,13 @@ function Merge-PreferredFields($targetRow, $incomingRow) {
             $targetLooksPlaceholder = $targetDigits -match '^1?555' -or $targetDigits -match '555'
             $incomingLooksReal = $incomingDigits -and -not ($incomingDigits -match '^1?555' -or $incomingDigits -match '555')
             if ($targetLooksPlaceholder -and $incomingLooksReal) {
+                $targetRow.$property = $incomingValue
+                continue
+            }
+        }
+
+        if ($property -eq 'website' -and $targetValue -and $incomingValue -and $targetValue -ne $incomingValue) {
+            if ((-not (Test-HostResolves $targetValue)) -and (Test-HostResolves $incomingValue)) {
                 $targetRow.$property = $incomingValue
                 continue
             }

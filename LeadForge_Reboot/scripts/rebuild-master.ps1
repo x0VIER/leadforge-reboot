@@ -17,6 +17,7 @@ $outputPath = $OutputCsv
 $reviewedRoot = Join-Path $ScriptDir '..\data\runs'
 $tempRoot = Join-Path $ScriptDir '..\data\tmp'
 $runLogRoot = Join-Path $ScriptDir '..\data\run-logs'
+$quarantineRoot = Join-Path $ScriptDir '..\data\quarantine'
 $reviewedFiles = @(Get-ChildItem -Path $reviewedRoot -Recurse -File -Filter *.csv | Where-Object { $_.FullName -match '\\reviewed\\' } | Sort-Object FullName)
 New-Item -ItemType Directory -Force -Path $tempRoot, $runLogRoot | Out-Null
 
@@ -37,12 +38,24 @@ foreach ($file in $reviewedFiles) {
 }
 
 $excludedLeadIds = @()
+$excludeSourcePaths = @()
 if ($ExcludeLeadIdsCsv -and (Test-Path -LiteralPath $ExcludeLeadIdsCsv)) {
-    $excludedLeadIds = @(
-        Import-Csv -LiteralPath (Resolve-Path -LiteralPath $ExcludeLeadIdsCsv) |
+    $excludeSourcePaths = @((Resolve-Path -LiteralPath $ExcludeLeadIdsCsv).Path)
+} elseif (Test-Path -LiteralPath $quarantineRoot) {
+    $excludeSourcePaths = @(
+        Get-ChildItem -LiteralPath $quarantineRoot -File -Filter '*-suspicious-lead-ids.csv' |
+            Sort-Object FullName |
+            ForEach-Object { $_.FullName }
+    )
+}
+
+if ($excludeSourcePaths.Count -gt 0) {
+    $allExcludedLeadIds = foreach ($path in $excludeSourcePaths) {
+        Import-Csv -LiteralPath $path |
             ForEach-Object { [string]$_.lead_id } |
             Where-Object { $_ }
-    )
+    }
+    $excludedLeadIds = @($allExcludedLeadIds | Sort-Object -Unique)
     if ($excludedLeadIds.Count -gt 0) {
         $excludeSet = New-Object System.Collections.Generic.HashSet[string]
         foreach ($leadId in $excludedLeadIds) {
@@ -65,6 +78,7 @@ $finalRows = (Import-Csv -LiteralPath $outputPath).Count
     archive_csv = $archivePath
     reviewed_files = $reviewedFiles.FullName
     excluded_lead_ids_csv = if ($ExcludeLeadIdsCsv -and (Test-Path -LiteralPath $ExcludeLeadIdsCsv)) { (Resolve-Path -LiteralPath $ExcludeLeadIdsCsv).Path } else { '' }
+    excluded_lead_id_sources = @($excludeSourcePaths)
     excluded_lead_ids_count = $excludedLeadIds.Count
     output_csv = (Resolve-Path -LiteralPath $outputPath).Path
     final_rows = $finalRows
@@ -75,6 +89,7 @@ $finalRows = (Import-Csv -LiteralPath $outputPath).Count
     archive_csv = $archivePath
     reviewed_files = $reviewedFiles.Count
     excluded_lead_ids_count = $excludedLeadIds.Count
+    excluded_lead_id_sources = $excludeSourcePaths.Count
     output_csv = (Resolve-Path -LiteralPath $outputPath).Path
     final_rows = $finalRows
     rebuild_log = (Resolve-Path -LiteralPath $rebuildLogPath).Path

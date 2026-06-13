@@ -1,12 +1,15 @@
 param(
+    [string]$State = 'FL',
     [string]$AuditCsv,
     [string]$MasterCsv,
     [string]$QuarantineDir
 )
 
 $ScriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
+$stateCode = $State.ToUpper()
+$stateSlug = $stateCode.ToLower()
 if (-not $AuditCsv) {
-    $AuditCsv = Join-Path $ScriptDir '..\agent_shared\status\MASTER_CONTAMINATION_AUDIT_FL.csv'
+    $AuditCsv = Join-Path $ScriptDir "..\agent_shared\status\MASTER_CONTAMINATION_AUDIT_$stateCode.csv"
 }
 if (-not $MasterCsv) {
     $MasterCsv = Join-Path $ScriptDir '..\data\master_leads.csv'
@@ -20,9 +23,9 @@ $resolvedMaster = (Resolve-Path -LiteralPath $MasterCsv).Path
 New-Item -ItemType Directory -Force -Path $QuarantineDir | Out-Null
 
 $stamp = Get-Date -Format 'yyyy-MM-dd-HHmmss'
-$quarantineCsv = Join-Path $QuarantineDir "$stamp-florida-suspicious-leads.csv"
-$leadIdsCsv = Join-Path $QuarantineDir "$stamp-florida-suspicious-lead-ids.csv"
-$manifestJson = Join-Path $QuarantineDir "$stamp-florida-suspicious-quarantine.json"
+$quarantineCsv = Join-Path $QuarantineDir "$stamp-$stateSlug-suspicious-leads.csv"
+$leadIdsCsv = Join-Path $QuarantineDir "$stamp-$stateSlug-suspicious-lead-ids.csv"
+$manifestJson = Join-Path $QuarantineDir "$stamp-$stateSlug-suspicious-quarantine.json"
 
 $auditRows = Import-Csv -LiteralPath $resolvedAudit
 $masterRows = Import-Csv -LiteralPath $resolvedMaster
@@ -58,6 +61,7 @@ $leadIdRows | Export-Csv -LiteralPath $leadIdsCsv -NoTypeInformation
 
 [pscustomobject]@{
     quarantined_at = (Get-Date).ToString('s')
+    state = $stateCode
     audit_csv = $resolvedAudit
     master_csv = $resolvedMaster
     quarantined_rows = $quarantinedRows.Count

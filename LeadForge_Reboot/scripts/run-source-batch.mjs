@@ -23,9 +23,11 @@ const defaultLanePauseMs = 2000;
 const defaultCollectorName = "Hermes";
 const overpassEndpoint = "https://overpass-api.de/api/interpreter";
 
-const nicheToTag = {
-  roofing: "roofer",
-  plumbing: "plumber"
+const nicheToOverpassFilters = {
+  roofing: ['["craft"="roofer"]', '["craft"="roofing"]'],
+  plumbing: ['["craft"="plumber"]'],
+  electrician: ['["craft"="electrician"]'],
+  hvac: ['["craft"="hvac"]', '["shop"="air_conditioning"]']
 };
 
 const stateNameByCode = {
@@ -484,15 +486,16 @@ function buildPriorityTier(riskScore, validationStatus) {
 }
 
 async function queryLane(city, state, niche, limit) {
-  const overpassNiche = nicheToTag[niche];
   const stateName = stateNameByCode[state] || state;
+  const filters = nicheToOverpassFilters[niche] || [`["craft"="${String(niche).replaceAll(" ", "_")}"]`];
+  const queryBody = filters.map((filter) => `  nwr${filter}(area.searchArea);`).join("\n");
   const query = `
 [out:json][timeout:25];
 area["name"="${stateName}"]["boundary"="administrative"]["admin_level"="4"]->.stateArea;
 rel(area.stateArea)["name"="${city}"]["boundary"="administrative"]["admin_level"~"8|9|10"];
 map_to_area->.searchArea;
 (
-  nwr["craft"="${overpassNiche}"](area.searchArea);
+${queryBody}
 );
 out center ${Math.max(limit * 2, limit + 2)};
   `.trim();

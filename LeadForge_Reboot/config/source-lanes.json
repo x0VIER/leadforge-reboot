@@ -23,38 +23,46 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Cape Coral",
+                      "city":  "Jacksonville",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
-                                     "plumbing"
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac"
                                  ],
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Tallahassee",
+                      "city":  "Tampa",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
-                                     "plumbing"
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac"
                                  ],
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Pembroke Pines",
+                      "city":  "Orlando",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
-                                     "plumbing"
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac"
                                  ],
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Gainesville",
+                      "city":  "St. Petersburg",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
-                                     "plumbing"
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac"
                                  ],
                       "perNicheLimit":  3
                   }
