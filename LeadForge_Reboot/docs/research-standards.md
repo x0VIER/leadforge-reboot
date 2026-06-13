@@ -30,4 +30,5 @@
 - Ambiguous city names must be state-anchored before a source batch is accepted into review.
 - Reject low-signal rows that surface neither a public website nor a public phone number.
 - Preserve rejected and pending-enrichment rows as artifacts inside the run instead of silently dropping them.
+- When public company identity is clear but no decision-maker is named, keep the row pending and record the exact public-evidence gap instead of guessing an owner.
 - If a reviewed lead carries a non-obvious exception, record the reason in the run manifest before merge.

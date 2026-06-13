@@ -22,3 +22,4 @@
 - Added a pending-enrichment queue report so unresolved rows across runs can be prioritized before new sourcing.
 - Added an ops snapshot so automations can read one consolidated state file before deciding whether to enrich, rotate, or source.
 - Tightened the ops snapshot format so single pending rows and older run manifests serialize cleanly without null placeholder noise.
+- Added age and recommended-action context to pending-enrichment queue items so unresolved public owner gaps are explicit instead of vague.
