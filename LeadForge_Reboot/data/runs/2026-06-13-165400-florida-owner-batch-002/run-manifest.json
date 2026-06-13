@@ -1,0 +1,19 @@
+{
+    "run_name":  "florida-owner-batch-002",
+    "slug":  "florida-owner-batch-002",
+    "created_at":  "2026-06-13T16:54:00",
+    "status":  "merged_to_master",
+    "owner":  "Hermes",
+    "notes":  "Fill raw candidates, review evidence, run QA, then merge approved rows.",
+    "raw_files":  [
+                      "2026-06-13T20-51-53-289Z-florida-home-services-reboot-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-13-florida-owner-enriched-batch-002.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-13-florida-owner-enriched-batch-002.csv"
+                    ],
+    "reviewed_at":  "2026-06-13T16:54:33",
+    "merged_at":  "2026-06-13T16:54:55"
+}

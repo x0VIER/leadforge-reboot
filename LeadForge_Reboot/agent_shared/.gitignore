@@ -1,0 +1,9 @@
+shared_activity_log.md
+status/*.json
+working/*.json
+done/*.json
+failed/*.json
+!status/.gitkeep
+!working/.gitkeep
+!done/.gitkeep
+!failed/.gitkeep

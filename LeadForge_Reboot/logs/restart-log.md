@@ -11,3 +11,5 @@
 - Merged a first Florida owner-enriched batch into `data/master_leads.csv`.
 - Created the recurring heartbeat automation `leadforge-florida-loop`.
 - Tightened the Node sourcing script to filter fake email captures from asset filenames.
+- Added claim-based collector locking, status-first loop files, and temp-file output staging.
+- Added deterministic reviewed-only master rebuild logging to recover from raw-output contamination.

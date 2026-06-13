@@ -20,8 +20,17 @@
 3. Store raw candidate rows in the run folder.
 4. Review evidence, visible gap, and offer angle.
 5. Score and tier the leads.
-6. Merge approved rows into `data/master_leads.csv`.
-7. Log the run and preserve all artifacts.
+6. Run QA against the reviewed CSV before merge.
+7. Merge approved rows into `data/master_leads.csv`.
+8. Log the run and preserve all artifacts.
+
+## Runtime guards
+
+- Only one source collector can be active at a time. It must claim `agent_shared/working/` before it runs.
+- Collector progress is written to `agent_shared/status/CURRENT_STATUS.json`.
+- Successful runs update `agent_shared/status/LAST_SUCCESS.json`.
+- Fresh source batches write to temp files first and then move into `data/output/` and `data/run-logs/`.
+- `data/master_leads.csv` should be rebuilt from archive plus reviewed batches if a raw merge ever contaminates master.
 
 ## Safety boundaries
 

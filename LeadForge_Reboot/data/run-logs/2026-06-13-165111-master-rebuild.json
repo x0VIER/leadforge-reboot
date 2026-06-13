@@ -1,0 +1,13 @@
+{
+    "rebuilt_at":  "2026-06-13T16:51:12",
+    "archive_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\archive\\Recovered_Leads_Database_2026-06-12_snapshot.csv",
+    "reviewed_files":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-13-public-reboot-batch-001\\reviewed\\2026-06-13-florida-owner-enriched-batch-001.csv",
+    "output_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\master_leads.csv",
+    "final_rows":  505,
+    "merge_details":  [
+                          {
+                              "file":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-13-public-reboot-batch-001\\reviewed\\2026-06-13-florida-owner-enriched-batch-001.csv",
+                              "summary":  "master_before          : 501\r\nnew_rows               : 6\r\nmerged_rows            : 505\r\nadded_rows             : 4\r\nenriched_existing_rows : 2\r\noutput_csv             : C:\\Users\\loc9o\\Desktop\\AGR \r\n                         1226\\LeadForge_Reboot\\data\\tmp\\master-rebuild-2026-06-13-165111.csv.partial"
+                          }
+                      ]
+}

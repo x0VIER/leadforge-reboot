@@ -6,12 +6,10 @@
   "goal": "Restart lead sourcing from the recovered schema and produce a new reviewed batch.",
   "focus": [
     "roofing",
-    "plumbing",
-    "electrician"
+    "plumbing"
   ],
   "states": [
-    "FL",
-    "NY"
+    "FL"
   ],
-  "status": "queued"
+  "status": "active"
 }

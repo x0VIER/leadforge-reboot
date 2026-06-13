@@ -12,7 +12,8 @@ For this project, the right loop is:
 
 1. Keep this thread alive with a heartbeat automation.
 2. Use explicit subagents for research and owner enrichment when the work can be parallelized safely.
-3. Keep merges and file writes serialized in the main thread.
+3. Use claim files and status files so the loop can see whether sourcing is already running.
+4. Keep merges and file writes serialized in the main thread.
 
 ## Why this fits LeadForge
 
@@ -23,7 +24,8 @@ For this project, the right loop is:
 ## Operating pattern
 
 1. Heartbeat wakes the thread.
-2. Hermes checks for today's active run.
-3. Research and owner enrichment run in parallel when useful.
-4. QA and merge run in sequence.
-5. Findings are reported back here and preserved in `LeadForge_Reboot`.
+2. Hermes checks `agent_shared/status/CURRENT_STATUS.json` and `agent_shared/working/` before starting new sourcing.
+3. If no active claim exists, the collector opens a claim and writes progress as it works through lanes.
+4. Research and owner enrichment run in parallel when useful.
+5. QA and merge run in sequence.
+6. Findings are reported back here and preserved in `LeadForge_Reboot`.

@@ -5,8 +5,8 @@ param(
 
 $ScriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
 $slug = ($RunName.ToLower() -replace '[^a-z0-9]+', '-').Trim('-')
-$dateStamp = Get-Date -Format 'yyyy-MM-dd'
-$runRoot = Join-Path $ScriptDir "..\data\runs\$dateStamp-$slug"
+$timestamp = Get-Date -Format 'yyyy-MM-dd-HHmmss'
+$runRoot = Join-Path $ScriptDir "..\data\runs\$timestamp-$slug"
 
 New-Item -ItemType Directory -Force -Path `
     $runRoot, `
@@ -21,7 +21,10 @@ $manifest = [ordered]@{
     created_at = (Get-Date).ToString('s')
     status = 'created'
     owner = 'Hermes'
-    notes = 'Fill raw/candidates, review evidence, then merge approved rows.'
+    notes = 'Fill raw candidates, review evidence, run QA, then merge approved rows.'
+    raw_files = @()
+    reviewed_files = @()
+    final_files = @()
 }
 
 $manifest | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $runRoot 'run-manifest.json')
