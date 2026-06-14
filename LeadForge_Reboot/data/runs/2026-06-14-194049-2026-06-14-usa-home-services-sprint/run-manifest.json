@@ -2,9 +2,9 @@
     "run_name":  "2026-06-14-usa-home-services-sprint",
     "slug":  "2026-06-14-usa-home-services-sprint",
     "created_at":  "2026-06-14T19:40:49",
-    "status":  "merged_to_master_partial",
+    "status":  "merged_to_master",
     "owner":  "Hermes",
-    "notes":  "Collected 6 Austin/Columbus landscaping/pest candidates; merged 4 owner-verified landscaping/tree-service rows, pended 1 unnamed-owner lawncare row, rejected 1 generic pest identity-mismatch row.",
+    "notes":  "Collected 6 Austin/Columbus landscaping/pest candidates; merged 4 owner-verified landscaping/tree-service rows, then promoted the remaining House to House Lawncare pending row after public directory evidence named Andrew Combs as owner with matching website/phone; rejected 1 generic pest identity-mismatch row.",
     "raw_files":  [
                       "2026-06-14T19-38-48-103Z-usa-home-services-sprint-fresh-leads.csv"
                   ],
@@ -23,10 +23,12 @@
     "rejected_files":  [
                            "2026-06-14-austin-columbus-identity-mismatch-rejects-batch-049.rejected.csv"
                        ],
-    "reviewed_rows":  4,
-    "final_rows":  4,
-    "pending_rows":  1,
+    "reviewed_rows":  5,
+    "final_rows":  5,
+    "pending_rows":  0,
     "rejected_rows":  1,
-    "merged_rows":  4,
-    "merged_at":  "2026-06-14T15:43:30"
+    "merged_rows":  5,
+    "added_rows":  1,
+    "enriched_existing_rows":  4,
+    "merged_at":  "2026-06-14T15:53:00"
 }
