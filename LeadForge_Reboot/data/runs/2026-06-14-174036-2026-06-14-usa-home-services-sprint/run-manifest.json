@@ -1,0 +1,26 @@
+{
+  "run_name": "2026-06-14-usa-home-services-sprint",
+  "slug": "2026-06-14-usa-home-services-sprint",
+  "created_at": "2026-06-14T17:40:36",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Collector produced 1 Raleigh painting row. Osborne Painting Co., LLC was owner-verified from BBB public profile evidence, with Nextdoor and Yellow Pages corroborating phone/address/service footprint.",
+  "raw_files": [
+    "2026-06-14T17-38-48-300Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-raleigh-painting-owner-enriched-batch-038.csv"
+  ],
+  "final_files": [
+    "2026-06-14-raleigh-painting-owner-enriched-batch-038.csv"
+  ],
+  "pending_files": [],
+  "source_log": "2026-06-14T17-38-48-300Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 1,
+  "reviewed_rows": 1,
+  "pending_rows": 0,
+  "rejected_rows": 0,
+  "staged_at": "2026-06-14T17:40:36",
+  "merged_rows": 1,
+  "merged_at": "2026-06-14T13:43:41"
+}

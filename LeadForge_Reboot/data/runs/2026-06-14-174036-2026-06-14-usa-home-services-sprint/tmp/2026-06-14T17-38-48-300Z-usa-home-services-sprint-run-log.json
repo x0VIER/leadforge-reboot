@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T17:40:36.240Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T17-38-48-300Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 1,
+  "lanes": [
+    {
+      "city": "Charlotte",
+      "state": "NC",
+      "niche": "painting",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Raleigh",
+      "state": "NC",
+      "niche": "painting",
+      "scanned": 2,
+      "added": 1,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Nashville",
+      "state": "TN",
+      "niche": "painting",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Charlotte",
+      "state": "NC",
+      "niche": "flooring",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Raleigh",
+      "state": "NC",
+      "niche": "flooring",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Nashville",
+      "state": "TN",
+      "niche": "flooring",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Charlotte",
+      "state": "NC",
+      "niche": "carpentry",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Raleigh",
+      "state": "NC",
+      "niche": "carpentry",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Nashville",
+      "state": "TN",
+      "niche": "carpentry",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Charlotte",
+      "state": "NC",
+      "niche": "masonry",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Raleigh",
+      "state": "NC",
+      "niche": "masonry",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Nashville",
+      "state": "TN",
+      "niche": "masonry",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    }
+  ]
+}
