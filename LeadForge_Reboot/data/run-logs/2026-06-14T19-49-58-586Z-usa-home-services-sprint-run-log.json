@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T19:51:28.712Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T19-49-58-586Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 12,
+  "lanes": [
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "painting",
+      "scanned": 3,
+      "added": 2,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "painting",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "painting",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "flooring",
+      "scanned": 4,
+      "added": 3,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "flooring",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "flooring",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "carpentry",
+      "scanned": 4,
+      "added": 3,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "carpentry",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "carpentry",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "masonry",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "masonry",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "masonry",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    }
+  ]
+}
