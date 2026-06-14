@@ -47,7 +47,7 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Kissimmee",
+                      "city":  "Bonita Springs",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -58,7 +58,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Sanford",
+                      "city":  "Dunedin",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -69,7 +69,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Winter Haven",
+                      "city":  "Largo",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -80,7 +80,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Port Charlotte",
+                      "city":  "Plantation",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
