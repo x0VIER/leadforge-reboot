@@ -1,0 +1,26 @@
+{
+  "run_name": "2026-06-14-usa-home-services-sprint",
+  "slug": "2026-06-14-usa-home-services-sprint",
+  "created_at": "2026-06-14T17:54:22",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Collector produced 1 Raleigh pest-control row. Kind Pest Control LLC was owner-verified from BBB public profile evidence, with official website/contact and NPMA operations decision-maker context corroboration.",
+  "raw_files": [
+    "2026-06-14T17-53-00-640Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-raleigh-kind-pest-owner-enriched-batch-040.csv"
+  ],
+  "final_files": [
+    "2026-06-14-raleigh-kind-pest-owner-enriched-batch-040.csv"
+  ],
+  "pending_files": [],
+  "source_log": "2026-06-14T17-53-00-640Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 1,
+  "reviewed_rows": 1,
+  "pending_rows": 0,
+  "rejected_rows": 0,
+  "staged_at": "2026-06-14T17:54:22",
+  "merged_rows": 1,
+  "merged_at": "2026-06-14T13:55:48"
+}
