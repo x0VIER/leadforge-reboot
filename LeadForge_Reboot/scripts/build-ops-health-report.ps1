@@ -9,6 +9,7 @@ $statusDir = Join-Path $root 'agent_shared\status'
 $runsRoot = Join-Path $root 'data\runs'
 $masterCsv = Join-Path $root 'data\master_leads.csv'
 $activityLog = Join-Path $root 'agent_shared\shared_activity_log.md'
+$quarantineDir = Join-Path $root 'data\quarantine'
 
 if (-not $OutputJson) {
     $OutputJson = Join-Path $statusDir 'OPS_HEALTH_REPORT.json'
@@ -42,6 +43,7 @@ $opsSnapshot = Read-JsonFile (Join-Path $statusDir 'OPS_SNAPSHOT.json')
 $currentStatus = Read-JsonFile (Join-Path $statusDir 'CURRENT_STATUS.json')
 $sourceConfig = Read-JsonFile (Join-Path $root 'config\source-lanes.json')
 $masterRows = if (Test-Path -LiteralPath $masterCsv) { @(Import-Csv -LiteralPath $masterCsv) } else { @() }
+$targetState = if ($sourceConfig -and $sourceConfig.targetState) { $sourceConfig.targetState.ToString().ToUpper() } else { 'FL' }
 
 $runManifests = @()
 if (Test-Path -LiteralPath $runsRoot) {
@@ -76,6 +78,16 @@ $recentActivity = if (Test-Path -LiteralPath $activityLog) {
     @()
 }
 $recentFailures = @($recentActivity | Where-Object { $_ -match 'failed|HTTP 400|timeout|stale|blocked' })
+$latestQuarantine = $null
+if (Test-Path -LiteralPath $quarantineDir) {
+    $stateSlug = $targetState.ToLower()
+    $latestQuarantineFile = Get-ChildItem -LiteralPath $quarantineDir -File -Filter "*-$stateSlug-suspicious-quarantine.json" |
+        Sort-Object LastWriteTime -Descending |
+        Select-Object -First 1
+    if ($latestQuarantineFile) {
+        $latestQuarantine = Read-JsonFile $latestQuarantineFile.FullName
+    }
+}
 
 $issues = @()
 if (-not $guard.can_start_collector) {
@@ -95,10 +107,11 @@ $health = if ($issues.Count -eq 0) { 'green' } elseif ($issues.Count -le 2) { 'y
 $report = [ordered]@{
     generated_at = (Get-Date).ToString('s')
     health = $health
-    target_state = $sourceConfig.targetState
+    target_state = $targetState
     active_lanes = @($sourceConfig.lanes | ForEach-Object { "$($_.city), $($_.state)" })
     master_rows = $masterRows.Count
     pending_queue_rows = if ($opsSnapshot) { $opsSnapshot.pending_queue_rows } else { $null }
+    latest_quarantine_rows = if ($latestQuarantine) { $latestQuarantine.quarantined_rows } else { 0 }
     collector_can_start = [bool]$guard.can_start_collector
     collector_reasons = @($guard.reasons)
     unfinished_runs = @($unfinishedRuns)

@@ -13,6 +13,7 @@ $lastSuccessPath = Join-Path $statusDir 'LAST_SUCCESS.json'
 $pendingQueuePath = Join-Path $statusDir 'PENDING_ENRICHMENT_QUEUE.json'
 $outputPath = Join-Path $statusDir 'OPS_SNAPSHOT.json'
 $workingDir = Join-Path $root 'agent_shared\working'
+$quarantineDir = Join-Path $root 'data\quarantine'
 $staleClaimHours = 2
 
 New-Item -ItemType Directory -Force -Path $statusDir | Out-Null
@@ -36,6 +37,21 @@ $lastSuccess = if (Test-Path -LiteralPath $lastSuccessPath) { Get-Content -Liter
 $pendingQueue = if (Test-Path -LiteralPath $pendingQueuePath) { Get-Content -LiteralPath $pendingQueuePath -Raw | ConvertFrom-Json } else { $null }
 $ownerBacklog = if (Test-Path -LiteralPath $ownerBacklogPath) { Get-Content -LiteralPath $ownerBacklogPath -Raw | ConvertFrom-Json } else { $null }
 $contaminationAudit = if (Test-Path -LiteralPath $contaminationAuditPath) { Get-Content -LiteralPath $contaminationAuditPath -Raw | ConvertFrom-Json } else { $null }
+$latestQuarantine = $null
+if (Test-Path -LiteralPath $quarantineDir) {
+    $stateSlug = $targetState.ToLower()
+    $latestQuarantineFile = Get-ChildItem -LiteralPath $quarantineDir -File -Filter "*-$stateSlug-suspicious-quarantine.json" |
+        Sort-Object LastWriteTime -Descending |
+        Select-Object -First 1
+    if ($latestQuarantineFile) {
+        try {
+            $latestQuarantine = Get-Content -LiteralPath $latestQuarantineFile.FullName -Raw | ConvertFrom-Json
+        }
+        catch {
+            $latestQuarantine = $null
+        }
+    }
+}
 
 $recentRuns = @(Get-ChildItem -Path $runsRoot -Recurse -File -Filter run-manifest.json | Sort-Object LastWriteTime -Descending | Select-Object -First 5)
 function Normalize-StringArray($value) {
@@ -146,6 +162,11 @@ $collectorGuard = Get-CollectorGuardStatus
 $pendingItems = if ($pendingQueue) { @(Normalize-ObjectArray $pendingQueue.items) } else { @() }
 $pendingNeedsImmediateResearch = @($pendingItems | Where-Object { $_.pending_state -ne 'researched_owner_unresolved' }).Count
 $pendingBlockedButDocumented = @($pendingItems | Where-Object { $_.pending_state -eq 'researched_owner_unresolved' }).Count
+$contaminationSuspiciousCount = if ($contaminationAudit -and $contaminationAudit.suspicious_row_count) { [int]$contaminationAudit.suspicious_row_count } else { 0 }
+$quarantineCoversContamination = $false
+if ($latestQuarantine -and $contaminationSuspiciousCount -gt 0) {
+    $quarantineCoversContamination = ([int]$latestQuarantine.quarantined_rows -ge $contaminationSuspiciousCount)
+}
 
 $snapshot = [ordered]@{
     generated_at = (Get-Date).ToString('s')
@@ -173,6 +194,8 @@ $snapshot = [ordered]@{
             state = $contaminationAudit.state
             duplicate_website_groups = $contaminationAudit.duplicate_website_groups
             suspicious_row_count = $contaminationAudit.suspicious_row_count
+            quarantine_reviewed = $quarantineCoversContamination
+            latest_quarantine_manifest = if ($latestQuarantine) { $latestQuarantine.manifest_json } else { '' }
         }
     } else {
         $null
@@ -183,10 +206,14 @@ $snapshot = [ordered]@{
     recent_runs = @($runSummaries)
     next_action_hint = if ($pendingNeedsImmediateResearch -gt 0) {
         'Resolve pending enrichment rows before opening a new collector run.'
-    } elseif ($contaminationAudit -and [int]$contaminationAudit.suspicious_row_count -gt 0) {
+    } elseif ($contaminationAudit -and [int]$contaminationAudit.suspicious_row_count -gt 0 -and -not $quarantineCoversContamination) {
         'Contamination review queue is non-empty; prefer auditing suspicious cloned rows before spending more enrichment effort on them.'
     } elseif ($pendingBlockedButDocumented -gt 0 -and $collectorGuard.can_start_collector) {
-        'Pending rows are documented but blocked on stronger public evidence; collector may proceed while leaving them in queue.'
+        if ($quarantineCoversContamination) {
+            'Suspicious rows have a current quarantine artifact and pending rows are documented; collector may proceed.'
+        } else {
+            'Pending rows are documented but blocked on stronger public evidence; collector may proceed while leaving them in queue.'
+        }
     } elseif (-not $collectorGuard.can_start_collector) {
         'Collector is not clear to start yet; inspect active claims or fresh running status before opening a new run.'
     } elseif ($currentStatus -and $currentStatus.state -eq 'complete_no_rows') {

@@ -1,0 +1,9 @@
+{
+    "quarantined_at":  "2026-06-14T11:02:57",
+    "state":  "USA",
+    "audit_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\agent_shared\\status\\MASTER_CONTAMINATION_AUDIT_USA.csv",
+    "master_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\master_leads.csv",
+    "quarantined_rows":  36,
+    "quarantine_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\scripts\\..\\data\\quarantine\\2026-06-14-110257-usa-suspicious-leads.csv",
+    "lead_ids_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\scripts\\..\\data\\quarantine\\2026-06-14-110257-usa-suspicious-lead-ids.csv"
+}
