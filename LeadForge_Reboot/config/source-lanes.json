@@ -1,41 +1,64 @@
 {
-    "batchName":  "georgia-home-services-reboot",
-    "collectorName":  "Hermes",
-    "targetState":  "GA",
-    "targetStateName":  "Georgia",
-    "maxOutputRows":  8,
-    "overpassPauseMs":  4500,
-    "lanePauseMs":  1200,
-    "activeLaneWindowSize":  1,
-    "lanePool":  [
-                     "Atlanta",
-                     "Savannah",
-                     "Augusta",
-                     "Columbus",
-                     "Macon",
-                     "Athens",
-                     "Sandy Springs",
-                     "Roswell",
-                     "Marietta",
-                     "Alpharetta",
-                     "Gainesville",
-                     "Warner Robins",
-                     "Albany",
-                     "Valdosta",
-                     "Rome",
-                     "Brunswick"
-                 ],
-    "lanes":  [
-                  {
-                      "city":  "Savannah",
-                      "state":  "GA",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac"
-                                 ],
-                      "perNicheLimit":  2
-                  }
-              ]
+  "batchName": "usa-home-services-sprint",
+  "collectorName": "Hermes",
+  "scope": "national",
+  "targetState": "USA",
+  "targetStateName": "United States",
+  "sprintTargetRows": 30,
+  "maxOutputRows": 30,
+  "overpassPauseMs": 4500,
+  "lanePauseMs": 1200,
+  "overpassTimeoutMs": 12000,
+  "overpassAttempts": 2,
+  "activeLaneWindowSize": 3,
+  "lanePool": [
+    { "city": "Atlanta", "state": "GA", "stateName": "Georgia" },
+    { "city": "Savannah", "state": "GA", "stateName": "Georgia" },
+    { "city": "Charlotte", "state": "NC", "stateName": "North Carolina" },
+    { "city": "Raleigh", "state": "NC", "stateName": "North Carolina" },
+    { "city": "Nashville", "state": "TN", "stateName": "Tennessee" },
+    { "city": "Knoxville", "state": "TN", "stateName": "Tennessee" },
+    { "city": "Dallas", "state": "TX", "stateName": "Texas" },
+    { "city": "Houston", "state": "TX", "stateName": "Texas" },
+    { "city": "Austin", "state": "TX", "stateName": "Texas" },
+    { "city": "Columbus", "state": "OH", "stateName": "Ohio" },
+    { "city": "Cincinnati", "state": "OH", "stateName": "Ohio" },
+    { "city": "Pittsburgh", "state": "PA", "stateName": "Pennsylvania" },
+    { "city": "Philadelphia", "state": "PA", "stateName": "Pennsylvania" },
+    { "city": "Richmond", "state": "VA", "stateName": "Virginia" },
+    { "city": "Virginia Beach", "state": "VA", "stateName": "Virginia" },
+    { "city": "Phoenix", "state": "AZ", "stateName": "Arizona" },
+    { "city": "Tucson", "state": "AZ", "stateName": "Arizona" },
+    { "city": "Chicago", "state": "IL", "stateName": "Illinois" },
+    { "city": "Indianapolis", "state": "IN", "stateName": "Indiana" },
+    { "city": "Louisville", "state": "KY", "stateName": "Kentucky" },
+    { "city": "Birmingham", "state": "AL", "stateName": "Alabama" },
+    { "city": "Greenville", "state": "SC", "stateName": "South Carolina" },
+    { "city": "Orlando", "state": "FL", "stateName": "Florida" },
+    { "city": "Tampa", "state": "FL", "stateName": "Florida" },
+    { "city": "Jacksonville", "state": "FL", "stateName": "Florida" }
+  ],
+  "lanes": [
+    {
+      "city": "Atlanta",
+      "state": "GA",
+      "stateName": "Georgia",
+      "niches": ["roofing", "plumbing", "electrician", "hvac"],
+      "perNicheLimit": 3
+    },
+    {
+      "city": "Charlotte",
+      "state": "NC",
+      "stateName": "North Carolina",
+      "niches": ["roofing", "plumbing", "electrician", "hvac"],
+      "perNicheLimit": 3
+    },
+    {
+      "city": "Nashville",
+      "state": "TN",
+      "stateName": "Tennessee",
+      "niches": ["roofing", "plumbing", "electrician", "hvac"],
+      "perNicheLimit": 3
+    }
+  ]
 }

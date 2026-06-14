@@ -63,7 +63,8 @@ function Test-WebsiteHostResolves([string]$url) {
 
 $resolvedInput = (Resolve-Path -LiteralPath $InputCsv).Path
 $rows = Import-Csv -LiteralPath $resolvedInput
-$stateRows = @($rows | Where-Object { $_.state -eq $State })
+$isNationalScope = $State.ToUpper() -in @('USA','US','NATIONAL','ALL')
+$stateRows = if ($isNationalScope) { @($rows) } else { @($rows | Where-Object { $_.state -eq $State }) }
 $script:HostResolutionCache = @{}
 
 $websiteGroups = @(
@@ -92,7 +93,7 @@ foreach ($row in $stateRows) {
         }
     }
 
-    if ($areaCode -eq '813' -and $row.city -notin @('Tampa','Riverview','St. Petersburg')) {
+    if ($row.state -eq 'FL' -and $areaCode -eq '813' -and $row.city -notin @('Tampa','Riverview','St. Petersburg')) {
         [void]$flags.Add('tampa_area_code_outside_tampa_cluster')
     }
 
@@ -127,7 +128,7 @@ foreach ($group in $websiteGroups) {
         if ($cities.Count -ge 2) {
             [void]$flags.Add("duplicate_website_multi_city:$($cities.Count)")
         }
-        if ($areaCode -eq '813' -and $row.city -notin @('Tampa','Riverview','St. Petersburg')) {
+        if ($row.state -eq 'FL' -and $areaCode -eq '813' -and $row.city -notin @('Tampa','Riverview','St. Petersburg')) {
             [void]$flags.Add('tampa_area_code_outside_tampa_cluster')
         }
         if ($websiteHost -match 'of|pros|services|masters|experts|solutions|repair|cleaners|restoration|homeimpr|homeimprov|electricalp|wire|climate|roofing') {
@@ -170,6 +171,7 @@ $payload = New-Object System.Collections.Specialized.OrderedDictionary
 $payload['generated_at'] = (Get-Date).ToString('s')
 $payload['input_csv'] = $resolvedInput
 $payload['state'] = $State
+$payload['scope'] = if ($isNationalScope) { 'national' } else { 'state' }
 $payload['total_state_rows'] = $stateRows.Count
 $payload['duplicate_website_groups'] = $websiteGroups.Count
 $payload['dns_check_enabled'] = (-not $SkipDnsCheck)

@@ -30,7 +30,8 @@ function Normalize-Host([string]$url) {
 
 $resolvedInput = (Resolve-Path -LiteralPath $InputCsv).Path
 $rows = Import-Csv -LiteralPath $resolvedInput
-$stateRows = @($rows | Where-Object { $_.state -eq $State })
+$isNationalScope = $State.ToUpper() -in @('USA','US','NATIONAL','ALL')
+$stateRows = if ($isNationalScope) { @($rows) } else { @($rows | Where-Object { $_.state -eq $State }) }
 $missingOwnerRows = @($stateRows | Where-Object { -not $_.owner_name })
 
 $suspiciousLeadIds = New-Object System.Collections.Generic.HashSet[string]
@@ -89,6 +90,7 @@ $payload = [ordered]@{
     generated_at = (Get-Date).ToString('s')
     input_csv = $resolvedInput
     state = $State
+    scope = if ($isNationalScope) { 'national' } else { 'state' }
     total_state_rows = $stateRows.Count
     missing_owner_rows = $missingOwnerRows.Count
     suspicious_rows_excluded = if ($IncludeSuspiciousRows) { 0 } else { $missingOwnerRows.Count - $eligibleMissingOwnerRows.Count }

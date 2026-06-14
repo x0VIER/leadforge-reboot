@@ -28,6 +28,7 @@ $targetState = if ($State) {
 } else {
     'FL'
 }
+$isNationalScope = $targetState -in @('USA','US','NATIONAL','ALL')
 $ownerBacklogPath = Join-Path $statusDir "OWNER_ENRICHMENT_BACKLOG_$targetState.json"
 $contaminationAuditPath = Join-Path $statusDir "MASTER_CONTAMINATION_AUDIT_$targetState.json"
 $currentStatus = if (Test-Path -LiteralPath $currentStatusPath) { Get-Content -LiteralPath $currentStatusPath -Raw | ConvertFrom-Json } else { $null }
@@ -149,6 +150,7 @@ $pendingBlockedButDocumented = @($pendingItems | Where-Object { $_.pending_state
 $snapshot = [ordered]@{
     generated_at = (Get-Date).ToString('s')
     target_state = $targetState
+    scope = if ($isNationalScope) { 'national' } else { 'state' }
     master_lead_rows = $masterCount
     active_lane_window = if ($config) { @($config.lanes | ForEach-Object { "$($_.city), $($_.state)" }) } else { @() }
     pending_queue_rows = if ($pendingQueue) { [int]$pendingQueue.pending_rows } else { 0 }

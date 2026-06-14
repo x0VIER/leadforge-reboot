@@ -28,11 +28,11 @@ This workspace is a Git repo rooted at `C:\Users\loc9o\Desktop\AGR 1226`. Treat 
   `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\new-run.ps1 -RunName "florida-owner-batch"`
 - Merge reviewed leads into the live master:
   `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\merge-new-leads.ps1 -NewCsv .\LeadForge_Reboot\data\runs\<run>\reviewed\<file>.csv`
-- Run the Node sourcing lane from the reboot folder:
-  `node .\scripts\run-source-batch.mjs`
+- Run the guarded source collector from the reboot folder:
+  `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\run-collector-guarded.ps1`
 - Rebuild master from archive plus reviewed batches only:
   `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\rebuild-master.ps1`
-- Rotate Florida sourcing cities after a zero-yield pass:
+- Rotate sourcing cities after a zero-yield pass:
   `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\rotate-source-lanes.ps1`
 - Split a raw run into pending-enrichment and rejected artifacts before review:
   `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\triage-raw-batch.ps1 -InputCsv .\LeadForge_Reboot\data\runs\<run>\raw\<file>.csv`
@@ -41,6 +41,8 @@ This workspace is a Git repo rooted at `C:\Users\loc9o\Desktop\AGR 1226`. Treat 
   `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\build-pending-enrichment-report.ps1`
 - Build the live ops snapshot before a new sourcing sprint or automation wake-up:
   `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\build-ops-snapshot.ps1`
+- Build factory throughput metrics:
+  `powershell -ExecutionPolicy Bypass -File .\LeadForge_Reboot\scripts\build-factory-metrics.ps1`
 
 ## Source-lane facts
 
@@ -48,7 +50,7 @@ This workspace is a Git repo rooted at `C:\Users\loc9o\Desktop\AGR 1226`. Treat 
 - It reads historical dedupe context from the recovered root `Recovered_Leads_Database.csv` and prior CSVs in `LeadForge_Reboot/data/output/`.
 - It writes fresh lead CSVs to `LeadForge_Reboot/data/output/`, JSON run logs to `LeadForge_Reboot/data/run-logs/`, and claim/status files under `LeadForge_Reboot/agent_shared/`.
 - It stages temp files before moving them into place, so partial runs do not clobber final outputs.
-- Current configured lanes target Florida and New York home-service niches through public Overpass data plus public website checks.
+- Current configured lanes run a USA-wide home-services sprint through public Overpass data plus public website checks. `source-lanes.json` may contain city/state lane objects so the collector can rotate across multiple states without treating one state as the whole campaign.
 
 ## Agent loop guidance
 

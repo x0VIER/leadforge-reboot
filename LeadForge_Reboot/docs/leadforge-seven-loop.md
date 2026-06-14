@@ -19,7 +19,7 @@ This loop is the professional lead-team contract recovered from the old transcri
 
 - `Sindy`: operations coordinator, archive protector, run prioritizer, and user-facing status owner.
 - `Hermes`: collector guard, run controller, lane rotation, and manifest/status owner.
-- `Market Intelligence Lead`: chooses state/city/niche lanes from `config/source-lanes.json`.
+- `Market Intelligence Lead`: chooses USA-wide city/state/niche lanes from `config/source-lanes.json`.
 - `Business Discovery Analyst`: gathers raw public candidates only.
 - `Digital Presence Auditor`: checks websites, contact paths, visible gaps, and offer angles.
 - `Public Data Verification Specialist`: confirms owners or decision-makers from official sites, state registries, BBB, chambers, or comparable public business sources.
@@ -51,7 +51,7 @@ Collector work must be bounded. Do not call `node scripts/run-source-batch.mjs` 
 - Current `data/master_leads.csv` rows are protected.
 - Do not overwrite or delete current leads while trying to get new ones.
 - Deduplicate by business name, city, state, and website before merge.
-- Reject target-state mismatches unless the run explicitly declares a different state.
+- Reject location mismatches unless the run lane explicitly declares that city/state pair.
 - Preserve unresolved rows in pending with `public_research_note`.
 - Reject low-signal rows that have no website and no phone.
 - Reject supplier/manufacturer rows when the campaign target is local service businesses.

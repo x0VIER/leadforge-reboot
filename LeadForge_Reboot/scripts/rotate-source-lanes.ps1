@@ -30,10 +30,40 @@ if ($pool.Count -lt $windowSize) {
     throw "lanePool must contain at least $windowSize cities."
 }
 
-$currentCities = @($config.lanes | ForEach-Object { $_.city })
+function Get-LanePoolEntryKey($entry) {
+    if ($entry -is [string]) {
+        return $entry
+    }
+    return "$($entry.city)|$($entry.state)"
+}
+
+function Convert-LanePoolEntryToLane($entry, $templateLane, $fallbackState) {
+    if ($entry -is [string]) {
+        return [pscustomobject]@{
+            city = $entry
+            state = $fallbackState
+            niches = @($templateLane.niches)
+            perNicheLimit = $templateLane.perNicheLimit
+        }
+    }
+
+    $lane = [ordered]@{
+        city = $entry.city
+        state = $entry.state
+        niches = @($templateLane.niches)
+        perNicheLimit = $templateLane.perNicheLimit
+    }
+    if ($entry.PSObject.Properties.Name -contains 'stateName') {
+        $lane['stateName'] = $entry.stateName
+    }
+    return [pscustomobject]$lane
+}
+
+$currentCities = @($config.lanes | ForEach-Object { "$($_.city)|$($_.state)" })
 $currentStart = 0
 if ($currentCities.Count -gt 0) {
-    $matchIndex = [array]::IndexOf($pool, $currentCities[0])
+    $poolKeys = @($pool | ForEach-Object { Get-LanePoolEntryKey $_ })
+    $matchIndex = [array]::IndexOf($poolKeys, $currentCities[0])
     if ($matchIndex -ge 0) {
         $currentStart = $matchIndex
     }
@@ -72,22 +102,21 @@ $nextCities = for ($i = 0; $i -lt $windowSize; $i += 1) {
 
 $templateLane = $config.lanes[0]
 $newLanes = foreach ($city in $nextCities) {
-    [pscustomobject]@{
-        city = $city
-        state = $targetState
-        niches = @($templateLane.niches)
-        perNicheLimit = $templateLane.perNicheLimit
-    }
+    Convert-LanePoolEntryToLane $city $templateLane $targetState
 }
 
 $updatedConfig = [ordered]@{
     batchName = $config.batchName
     collectorName = $config.collectorName
+    scope = $config.scope
     targetState = $targetState
     targetStateName = $config.targetStateName
+    sprintTargetRows = $config.sprintTargetRows
     maxOutputRows = $config.maxOutputRows
     overpassPauseMs = $config.overpassPauseMs
     lanePauseMs = $config.lanePauseMs
+    overpassTimeoutMs = $config.overpassTimeoutMs
+    overpassAttempts = $config.overpassAttempts
     activeLaneWindowSize = $windowSize
     lanePool = @($pool)
     lanes = @($newLanes)
@@ -104,5 +133,5 @@ $updatedConfig | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $configPath
     } else {
         'Previous run completed with no fresh rows.'
     }
-    cities = ($nextCities -join ', ')
+    cities = (@($newLanes | ForEach-Object { "$($_.city), $($_.state)" }) -join ', ')
 } | Format-List

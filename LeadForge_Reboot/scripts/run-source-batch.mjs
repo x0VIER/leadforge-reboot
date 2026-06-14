@@ -42,6 +42,8 @@ const stateNameByCode = {
   FL: "Florida",
   GA: "Georgia",
   IL: "Illinois",
+  IN: "Indiana",
+  KY: "Kentucky",
   NC: "North Carolina",
   NJ: "New Jersey",
   NY: "New York",
@@ -658,7 +660,7 @@ async function main() {
         let elements = [];
         let note = "";
         try {
-          elements = await queryLane(lane.city, lane.state, niche, lane.perNicheLimit);
+          elements = await queryLane(lane.city, lane.stateName || lane.state, niche, lane.perNicheLimit);
         } catch (error) {
           note = `query failed: ${error.message}`;
           laneStats.push({
