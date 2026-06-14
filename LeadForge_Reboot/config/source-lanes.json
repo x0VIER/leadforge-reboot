@@ -27,11 +27,27 @@
                      "Ocala",
                      "Daytona Beach",
                      "Melbourne",
-                     "Clearwater"
+                     "Clearwater",
+                     "West Palm Beach",
+                     "Boca Raton",
+                     "Pompano Beach",
+                     "Hollywood",
+                     "Miramar",
+                     "Coral Springs",
+                     "Delray Beach",
+                     "Palm Bay",
+                     "Kissimmee",
+                     "Sanford",
+                     "Winter Haven",
+                     "Port Charlotte",
+                     "Bonita Springs",
+                     "Dunedin",
+                     "Largo",
+                     "Plantation"
                  ],
     "lanes":  [
                   {
-                      "city":  "Naples",
+                      "city":  "West Palm Beach",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -42,7 +58,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Sarasota",
+                      "city":  "Boca Raton",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -53,7 +69,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Bradenton",
+                      "city":  "Pompano Beach",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -64,7 +80,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Lakeland",
+                      "city":  "Hollywood",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
