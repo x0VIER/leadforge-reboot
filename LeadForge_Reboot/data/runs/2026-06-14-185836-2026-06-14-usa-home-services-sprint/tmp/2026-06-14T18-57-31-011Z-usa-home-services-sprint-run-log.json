@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T18:58:36.992Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T18-57-31-011Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 1,
+  "lanes": [
+    {
+      "city": "Knoxville",
+      "state": "TN",
+      "niche": "plumbing",
+      "scanned": 2,
+      "added": 0,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Dallas",
+      "state": "TX",
+      "niche": "plumbing",
+      "scanned": 2,
+      "added": 0,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Houston",
+      "state": "TX",
+      "niche": "plumbing",
+      "scanned": 4,
+      "added": 1,
+      "rejected": 3,
+      "note": ""
+    },
+    {
+      "city": "Knoxville",
+      "state": "TN",
+      "niche": "electrician",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Dallas",
+      "state": "TX",
+      "niche": "electrician",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Houston",
+      "state": "TX",
+      "niche": "electrician",
+      "scanned": 5,
+      "added": 0,
+      "rejected": 5,
+      "note": ""
+    },
+    {
+      "city": "Knoxville",
+      "state": "TN",
+      "niche": "hvac",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Dallas",
+      "state": "TX",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Houston",
+      "state": "TX",
+      "niche": "hvac",
+      "scanned": 8,
+      "added": 0,
+      "rejected": 8,
+      "note": ""
+    },
+    {
+      "city": "Knoxville",
+      "state": "TN",
+      "niche": "landscaping",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Dallas",
+      "state": "TX",
+      "niche": "landscaping",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Houston",
+      "state": "TX",
+      "niche": "landscaping",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}

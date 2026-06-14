@@ -1,0 +1,32 @@
+﻿{
+    "run_name":  "2026-06-14-usa-home-services-sprint",
+    "slug":  "2026-06-14-usa-home-services-sprint",
+    "created_at":  "2026-06-14T18:58:36",
+    "status":  "merged_to_master",
+    "owner":  "Hermes",
+    "notes":  "Collected one Houston plumbing/HVAC/electrical candidate. Mission AC, Plumbing \u0026 Electric was owner-verified from official Meet The Owner page and BBB evidence, QA-reviewed, and merged to master.",
+    "raw_files":  [
+                      "2026-06-14T18-57-31-011Z-usa-home-services-sprint-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-14-houston-mission-owner-enriched-batch-047.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-14-houston-mission-owner-enriched-batch-047.csv"
+                    ],
+    "source_log":  "2026-06-14T18-57-31-011Z-usa-home-services-sprint-run-log.json",
+    "raw_rows":  1,
+    "staged_at":  "2026-06-14T18:58:36",
+    "pending_files":  [
+
+                      ],
+    "rejected_files":  [
+
+                       ],
+    "reviewed_rows":  1,
+    "final_rows":  1,
+    "pending_rows":  0,
+    "rejected_rows":  0,
+    "merged_rows":  1,
+    "merged_at":  "2026-06-14T15:00:08"
+}
