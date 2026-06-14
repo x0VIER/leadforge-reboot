@@ -140,8 +140,8 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Raleigh",
-                      "state":  "NC",
+                      "city":  "Dallas",
+                      "state":  "TX",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -149,11 +149,11 @@
                                      "hvac"
                                  ],
                       "perNicheLimit":  3,
-                      "stateName":  "North Carolina"
+                      "stateName":  "Texas"
                   },
                   {
-                      "city":  "Nashville",
-                      "state":  "TN",
+                      "city":  "Houston",
+                      "state":  "TX",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -161,11 +161,11 @@
                                      "hvac"
                                  ],
                       "perNicheLimit":  3,
-                      "stateName":  "Tennessee"
+                      "stateName":  "Texas"
                   },
                   {
-                      "city":  "Knoxville",
-                      "state":  "TN",
+                      "city":  "Austin",
+                      "state":  "TX",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -173,7 +173,7 @@
                                      "hvac"
                                  ],
                       "perNicheLimit":  3,
-                      "stateName":  "Tennessee"
+                      "stateName":  "Texas"
                   }
               ]
 }
