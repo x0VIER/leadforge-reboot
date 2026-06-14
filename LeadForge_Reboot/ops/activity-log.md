@@ -110,3 +110,9 @@
 - Promoted 7 owner/decision-maker verified rows to reviewed/final: Bone Dry Commercial Roofing, R&B Roofing and Remodeling, Kuhn Plumbing, Rocket Plumbing, Altstadt Hoffman Plumbing Services, Blythe Heating & Cooling, and Vital Heating & Air.
 - Kept Rodding Rooter pending because public identity and contact data are valid but no strong owner, founder, officer, BBB principal, registry contact, or first-party leadership source was found.
 - No raw rows were merged. Merged only the final reviewed CSV through `scripts/merge-new-leads.ps1`; master moved from 464 to 471 rows with 7 added and 0 existing-row enrichments.
+
+## 2026-06-14 18:04 EDT - Palmetto Outdoor Lighting Pending Research Cleanup
+
+- Advanced the highest-priority pending owner-research row before opening another collector run.
+- Rechecked Palmetto Outdoor Lighting from public sources. Official website/contact data is valid, but search results surfaced unrelated Palmetto lighting/exterior-lighting entities and no reliable owner, founder, officer, BBB principal, registry contact, or first-party leadership source for the exact Charlotte business.
+- Safe fix: did not merge and did not guess an owner. Updated the pending artifact to `monitor_or_move_on_until_stronger_public_evidence` with registration notes so future workers avoid repeating the same weak search.
