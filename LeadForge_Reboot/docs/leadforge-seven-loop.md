@@ -14,6 +14,7 @@ This loop is the professional lead-team contract recovered from the old transcri
 8. Merge only clean final rows with `scripts/merge-new-leads.ps1`.
 9. Rebuild contamination audit, owner backlog, pending queue, and ops snapshot.
 10. Commit durable work locally. Push only when a remote and GitHub authentication are available.
+11. If day-end or a Codex usage limit is close, stop opening collectors and run the usage-limit handoff report before the worker stops.
 
 ## Role Map
 
@@ -33,6 +34,7 @@ This loop is the professional lead-team contract recovered from the old transcri
 - `Vale`: contamination auditor for state mismatches, duplicate keys, suspicious domains, placeholder data, and low-signal rows.
 - `Echo`: callback and memory auditor for manifests, logs, notes, file naming, and commit hygiene.
 - `Cato`: automation auditor for keeping the Codex automation prompt clean, current, and non-duplicated.
+- `Archivist`: reporting and memory-index steward. Builds start/end/usage-limit reports and keeps callback categories linked to the right files.
 
 ## Clarify, Verify, Apply, Adapt, Certify
 
@@ -45,6 +47,15 @@ This loop is the professional lead-team contract recovered from the old transcri
 If the loop repeats the same failure twice, stop retrying blindly. Log the cause, fix or rotate the blocked lane, and leave a callback note so the next worker knows why the decision was made.
 
 Collector work must be bounded. Do not call `node scripts/run-source-batch.mjs` directly from a long Codex shell command. Use `run-collector-guarded.ps1` so a timeout moves the claim to `failed/`, updates `CURRENT_STATUS.json`, logs the blockage, and prevents ghost overlap.
+
+## Efficiency And Usage-Limit Rules
+
+- Build `agent_shared/status/LEAD_MEMORY_INDEX.*` with `scripts/build-lead-memory-index.ps1` before repeating owner research or reprocessing a familiar business.
+- If a lead key already exists in master, pending, or rejected artifacts, improve that existing artifact instead of creating another duplicate.
+- If a lane window completes with no fresh rows, rotate lanes instead of repeating the same dry window.
+- If the same public source already proves owner/contact evidence, reuse the existing `source_evidence` unless it is stale, conflicting, or incomplete.
+- If day-end, a Codex 5-hour limit, or a weekly usage limit is near, do not start another collector. Run `scripts/build-daily-ops-report.ps1 -Mode UsageLimitHandoff -RefreshStatus`, commit locally, and leave a clean next-start note.
+- For normal day rhythm, run `scripts/build-daily-ops-report.ps1 -Mode StartOfDay -RefreshStatus` at the start and `scripts/build-daily-ops-report.ps1 -Mode EndOfDay -RefreshStatus` before stopping.
 
 ## New-Only Lead Rules
 

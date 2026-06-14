@@ -45,6 +45,9 @@
 - When triaging a partial run, exclude already reviewed rows so pending-enrichment artifacts represent only unresolved work.
 - `data/master_leads.csv` should be rebuilt from archive plus reviewed batches if a raw merge ever contaminates master.
 - When a just-written status report matters, rebuild it and re-read it sequentially instead of relying on parallel reads from immediately adjacent writes.
+- Build `agent_shared/status/LEAD_MEMORY_INDEX.*` before repeated owner research so known master/pending/rejected businesses are reused, improved, or skipped instead of reprocessed.
+- Before day-end or usage-limit exhaustion, run `scripts/build-daily-ops-report.ps1 -Mode UsageLimitHandoff -RefreshStatus`, commit locally, and leave unresolved work in pending with notes instead of opening another collector.
+- Daily reports live in `agent_shared/reports/`; use `agent_shared/reports/INDEX.md` as the human-readable callback map for what was gathered, what failed, what was fixed, and what should happen next.
 
 ## Safety boundaries
 

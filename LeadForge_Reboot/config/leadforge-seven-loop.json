@@ -79,6 +79,10 @@
     {
       "role": "Cato",
       "job": "Automation auditor. Keeps the Codex automation clean, non-duplicated, state-aware, and aligned with the current LeadForge workflow."
+    },
+    {
+      "role": "Archivist",
+      "job": "Reporting and memory-index steward. Builds start-of-day, end-of-day, and usage-limit handoff reports with counts, links, pending categories, rejected reasons, fixes applied, and next actions."
     }
   ],
   "adaptationLoop": [
@@ -87,6 +91,31 @@
     "Apply the smallest safe fix when a blocker is root-caused.",
     "Adapt lanes, scripts, roles, or timing when the same blocker repeats or wastes cycles.",
     "Certify with QA, health report, contamination audit, owner backlog, pending report, ops snapshot, and a local commit."
+  ],
+  "efficiencyRules": [
+    "Build and read LEAD_MEMORY_INDEX before repeating owner research or reprocessing a familiar business.",
+    "Use website host as the primary cache key; otherwise use normalized business name, city, and state.",
+    "If a lead key already exists in master, pending, or rejected artifacts, improve or reuse that artifact instead of creating another duplicate.",
+    "When a lane window returns no fresh rows, rotate lanes instead of retrying the same dry window.",
+    "Reuse existing source_evidence and owner_source when public evidence has already been verified and is not stale or conflicting.",
+    "Use generated daily reports instead of manually reconstructing counts and file links in chat."
+  ],
+  "usageLimitAndReportingRules": [
+    "When a Codex 5-hour window, weekly limit, day-end stop, or likely interruption is approaching, do not start another collector.",
+    "Finish only the active atomic unit: triage raw rows, QA/finalize reviewed rows, merge clean final rows, and leave unresolved rows pending or rejected with notes.",
+    "Run scripts/build-daily-ops-report.ps1 -Mode UsageLimitHandoff -RefreshStatus before stopping.",
+    "At the start of a workday, run scripts/build-daily-ops-report.ps1 -Mode StartOfDay -RefreshStatus.",
+    "At the end of a workday, run scripts/build-daily-ops-report.ps1 -Mode EndOfDay -RefreshStatus.",
+    "Commit the report and all durable artifacts locally before the worker stops."
+  ],
+  "callbackCategories": [
+    "missing_owner",
+    "missing_first_party_contact_path",
+    "no_website",
+    "phone_only_listing",
+    "status_conflict",
+    "domain_mismatch",
+    "low_signal"
   ],
   "antiStagnationRules": [
     "Do not retry the same failing lane or command forever. After two similar failures, log the cause and either fix, rotate, or mark pending with a public note.",
