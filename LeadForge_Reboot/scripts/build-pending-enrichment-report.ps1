@@ -31,7 +31,11 @@ foreach ($manifestFile in $manifests) {
             $ageDays = if ($createdAt) { [math]::Floor(((Get-Date) - $createdAt).TotalDays) } else { 0 }
             $triageReasons = @($row.triage_reason -split ';' | Where-Object { $_ })
             $hasResearchNote = $row.PSObject.Properties.Name -contains 'public_research_note' -and [string]::IsNullOrWhiteSpace($row.public_research_note) -eq $false
-            $pendingState = if (($triageReasons -contains 'missing_owner') -and $hasResearchNote) {
+            $explicitRecommendedAction = if ($row.PSObject.Properties.Name -contains 'recommended_action') { $row.recommended_action } else { '' }
+            $pendingState = if (($triageReasons -contains 'status_conflict') -and $hasResearchNote) {
+                'researched_status_conflict_unresolved'
+            }
+            elseif (($triageReasons -contains 'missing_owner') -and $hasResearchNote) {
                 'researched_owner_unresolved'
             }
             elseif (($triageReasons -contains 'missing_owner') -or ($triageReasons -contains 'missing_owner_source')) {
@@ -44,8 +48,14 @@ foreach ($manifestFile in $manifests) {
                 'manual_review'
             }
 
-            $recommendedAction = if ($pendingState -eq 'researched_owner_unresolved') {
+            $recommendedAction = if (-not [string]::IsNullOrWhiteSpace($explicitRecommendedAction)) {
+                $explicitRecommendedAction
+            }
+            elseif ($pendingState -eq 'researched_owner_unresolved') {
                 'monitor_or_move_on_until_stronger_public_evidence'
+            }
+            elseif ($pendingState -eq 'researched_status_conflict_unresolved') {
+                'monitor_or_recheck_official_status_before_merge'
             }
             elseif (($triageReasons -contains 'missing_owner') -or ($triageReasons -contains 'missing_owner_source')) {
                 'public_owner_research'
@@ -74,6 +84,10 @@ foreach ($manifestFile in $manifests) {
                 pending_state = $pendingState
                 public_research_note = if ($row.PSObject.Properties.Name -contains 'public_research_note') { $row.public_research_note } else { '' }
                 recommended_action = $recommendedAction
+                business_address = if ($row.PSObject.Properties.Name -contains 'business_address') { $row.business_address } else { '' }
+                registration_source = if ($row.PSObject.Properties.Name -contains 'registration_source') { $row.registration_source } else { '' }
+                registration_status = if ($row.PSObject.Properties.Name -contains 'registration_status') { $row.registration_status } else { '' }
+                registration_notes = if ($row.PSObject.Properties.Name -contains 'registration_notes') { $row.registration_notes } else { '' }
                 pending_file = $relativeFile
                 pending_path = $pendingPath
             }

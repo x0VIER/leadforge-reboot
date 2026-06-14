@@ -91,3 +91,9 @@
 - Merged through `scripts/merge-new-leads.ps1`; master moved from 462 to 464 rows with 2 added and 0 existing-row enrichments.
 - Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, and the desktop viewer workbook.
 - Health remains yellow only because of accumulated `recent_failure_noise`; duplicate master key count is 0 and collector guard is clear for continued sourcing.
+
+## 2026-06-14 17:50 EDT - Aire Texas Pending Status Conflict Follow-up
+
+- Advanced the only immediate/manual pending research row instead of opening a new collector run.
+- Rechecked Aire Texas Residential Services against public sources: official site remains active with 2026/contact/license signals, BBB lists Chad Faith but says the business has no rating because it is out of business, and official TDLR Active License Search returned no records for license 38788 or Aire Texas / Faith name searches.
+- Safe decision: did not merge the row and did not guess current status. Updated the pending artifact, manifest notes, registration notes, and recommended action so future workers do not repeat the same TDLR check without new evidence.

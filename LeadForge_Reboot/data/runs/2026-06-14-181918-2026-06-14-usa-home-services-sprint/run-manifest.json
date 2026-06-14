@@ -4,7 +4,7 @@
   "created_at": "2026-06-14T18:19:18",
   "status": "merged_to_master_partial",
   "owner": "Hermes",
-  "notes": "Collector produced 2 Dallas HVAC rows. Chapman Air & Heat was owner-verified from official site, BBB, and City Lifestyle public evidence. Aire Texas remains pending because public sources conflict: official site and BuildZoom/license signals appear active, while BBB says the business has no rating because it is out of business.",
+  "notes": "Collector produced 2 Dallas HVAC rows. Chapman Air & Heat was owner-verified from official site, BBB, and City Lifestyle public evidence. Aire Texas remains pending because public sources conflict: official site and public marketplace signals appear active, BBB says the business has no rating because it is out of business, and a follow-up TDLR Active License Search returned no public match for license 38788 or the Aire Texas / Faith name searches.",
   "raw_files": [
     "2026-06-14T18-17-54-423Z-usa-home-services-sprint-fresh-leads.csv"
   ],
