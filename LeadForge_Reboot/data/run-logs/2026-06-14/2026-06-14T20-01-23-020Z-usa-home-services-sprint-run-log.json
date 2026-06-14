@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T20:03:22.978Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T20-01-23-020Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 6,
+  "lanes": [
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "windows_doors",
+      "scanned": 5,
+      "added": 4,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "windows_doors",
+      "scanned": 2,
+      "added": 2,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "windows_doors",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "tree_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "tree_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "tree_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "pool_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "pool_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "pool_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    }
+  ]
+}
