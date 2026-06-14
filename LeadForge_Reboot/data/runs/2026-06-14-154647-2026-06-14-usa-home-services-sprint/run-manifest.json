@@ -1,0 +1,29 @@
+{
+  "run_name": "2026-06-14-usa-home-services-sprint",
+  "slug": "2026-06-14-usa-home-services-sprint",
+  "created_at": "2026-06-14T15:46:47",
+  "status": "merged_to_master_partial",
+  "owner": "Hermes",
+  "notes": "Tuned Midwest collector run completed after timeout fix. Merged 1 owner-verified MaxForce Roofing lead and rejected 1 Young & Bertke industrial/manufacturer row to prevent home-service master contamination. Low-yield/timeout-heavy Midwest lanes should rotate next.",
+  "raw_files": [
+    "2026-06-14T15-44-34-373Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-midwest-owner-enriched-batch-026.csv"
+  ],
+  "final_files": [
+    "2026-06-14-midwest-owner-enriched-batch-026.csv"
+  ],
+  "pending_files": [],
+  "rejected_files": [
+    "2026-06-14-midwest-batch-026.rejected.csv"
+  ],
+  "source_log": "2026-06-14T15-44-34-373Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 2,
+  "reviewed_rows": 1,
+  "pending_rows": 0,
+  "rejected_rows": 1,
+  "merged_rows": 1,
+  "merged_at": "2026-06-14T11:51:00",
+  "staged_at": "2026-06-14T15:46:47"
+}

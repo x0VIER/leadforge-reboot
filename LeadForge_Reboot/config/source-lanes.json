@@ -140,31 +140,7 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Columbus",
-                      "state":  "OH",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac"
-                                 ],
-                      "perNicheLimit":  3,
-                      "stateName":  "Ohio"
-                  },
-                  {
-                      "city":  "Cincinnati",
-                      "state":  "OH",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac"
-                                 ],
-                      "perNicheLimit":  3,
-                      "stateName":  "Ohio"
-                  },
-                  {
-                      "city":  "Pittsburgh",
+                      "city":  "Philadelphia",
                       "state":  "PA",
                       "niches":  [
                                      "roofing",
@@ -174,6 +150,30 @@
                                  ],
                       "perNicheLimit":  3,
                       "stateName":  "Pennsylvania"
+                  },
+                  {
+                      "city":  "Richmond",
+                      "state":  "VA",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac"
+                                 ],
+                      "perNicheLimit":  3,
+                      "stateName":  "Virginia"
+                  },
+                  {
+                      "city":  "Virginia Beach",
+                      "state":  "VA",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac"
+                                 ],
+                      "perNicheLimit":  3,
+                      "stateName":  "Virginia"
                   }
               ]
 }
