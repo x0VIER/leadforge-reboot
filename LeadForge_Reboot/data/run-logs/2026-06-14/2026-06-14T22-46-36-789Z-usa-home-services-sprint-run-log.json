@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T22:48:02.035Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T22-46-36-789Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 4,
+  "lanes": [
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "windows_doors",
+      "scanned": 4,
+      "added": 3,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "windows_doors",
+      "scanned": 6,
+      "added": 1,
+      "rejected": 5,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "windows_doors",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "tree_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "tree_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "tree_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "pool_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "pool_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "pool_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "roofing",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "roofing",
+      "scanned": 8,
+      "added": 0,
+      "rejected": 8,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "roofing",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    }
+  ]
+}

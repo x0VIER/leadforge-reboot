@@ -1,0 +1,31 @@
+﻿{
+    "run_name":  "2026-06-14-usa-home-services-sprint",
+    "slug":  "2026-06-14-usa-home-services-sprint",
+    "created_at":  "2026-06-14T22:48:02",
+    "status":  "merged_to_master_partial",
+    "owner":  "Hermes",
+    "notes":  "Collector produced 4 windows/doors rows. Crystal Overhead Door Inc and Aventus Group LLC were promoted after public owner/decision-maker verification and merged. New Era Windows Cooperative and Urban Street Window Works remain pending because owner/decision-maker evidence is weak or unresolved. Hub/viewer fixes were applied so normal human viewing uses XLSX, with CSVs moved to audit backups.",
+    "raw_files":  [
+                      "2026-06-14T22-46-36-789Z-usa-home-services-sprint-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-14-midwest-windows-doors-owner-enriched-batch-060.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-14-midwest-windows-doors-owner-enriched-batch-060.csv"
+                    ],
+    "source_log":  "2026-06-14T22-46-36-789Z-usa-home-services-sprint-run-log.json",
+    "raw_rows":  4,
+    "staged_at":  "2026-06-14T22:48:02",
+    "pending_files":  [
+                          "2026-06-14T22-46-36-789Z-usa-home-services-sprint-fresh-leads.pending-enrichment.csv"
+                      ],
+    "reviewed_rows":  2,
+    "final_rows":  2,
+    "pending_rows":  2,
+    "rejected_rows":  0,
+    "merged_rows":  2,
+    "added_rows":  2,
+    "enriched_existing_rows":  0,
+    "merged_at":  "2026-06-14T18:59:34"
+}

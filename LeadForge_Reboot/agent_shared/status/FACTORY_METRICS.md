@@ -1,12 +1,12 @@
 # LeadForge Factory Metrics
 
-- Generated: 2026-06-14T18:35:03
-- Master rows: 473
+- Generated: 2026-06-14T19:00:12
+- Master rows: 475
 - States covered: 13
 - Niches covered: 22
-- Pending rows: 59
-- Runs tracked: 58
-- Raw rows staged: 229
-- Reviewed rows: 155
-- Merged rows: 157
+- Pending rows: 61
+- Runs tracked: 59
+- Raw rows staged: 233
+- Reviewed rows: 157
+- Merged rows: 159
 - Rejected rows: 40

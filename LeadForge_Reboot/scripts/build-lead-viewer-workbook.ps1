@@ -429,6 +429,10 @@ write_table(ws_guide, ["field_name", "category", "description", "human_rule"], g
 
 for ws in wb.worksheets:
     ws.sheet_view.zoomScale = 90
+    ws.sheet_view.topLeftCell = "A1"
+    if ws.sheet_view.selection:
+        ws.sheet_view.selection[0].activeCell = "A1"
+        ws.sheet_view.selection[0].sqref = "A1"
     for row in ws.iter_rows():
         for cell in row:
             if cell.value is not None:
