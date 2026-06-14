@@ -1,18 +1,18 @@
 # LeadForge Usage Limit Handoff Report - 2026-06-14
 
-Generated: 2026-06-14T14:37:07
+Generated: 2026-06-14T14:45:12
 
 ## Snapshot
 
-- Master rows now: 421
-- Leads merged today: 105
-- Raw candidates staged today: 151
-- Reviewed rows today: 103
-- Pending rows created today: 35
-- Rejected rows today: 29
-- Pending queue now: 44
-- Unique lead-memory keys: 493
-- Duplicate lead-memory keys: 237
+- Master rows now: 423
+- Leads merged today: 107
+- Raw candidates staged today: 160
+- Reviewed rows today: 105
+- Pending rows created today: 40
+- Rejected rows today: 31
+- Pending queue now: 49
+- Unique lead-memory keys: 502
+- Duplicate lead-memory keys: 246
 - Active lanes: Knoxville, TN, Dallas, TX, Houston, TX
 - Health: yellow
 - Collector can start: True
@@ -50,11 +50,12 @@ Generated: 2026-06-14T14:37:07
 - 2026-06-14T18:07:27 - merged_to_master_partial: raw 2, reviewed 1, merged 1, pending 1, rejected 0. [manifest](../../data/runs/2026-06-14-180727-2026-06-14-usa-home-services-sprint/run-manifest.json)
 - 2026-06-14T18:19:18 - merged_to_master_partial: raw 2, reviewed 1, merged 1, pending 1, rejected 0. [manifest](../../data/runs/2026-06-14-181918-2026-06-14-usa-home-services-sprint/run-manifest.json)
 - 2026-06-14T18:25:33 - merged_to_master_partial: raw 6, reviewed 3, merged 3, pending 2, rejected 1. [manifest](../../data/runs/2026-06-14-182533-2026-06-14-usa-home-services-sprint/run-manifest.json)
+- 2026-06-14T18:40:35 - merged_to_master_partial: raw 9, reviewed 2, merged 2, pending 5, rejected 2. [manifest](../../data/runs/2026-06-14-184035-2026-06-14-usa-home-services-sprint/run-manifest.json)
 
 ## Pending Callback Categories
 
-- missing_owner;missing_owner_source;missing_first_party_contact_path: 26
-- missing_owner;missing_owner_source: 11
+- missing_owner;missing_owner_source;missing_first_party_contact_path: 30
+- missing_owner;missing_owner_source: 12
 - missing_owner;missing_owner_source;third_party_contact_path: 5
 - status_conflict;owner_source_needs_stronger_confirmation: 1
 - missing_owner;missing_owner_source;weak_first_party_evidence: 1
@@ -67,11 +68,6 @@ Generated: 2026-06-14T14:37:07
 
 ## Issues, Fixes, And Activity
 
-- 2026-06-14T18:15:30.421Z Collector claim opened for usa-home-services-sprint by Hermes.
-- 2026-06-14T18:15:48.338Z Lane failed for Nashville, TN / pool_service with Overpass request timed out after 9000ms on attempt 1.
-- 2026-06-14T18:15:59.856Z Lane failed for Charlotte, NC / roofing with Overpass request timed out after 9000ms on attempt 1.
-- 2026-06-14T18:16:41.391Z Collector finished for usa-home-services-sprint with no fresh rows.
-- 2026-06-14T18:16:45Z Hermes guarded collector finished with exit code 0.
 - 2026-06-14T18:17:54Z Hermes guarded collector starting with max runtime 240s.
 - 2026-06-14T18:17:54.426Z Collector claim opened for usa-home-services-sprint by Hermes.
 - 2026-06-14T18:18:18.051Z Lane failed for Knoxville, TN / plumbing with Overpass request timed out after 9000ms on attempt 1.
@@ -87,6 +83,11 @@ Generated: 2026-06-14T14:37:07
 - 2026-06-14T18:25:02.015Z Lane failed for Houston, TX / pest_control with Overpass request timed out after 9000ms on attempt 1.
 - 2026-06-14T18:25:33.868Z Collector finished usa-home-services-sprint with 6 rows into 2026-06-14T18-24-16-848Z-usa-home-services-sprint-fresh-leads.csv.
 - 2026-06-14T18:25:36Z Hermes guarded collector finished with exit code 0.
+- 2026-06-14T18:39:20Z Hermes guarded collector starting with max runtime 240s.
+- 2026-06-14T18:39:20.309Z Collector claim opened for usa-home-services-sprint by Hermes.
+- 2026-06-14T18:39:40.545Z Lane failed for Houston, TX / painting with Overpass request timed out after 9000ms on attempt 1.
+- 2026-06-14T18:40:35.717Z Collector finished usa-home-services-sprint with 9 rows into 2026-06-14T18-39-20-305Z-usa-home-services-sprint-fresh-leads.csv.
+- 2026-06-14T18:40:40Z Hermes guarded collector finished with exit code 0.
 
 ## Important Files
 
@@ -99,6 +100,7 @@ Generated: 2026-06-14T14:37:07
 
 ## Git Save Point
 
+- c6286c6 Add LeadForge memory index and usage handoff reports
 - 9877fe7 Merge Texas service leads and reject low signal row
 - c9aa04c Merge Dallas HVAC lead and pend Aire Texas review
 - 6627cdd Rotate USA sprint lanes after dry window
@@ -118,21 +120,22 @@ Generated: 2026-06-14T14:37:07
 - e73fb2c Log dry non-roofing sourcing slice
 - 05a12b8 Merge Palmetto decision maker lead
 - 1312f2f Merge Greenville reviewed leads
-- a8154a6 Add cursor budget for broad service sourcing
 
 ## Working Tree
 
 ```text
  M agent_shared/status/FACTORY_METRICS.md
+ M agent_shared/status/LEAD_MEMORY_INDEX.csv
  M agent_shared/status/OPS_HEALTH_REPORT.md
- M config/leadforge-seven-loop.json
- M docs/leadforge-seven-loop.md
- M docs/pipeline.md
-?? agent_shared/status/LEAD_MEMORY_INDEX.csv
-?? docs/efficiency-and-memory-index.md
-?? docs/usage-limit-and-reporting.md
-?? scripts/build-daily-ops-report.ps1
-?? scripts/build-lead-memory-index.ps1
+ M data/master_leads.csv
+ M data/output/LATEST-2026-06-14-usa-home-services-sprint.json
+ M data/output/LATEST-usa-home-services-sprint.json
+?? data/output/2026-06-14/2026-06-14T18-39-20-305Z-usa-home-services-sprint-fresh-leads.csv
+?? data/output/2026-06-14T18-39-20-305Z-usa-home-services-sprint-fresh-leads.csv
+?? data/run-logs/2026-06-14/2026-06-14T18-39-20-305Z-usa-home-services-sprint-run-log.json
+?? data/run-logs/2026-06-14T18-39-20-305Z-usa-home-services-sprint-run-log.json
+?? data/runs/2026-06-14-184035-2026-06-14-usa-home-services-sprint/
+?? scripts/compare-candidates-to-memory.ps1
 ```
 
 ## Next Start Instructions
