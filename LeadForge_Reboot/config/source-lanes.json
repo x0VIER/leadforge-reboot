@@ -10,6 +10,7 @@
     "lanePauseMs":  700,
     "overpassTimeoutMs":  9000,
     "overpassAttempts":  1,
+    "querySampleLimit":  4,
     "activeLaneWindowSize":  3,
     "lanePool":  [
                      {
@@ -140,40 +141,76 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Indianapolis",
-                      "state":  "IN",
+                      "city":  "Greenville",
+                      "state":  "SC",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
                                      "electrician",
-                                     "hvac"
+                                     "hvac",
+                                     "landscaping",
+                                     "pest_control",
+                                     "cleaning",
+                                     "locksmith",
+                                     "painting",
+                                     "flooring",
+                                     "carpentry",
+                                     "masonry",
+                                     "windows_doors",
+                                     "tree_service",
+                                     "pool_service"
                                  ],
-                      "perNicheLimit":  3,
-                      "stateName":  "Indiana"
+                      "perNicheLimit":  null,
+                      "querySampleLimit":  null,
+                      "stateName":  "South Carolina"
                   },
                   {
-                      "city":  "Louisville",
-                      "state":  "KY",
+                      "city":  "Orlando",
+                      "state":  "FL",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
                                      "electrician",
-                                     "hvac"
+                                     "hvac",
+                                     "landscaping",
+                                     "pest_control",
+                                     "cleaning",
+                                     "locksmith",
+                                     "painting",
+                                     "flooring",
+                                     "carpentry",
+                                     "masonry",
+                                     "windows_doors",
+                                     "tree_service",
+                                     "pool_service"
                                  ],
-                      "perNicheLimit":  3,
-                      "stateName":  "Kentucky"
+                      "perNicheLimit":  null,
+                      "querySampleLimit":  null,
+                      "stateName":  "Florida"
                   },
                   {
-                      "city":  "Birmingham",
-                      "state":  "AL",
+                      "city":  "Tampa",
+                      "state":  "FL",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
                                      "electrician",
-                                     "hvac"
+                                     "hvac",
+                                     "landscaping",
+                                     "pest_control",
+                                     "cleaning",
+                                     "locksmith",
+                                     "painting",
+                                     "flooring",
+                                     "carpentry",
+                                     "masonry",
+                                     "windows_doors",
+                                     "tree_service",
+                                     "pool_service"
                                  ],
-                      "perNicheLimit":  3,
-                      "stateName":  "Alabama"
+                      "perNicheLimit":  null,
+                      "querySampleLimit":  null,
+                      "stateName":  "Florida"
                   }
               ]
 }

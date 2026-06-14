@@ -1,0 +1,28 @@
+{
+  "run_name": "2026-06-14-usa-home-services-sprint",
+  "slug": "2026-06-14-usa-home-services-sprint",
+  "created_at": "2026-06-14T16:38:41",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Collector produced 2 Indianapolis roofing rows. Both were owner/decision-maker verified from public sources and moved to reviewed/final for QA. Trojan Roofing is retained as a valid high-risk manual-review lead because public identity is verified but BBB risk is elevated.",
+  "raw_files": [
+    "2026-06-14T16-36-32-989Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-indianapolis-roofing-owner-enriched-batch-032.csv"
+  ],
+  "final_files": [
+    "2026-06-14-indianapolis-roofing-owner-enriched-batch-032.csv"
+  ],
+  "pending_files": [
+    "2026-06-14T16-36-32-989Z-usa-home-services-sprint-fresh-leads.pending-enrichment.csv"
+  ],
+  "source_log": "2026-06-14T16-36-32-989Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 2,
+  "reviewed_rows": 2,
+  "pending_rows": 0,
+  "rejected_rows": 0,
+  "merged_rows": 2,
+  "merged_at": "2026-06-14T12:42:58",
+  "staged_at": "2026-06-14T16:38:41"
+}

@@ -32,7 +32,18 @@ const nicheToOverpassFilters = {
   roofing: ['["craft"="roofer"]', '["craft"="roofing"]'],
   plumbing: ['["craft"="plumber"]'],
   electrician: ['["craft"="electrician"]'],
-  hvac: ['["craft"="hvac"]', '["shop"="air_conditioning"]']
+  hvac: ['["craft"="hvac"]', '["shop"="air_conditioning"]'],
+  landscaping: ['["craft"="gardener"]', '["craft"="landscaper"]'],
+  pest_control: ['["craft"="pest_control"]'],
+  cleaning: ['["craft"="cleaner"]'],
+  locksmith: ['["craft"="locksmith"]'],
+  painting: ['["craft"="painter"]'],
+  flooring: ['["craft"="floorer"]'],
+  carpentry: ['["craft"="carpenter"]'],
+  masonry: ['["craft"="stonemason"]', '["craft"="bricklayer"]'],
+  windows_doors: ['["craft"="window_construction"]'],
+  tree_service: ['["craft"="tree_surgeon"]'],
+  pool_service: ['["craft"="pool_cleaner"]']
 };
 
 const stateNameByCode = {
@@ -248,6 +259,37 @@ function sanitizeSlug(value) {
 
 function laneKey(lane, niche) {
   return `${lane.city}, ${lane.state} / ${niche}`;
+}
+
+function getLaneNiches(lane) {
+  return Array.isArray(lane.niches) ? lane.niches.filter(Boolean) : [];
+}
+
+function buildFairLaneNicheSchedule(lanes) {
+  const maxNicheCount = Math.max(...lanes.map((lane) => getLaneNiches(lane).length), 0);
+  const schedule = [];
+  for (let nicheIndex = 0; nicheIndex < maxNicheCount; nicheIndex += 1) {
+    for (const lane of lanes) {
+      const niches = getLaneNiches(lane);
+      if (nicheIndex < niches.length) {
+        schedule.push({ lane, niche: niches[nicheIndex] });
+      }
+    }
+  }
+  return schedule;
+}
+
+function getQuerySampleLimit(config, lane) {
+  const configured = Number(lane.querySampleLimit || config.querySampleLimit || 4);
+  return Number.isFinite(configured) && configured > 0 ? Math.ceil(configured) : 4;
+}
+
+function getPerNicheAddLimit(lane) {
+  if (lane.perNicheLimit === null || lane.perNicheLimit === undefined || lane.perNicheLimit === "") {
+    return Number.POSITIVE_INFINITY;
+  }
+  const configured = Number(lane.perNicheLimit);
+  return Number.isFinite(configured) && configured > 0 ? configured : Number.POSITIVE_INFINITY;
 }
 
 async function appendSharedLog(message) {
@@ -645,46 +687,47 @@ async function main() {
   await writeStatus("CURRENT_STATUS.json", status);
 
   try {
-    for (const lane of config.lanes) {
-      for (const niche of lane.niches) {
-        if (freshRows.length >= config.maxOutputRows) {
+    const laneSchedule = buildFairLaneNicheSchedule(config.lanes);
+    for (const { lane, niche } of laneSchedule) {
+      if (freshRows.length >= config.maxOutputRows) {
+        break;
+      }
+
+      status.activeLane = laneKey(lane, niche);
+      await writeStatus("CURRENT_STATUS.json", { ...status, lanes: laneStats, rowsWritten: freshRows.length });
+
+      const perNicheAddLimit = getPerNicheAddLimit(lane);
+      let addedForLane = 0;
+      let scanned = 0;
+      let rejected = 0;
+      let elements = [];
+      let note = "";
+      try {
+        elements = await queryLane(lane.city, lane.stateName || lane.state, niche, getQuerySampleLimit(config, lane));
+      } catch (error) {
+        note = `query failed: ${error.message}`;
+        laneStats.push({
+          city: lane.city,
+          state: lane.state,
+          niche,
+          scanned: 0,
+          added: 0,
+          rejected: 0,
+          note
+        });
+        await appendSharedLog(`Lane failed for ${laneKey(lane, niche)} with ${error.message}.`);
+        await sleep(overpassPauseMs);
+        continue;
+      }
+
+      for (const element of elements) {
+        if (freshRows.length >= config.maxOutputRows || addedForLane >= perNicheAddLimit) {
           break;
         }
 
-        status.activeLane = laneKey(lane, niche);
-        await writeStatus("CURRENT_STATUS.json", { ...status, lanes: laneStats, rowsWritten: freshRows.length });
-
-        let addedForLane = 0;
-        let scanned = 0;
-        let rejected = 0;
-        let elements = [];
-        let note = "";
-        try {
-          elements = await queryLane(lane.city, lane.stateName || lane.state, niche, lane.perNicheLimit);
-        } catch (error) {
-          note = `query failed: ${error.message}`;
-          laneStats.push({
-            city: lane.city,
-            state: lane.state,
-            niche,
-            scanned: 0,
-            added: 0,
-            rejected: 0,
-            note
-          });
-          await appendSharedLog(`Lane failed for ${laneKey(lane, niche)} with ${error.message}.`);
-          await sleep(overpassPauseMs);
-          continue;
-        }
-
-        for (const element of elements) {
-          if (freshRows.length >= config.maxOutputRows || addedForLane >= lane.perNicheLimit) {
-            break;
-          }
-
-          scanned += 1;
-          const tags = element.tags || {};
-          const businessName = pickFirst(tags.name, tags.operator, tags.brand);
+        scanned += 1;
+        const tags = element.tags || {};
+        const businessName = pickFirst(tags.name, tags.operator, tags.brand);
         const website = pickFirst(tags.website, tags["contact:website"], tags.url);
         const publicPhone = pickFirst(tags.phone, tags["contact:phone"]);
 
@@ -760,18 +803,17 @@ async function main() {
           addedForLane += 1;
         }
 
-        laneStats.push({
-          city: lane.city,
-          state: lane.state,
-          niche,
-          scanned,
-          added: addedForLane,
-          rejected,
-          note
-        });
-        await writeStatus("CURRENT_STATUS.json", { ...status, lanes: laneStats, rowsWritten: freshRows.length });
-        await sleep(addedForLane > 0 ? lanePauseMs : overpassPauseMs);
-      }
+      laneStats.push({
+        city: lane.city,
+        state: lane.state,
+        niche,
+        scanned,
+        added: addedForLane,
+        rejected,
+        note
+      });
+      await writeStatus("CURRENT_STATUS.json", { ...status, lanes: laneStats, rowsWritten: freshRows.length });
+      await sleep(addedForLane > 0 ? lanePauseMs : overpassPauseMs);
     }
 
     if (!freshRows.length) {

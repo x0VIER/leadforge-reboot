@@ -44,6 +44,7 @@ function Convert-LanePoolEntryToLane($entry, $templateLane, $fallbackState) {
             state = $fallbackState
             niches = @($templateLane.niches)
             perNicheLimit = $templateLane.perNicheLimit
+            querySampleLimit = $templateLane.querySampleLimit
         }
     }
 
@@ -52,6 +53,7 @@ function Convert-LanePoolEntryToLane($entry, $templateLane, $fallbackState) {
         state = $entry.state
         niches = @($templateLane.niches)
         perNicheLimit = $templateLane.perNicheLimit
+        querySampleLimit = $templateLane.querySampleLimit
     }
     if ($entry.PSObject.Properties.Name -contains 'stateName') {
         $lane['stateName'] = $entry.stateName
@@ -117,6 +119,7 @@ $updatedConfig = [ordered]@{
     lanePauseMs = $config.lanePauseMs
     overpassTimeoutMs = $config.overpassTimeoutMs
     overpassAttempts = $config.overpassAttempts
+    querySampleLimit = $config.querySampleLimit
     activeLaneWindowSize = $windowSize
     lanePool = @($pool)
     lanes = @($newLanes)
