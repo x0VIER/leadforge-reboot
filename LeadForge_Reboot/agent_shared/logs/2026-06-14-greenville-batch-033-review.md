@@ -10,3 +10,7 @@
 ## System behavior
 - The source cursor advanced to index 12 of 45, proving the loop can continue to the next service niches without replaying the same lane checks.
 - No raw rows were merged. Only reviewed/final owner-verified rows are eligible for merge.
+
+## Follow-up enrichment
+- Palmetto Roofers was later advanced from pending after public PressAdvantage evidence identified Wyndel Cooper as General Manager under the new ownership announcement, while the official site confirmed service area, contact path, phone, email, and free inspection CTA.
+- React Roofing remains pending because no clean owner or decision-maker source was found.
