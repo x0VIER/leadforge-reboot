@@ -47,7 +47,7 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "West Palm Beach",
+                      "city":  "Miramar",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -58,7 +58,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Boca Raton",
+                      "city":  "Coral Springs",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -69,7 +69,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Pompano Beach",
+                      "city":  "Delray Beach",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -80,7 +80,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Hollywood",
+                      "city":  "Palm Bay",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",

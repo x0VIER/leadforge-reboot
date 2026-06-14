@@ -1,0 +1,16 @@
+{
+  "run_name": "2026-06-14-florida-home-services-reboot",
+  "slug": "2026-06-14-florida-home-services-reboot",
+  "created_at": "2026-06-14T13:09:26",
+  "status": "raw_staged",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-14T13-06-38-300Z-florida-home-services-reboot-fresh-leads.csv"
+  ],
+  "reviewed_files": [],
+  "final_files": [],
+  "source_log": "2026-06-14T13-06-38-300Z-florida-home-services-reboot-run-log.json",
+  "raw_rows": 7,
+  "staged_at": "2026-06-14T13:09:26"
+}

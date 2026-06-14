@@ -6,6 +6,7 @@ const archiveRoot = path.resolve(rebootRoot, "..");
 const configPath = path.join(rebootRoot, "config", "source-lanes.json");
 const outputDir = path.join(rebootRoot, "data", "output");
 const runLogDir = path.join(rebootRoot, "data", "run-logs");
+const runsDir = path.join(rebootRoot, "data", "runs");
 const tempDir = path.join(rebootRoot, "data", "tmp");
 const recoveredCsvPath = path.join(archiveRoot, "Recovered_Leads_Database.csv");
 const agentSharedRoot = path.join(rebootRoot, "agent_shared");
@@ -116,6 +117,81 @@ function absolutize(baseUrl, href) {
 
 function unique(values) {
   return [...new Set(values.filter(Boolean))];
+}
+
+function slugify(value) {
+  return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+function makeRunFolderStamp(date = new Date()) {
+  const iso = date.toISOString().replace("T", "-").replaceAll(":", "").slice(0, 17);
+  return iso;
+}
+
+async function mirrorArtifactsForToday({ csvName, logName, finalCsvPath, finalLogPath }) {
+  const dailyOutputDir = path.join(outputDir, today);
+  const dailyRunLogDir = path.join(runLogDir, today);
+  await fs.mkdir(dailyOutputDir, { recursive: true });
+  await fs.mkdir(dailyRunLogDir, { recursive: true });
+
+  const dailyCsvPath = path.join(dailyOutputDir, csvName);
+  const dailyLogPath = path.join(dailyRunLogDir, logName);
+  await fs.copyFile(finalCsvPath, dailyCsvPath);
+  await fs.copyFile(finalLogPath, dailyLogPath);
+
+  return { dailyCsvPath, dailyLogPath };
+}
+
+async function stageSuccessfulBatch({ config, csvName, logName, finalCsvPath, finalLogPath, rowsWritten }) {
+  const runName = `${today}-${config.batchName}`;
+  const runRoot = path.join(runsDir, `${makeRunFolderStamp()}-${slugify(runName)}`);
+  const rawDir = path.join(runRoot, "raw");
+  const reviewedDir = path.join(runRoot, "reviewed");
+  const finalDir = path.join(runRoot, "final");
+  const tmpRunDir = path.join(runRoot, "tmp");
+
+  await fs.mkdir(rawDir, { recursive: true });
+  await fs.mkdir(reviewedDir, { recursive: true });
+  await fs.mkdir(finalDir, { recursive: true });
+  await fs.mkdir(tmpRunDir, { recursive: true });
+
+  const stagedCsvPath = path.join(rawDir, csvName);
+  const stagedLogPath = path.join(tmpRunDir, logName);
+  await fs.copyFile(finalCsvPath, stagedCsvPath);
+  await fs.copyFile(finalLogPath, stagedLogPath);
+
+  const stagedAt = new Date().toISOString();
+  const manifest = {
+    run_name: runName,
+    slug: slugify(runName),
+    created_at: stagedAt.slice(0, 19),
+    status: "raw_staged",
+    owner: config.collectorName || defaultCollectorName,
+    notes: "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+    raw_files: [csvName],
+    reviewed_files: [],
+    final_files: [],
+    source_log: logName,
+    raw_rows: rowsWritten,
+    staged_at: stagedAt.slice(0, 19)
+  };
+  await fs.writeFile(path.join(runRoot, "run-manifest.json"), JSON.stringify(manifest, null, 2), "utf8");
+
+  const latestPointers = {
+    batchName: config.batchName,
+    datedBatchName: runName,
+    createdAt: stagedAt,
+    outputCsv: path.relative(rebootRoot, finalCsvPath),
+    runLog: path.relative(rebootRoot, finalLogPath),
+    dailyOutputCsv: path.relative(rebootRoot, path.join(outputDir, today, csvName)),
+    dailyRunLog: path.relative(rebootRoot, path.join(runLogDir, today, logName)),
+    stagedRunRoot: path.relative(rebootRoot, runRoot),
+    rowsWritten
+  };
+  await fs.writeFile(path.join(outputDir, `LATEST-${config.batchName}.json`), JSON.stringify(latestPointers, null, 2), "utf8");
+  await fs.writeFile(path.join(outputDir, `LATEST-${today}-${config.batchName}.json`), JSON.stringify(latestPointers, null, 2), "utf8");
+
+  return { runRoot, latestPointers };
 }
 
 function sleep(ms) {
@@ -691,12 +767,24 @@ async function main() {
     }, null, 2));
     await fs.rename(tempCsvPath, finalCsvPath);
     await fs.rename(tempLogPath, finalLogPath);
+    const mirrored = await mirrorArtifactsForToday({ csvName, logName, finalCsvPath, finalLogPath });
+    const staged = await stageSuccessfulBatch({
+      config,
+      csvName,
+      logName,
+      finalCsvPath,
+      finalLogPath,
+      rowsWritten: freshRows.length
+    });
 
     status.state = "complete";
     status.activeLane = "";
     status.rowsWritten = freshRows.length;
     status.outputCsv = csvName;
     status.latestLog = logName;
+    status.dailyOutputCsv = path.relative(rebootRoot, mirrored.dailyCsvPath);
+    status.dailyRunLog = path.relative(rebootRoot, mirrored.dailyLogPath);
+    status.stagedRunRoot = path.relative(rebootRoot, staged.runRoot);
     status.lanes = laneStats;
     await writeStatus("CURRENT_STATUS.json", status);
     await fs.writeFile(path.join(statusDir, "LAST_SUCCESS.json"), JSON.stringify(status, null, 2), "utf8");

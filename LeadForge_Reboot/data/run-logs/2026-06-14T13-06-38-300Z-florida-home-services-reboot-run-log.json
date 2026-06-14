@@ -1,0 +1,153 @@
+{
+  "createdAt": "2026-06-14T13:09:26.144Z",
+  "config": "florida-home-services-reboot",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T13-06-38-300Z-florida-home-services-reboot-fresh-leads.csv",
+  "rowsWritten": 7,
+  "lanes": [
+    {
+      "city": "Miramar",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Miramar",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Miramar",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Miramar",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Coral Springs",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Coral Springs",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Coral Springs",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Coral Springs",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Delray Beach",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Delray Beach",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Delray Beach",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Delray Beach",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Palm Bay",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Palm Bay",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 3,
+      "added": 1,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Palm Bay",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Palm Bay",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 3,
+      "added": 3,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}
