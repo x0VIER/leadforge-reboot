@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T17:46:30.285Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T17-44-30-566Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 2,
+  "lanes": [
+    {
+      "city": "Charlotte",
+      "state": "NC",
+      "niche": "windows_doors",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Raleigh",
+      "state": "NC",
+      "niche": "windows_doors",
+      "scanned": 2,
+      "added": 1,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Nashville",
+      "state": "TN",
+      "niche": "windows_doors",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Charlotte",
+      "state": "NC",
+      "niche": "tree_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Raleigh",
+      "state": "NC",
+      "niche": "tree_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Nashville",
+      "state": "TN",
+      "niche": "tree_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Charlotte",
+      "state": "NC",
+      "niche": "pool_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Raleigh",
+      "state": "NC",
+      "niche": "pool_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Nashville",
+      "state": "TN",
+      "niche": "pool_service",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Charlotte",
+      "state": "NC",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for query on attempt 1"
+    },
+    {
+      "city": "Raleigh",
+      "state": "NC",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Nashville",
+      "state": "TN",
+      "niche": "roofing",
+      "scanned": 3,
+      "added": 0,
+      "rejected": 3,
+      "note": ""
+    }
+  ]
+}

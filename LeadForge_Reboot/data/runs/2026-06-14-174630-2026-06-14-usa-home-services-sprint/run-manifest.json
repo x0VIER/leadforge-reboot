@@ -1,0 +1,26 @@
+{
+  "run_name": "2026-06-14-usa-home-services-sprint",
+  "slug": "2026-06-14-usa-home-services-sprint",
+  "created_at": "2026-06-14T17:46:30",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Collector produced 2 Carolina windows/doors rows. Carefree Coatings & Windows Inc and Blue Chip Window & Door were owner-verified from public first-party/BBB evidence, with public directory/press corroboration.",
+  "raw_files": [
+    "2026-06-14T17-44-30-566Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-carolina-windows-owner-enriched-batch-039.csv"
+  ],
+  "final_files": [
+    "2026-06-14-carolina-windows-owner-enriched-batch-039.csv"
+  ],
+  "pending_files": [],
+  "source_log": "2026-06-14T17-44-30-566Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 2,
+  "reviewed_rows": 2,
+  "pending_rows": 0,
+  "rejected_rows": 0,
+  "staged_at": "2026-06-14T17:46:30",
+  "merged_rows": 2,
+  "merged_at": "2026-06-14T13:48:39"
+}
