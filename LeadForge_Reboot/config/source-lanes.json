@@ -142,55 +142,7 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Pittsburgh",
-                      "state":  "PA",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac",
-                                     "landscaping",
-                                     "pest_control",
-                                     "cleaning",
-                                     "locksmith",
-                                     "painting",
-                                     "flooring",
-                                     "carpentry",
-                                     "masonry",
-                                     "windows_doors",
-                                     "tree_service",
-                                     "pool_service"
-                                 ],
-                      "perNicheLimit":  null,
-                      "querySampleLimit":  null,
-                      "stateName":  "Pennsylvania"
-                  },
-                  {
-                      "city":  "Philadelphia",
-                      "state":  "PA",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac",
-                                     "landscaping",
-                                     "pest_control",
-                                     "cleaning",
-                                     "locksmith",
-                                     "painting",
-                                     "flooring",
-                                     "carpentry",
-                                     "masonry",
-                                     "windows_doors",
-                                     "tree_service",
-                                     "pool_service"
-                                 ],
-                      "perNicheLimit":  null,
-                      "querySampleLimit":  null,
-                      "stateName":  "Pennsylvania"
-                  },
-                  {
-                      "city":  "Richmond",
+                      "city":  "Virginia Beach",
                       "state":  "VA",
                       "niches":  [
                                      "roofing",
@@ -212,6 +164,54 @@
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
                       "stateName":  "Virginia"
+                  },
+                  {
+                      "city":  "Phoenix",
+                      "state":  "AZ",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac",
+                                     "landscaping",
+                                     "pest_control",
+                                     "cleaning",
+                                     "locksmith",
+                                     "painting",
+                                     "flooring",
+                                     "carpentry",
+                                     "masonry",
+                                     "windows_doors",
+                                     "tree_service",
+                                     "pool_service"
+                                 ],
+                      "perNicheLimit":  null,
+                      "querySampleLimit":  null,
+                      "stateName":  "Arizona"
+                  },
+                  {
+                      "city":  "Tucson",
+                      "state":  "AZ",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac",
+                                     "landscaping",
+                                     "pest_control",
+                                     "cleaning",
+                                     "locksmith",
+                                     "painting",
+                                     "flooring",
+                                     "carpentry",
+                                     "masonry",
+                                     "windows_doors",
+                                     "tree_service",
+                                     "pool_service"
+                                 ],
+                      "perNicheLimit":  null,
+                      "querySampleLimit":  null,
+                      "stateName":  "Arizona"
                   }
               ]
 }

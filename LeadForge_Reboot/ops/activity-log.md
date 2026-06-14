@@ -64,3 +64,12 @@
 - No raw rows were merged and master stayed at 460 rows.
 - Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, and the desktop viewer workbook.
 - Health remains yellow only because of accumulated `recent_failure_noise`; duplicate master key count is 0 and collector guard is clear for continued sourcing.
+
+## 2026-06-14 17:03 EDT - Dry Collector Rotation
+
+- Ran the guarded collector with no overlap; it completed inside the 180-second budget but produced 0 fresh rows.
+- Root cause: the Pittsburgh, Philadelphia, and Richmond window had just yielded a rejection and then a dry cycle, while Overpass timeout noise continued on several remaining niche checks.
+- Safe fix: rotated the active lane window to Virginia Beach, VA; Phoenix, AZ; and Tucson, AZ using `scripts/rotate-source-lanes.ps1` instead of retrying the stale window.
+- No raw rows were merged and master stayed at 460 rows.
+- Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, and the desktop viewer workbook after the lane rotation.
+- Health remains yellow only because of accumulated `recent_failure_noise`; duplicate master key count is 0 and collector guard is clear for continued sourcing.
