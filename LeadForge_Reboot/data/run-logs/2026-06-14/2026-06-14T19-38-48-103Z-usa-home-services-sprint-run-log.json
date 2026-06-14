@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T19:40:49.091Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T19-38-48-103Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 6,
+  "lanes": [
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "landscaping",
+      "scanned": 6,
+      "added": 3,
+      "rejected": 3,
+      "note": ""
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "landscaping",
+      "scanned": 3,
+      "added": 2,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "landscaping",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "pest_control",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "locksmith",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "locksmith",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "locksmith",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    }
+  ]
+}

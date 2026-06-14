@@ -1,18 +1,18 @@
 # LeadForge End Of Day Report - 2026-06-14
 
-Generated: 2026-06-14T15:37:47
+Generated: 2026-06-14T15:43:48
 
 ## Snapshot
 
-- Master rows now: 436
-- Leads merged today: 120
-- Raw candidates staged today: 180
-- Reviewed rows today: 118
-- Pending rows created today: 44
-- Rejected rows today: 34
-- Pending queue now: 53
-- Unique lead-memory keys: 522
-- Duplicate lead-memory keys: 266
+- Master rows now: 440
+- Leads merged today: 124
+- Raw candidates staged today: 186
+- Reviewed rows today: 122
+- Pending rows created today: 45
+- Rejected rows today: 35
+- Pending queue now: 54
+- Unique lead-memory keys: 529
+- Duplicate lead-memory keys: 272
 - Active lanes: Austin, TX, Columbus, OH, Cincinnati, OH
 - Health: yellow
 - Collector can start: True
@@ -54,14 +54,16 @@ Generated: 2026-06-14T15:37:47
 - 2026-06-14T18:52:45 - merged_to_master_partial: raw 5, reviewed 4, merged 4, pending 1, rejected 0. [manifest](../../data/runs/2026-06-14-185245-2026-06-14-usa-home-services-sprint/run-manifest.json)
 - 2026-06-14T18:58:36 - merged_to_master: raw 1, reviewed 1, merged 1, pending 0, rejected 0. [manifest](../../data/runs/2026-06-14-185836-2026-06-14-usa-home-services-sprint/run-manifest.json)
 - 2026-06-14T19:09:58 - merged_to_master_partial: raw 14, reviewed 8, merged 8, pending 3, rejected 3. [manifest](../../data/runs/2026-06-14-190958-2026-06-14-usa-home-services-sprint/run-manifest.json)
+- 2026-06-14T19:40:49 - merged_to_master_partial: raw 6, reviewed 4, merged 4, pending 1, rejected 1. [manifest](../../data/runs/2026-06-14-194049-2026-06-14-usa-home-services-sprint/run-manifest.json)
 
 ## Pending Callback Categories
 
 - missing_owner;missing_owner_source;missing_first_party_contact_path: 32
 - missing_owner;missing_owner_source: 12
 - missing_owner;missing_owner_source;third_party_contact_path: 5
-- missing_owner;missing_owner_source;missing_first_party_contact_path;domain_identity_conflict: 1
 - missing_owner;missing_owner_source;missing_first_party_contact_path;low_signal_generic_domain: 1
+- missing_named_owner: 1
+- missing_owner;missing_owner_source;missing_first_party_contact_path;domain_identity_conflict: 1
 - missing_owner;missing_owner_source;weak_first_party_evidence: 1
 - status_conflict;owner_source_needs_stronger_confirmation: 1
 
@@ -73,18 +75,6 @@ Generated: 2026-06-14T15:37:47
 
 ## Issues, Fixes, And Activity
 
-- 2026-06-14T19:01:35.001Z Collector claim opened for usa-home-services-sprint by Hermes.
-- 2026-06-14T19:01:53.288Z Lane failed for Houston, TX / pest_control with Overpass request timed out after 9000ms on attempt 1.
-- 2026-06-14T19:02:04.814Z Lane failed for Knoxville, TN / cleaning with Overpass request timed out after 9000ms on attempt 1.
-- 2026-06-14T19:02:16.346Z Lane failed for Dallas, TX / cleaning with Overpass request timed out after 9000ms on attempt 1.
-- 2026-06-14T19:02:32.154Z Lane failed for Knoxville, TN / locksmith with Overpass request timed out after 9000ms on attempt 1.
-- 2026-06-14T19:02:43.667Z Lane failed for Dallas, TX / locksmith with Overpass request timed out after 9000ms on attempt 1.
-- 2026-06-14T19:02:55.199Z Lane failed for Houston, TX / locksmith with Overpass request timed out after 9000ms on attempt 1.
-- 2026-06-14T19:03:19.713Z Lane failed for Houston, TX / painting with Overpass request timed out after 9000ms on attempt 1.
-- 2026-06-14T19:03:22.234Z Collector finished for usa-home-services-sprint with no fresh rows.
-- 2026-06-14T19:03:25Z Hermes guarded collector finished with exit code 0.
-- 2026-06-14T19:07:51Z Hermes guarded collector starting with max runtime 180s.
-- 2026-06-14T19:07:51.775Z Collector claim opened for usa-home-services-sprint by Hermes.
 - 2026-06-14T19:08:26.609Z Lane failed for Columbus, OH / plumbing with Overpass request timed out after 9000ms on attempt 1.
 - 2026-06-14T19:08:38.138Z Lane failed for Cincinnati, OH / plumbing with Overpass request timed out after 9000ms on attempt 1.
 - 2026-06-14T19:08:49.661Z Lane failed for Austin, TX / electrician with Overpass request timed out after 9000ms on attempt 1.
@@ -93,6 +83,18 @@ Generated: 2026-06-14T15:37:47
 - 2026-06-14T19:09:58.870Z Collector finished usa-home-services-sprint with 14 rows into 2026-06-14T19-07-51-768Z-usa-home-services-sprint-fresh-leads.csv.
 - 2026-06-14T19:10:01Z Hermes guarded collector finished with exit code 0.
 - 2026-06-14T19:37:10Z Quinn merged 8 reviewed Austin/Columbus leads after QA passed; 3 weak-owner rows stayed pending and 3 supplier/domain-mismatch rows were rejected. Merge was initially blocked because LibreOffice had master_leads.csv open; the safe fix was to close LibreOffice, merge the reviewed final CSV, then create a separate formatted LeadForge Master Viewer workbook so human review no longer locks the live master CSV. Viewer was rebuilt with Full Lead Data, Lead Board, Owner Evidence, Callback Queue, Data Quality, and Field Guide tabs, then verified with LibreOffice screenshots.
+- 2026-06-14T19:38:47Z Hermes guarded collector starting with max runtime 180s.
+- 2026-06-14T19:38:48.108Z Collector claim opened for usa-home-services-sprint by Hermes.
+- 2026-06-14T19:39:08.190Z Lane failed for Cincinnati, OH / landscaping with Overpass request timed out after 9000ms on attempt 1.
+- 2026-06-14T19:39:37.449Z Lane failed for Cincinnati, OH / pest_control with Overpass request timed out after 9000ms on attempt 1.
+- 2026-06-14T19:39:48.969Z Lane failed for Austin, TX / cleaning with Overpass request timed out after 9000ms on attempt 1.
+- 2026-06-14T19:40:00.498Z Lane failed for Columbus, OH / cleaning with Overpass request timed out after 9000ms on attempt 1.
+- 2026-06-14T19:40:12.012Z Lane failed for Cincinnati, OH / cleaning with Overpass request timed out after 9000ms on attempt 1.
+- 2026-06-14T19:40:23.541Z Lane failed for Austin, TX / locksmith with Overpass request timed out after 9000ms on attempt 1.
+- 2026-06-14T19:40:35.064Z Lane failed for Columbus, OH / locksmith with Overpass request timed out after 9000ms on attempt 1.
+- 2026-06-14T19:40:46.576Z Lane failed for Cincinnati, OH / locksmith with Overpass request timed out after 9000ms on attempt 1.
+- 2026-06-14T19:40:49.109Z Collector finished usa-home-services-sprint with 6 rows into 2026-06-14T19-38-48-103Z-usa-home-services-sprint-fresh-leads.csv.
+- 2026-06-14T19:40:53Z Hermes guarded collector finished with exit code 0.
 
 ## Important Files
 
@@ -105,6 +107,7 @@ Generated: 2026-06-14T15:37:47
 
 ## Git Save Point
 
+- c3735da Merge Austin Columbus leads and add viewer
 - 3357d13 Rotate USA sprint lanes after dry collector
 - 7cd3d65 Merge Houston Mission AC lead
 - aeabc5e Merge Texas windows and fence leads
@@ -124,28 +127,22 @@ Generated: 2026-06-14T15:37:47
 - c13c789 Rotate USA sprint source lanes
 - ca69830 Merge Jacksonville masonry owner verified lead
 - 38c3d7c Merge broad service owner verified leads
-- 046726b Merge Jacksonville owner verified lead
 
 ## Working Tree
 
 ```text
- M ../.gitignore
- M README.md
  M agent_shared/status/FACTORY_METRICS.md
  M agent_shared/status/LEAD_MEMORY_INDEX.csv
  M agent_shared/status/OPS_HEALTH_REPORT.md
  M data/master_leads.csv
  M data/output/LATEST-2026-06-14-usa-home-services-sprint.json
  M data/output/LATEST-usa-home-services-sprint.json
- M ops/leadforge-heartbeat-automation.toml
-?? data/output/2026-06-14/2026-06-14T19-07-51-768Z-usa-home-services-sprint-fresh-leads.csv
-?? data/output/2026-06-14T19-07-51-768Z-usa-home-services-sprint-fresh-leads.csv
-?? data/run-logs/2026-06-14/2026-06-14T19-07-51-768Z-usa-home-services-sprint-run-log.json
-?? data/run-logs/2026-06-14T19-07-51-768Z-usa-home-services-sprint-run-log.json
-?? data/runs/2026-06-14-190958-2026-06-14-usa-home-services-sprint/
-?? data/views/
-?? docs/operating-rules.md
-?? scripts/build-lead-viewer-workbook.ps1
+ M data/views/LeadForge_Master_Viewer.xlsx
+?? data/output/2026-06-14/2026-06-14T19-38-48-103Z-usa-home-services-sprint-fresh-leads.csv
+?? data/output/2026-06-14T19-38-48-103Z-usa-home-services-sprint-fresh-leads.csv
+?? data/run-logs/2026-06-14/2026-06-14T19-38-48-103Z-usa-home-services-sprint-run-log.json
+?? data/run-logs/2026-06-14T19-38-48-103Z-usa-home-services-sprint-run-log.json
+?? data/runs/2026-06-14-194049-2026-06-14-usa-home-services-sprint/
 ```
 
 ## Next Start Instructions
