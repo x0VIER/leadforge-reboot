@@ -55,3 +55,12 @@
 - Merged through `scripts/merge-new-leads.ps1`; master moved from 458 to 460 rows with 2 added and 0 existing-row enrichments.
 - Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, and the desktop viewer workbook.
 - Health remains yellow only because of accumulated `recent_failure_noise`; duplicate master key count is 0 and collector guard is clear for continued sourcing.
+
+## 2026-06-14 16:49 EDT - Batch 054 Low-Fit Painting Rejection
+
+- Ran the guarded collector with no overlap; it completed inside the 180-second budget and staged 1 Philadelphia painting candidate.
+- Rejected Perry Milou Studios because public evidence shows it is an artist/gallery/art-commerce business, not a local house-painting, commercial painting, or home-services contractor for the current campaign.
+- Wrote a rejected artifact with triage reason, lead type, public research note, recommended action, owner/principal context, and registration notes where available.
+- No raw rows were merged and master stayed at 460 rows.
+- Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, and the desktop viewer workbook.
+- Health remains yellow only because of accumulated `recent_failure_noise`; duplicate master key count is 0 and collector guard is clear for continued sourcing.
