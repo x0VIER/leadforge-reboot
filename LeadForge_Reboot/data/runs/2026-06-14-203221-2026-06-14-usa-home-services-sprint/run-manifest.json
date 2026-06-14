@@ -1,0 +1,32 @@
+{
+  "run_name": "2026-06-14-usa-home-services-sprint",
+  "slug": "2026-06-14-usa-home-services-sprint",
+  "created_at": "2026-06-14T20:32:21",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-14T20-30-53-570Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-pittsburgh-philadelphia-landscaping-owner-enriched-batch-053.csv"
+  ],
+  "final_files": [
+    "2026-06-14-pittsburgh-philadelphia-landscaping-owner-enriched-batch-053.csv"
+  ],
+  "source_log": "2026-06-14T20-30-53-570Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 2,
+  "staged_at": "2026-06-14T20:32:21",
+  "pending_files": [
+    "2026-06-14T20-30-53-570Z-usa-home-services-sprint-fresh-leads.pending-enrichment.csv"
+  ],
+  "rejected_files": [],
+  "reviewed_rows": 2,
+  "final_rows": 2,
+  "pending_rows": 0,
+  "rejected_rows": 0,
+  "merged_rows": 2,
+  "added_rows": 2,
+  "enriched_existing_rows": 0,
+  "merged_at": "2026-06-14T16:36:00"
+}

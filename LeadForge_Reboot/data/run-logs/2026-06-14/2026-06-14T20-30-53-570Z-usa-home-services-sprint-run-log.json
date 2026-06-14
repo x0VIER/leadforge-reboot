@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T20:32:21.648Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T20-30-53-570Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 2,
+  "lanes": [
+    {
+      "city": "Pittsburgh",
+      "state": "PA",
+      "niche": "landscaping",
+      "scanned": 2,
+      "added": 1,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Philadelphia",
+      "state": "PA",
+      "niche": "landscaping",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Richmond",
+      "state": "VA",
+      "niche": "landscaping",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Pittsburgh",
+      "state": "PA",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Philadelphia",
+      "state": "PA",
+      "niche": "pest_control",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Richmond",
+      "state": "VA",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Pittsburgh",
+      "state": "PA",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Philadelphia",
+      "state": "PA",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Richmond",
+      "state": "VA",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Pittsburgh",
+      "state": "PA",
+      "niche": "locksmith",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Philadelphia",
+      "state": "PA",
+      "niche": "locksmith",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Richmond",
+      "state": "VA",
+      "niche": "locksmith",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}
