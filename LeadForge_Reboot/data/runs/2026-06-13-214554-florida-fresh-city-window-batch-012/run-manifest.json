@@ -1,0 +1,24 @@
+{
+    "run_name":  "florida-fresh-city-window-batch-012",
+    "slug":  "florida-fresh-city-window-batch-012",
+    "created_at":  "2026-06-13T21:45:54",
+    "status":  "merged_to_master_partial",
+    "owner":  "Hermes",
+    "notes":  "Merged three reviewed public-source owner-enriched leads from the fresh Florida city window; left Unclog Plumbing Sarasota FL, Stormwall Roofing, and Air Conditioning Experts pending stronger resolving website or first-party owner evidence.",
+    "raw_files":  [
+                      "2026-06-14T01-43-22-804Z-florida-home-services-reboot-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-14-florida-fresh-city-owner-enriched-batch-012.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-14-florida-fresh-city-owner-enriched-batch-012.csv"
+                    ],
+    "staged_at":  "2026-06-13T21:45:54",
+    "pending_files":  [
+                          "2026-06-14T01-43-22-804Z-florida-home-services-reboot-fresh-leads.pending-enrichment.csv"
+                      ],
+    "rejected_files":  [
+
+                       ]
+}

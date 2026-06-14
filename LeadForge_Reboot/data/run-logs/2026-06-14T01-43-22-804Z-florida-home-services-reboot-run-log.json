@@ -1,0 +1,153 @@
+{
+  "createdAt": "2026-06-14T01:45:42.004Z",
+  "config": "florida-home-services-reboot",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T01-43-22-804Z-florida-home-services-reboot-fresh-leads.csv",
+  "rowsWritten": 6,
+  "lanes": [
+    {
+      "city": "Naples",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Naples",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Naples",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 2,
+      "added": 0,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Naples",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Sarasota",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Sarasota",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Sarasota",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Sarasota",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Bradenton",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Bradenton",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Bradenton",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Bradenton",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Lakeland",
+      "state": "FL",
+      "niche": "roofing",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Lakeland",
+      "state": "FL",
+      "niche": "plumbing",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Lakeland",
+      "state": "FL",
+      "niche": "electrician",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Lakeland",
+      "state": "FL",
+      "niche": "hvac",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}

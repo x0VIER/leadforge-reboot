@@ -19,11 +19,19 @@
                      "Cape Coral",
                      "Tallahassee",
                      "Pembroke Pines",
-                     "Gainesville"
+                     "Gainesville",
+                     "Naples",
+                     "Sarasota",
+                     "Bradenton",
+                     "Lakeland",
+                     "Ocala",
+                     "Daytona Beach",
+                     "Melbourne",
+                     "Clearwater"
                  ],
     "lanes":  [
                   {
-                      "city":  "Jacksonville",
+                      "city":  "Naples",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -34,7 +42,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Tampa",
+                      "city":  "Sarasota",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -45,7 +53,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Orlando",
+                      "city":  "Bradenton",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -56,7 +64,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "St. Petersburg",
+                      "city":  "Lakeland",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
