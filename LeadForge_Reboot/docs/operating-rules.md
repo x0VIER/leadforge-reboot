@@ -22,6 +22,7 @@ If a user request has the right intent but the tactic would cause overlap, dupli
 10. If a command times out, repeats stale work, or fails, clarify the state, verify root cause, apply the smallest safe fix, document it, and continue.
 11. At usage-limit or day-end risk, stop opening new collector work, finish the current atomic step, build the handoff report, run health checks, and commit.
 12. Keep the system human-reviewable. Every run should leave clear files, manifests, logs, evidence, counts, and next actions.
+13. After lead collection or merge work, run the Offer Audit Engine sidecar so each lead has an owner/contact view, qualification tier, audit angles, offer recommendations, and next action without mutating the source master data.
 
 ## Cadence Rules
 
@@ -46,7 +47,30 @@ If any of those are missing, keep the row pending unless the run policy explicit
 
 ## Research Boundaries
 
-Use lawful public OSINT-style research only. Good sources include official business websites, state registries, BBB, chambers, licensing boards, credible public profiles, and reputable directories. Do not use private, paid, breached, or guessed personal data.
+Use lawful public OSINT-style research only. Good sources include official business websites, public business social profiles, state registries, BBB, chambers, licensing boards, credible public profiles, and reputable directories. Do not use private, paid, breached, or guessed personal data.
+
+Owner-direct phone numbers are only allowed when a public business source clearly publishes that number for business contact. Otherwise, store the public business phone and label it that way.
+
+Public social profiles can be used to verify business identity, active services, decision-maker context, contact path, reviews, and offer fit. They are evidence sources, not permission to collect private personal contact data.
+
+## Offer Audit Sidecar
+
+LeadForge has two connected systems:
+
+- Lead Factory: collect, stage, verify, QA, and merge clean public-source leads.
+- Offer Audit Engine: score qualified leads, prepare audit angles, map likely offers, define safe contact paths, and produce value-first outreach notes.
+
+The Offer Audit Engine must not raw-merge, overwrite, or mutate `data/master_leads.csv`. It reads the master and writes sidecar reports plus workbook tabs. The goal is to help a human decide what to audit and offer next.
+
+Primary offer families:
+
+- AI Website / No Website Rescue.
+- AI SEO and GEO Audit.
+- Reviews and Local Prominence.
+- Best Services Listing Spot.
+- Conversion Path Cleanup.
+
+Before SMS or WhatsApp automation is used, create explicit opt-in, opt-out, and consent handling. Until then, contact fields are research context, not an automated send trigger.
 
 ## Boss Mode
 

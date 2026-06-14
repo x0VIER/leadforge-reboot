@@ -1,5 +1,14 @@
 # LeadForge Ops Change Log
 
+## 2026-06-14T23:25Z - Offer Audit Engine sidecar
+
+- Added the Offer Audit Engine as a sidecar system instead of mixing offer planning into the raw collector. The lead factory still owns clean public-source collection and reviewed merges; the sidecar reads master leads and produces offer-readiness views without mutating source lead rows.
+- Added `config/offer-audit-engine.json` and `docs/offer-audit-engine.md` to define public OSINT social-source boundaries, owner-number handling, qualification frameworks, offer families, and value-first contact rules.
+- Added `scripts/build-offer-readiness-report.ps1`, which writes `OFFER_READINESS_REPORT.csv`, `.json`, and `.md` with qualification score, tier, public contact path, owner/business phone note, offer recommendations, audit angles, competitor research needs, compliance note, and next action.
+- Updated `scripts/build-lead-viewer-workbook.ps1` to add `Owner Contact Points`, `Offer Readiness`, and `Qualification Guide` workbook tabs so the polished viewer shows contact paths, owner-number notes, qualification, and offer planning directly.
+- Updated `scripts/build-desktop-lead-hub.ps1` so offer-readiness reports are copied into the simple Desktop `03 Reports` folder while raw CSVs stay tucked away as audit backups.
+- Safety: owner-direct numbers are not guessed. The system uses public business phone unless a public business source clearly verifies an owner/direct business number. SMS and WhatsApp remain research context only until opt-in and opt-out handling is deliberately configured.
+
 ## 2026-06-14T23:03Z - LibreOffice recovery prevention
 
 - Root cause: LibreOffice can show a document-recovery prompt when a generated workbook is overwritten or moved while Calc has that workbook open or still has a lock/recovery state for it.

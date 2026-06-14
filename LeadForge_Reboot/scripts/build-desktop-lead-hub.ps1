@@ -357,6 +357,23 @@ New-HubShortcut -Path (Join-Path $folders.Reports "Open Daily Reports.lnk") -Tar
 New-HubShortcut -Path (Join-Path $folders.System "Open LeadForge Project Folder.lnk") -Target $explorer -Arguments "`"$Root`""
 New-HubShortcut -Path (Join-Path $folders.System "Open Automation Logs.lnk") -Target $explorer -Arguments "`"$(Join-Path $Root 'agent_shared\logs')`""
 
+$reportFiles = @(
+    (Join-Path $Root "agent_shared\status\OPS_SNAPSHOT.json"),
+    (Join-Path $Root "OPS_HEALTH_REPORT.md"),
+    (Join-Path $Root "agent_shared\status\OWNER_ENRICHMENT_BACKLOG.csv"),
+    (Join-Path $Root "agent_shared\status\PENDING_ENRICHMENT_REPORT.csv"),
+    (Join-Path $Root "agent_shared\status\LEAD_MEMORY_INDEX.csv"),
+    (Join-Path $Root "agent_shared\status\FACTORY_METRICS.json"),
+    (Join-Path $Root "agent_shared\status\OFFER_READINESS_REPORT.csv"),
+    (Join-Path $Root "agent_shared\status\OFFER_READINESS_REPORT.json"),
+    (Join-Path $Root "agent_shared\status\OFFER_READINESS_REPORT.md")
+)
+foreach ($reportFile in $reportFiles) {
+    if (Test-Path -LiteralPath $reportFile) {
+        Copy-Item -LiteralPath $reportFile -Destination (Join-Path $folders.Reports (Split-Path -Leaf $reportFile)) -Force
+    }
+}
+
 $pendingFiles = @(Get-ChildItem -Path (Join-Path $Root "data\runs") -Recurse -File -Filter "*.pending-enrichment.csv" -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending)
 $rejectedFiles = @(Get-ChildItem -Path (Join-Path $Root "data\runs") -Recurse -File -Filter "*.rejected.csv" -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending)
 if ($pendingFiles.Count -gt 0) {
@@ -379,7 +396,7 @@ Simple folder map:
 
 - 01 Leads By Niche: polished XLSX files for each service category.
 - 02 Pending Review: shortcuts to rows that need more evidence before outreach.
-- 03 Reports: status, health, daily reports, and handoff notes.
+- 03 Reports: status, health, offer-readiness, daily reports, and handoff notes.
 - 99 Audit Backups: raw CSV exports, old generated shortcuts, logs, and system links.
 
 Plain rule:

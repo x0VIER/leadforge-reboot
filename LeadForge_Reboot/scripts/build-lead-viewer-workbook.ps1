@@ -95,6 +95,18 @@ def pretty_header(value):
         "lead_type": "Lead Type",
         "public_research_note": "Public Research Note",
         "recommended_action": "Recommended Action",
+        "public_owner_or_business_phone": "Public Owner/Business Phone",
+        "owner_number_note": "Owner Number Note",
+        "primary_contact_path": "Primary Contact Path",
+        "contact_point_type": "Contact Point Type",
+        "lead_qualification_score": "Qualification Score",
+        "qualification_tier": "Qualification Tier",
+        "offer_recommendations": "Offer Recommendations",
+        "audit_angles": "Audit Angles",
+        "competitor_research_needed": "Competitor Research Needed",
+        "contact_strategy_note": "Contact Strategy Note",
+        "compliance_note": "Compliance Note",
+        "next_action": "Next Action",
     }
     return labels.get(value, clean(value).replace("_", " ").replace("-", " ").title())
 
@@ -102,10 +114,10 @@ def pretty_value(header, value):
     text = clean(value)
     if not text:
         return ""
-    exact_fields = {"lead_id", "website", "contact_url", "email", "owner_source", "source_evidence"}
+    exact_fields = {"lead_id", "website", "contact_url", "email", "owner_source", "source_evidence", "qualification_tier"}
     if header in exact_fields:
         return text
-    humanized_fields = {"validation_status", "priority_tier", "lead_type", "triage_reason", "recommended_action", "niche"}
+    humanized_fields = {"validation_status", "priority_tier", "lead_type", "triage_reason", "recommended_action", "niche", "qualification_tier", "contact_point_type"}
     if header in humanized_fields:
         if text.strip() in {"?", "1", "2", "0"}:
             return "Unknown / Legacy"
@@ -138,6 +150,20 @@ evidence_cols = [
 ]
 evidence_cols = [h for h in evidence_cols if h in headers]
 
+contact_cols = [
+    "lead_id", "business_name", "niche", "city", "state", "owner_name", "owner_title",
+    "public_owner_or_business_phone", "owner_number_note", "public_phone", "public_email",
+    "contact_url", "primary_contact_path", "contact_point_type", "owner_source",
+    "contact_strategy_note"
+]
+
+offer_cols = [
+    "lead_id", "business_name", "niche", "city", "state", "website",
+    "lead_qualification_score", "qualification_tier", "offer_recommendations",
+    "audit_angles", "competitor_research_needed", "visible_gap", "offer_angle",
+    "next_action", "compliance_note", "last_checked"
+]
+
 wb = Workbook()
 ws_dash = wb.active
 ws_dash.title = "Dashboard"
@@ -151,8 +177,14 @@ ws_evidence = wb.create_sheet("Owner Evidence")
 ws_evidence.sheet_properties.tabColor = "0D9488"
 ws_callback = wb.create_sheet("Callback Queue")
 ws_callback.sheet_properties.tabColor = "B45309"
+ws_contact = wb.create_sheet("Owner Contact Points")
+ws_contact.sheet_properties.tabColor = "0E7490"
+ws_offer = wb.create_sheet("Offer Readiness")
+ws_offer.sheet_properties.tabColor = "16A34A"
 ws_quality = wb.create_sheet("Data Quality")
 ws_quality.sheet_properties.tabColor = "64748B"
+ws_qualification = wb.create_sheet("Qualification Guide")
+ws_qualification.sheet_properties.tabColor = "B7791F"
 ws_guide = wb.create_sheet("Field Guide")
 ws_guide.sheet_properties.tabColor = "111827"
 
@@ -256,6 +288,18 @@ def set_widths(ws, table_headers):
         "validation_status": 20,
         "priority_tier": 15,
         "last_checked": 16,
+        "public_owner_or_business_phone": 24,
+        "owner_number_note": 48,
+        "primary_contact_path": 52,
+        "contact_point_type": 26,
+        "lead_qualification_score": 18,
+        "qualification_tier": 26,
+        "offer_recommendations": 72,
+        "audit_angles": 72,
+        "competitor_research_needed": 72,
+        "contact_strategy_note": 78,
+        "compliance_note": 62,
+        "next_action": 66,
     }
     for idx, header in enumerate(table_headers, start=1):
         ws.column_dimensions[get_column_letter(idx)].width = widths.get(header, 18)
@@ -283,6 +327,142 @@ def apply_status_colors(ws, table_headers, first_row, last_row):
             f"{col}{first_row}:{col}{last_row}",
             FormulaRule(formula=[f'OR(ISNUMBER(SEARCH("A",{col}{first_row})),ISNUMBER(SEARCH("high",{col}{first_row})))'], fill=PatternFill("solid", fgColor="DBEAFE"), font=Font(color="1D4ED8", bold=True))
         )
+    if "lead_qualification_score" in table_headers:
+        col = get_column_letter(table_headers.index("lead_qualification_score") + 1)
+        ws.conditional_formatting.add(
+            f"{col}{first_row}:{col}{last_row}",
+            FormulaRule(formula=[f'{col}{first_row}>=80'], fill=PatternFill("solid", fgColor="DCFCE7"), font=Font(color="166534", bold=True))
+        )
+        ws.conditional_formatting.add(
+            f"{col}{first_row}:{col}{last_row}",
+            FormulaRule(formula=[f'AND({col}{first_row}>=45,{col}{first_row}<65)'], fill=PatternFill("solid", fgColor="FEF3C7"), font=Font(color="92400E", bold=True))
+        )
+
+def primary_contact(row):
+    contact_url = clean(row.get("contact_url", ""))
+    public_email = clean(row.get("public_email", ""))
+    public_phone = clean(row.get("public_phone", ""))
+    website = clean(row.get("website", ""))
+    if contact_url:
+        return contact_url, "Contact form or booking URL"
+    if public_email:
+        return public_email, "Public business email"
+    if public_phone:
+        return public_phone, "Public business phone"
+    if website:
+        return website, "Website review only"
+    return "", "No safe public contact path yet"
+
+def qualification_score(row):
+    score = 0
+    status = clean(row.get("validation_status", "")).lower()
+    try:
+        risk = int(clean(row.get("risk_score_1_5", "")) or "3")
+    except ValueError:
+        risk = 3
+    if clean(row.get("owner_name", "")):
+        score += 12
+    if clean(row.get("owner_source", "")):
+        score += 12
+    if clean(row.get("website", "")):
+        score += 12
+    else:
+        score += 8
+    if clean(row.get("public_phone", "")):
+        score += 10
+    if clean(row.get("public_email", "")):
+        score += 8
+    if clean(row.get("contact_url", "")):
+        score += 8
+    if clean(row.get("visible_gap", "")):
+        score += 10
+    if clean(row.get("offer_angle", "")):
+        score += 10
+    if any(word in status for word in ("reviewed", "validated", "public", "verified")):
+        score += 12
+    if risk <= 1:
+        score += 6
+    elif risk == 2:
+        score += 4
+    elif risk >= 4:
+        score -= 10
+    return max(0, min(100, score))
+
+def qualification_tier(score):
+    if score >= 80:
+        return "A - Offer Ready"
+    if score >= 65:
+        return "B - Strong Audit Candidate"
+    if score >= 45:
+        return "C - Needs More Evidence"
+    return "D - Hold / Research First"
+
+def offer_recommendations(row):
+    website = clean(row.get("website", ""))
+    visible_gap = clean(row.get("visible_gap", "")).lower()
+    offer_angle = clean(row.get("offer_angle", "")).lower()
+    niche = clean(row.get("niche", "")).lower()
+    offers = []
+    if not website:
+        offers.extend(["AI Website / No Website Rescue", "Google Business Profile and local listing cleanup"])
+    else:
+        offers.extend(["AI website and conversion audit", "AI SEO / GEO local visibility audit"])
+    if any(word in visible_gap or word in offer_angle for word in ("review", "trust", "reputation")):
+        offers.append("Reviews and local prominence improvement")
+    if any(word in visible_gap or word in offer_angle for word in ("booking", "form", "contact", "estimate", "quote", "scheduler", "phone")):
+        offers.append("Conversion path cleanup")
+    if any(word in niche for word in ("roof", "hvac", "plumb", "electric", "locksmith", "landscap", "tree", "pool", "garage", "window", "door", "clean", "paint", "floor", "mason", "carpent", "fenc")):
+        offers.append("Best services listing placement")
+    return "; ".join(dict.fromkeys(offers))
+
+def audit_angles(row):
+    angles = []
+    if clean(row.get("website", "")):
+        angles.extend(["Website UX and conversion path", "AI answer visibility and service-area content"])
+    else:
+        angles.append("No-website public presence gap")
+    if not clean(row.get("contact_url", "")):
+        angles.append("Missing or weak contact page")
+    if not clean(row.get("public_email", "")):
+        angles.append("No public email on file")
+    if not clean(row.get("public_phone", "")):
+        angles.append("No public phone on file")
+    angles.extend([
+        "Local SEO relevance, distance, and prominence",
+        "Competitor comparison and local trust signals",
+        "Reviews, citations, and listing consistency",
+    ])
+    return "; ".join(dict.fromkeys(angles))
+
+def enrich_offer_row(row):
+    out = dict(row)
+    path, kind = primary_contact(row)
+    score = qualification_score(row)
+    business = clean(row.get("business_name", "this business"))
+    gap = clean(row.get("visible_gap", "")) or clean(row.get("offer_angle", "")) or "a short public-facing audit note"
+    public_phone = clean(row.get("public_phone", ""))
+    out["public_owner_or_business_phone"] = public_phone
+    out["owner_number_note"] = "Public business phone on file; no owner-direct number verified unless owner source explicitly says so." if public_phone else "No safe public phone on file yet."
+    out["primary_contact_path"] = path
+    out["contact_point_type"] = kind
+    out["lead_qualification_score"] = score
+    out["qualification_tier"] = qualification_tier(score)
+    out["offer_recommendations"] = offer_recommendations(row)
+    out["audit_angles"] = audit_angles(row)
+    out["competitor_research_needed"] = "Find 3 to 5 same-city/same-niche competitors; compare website, reviews, local visibility, offers, speed/contact path, and trust signals."
+    out["contact_strategy_note"] = "Do not contact yet. First find a safe public business contact path and verify identity." if not path else f"Value-first opener for {business}: mention {gap}, offer a quick audit snapshot, and avoid generic pitching. Use {kind} only as the visible public business contact path."
+    out["compliance_note"] = "Public-source research only. SMS/WhatsApp outreach requires opt-in and opt-out workflow before automation."
+    if not clean(row.get("owner_name", "")) or not clean(row.get("owner_source", "")):
+        out["next_action"] = "Research owner or decision-maker from public official/social/business sources before outreach."
+    elif not path:
+        out["next_action"] = "Find safe public business contact path before outreach."
+    elif score >= 80:
+        out["next_action"] = "Prepare AI audit and value-first offer brief."
+    elif score >= 65:
+        out["next_action"] = "Run website/local visibility audit and competitor scan."
+    else:
+        out["next_action"] = "Keep in research queue until evidence and contact path improve."
+    return out
 
 def count_missing(field):
     return sum(1 for r in rows if not clean(r.get(field, "")))
@@ -315,7 +495,21 @@ field_descriptions = {
     "lead_type": "Useful classification such as local service, supplier, chain, or pending enrichment.",
     "public_research_note": "Human-readable note on what was checked and what is still missing.",
     "recommended_action": "Next step for rejected or pending rows.",
+    "public_owner_or_business_phone": "Public business phone or owner-direct business number only when the source proves it is public business contact data.",
+    "owner_number_note": "Plain-English note explaining whether the number is business-public or owner-direct verified.",
+    "primary_contact_path": "Best safe public contact route for human review.",
+    "contact_point_type": "Type of contact path, such as contact form, public business email, or public business phone.",
+    "lead_qualification_score": "0-100 blended score using authority, need, contactability, evidence strength, risk, and local fit.",
+    "qualification_tier": "Human-readable score band for offer readiness.",
+    "offer_recommendations": "Offer families likely to fit this business based on public evidence.",
+    "audit_angles": "Research angles to inspect before outreach or a manual AI audit.",
+    "competitor_research_needed": "Suggested competitor research scope before a deeper offer brief.",
+    "contact_strategy_note": "Value-first outreach planning note. This is not an automated send instruction.",
+    "compliance_note": "Safety rule for messaging and outreach channels.",
+    "next_action": "Next best action for the offer/audit sidecar.",
 }
+
+offer_rows = [enrich_offer_row(r) for r in rows]
 
 critical_fields = ["business_name", "niche", "city", "state", "website", "public_phone", "owner_name", "owner_source", "source_evidence", "validation_status", "last_checked"]
 
@@ -405,6 +599,9 @@ for niche_index, (niche_name, _count) in enumerate(niche_counts.most_common()):
 
 write_table(ws_evidence, evidence_cols, rows, "Owner Evidence", "Owner and decision-maker evidence trail. Use this when checking whether a row is outreach-ready.", palette["teal"])
 
+write_table(ws_contact, contact_cols, offer_rows, "Owner Contact Points", "Public contact paths and owner-number notes. Owner-direct numbers are only used when verified as public business contact data.", palette["blue"], compact_rows=False, wrap_text=True)
+write_table(ws_offer, offer_cols, offer_rows, "Offer Readiness", "Sidecar selling view: qualification score, offer ideas, audit angles, competitor research, and next action.", palette["green"], compact_rows=False, wrap_text=True)
+
 callback_rows = []
 for r in rows:
     missing = []
@@ -437,6 +634,64 @@ for field in headers:
         "note": field_descriptions.get(field, "Supporting field used for review, routing, or audit context."),
     })
 write_table(ws_quality, ["field_name", "importance", "filled_rows", "missing_rows", "filled_percent", "note"], quality_rows, "Data Quality", "Completeness and field coverage so missing information has a named callback path.", palette["muted"], compact_rows=False, wrap_text=True)
+
+qualification_rows = [
+    {
+        "field_name": "A - Offer Ready",
+        "category": "Qualification Tier",
+        "description": "Strong owner or decision-maker evidence, usable public contact path, clear visible gap, and low enough risk to prepare a value-first audit.",
+        "human_rule": "Prepare AI audit, competitor scan, and specific offer brief before outreach.",
+    },
+    {
+        "field_name": "B - Strong Audit Candidate",
+        "category": "Qualification Tier",
+        "description": "Good public evidence and offer fit, but one part of the owner/contact/audit story may need a quick check.",
+        "human_rule": "Run website/local visibility audit and fill missing evidence before outreach.",
+    },
+    {
+        "field_name": "C - Needs More Evidence",
+        "category": "Qualification Tier",
+        "description": "Some useful business evidence exists, but owner, contact path, or validation strength is not ready enough.",
+        "human_rule": "Keep in research queue; do not pitch until the missing public evidence is resolved.",
+    },
+    {
+        "field_name": "D - Hold / Research First",
+        "category": "Qualification Tier",
+        "description": "Too much is missing or unclear for a clean offer.",
+        "human_rule": "Research, reject, or leave pending. Do not guess.",
+    },
+    {
+        "field_name": "Public OSINT Social Sources",
+        "category": "Research Source",
+        "description": "Public business social profiles can verify identity, active service areas, decision-maker context, content gaps, reviews, and contact paths.",
+        "human_rule": "Use visible public business evidence only. Do not use private/personal contact details.",
+    },
+    {
+        "field_name": "BANT",
+        "category": "Qualification Framework",
+        "description": "Fast check for budget proxy, authority, need, and timeline. Useful, but not enough by itself for local services.",
+        "human_rule": "Use as a quick readiness signal, not as the only gate.",
+    },
+    {
+        "field_name": "MEDDIC-lite",
+        "category": "Qualification Framework",
+        "description": "Checks metrics, economic buyer, decision criteria, pain, and champion-like signals for deeper opportunities.",
+        "human_rule": "Use when a lead looks valuable enough for a deeper website, competitor, and offer audit.",
+    },
+    {
+        "field_name": "GPCT",
+        "category": "Qualification Framework",
+        "description": "Goals, plans, challenges, and timeline. Better for value-first discovery and avoiding nuisance outreach.",
+        "human_rule": "Lead with a helpful observation tied to their likely goals or visible challenge.",
+    },
+    {
+        "field_name": "Local SEO Fit",
+        "category": "Offer Trigger",
+        "description": "Local visibility depends heavily on relevance, distance, and prominence, so service-area clarity, reviews, citations, and trust signals matter.",
+        "human_rule": "Use for AI SEO, GEO, reviews, and best-services listing offers.",
+    },
+]
+write_table(ws_qualification, ["field_name", "category", "description", "human_rule"], qualification_rows, "Qualification Guide", "How LeadForge decides whether a lead is ready for an audit, offer, or more public research.", palette["amber"], compact_rows=False, wrap_text=True)
 
 guide_rows = []
 for field in headers:

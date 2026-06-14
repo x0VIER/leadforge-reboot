@@ -1,0 +1,95 @@
+{
+  "name": "LeadForge Offer Audit Engine",
+  "version": "2026-06-14",
+  "purpose": "Turn reviewed LeadForge leads into qualified outreach, audit, and offer-readiness opportunities without changing the source lead data.",
+  "loopModel": {
+    "pattern": "sidecar_loop",
+    "sourceOfTruth": "data/master_leads.csv",
+    "outputs": [
+      "agent_shared/status/OFFER_READINESS_REPORT.csv",
+      "agent_shared/status/OFFER_READINESS_REPORT.json",
+      "agent_shared/status/OFFER_READINESS_REPORT.md",
+      "LeadForge Master Viewer.xlsx tabs: Owner Contact Points, Offer Readiness, Qualification Guide"
+    ],
+    "cadenceRule": "Run after every merge, rejection cycle, collector cycle, or durable viewer/system fix. Do not block the lead collector; reuse current master and pending evidence."
+  },
+  "publicOsintPolicy": {
+    "allowedSources": [
+      "official business websites",
+      "public contact pages",
+      "public social profiles for the business or named decision-maker",
+      "state business registries",
+      "licensing boards",
+      "BBB",
+      "chambers of commerce",
+      "credible local directories",
+      "Google Business Profile-visible public facts where manually reviewed"
+    ],
+    "disallowedSources": [
+      "private or breached data",
+      "guessed owner names",
+      "guessed owner phone numbers",
+      "personal contact details not published for business use",
+      "logged-in-only content unless the user explicitly performs a manual review"
+    ],
+    "ownerNumberRule": "Store owner-direct numbers only when they are clearly public business contact data tied to the owner or decision-maker. Otherwise use the public business phone and label it as such."
+  },
+  "qualificationFramework": {
+    "inputs": [
+      "public business identity",
+      "website presence",
+      "public phone",
+      "public email",
+      "contact URL",
+      "owner or decision-maker evidence",
+      "visible gap",
+      "offer angle",
+      "risk score",
+      "validation status",
+      "local market fit"
+    ],
+    "frameworksUsed": [
+      "BANT for fast readiness cues: budget proxy, authority, need, timeline",
+      "MEDDIC-lite for deeper opportunities: metrics, economic buyer, decision criteria, pain, champion",
+      "GPCT for value-first discovery: goals, plans, challenges, timeline",
+      "Local SEO fit using relevance, distance, and prominence"
+    ]
+  },
+  "offerFamilies": [
+    {
+      "name": "AI Website / No Website Rescue",
+      "trigger": "No first-party website or weak website/contact path",
+      "valueFirstAsset": "1-page site gap snapshot with recommended homepage/contact path"
+    },
+    {
+      "name": "AI SEO and GEO Audit",
+      "trigger": "Website exists but has weak service-area, answer-engine, or conversion signals",
+      "valueFirstAsset": "AI/local visibility audit with 3 practical fixes"
+    },
+    {
+      "name": "Reviews and Local Prominence",
+      "trigger": "Local service business where reviews, citations, or Google Business Profile signals likely matter",
+      "valueFirstAsset": "Local trust snapshot and review/citation improvement checklist"
+    },
+    {
+      "name": "Best Services Listing Spot",
+      "trigger": "High-fit local niche and city with directory/listing monetization potential",
+      "valueFirstAsset": "Sample profile/listing preview and weekly/monthly placement option"
+    },
+    {
+      "name": "Conversion Path Cleanup",
+      "trigger": "Website has contact friction, unclear booking, weak CTA, or third-party-only scheduler",
+      "valueFirstAsset": "Screenshot-backed funnel note and quick-win recommendation"
+    }
+  ],
+  "contactStrategy": {
+    "defaultTone": "value-first, specific, short, and respectful",
+    "rules": [
+      "Do not start with a generic pitch.",
+      "Lead with one useful observation from public evidence.",
+      "Use business-published phone, email, contact form, or social page as context only until outreach tooling is explicitly configured.",
+      "Do not automate SMS or WhatsApp without opt-in and opt-out handling.",
+      "Never contact private/personal numbers found outside public business context."
+    ]
+  }
+}
