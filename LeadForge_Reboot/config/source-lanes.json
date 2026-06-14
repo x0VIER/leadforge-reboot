@@ -31,7 +31,7 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Fort Lauderdale",
+                      "city":  "Cape Coral",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -42,7 +42,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Miami",
+                      "city":  "Tallahassee",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -53,7 +53,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Hialeah",
+                      "city":  "Pembroke Pines",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -64,7 +64,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Port St. Lucie",
+                      "city":  "Gainesville",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
