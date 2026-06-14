@@ -1,0 +1,31 @@
+{
+    "run_name":  "2026-06-14-usa-home-services-sprint",
+    "slug":  "2026-06-14-usa-home-services-sprint",
+    "created_at":  "2026-06-14T14:46:03",
+    "status":  "merged_to_master_partial",
+    "owner":  "Hermes",
+    "notes":  "Merged 8 owner-verified USA sprint leads. Kept 3 rows pending for current-owner/identity research and rejected 1 suspicious keyword-template row.",
+    "raw_files":  [
+                      "2026-06-14T14-43-26-895Z-usa-home-services-sprint-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-14-usa-owner-enriched-batch-019.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-14-usa-owner-enriched-batch-019.csv"
+                    ],
+    "source_log":  "2026-06-14T14-43-26-895Z-usa-home-services-sprint-run-log.json",
+    "raw_rows":  12,
+    "staged_at":  "2026-06-14T14:46:03",
+    "pending_files":  [
+                          "2026-06-14-usa-owner-enriched-batch-019.pending-enrichment.csv"
+                      ],
+    "rejected_files":  [
+                           "2026-06-14-usa-owner-enriched-batch-019.rejected.csv"
+                       ],
+    "reviewed_rows":  8,
+    "pending_rows":  3,
+    "rejected_rows":  1,
+    "merged_rows":  8,
+    "merged_at":  "2026-06-14T10:50:30"
+}

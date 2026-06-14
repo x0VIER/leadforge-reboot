@@ -162,6 +162,11 @@ if (Test-Path -LiteralPath $MasterCsv) {
 }
 
 $newRows = @(Import-Csv -LiteralPath (Resolve-Path -LiteralPath $NewCsv))
+foreach ($row in $newRows) {
+    if ($row.lead_id -match '^LFR-') {
+        $row.lead_id = ''
+    }
+}
 $existing = @{}
 
 foreach ($row in $masterRows) {

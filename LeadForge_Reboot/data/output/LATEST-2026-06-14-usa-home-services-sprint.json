@@ -1,0 +1,11 @@
+{
+  "batchName": "usa-home-services-sprint",
+  "datedBatchName": "2026-06-14-usa-home-services-sprint",
+  "createdAt": "2026-06-14T14:46:03.994Z",
+  "outputCsv": "data\\output\\2026-06-14T14-43-26-895Z-usa-home-services-sprint-fresh-leads.csv",
+  "runLog": "data\\run-logs\\2026-06-14T14-43-26-895Z-usa-home-services-sprint-run-log.json",
+  "dailyOutputCsv": "data\\output\\2026-06-14\\2026-06-14T14-43-26-895Z-usa-home-services-sprint-fresh-leads.csv",
+  "dailyRunLog": "data\\run-logs\\2026-06-14\\2026-06-14T14-43-26-895Z-usa-home-services-sprint-run-log.json",
+  "stagedRunRoot": "data\\runs\\2026-06-14-144603-2026-06-14-usa-home-services-sprint",
+  "rowsWritten": 12
+}
