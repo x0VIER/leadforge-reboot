@@ -1,0 +1,27 @@
+{
+    "run_name":  "June 14 fast lead push 001",
+    "slug":  "june-14-fast-lead-push-001",
+    "created_at":  "2026-06-14T08:00:05",
+    "status":  "merged_to_master_partial",
+    "owner":  "Hermes",
+    "notes":  "Merged two QA-clean new Florida roofing leads. Protected existing master rows, rejected target-state mismatches and low-signal rows, and kept unresolved Florida rows pending stronger public owner/contact evidence.",
+    "raw_files":  [
+                      "2026-06-13-20-40-home-services-reboot-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-14-june-14-fast-lead-push-owner-enriched.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-14-june-14-fast-lead-push-owner-enriched.csv"
+                    ],
+    "staged_at":  "2026-06-14T08:00:05",
+    "pending_files":  [
+                          "2026-06-13-20-40-home-services-reboot-fresh-leads.pending-enrichment.csv"
+                      ],
+    "rejected_files":  [
+                           "2026-06-13-20-40-home-services-reboot-fresh-leads.rejected.csv"
+                       ],
+    "merged_rows":  2,
+    "pending_rows":  4,
+    "rejected_rows":  12
+}
