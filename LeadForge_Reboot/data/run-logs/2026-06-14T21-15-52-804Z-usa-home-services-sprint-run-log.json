@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T21:18:01.305Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T21-15-52-804Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 3,
+  "lanes": [
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "roofing",
+      "scanned": 8,
+      "added": 1,
+      "rejected": 7,
+      "note": ""
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "plumbing",
+      "scanned": 8,
+      "added": 2,
+      "rejected": 6,
+      "note": ""
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    }
+  ]
+}

@@ -73,3 +73,12 @@
 - No raw rows were merged and master stayed at 460 rows.
 - Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, and the desktop viewer workbook after the lane rotation.
 - Health remains yellow only because of accumulated `recent_failure_noise`; duplicate master key count is 0 and collector guard is clear for continued sourcing.
+
+## 2026-06-14 17:21 EDT - Batch 055 Phoenix Roofing/Plumbing Merge
+
+- Ran the guarded collector with no overlap; it completed inside the 180-second budget and staged 3 Phoenix roofing/plumbing candidates.
+- Enriched Stapleton Roofing and Goettl Air Conditioning & Plumbing from public official/BBB/leadership evidence and promoted them to reviewed/final.
+- Kept Pipe and Wrench LLC pending because public checks confirmed business identity and contact details but did not produce a strong owner or decision-maker source.
+- Merged through `scripts/merge-new-leads.ps1`; master moved from 460 to 462 rows with 2 added and 0 existing-row enrichments.
+- Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, and the desktop viewer workbook.
+- Health remains yellow only because of accumulated `recent_failure_noise`; duplicate master key count is 0 and collector guard is clear for continued sourcing.
