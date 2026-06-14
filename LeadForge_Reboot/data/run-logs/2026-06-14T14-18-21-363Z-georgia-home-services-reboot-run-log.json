@@ -1,0 +1,45 @@
+{
+  "createdAt": "2026-06-14T14:19:19.439Z",
+  "config": "georgia-home-services-reboot",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T14-18-21-363Z-georgia-home-services-reboot-fresh-leads.csv",
+  "rowsWritten": 2,
+  "lanes": [
+    {
+      "city": "Savannah",
+      "state": "GA",
+      "niche": "roofing",
+      "scanned": 2,
+      "added": 2,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Savannah",
+      "state": "GA",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Savannah",
+      "state": "GA",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 12000ms on attempt 2"
+    },
+    {
+      "city": "Savannah",
+      "state": "GA",
+      "niche": "hvac",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    }
+  ]
+}

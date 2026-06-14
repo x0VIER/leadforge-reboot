@@ -1,11 +1,16 @@
 param(
-    [string]$State = 'FL',
+    [string]$State,
     [string]$InputCsv,
     [string]$OutputPath,
     [switch]$SkipDnsCheck
 )
 
 $ScriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
+$configPath = Join-Path $ScriptDir '..\config\source-lanes.json'
+if (-not $State) {
+    $config = if (Test-Path -LiteralPath $configPath) { Get-Content -LiteralPath $configPath -Raw | ConvertFrom-Json } else { $null }
+    $State = if ($config -and $config.targetState) { $config.targetState.ToString().ToUpper() } else { 'FL' }
+}
 if (-not $InputCsv) {
     $InputCsv = Join-Path $ScriptDir '..\data\master_leads.csv'
 }

@@ -21,8 +21,12 @@ const stamp = new Date().toISOString().replace(/[:.]/g, "-");
 const staleClaimMs = 2 * 60 * 60 * 1000;
 const defaultOverpassPauseMs = 5000;
 const defaultLanePauseMs = 2000;
+const defaultOverpassTimeoutMs = 12000;
+const defaultOverpassAttempts = 2;
 const defaultCollectorName = "Hermes";
 const overpassEndpoint = "https://overpass-api.de/api/interpreter";
+let overpassRequestTimeoutMs = defaultOverpassTimeoutMs;
+let overpassAttempts = defaultOverpassAttempts;
 
 const nicheToOverpassFilters = {
   roofing: ['["craft"="roofer"]', '["craft"="roofing"]'],
@@ -32,8 +36,21 @@ const nicheToOverpassFilters = {
 };
 
 const stateNameByCode = {
+  AL: "Alabama",
+  AZ: "Arizona",
+  CA: "California",
   FL: "Florida",
-  NY: "New York"
+  GA: "Georgia",
+  IL: "Illinois",
+  NC: "North Carolina",
+  NJ: "New Jersey",
+  NY: "New York",
+  OH: "Ohio",
+  PA: "Pennsylvania",
+  SC: "South Carolina",
+  TN: "Tennessee",
+  TX: "Texas",
+  VA: "Virginia"
 };
 
 function parseCsv(text) {
@@ -385,19 +402,33 @@ function dedupeKey(row) {
 
 async function fetchJson(url) {
   let lastError = null;
-  for (let attempt = 1; attempt <= 4; attempt += 1) {
-    const response = await fetch(overpassEndpoint, {
-      method: "POST",
-      headers: { "User-Agent": "LeadForge-Reboot/1.0 (public business research)" },
-      body: `data=${encodeURIComponent(url)}`,
-      redirect: "follow"
-    });
-    if (response.ok) {
-      return response.json();
-    }
-    lastError = new Error(`HTTP ${response.status} for query on attempt ${attempt}`);
-    if (![429, 504].includes(response.status) || attempt === 4) {
-      throw lastError;
+  for (let attempt = 1; attempt <= overpassAttempts; attempt += 1) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), overpassRequestTimeoutMs);
+    try {
+      const response = await fetch(overpassEndpoint, {
+        method: "POST",
+        headers: { "User-Agent": "LeadForge-Reboot/1.0 (public business research)" },
+        body: `data=${encodeURIComponent(url)}`,
+        redirect: "follow",
+        signal: controller.signal
+      });
+      if (response.ok) {
+        return response.json();
+      }
+      lastError = new Error(`HTTP ${response.status} for query on attempt ${attempt}`);
+      if (![429, 504].includes(response.status) || attempt === overpassAttempts) {
+        throw lastError;
+      }
+    } catch (error) {
+      lastError = error.name === "AbortError"
+        ? new Error(`Overpass request timed out after ${overpassRequestTimeoutMs}ms on attempt ${attempt}`)
+        : error;
+      if (attempt === overpassAttempts) {
+        throw lastError;
+      }
+    } finally {
+      clearTimeout(timer);
     }
     await sleep(4000 * attempt);
   }
@@ -566,7 +597,7 @@ async function queryLane(city, state, niche, limit) {
   const filters = nicheToOverpassFilters[niche] || [`["craft"="${String(niche).replaceAll(" ", "_")}"]`];
   const queryBody = filters.map((filter) => `  nwr${filter}(area.searchArea);`).join("\n");
   const query = `
-[out:json][timeout:25];
+[out:json][timeout:12];
 area["name"="${stateName}"]["boundary"="administrative"]["admin_level"="4"]->.stateArea;
 rel(area.stateArea)["name"="${city}"]["boundary"="administrative"]["admin_level"~"8|9|10"];
 map_to_area->.searchArea;
@@ -588,6 +619,8 @@ async function main() {
   const config = JSON.parse(await fs.readFile(configPath, "utf8"));
   const overpassPauseMs = Number(config.overpassPauseMs || defaultOverpassPauseMs);
   const lanePauseMs = Number(config.lanePauseMs || defaultLanePauseMs);
+  overpassRequestTimeoutMs = Number(config.overpassTimeoutMs || defaultOverpassTimeoutMs);
+  overpassAttempts = Number(config.overpassAttempts || defaultOverpassAttempts);
   const claimState = await acquireCollectorClaim(config);
   const seen = await readExistingRows();
   const freshRows = [];

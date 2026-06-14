@@ -158,10 +158,10 @@ function Merge-PreferredFields($targetRow, $incomingRow) {
 
 $masterRows = @()
 if (Test-Path -LiteralPath $MasterCsv) {
-    $masterRows = Import-Csv -LiteralPath (Resolve-Path -LiteralPath $MasterCsv)
+    $masterRows = @(Import-Csv -LiteralPath (Resolve-Path -LiteralPath $MasterCsv))
 }
 
-$newRows = Import-Csv -LiteralPath (Resolve-Path -LiteralPath $NewCsv)
+$newRows = @(Import-Csv -LiteralPath (Resolve-Path -LiteralPath $NewCsv))
 $existing = @{}
 
 foreach ($row in $masterRows) {
@@ -169,7 +169,7 @@ foreach ($row in $masterRows) {
 }
 
 $enrichedRows = 0
-$approved = foreach ($row in $newRows) {
+$approved = @(foreach ($row in $newRows) {
     $key = Normalize-Key $row
     if ($existing.ContainsKey($key)) {
         Merge-PreferredFields -targetRow $existing[$key] -incomingRow $row
@@ -179,7 +179,7 @@ $approved = foreach ($row in $newRows) {
         $existing[$key] = $row
         $row
     }
-}
+})
 
 $merged = @($masterRows + $approved)
 $merged = Ensure-LeadId $merged

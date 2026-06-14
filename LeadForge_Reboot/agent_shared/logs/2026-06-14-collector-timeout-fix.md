@@ -17,6 +17,12 @@ The collector scans multiple city/niche lanes with network calls and configured 
 - Patched the guarded runner to quote the Node script path and capture stdout/stderr logs because the workspace path contains a space.
 - Tuned `config/source-lanes.json` to smaller faster batches: 2 active cities, 2 per-niche limit, 8 max output rows, shorter pauses.
 - Documented that direct long-running collector calls are not allowed from Codex turns.
+- Added per-request Overpass timeouts and reduced Overpass attempts so one slow network request cannot burn the whole collector budget.
+- Reduced active sourcing to one city per run for Georgia so each heartbeat remains responsive.
+- Patched guarded runner exit handling to trust `CURRENT_STATUS.json` when PowerShell does not populate the child process exit code.
+- Fixed Georgia dry runs by expanding `stateNameByCode`; Georgia previously queried Overpass as `GA` instead of `Georgia`.
+- Fixed single-row merge count reporting by array-wrapping `Import-Csv` and approved rows in `merge-new-leads.ps1`.
+- Fixed audit defaults so contamination and owner-backlog scripts read the active `source-lanes.json targetState` instead of defaulting to Florida after a state transition.
 
 ## Safety
 

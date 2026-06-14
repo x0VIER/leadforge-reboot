@@ -1,0 +1,32 @@
+{
+  "run_name": "2026-06-14-georgia-home-services-reboot",
+  "slug": "2026-06-14-georgia-home-services-reboot",
+  "created_at": "2026-06-14T14:19:19",
+  "status": "raw_staged",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-14T14-18-21-363Z-georgia-home-services-reboot-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-georgia-savannah-owner-enriched-batch-018.csv"
+  ],
+  "final_files": [
+    "2026-06-14-georgia-savannah-owner-enriched-batch-018.csv"
+  ],
+  "source_log": "2026-06-14T14-18-21-363Z-georgia-home-services-reboot-run-log.json",
+  "raw_rows": 2,
+  "staged_at": "2026-06-14T14:19:19",
+  "reviewed_at": "2026-06-14T10:22:00",
+  "merged_at": "2026-06-14T10:22:00",
+  "reviewed_rows": 1,
+  "merged_rows": 1,
+  "pending_rows": 1,
+  "rejected_rows": 0,
+  "pending_files": [
+    "2026-06-14T14-18-21-363Z-georgia-home-services-reboot-fresh-leads.pending-enrichment.csv"
+  ],
+  "rejected_files": [],
+  "status": "merged_to_master_partial",
+  "merge_note": "Batch 018 merged 1 new owner-verified Savannah Georgia lead. Rainstoppers Roofing remains pending because public owner evidence exists but does not yet cleanly tie the Savannah landing page and 912 phone to the same first-party owner/contact path."
+}

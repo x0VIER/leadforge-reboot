@@ -102,7 +102,14 @@ while (-not $process.HasExited) {
 
 $process.WaitForExit()
 $process.Refresh()
-$exitCode = if ($null -ne $process.ExitCode) { [int]$process.ExitCode } else { 1 }
+$finalStatus = Read-JsonFile $statusPath
+$exitCode = if ($null -ne $process.ExitCode) {
+    [int]$process.ExitCode
+} elseif ($finalStatus -and $finalStatus.state -in @('complete','complete_no_rows')) {
+    0
+} else {
+    1
+}
 Add-Activity "Hermes guarded collector finished with exit code $exitCode."
 [pscustomobject]@{
     started = $true

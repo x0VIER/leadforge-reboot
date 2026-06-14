@@ -6,7 +6,7 @@
     "maxOutputRows":  8,
     "overpassPauseMs":  4500,
     "lanePauseMs":  1200,
-    "activeLaneWindowSize":  2,
+    "activeLaneWindowSize":  1,
     "lanePool":  [
                      "Atlanta",
                      "Savannah",
@@ -26,17 +26,6 @@
                      "Brunswick"
                  ],
     "lanes":  [
-                  {
-                      "city":  "Atlanta",
-                      "state":  "GA",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac"
-                                 ],
-                      "perNicheLimit":  2
-                  },
                   {
                       "city":  "Savannah",
                       "state":  "GA",

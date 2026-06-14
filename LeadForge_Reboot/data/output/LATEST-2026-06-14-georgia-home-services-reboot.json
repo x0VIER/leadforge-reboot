@@ -1,0 +1,11 @@
+{
+  "batchName": "georgia-home-services-reboot",
+  "datedBatchName": "2026-06-14-georgia-home-services-reboot",
+  "createdAt": "2026-06-14T14:19:19.445Z",
+  "outputCsv": "data\\output\\2026-06-14T14-18-21-363Z-georgia-home-services-reboot-fresh-leads.csv",
+  "runLog": "data\\run-logs\\2026-06-14T14-18-21-363Z-georgia-home-services-reboot-run-log.json",
+  "dailyOutputCsv": "data\\output\\2026-06-14\\2026-06-14T14-18-21-363Z-georgia-home-services-reboot-fresh-leads.csv",
+  "dailyRunLog": "data\\run-logs\\2026-06-14\\2026-06-14T14-18-21-363Z-georgia-home-services-reboot-run-log.json",
+  "stagedRunRoot": "data\\runs\\2026-06-14-141919-2026-06-14-georgia-home-services-reboot",
+  "rowsWritten": 2
+}
