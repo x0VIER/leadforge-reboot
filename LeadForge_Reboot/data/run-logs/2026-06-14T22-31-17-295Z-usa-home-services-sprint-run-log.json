@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T22:32:32.641Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T22-31-17-295Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 2,
+  "lanes": [
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "painting",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "painting",
+      "scanned": 7,
+      "added": 0,
+      "rejected": 7,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "painting",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "flooring",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "flooring",
+      "scanned": 2,
+      "added": 0,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "flooring",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "carpentry",
+      "scanned": 3,
+      "added": 0,
+      "rejected": 3,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "carpentry",
+      "scanned": 8,
+      "added": 0,
+      "rejected": 8,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "carpentry",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "masonry",
+      "scanned": 4,
+      "added": 2,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "masonry",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "masonry",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}
