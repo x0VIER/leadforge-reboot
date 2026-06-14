@@ -1,0 +1,31 @@
+{
+  "run_name": "2026-06-14-usa-home-services-sprint",
+  "slug": "2026-06-14-usa-home-services-sprint",
+  "created_at": "2026-06-14T16:23:04",
+  "status": "merged_to_master_partial",
+  "owner": "Hermes",
+  "notes": "Collector produced 3 raw rows. Two Phoenix roofing rows were owner/decision-maker verified from public sources, QA reviewed, and merged. One Tucson row was rejected as a commercial AV/electronic systems integrator, not a residential electrician lead. No pending rows remain for this run.",
+  "raw_files": [
+    "2026-06-14T16-21-07-990Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-az-roofing-owner-enriched-batch-030.csv"
+  ],
+  "final_files": [
+    "2026-06-14-az-roofing-owner-enriched-batch-030.csv"
+  ],
+  "pending_files": [
+    "2026-06-14T16-21-07-990Z-usa-home-services-sprint-fresh-leads.pending-enrichment.csv"
+  ],
+  "rejected_files": [
+    "2026-06-14-az-batch-030.rejected.csv"
+  ],
+  "source_log": "2026-06-14T16-21-07-990Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 3,
+  "reviewed_rows": 2,
+  "pending_rows": 0,
+  "rejected_rows": 1,
+  "merged_rows": 2,
+  "merged_at": "2026-06-14T12:27:20",
+  "staged_at": "2026-06-14T16:23:04"
+}

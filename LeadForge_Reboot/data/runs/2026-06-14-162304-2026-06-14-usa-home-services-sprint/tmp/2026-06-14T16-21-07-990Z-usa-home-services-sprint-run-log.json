@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T16:23:04.932Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T16-21-07-990Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 3,
+  "lanes": [
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "roofing",
+      "scanned": 6,
+      "added": 2,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 504 for query on attempt 1"
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "electrician",
+      "scanned": 6,
+      "added": 0,
+      "rejected": 6,
+      "note": ""
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "electrician",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "electrician",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    }
+  ]
+}
