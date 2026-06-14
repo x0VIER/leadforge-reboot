@@ -18,3 +18,8 @@
 ## Result
 - Active lanes rotated from the degraded Indianapolis/Louisville/Birmingham timeout window to Greenville SC, Orlando FL, and Tampa FL.
 - Future collector runs will source across a wider service-business mix instead of focusing on roofing first.
+
+## Follow-up timeout fix
+- A full 3-city by 15-niche pass was too large for one guarded collector heartbeat when Overpass was slow.
+- Added a persisted source-lane cursor and per-run lane/niche work budget so each heartbeat advances through the broader service map incrementally instead of replaying the same timeout-prone checks.
+- The cursor advances before each lane query starts, so a killed process does not get stuck retrying the same slow lane forever.

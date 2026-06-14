@@ -11,6 +11,7 @@
     "overpassTimeoutMs":  9000,
     "overpassAttempts":  1,
     "querySampleLimit":  4,
+    "maxLaneNicheChecksPerRun":  12,
     "activeLaneWindowSize":  3,
     "lanePool":  [
                      {

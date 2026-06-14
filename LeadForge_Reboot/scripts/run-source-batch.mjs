@@ -15,6 +15,7 @@ const statusDir = path.join(agentSharedRoot, "status");
 const doneDir = path.join(agentSharedRoot, "done");
 const failedDir = path.join(agentSharedRoot, "failed");
 const sharedLogPath = path.join(agentSharedRoot, "shared_activity_log.md");
+const scheduleCursorPath = path.join(statusDir, "SOURCE_LANE_CURSOR.json");
 
 const today = new Date().toISOString().slice(0, 10);
 const stamp = new Date().toISOString().replace(/[:.]/g, "-");
@@ -277,6 +278,60 @@ function buildFairLaneNicheSchedule(lanes) {
     }
   }
   return schedule;
+}
+
+function buildScheduleKey(config, schedule) {
+  const laneText = schedule.map(({ lane, niche }) => `${lane.city}|${lane.state}|${niche}`).join(";");
+  return `${config.batchName}|${config.targetState || ""}|${laneText}`;
+}
+
+async function readScheduleCursor(config, schedule) {
+  if (!schedule.length) {
+    return 0;
+  }
+  const currentKey = buildScheduleKey(config, schedule);
+  const cursor = await safeReadJson(scheduleCursorPath);
+  if (!cursor || cursor.scheduleKey !== currentKey) {
+    return 0;
+  }
+  const index = Number(cursor.nextIndex);
+  if (!Number.isFinite(index) || index < 0) {
+    return 0;
+  }
+  return Math.floor(index) % schedule.length;
+}
+
+async function writeScheduleCursor(config, schedule, nextIndex, extra = {}) {
+  if (!schedule.length) {
+    return;
+  }
+  const normalizedNextIndex = Math.floor(Number(nextIndex) || 0) % schedule.length;
+  const payload = {
+    scheduleKey: buildScheduleKey(config, schedule),
+    updatedAt: new Date().toISOString(),
+    nextIndex: normalizedNextIndex,
+    scheduleSize: schedule.length,
+    ...extra
+  };
+  await fs.mkdir(statusDir, { recursive: true });
+  await fs.writeFile(scheduleCursorPath, JSON.stringify(payload, null, 2), "utf8");
+}
+
+function getLaneNicheBudget(config, schedule) {
+  const configured = Number(config.maxLaneNicheChecksPerRun || schedule.length);
+  if (!Number.isFinite(configured) || configured <= 0) {
+    return schedule.length;
+  }
+  return Math.min(Math.ceil(configured), schedule.length);
+}
+
+function getRunSchedule(schedule, cursorIndex, budget) {
+  const items = [];
+  for (let offset = 0; offset < budget; offset += 1) {
+    const scheduleIndex = (cursorIndex + offset) % schedule.length;
+    items.push({ ...schedule[scheduleIndex], scheduleIndex });
+  }
+  return items;
 }
 
 function getQuerySampleLimit(config, lane) {
@@ -688,13 +743,27 @@ async function main() {
 
   try {
     const laneSchedule = buildFairLaneNicheSchedule(config.lanes);
-    for (const { lane, niche } of laneSchedule) {
+    const cursorIndex = await readScheduleCursor(config, laneSchedule);
+    const scheduleBudget = getLaneNicheBudget(config, laneSchedule);
+    const runSchedule = getRunSchedule(laneSchedule, cursorIndex, scheduleBudget);
+    status.scheduleCursorStart = cursorIndex;
+    status.scheduleBudget = scheduleBudget;
+    status.scheduleSize = laneSchedule.length;
+    await writeStatus("CURRENT_STATUS.json", status);
+
+    for (const { lane, niche, scheduleIndex } of runSchedule) {
       if (freshRows.length >= config.maxOutputRows) {
         break;
       }
 
+      const nextScheduleIndex = (scheduleIndex + 1) % laneSchedule.length;
       status.activeLane = laneKey(lane, niche);
+      status.scheduleCursorNext = nextScheduleIndex;
       await writeStatus("CURRENT_STATUS.json", { ...status, lanes: laneStats, rowsWritten: freshRows.length });
+      await writeScheduleCursor(config, laneSchedule, nextScheduleIndex, {
+        lastAttemptedLane: laneKey(lane, niche),
+        reason: "advanced_before_lane_query_to_avoid_timeout_replay"
+      });
 
       const perNicheAddLimit = getPerNicheAddLimit(lane);
       let addedForLane = 0;
