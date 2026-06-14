@@ -1,0 +1,31 @@
+{
+    "run_name":  "2026-06-14-usa-home-services-sprint",
+    "slug":  "2026-06-14-usa-home-services-sprint",
+    "created_at":  "2026-06-14T14:59:23",
+    "status":  "merged_to_master",
+    "owner":  "Hermes",
+    "notes":  "Merged two Nashville plumbing leads from reviewed/final batch 021: Lee Company Bellevue decision-maker lead and Parthenon owner-verified lead.",
+    "raw_files":  [
+                      "2026-06-14T14-56-58-532Z-usa-home-services-sprint-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-14-usa-nashville-owner-enriched-batch-021.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-14-usa-nashville-owner-enriched-batch-021.csv"
+                    ],
+    "source_log":  "2026-06-14T14-56-58-532Z-usa-home-services-sprint-run-log.json",
+    "raw_rows":  2,
+    "staged_at":  "2026-06-14T14:59:23",
+    "pending_files":  [
+
+                      ],
+    "rejected_files":  [
+
+                       ],
+    "reviewed_rows":  2,
+    "pending_rows":  0,
+    "rejected_rows":  0,
+    "merged_rows":  2,
+    "merged_at":  "2026-06-14T11:01:04"
+}
