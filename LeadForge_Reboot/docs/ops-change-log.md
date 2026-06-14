@@ -1,5 +1,13 @@
 # LeadForge Ops Change Log
 
+## 2026-06-14T23:03Z - LibreOffice recovery prevention
+
+- Root cause: LibreOffice can show a document-recovery prompt when a generated workbook is overwritten or moved while Calc has that workbook open or still has a lock/recovery state for it.
+- Fix: `scripts/build-lead-viewer-workbook.ps1` now builds the project viewer first and only refreshes the Desktop `OPEN ME - LeadForge Master Viewer.xlsx` when the target workbook is writable and has no LibreOffice `.~lock` file.
+- Fix: `scripts/build-desktop-lead-hub.ps1` now checks each polished niche workbook before rebuilding. If a workbook is open, such as `Carpentry Leads.xlsx`, the script keeps it in place, skips that one rebuild, and reports the skip instead of forcing a write or moving it to legacy.
+- Efficiency cleanup: the hub builder no longer moves every generated niche workbook into legacy on each run. It overwrites safe generated workbooks in place, which avoids duplicate audit clutter while still preserving source project data and raw CSV backups.
+- Verification: while LibreOffice had `Carpentry Leads.xlsx` open, the hub rebuild completed successfully, skipped only the locked Carpentry workbook, kept 20 visible niche `.xlsx` files, and left 0 visible CSV files in the root or niche viewing folders.
+
 ## 2026-06-14T22:59Z - Human viewer hub and windows/doors batch
 
 - Collector output produced 4 windows/doors candidates. Crystal Overhead Door Inc and Aventus Group LLC were promoted to reviewed/final and merged after public owner or decision-maker evidence was verified. New Era Windows Cooperative and Urban Street Window Works stayed pending because no clean public owner or decision-maker source was verified.

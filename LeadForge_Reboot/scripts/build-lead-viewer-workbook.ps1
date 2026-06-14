@@ -27,6 +27,28 @@ $desktopDir = Join-Path ([Environment]::GetFolderPath("Desktop")) "LeadForge Lea
 New-Item -ItemType Directory -Force -Path $desktopDir | Out-Null
 $desktopXlsx = Join-Path $desktopDir "OPEN ME - LeadForge Master Viewer.xlsx"
 
+function Test-WorkbookWritable {
+  param([Parameter(Mandatory = $true)][string]$Path)
+
+  $folder = Split-Path -Parent $Path
+  $name = Split-Path -Leaf $Path
+  $lockFile = Join-Path $folder ".~lock.$name#"
+  if (Test-Path -LiteralPath $lockFile) {
+    return $false
+  }
+  if (-not (Test-Path -LiteralPath $Path)) {
+    return $true
+  }
+
+  try {
+    $stream = [System.IO.File]::Open($Path, [System.IO.FileMode]::Open, [System.IO.FileAccess]::ReadWrite, [System.IO.FileShare]::None)
+    $stream.Close()
+    return $true
+  } catch {
+    return $false
+  }
+}
+
 $builder = Join-Path $env:TEMP "leadforge_viewer_builder.py"
 @'
 import csv
@@ -443,15 +465,25 @@ for ws in wb.worksheets:
                 )
 
 wb.active = wb.sheetnames.index("Dashboard")
-for path in (output_xlsx, desktop_xlsx):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    wb.save(path)
+os.makedirs(os.path.dirname(output_xlsx), exist_ok=True)
+wb.save(output_xlsx)
 
 print(output_xlsx)
 print(desktop_xlsx)
 '@ | Set-Content -LiteralPath $builder -Encoding UTF8
 
 & $python $builder $SourceCsv $outputXlsx $desktopXlsx
+if ($LASTEXITCODE -ne 0) {
+  throw "LeadForge viewer workbook builder failed with exit code $LASTEXITCODE"
+}
+
+if (Test-WorkbookWritable -Path $desktopXlsx) {
+  Copy-Item -LiteralPath $outputXlsx -Destination $desktopXlsx -Force
+  Write-Output "Desktop viewer refreshed:"
+  Write-Output $desktopXlsx
+} else {
+  Write-Warning "Desktop viewer is open or locked by LibreOffice; refreshed project workbook only and skipped overwriting the desktop copy."
+}
 
 if ($OpenAfterBuild) {
   $soffice = Join-Path $env:ProgramFiles "LibreOffice\program\soffice.exe"

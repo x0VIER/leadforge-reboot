@@ -39,6 +39,10 @@ function Move-GeneratedItemToLegacy {
     param([Parameter(Mandatory = $true)][string]$Path)
 
     if (-not (Test-Path -LiteralPath $Path)) { return }
+    if ([System.IO.Path]::GetExtension($Path) -eq ".xlsx" -and -not (Test-WorkbookWritable -Path $Path)) {
+        Write-Warning "Kept open workbook in place instead of moving it to legacy: $Path"
+        return
+    }
     $name = Split-Path -Leaf $Path
     $destination = Join-Path $folders.Legacy $name
     if (Test-Path -LiteralPath $destination) {
@@ -75,6 +79,28 @@ function Get-SafeName([string]$value) {
     return $safe
 }
 
+function Test-WorkbookWritable {
+    param([Parameter(Mandatory = $true)][string]$Path)
+
+    $folder = Split-Path -Parent $Path
+    $name = Split-Path -Leaf $Path
+    $lockFile = Join-Path $folder ".~lock.$name#"
+    if (Test-Path -LiteralPath $lockFile) {
+        return $false
+    }
+    if (-not (Test-Path -LiteralPath $Path)) {
+        return $true
+    }
+
+    try {
+        $stream = [System.IO.File]::Open($Path, [System.IO.FileMode]::Open, [System.IO.FileAccess]::ReadWrite, [System.IO.FileShare]::None)
+        $stream.Close()
+        return $true
+    } catch {
+        return $false
+    }
+}
+
 # The desktop hub is generated output, so stale generated clutter is moved into
 # audit storage instead of being deleted. Source project data is never moved.
 $legacyTopLevelNames = @(
@@ -102,15 +128,12 @@ foreach ($item in $legacyTopLevelNames) {
     Move-GeneratedItemToLegacy -Path (Join-Path $HubDir $item)
 }
 
-foreach ($generatedFile in @(Get-ChildItem -LiteralPath $folders.Niche -File -ErrorAction SilentlyContinue | Where-Object { $_.Extension -in @(".xlsx", ".lnk") })) {
-    Move-GeneratedItemToLegacy -Path $generatedFile.FullName
-}
-foreach ($generatedFile in @(Get-ChildItem -LiteralPath $folders.Review -File -ErrorAction SilentlyContinue | Where-Object { $_.Extension -in @(".xlsx", ".lnk") })) {
-    Move-GeneratedItemToLegacy -Path $generatedFile.FullName
-}
-
 $desktopViewer = Join-Path $HubDir "OPEN ME - LeadForge Master Viewer.xlsx"
-Copy-Item -LiteralPath $ViewerXlsx -Destination $desktopViewer -Force
+if (Test-WorkbookWritable -Path $desktopViewer) {
+    Copy-Item -LiteralPath $ViewerXlsx -Destination $desktopViewer -Force
+} else {
+    Write-Warning "Desktop master viewer is open or locked by LibreOffice; skipped overwriting it this cycle."
+}
 Copy-Item -LiteralPath $MasterCsv -Destination (Join-Path $folders.RawCsv "master_leads_raw_backup.csv") -Force
 
 $python = Join-Path $env:USERPROFILE ".cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe"
@@ -135,12 +158,19 @@ foreach ($row in $rows) {
 }
 $nicheGroups = @($nicheBuckets.Values | Sort-Object { $_.rows.Count } -Descending)
 $nichePayload = @()
+$skippedNicheViews = @()
 foreach ($group in $nicheGroups) {
     $nicheName = $group.name
+    $nicheXlsx = Join-Path $folders.Niche "$nicheName Leads.xlsx"
+    if (-not (Test-WorkbookWritable -Path $nicheXlsx)) {
+        Write-Warning "Skipped rebuilding open or locked niche workbook: $nicheXlsx"
+        $skippedNicheViews += $nicheXlsx
+        continue
+    }
     $nichePayload += [pscustomobject]@{
         name = $nicheName
         rawValues = @($group.rawValues)
-        xlsx = (Join-Path $folders.Niche "$nicheName Leads.xlsx")
+        xlsx = $nicheXlsx
         csv = (Join-Path $folders.RawCsv "$nicheName Leads - Raw Export.csv")
     }
     $group.rows | Export-Csv -LiteralPath (Join-Path $folders.RawCsv "$nicheName Leads - Raw Export.csv") -NoTypeInformation
@@ -363,7 +393,8 @@ Set-Content -LiteralPath (Join-Path $HubDir "README - LeadForge Files.txt") -Val
 [pscustomobject]@{
     hub_dir = $HubDir
     desktop_viewer = $desktopViewer
-    niche_xlsx_files = $nicheGroups.Count
+    niche_xlsx_files_rebuilt = $nichePayload.Count
+    niche_xlsx_files_skipped_locked = $skippedNicheViews.Count
     total_rows = $rows.Count
     raw_csv_backup_dir = $folders.RawCsv
 }
