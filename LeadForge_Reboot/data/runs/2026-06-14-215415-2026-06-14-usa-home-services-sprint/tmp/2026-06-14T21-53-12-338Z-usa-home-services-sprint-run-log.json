@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T21:54:15.341Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T21-53-12-338Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 8,
+  "lanes": [
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "roofing",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "roofing",
+      "scanned": 8,
+      "added": 1,
+      "rejected": 7,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "roofing",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "plumbing",
+      "scanned": 7,
+      "added": 3,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "plumbing",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "plumbing",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "electrician",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "electrician",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "hvac",
+      "scanned": 6,
+      "added": 0,
+      "rejected": 6,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "hvac",
+      "scanned": 8,
+      "added": 2,
+      "rejected": 6,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}

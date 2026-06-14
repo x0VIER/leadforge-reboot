@@ -103,3 +103,10 @@
 - Ran the guarded collector with no overlap; it completed inside the 180-second budget and produced 0 fresh rows.
 - Root cause: the remaining Virginia Beach, Phoenix, and Tucson niche window had become dry, with Phoenix painting scanned/rejected and several later niche checks hitting timeout or HTTP 429 noise.
 - Safe fix: rotated the active lane window to Chicago, IL; Indianapolis, IN; and Louisville, KY using `scripts/rotate-source-lanes.ps1` instead of retrying the stale window.
+
+## 2026-06-14 17:58 EDT - Batch 057 Midwest Roofing/Plumbing/HVAC Merge
+
+- Ran the guarded collector on the rotated Chicago, Indianapolis, and Louisville lane window; it completed inside the 180-second budget and staged 8 raw candidates.
+- Promoted 7 owner/decision-maker verified rows to reviewed/final: Bone Dry Commercial Roofing, R&B Roofing and Remodeling, Kuhn Plumbing, Rocket Plumbing, Altstadt Hoffman Plumbing Services, Blythe Heating & Cooling, and Vital Heating & Air.
+- Kept Rodding Rooter pending because public identity and contact data are valid but no strong owner, founder, officer, BBB principal, registry contact, or first-party leadership source was found.
+- No raw rows were merged. Merged only the final reviewed CSV through `scripts/merge-new-leads.ps1`; master moved from 464 to 471 rows with 7 added and 0 existing-row enrichments.
