@@ -11,7 +11,7 @@ The Codex manual does not document `agent loop` as a special product name. The c
 For this project, the right loop is:
 
 1. Keep this thread alive with a heartbeat automation.
-2. Use explicit subagents for research and owner enrichment when the work can be parallelized safely.
+2. Use the recovered LeadForge Seven role sequence for research, owner enrichment, website checks, scoring, offer mapping, QA, and merge control.
 3. Use claim files and status files so the loop can see whether sourcing is already running.
 4. Keep merges and file writes serialized in the main thread.
 
@@ -26,11 +26,12 @@ For this project, the right loop is:
 1. Heartbeat wakes the thread.
 2. Hermes reads `config/source-lanes.json` for the current `targetState`, refreshes `agent_shared/status/PENDING_ENRICHMENT_QUEUE.json`, `agent_shared/status/OWNER_ENRICHMENT_BACKLOG_<STATE>.json`, `agent_shared/status/MASTER_CONTAMINATION_AUDIT_<STATE>.json`, and `agent_shared/status/OPS_SNAPSHOT.json`, then runs `scripts/get-collector-guard-status.ps1` before starting new sourcing.
 3. If no active claim exists, the collector opens a claim and writes progress as it works through lanes.
-4. Refresh the pending-enrichment queue and prefer resolving those rows before starting a new collector pass.
-5. If the latest pass completed with no fresh rows, rotate the configured state/city window before the next collector run.
-6. Research and owner enrichment run in parallel when useful.
-7. QA and merge run in sequence.
-8. Findings are reported back here and preserved in `LeadForge_Reboot`.
+4. Finish any `raw_staged` or partially reviewed run before starting a new collector pass.
+5. Refresh the pending-enrichment queue and prefer resolving rows that have enough public evidence before starting a new collector pass.
+6. If the latest pass completed with no fresh rows and no staged/pending work can move, rotate the configured state/city window before the next collector run.
+7. Research and owner enrichment run in parallel when useful, but final file writes and merges stay serialized.
+8. QA and merge run in sequence.
+9. Findings are reported back here and preserved in `LeadForge_Reboot`.
 
 ## Loop guardrails
 
@@ -39,3 +40,5 @@ For this project, the right loop is:
 - Read one consolidated state file first, but do not trust it blindly for overlap; verify claims with `scripts/get-collector-guard-status.ps1`.
 - If the contamination audit shows cloned or suspicious rows, prefer cleaning that queue before treating those leads as enrichment targets.
 - Keep file writes serialized in the main thread so pending queues, manifests, and master merges do not race each other.
+- Current master rows are protected. The loop is allowed to add clean new leads, not damage existing leads.
+- See `docs/leadforge-seven-loop.md` and `config/leadforge-seven-loop.json` for the live recovered-team contract.

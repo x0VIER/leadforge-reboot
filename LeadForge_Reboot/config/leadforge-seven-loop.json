@@ -1,0 +1,73 @@
+{
+  "name": "LeadForge Seven Loop",
+  "source": "Recovered Codex_Data_Recovery blueprint and current LeadForge_Reboot scripts",
+  "mission": "Generate new public-source business leads without damaging current leads, then enrich owner or decision-maker context before any master merge.",
+  "stateSelection": {
+    "sourceOfTruth": "config/source-lanes.json",
+    "field": "targetState",
+    "rule": "Never merge a row whose state does not match targetState unless the run manifest explicitly declares a different target state."
+  },
+  "priorityOrder": [
+    "Protect current master and commit durable in-scope work before opening new work.",
+    "Process existing raw_staged or reviewed run folders before starting another collector.",
+    "Resolve pending owner-enrichment rows that have enough public evidence.",
+    "Run the collector only when get-collector-guard-status.ps1 returns can_start_collector true.",
+    "Stage raw output into a run folder, triage, owner-enrich, QA, then merge only final reviewed rows.",
+    "Rotate lanes only after the active lane window returns no fresh rows and no staged run is waiting."
+  ],
+  "roles": [
+    {
+      "role": "Sindy",
+      "job": "Operations coordinator. Reads status, protects archives/master, opens or resumes the right work unit, and makes sure every run leaves a manifest, pending/rejected artifacts, logs, and a commit."
+    },
+    {
+      "role": "Hermes",
+      "job": "Run controller. Owns collector guard checks, claim awareness, lane rotation, run folders, and status refreshes."
+    },
+    {
+      "role": "Market Intelligence Lead",
+      "job": "Chooses target-state city/niche lanes from source-lanes.json and avoids repeating exhausted windows when pending work exists."
+    },
+    {
+      "role": "Business Discovery Analyst",
+      "job": "Collects only public business candidates from allowed public sources and never uses private, logged-in, paid, or outreach systems."
+    },
+    {
+      "role": "Digital Presence Auditor",
+      "job": "Checks each website for a real first-party site, usable contact or estimate path, public phone/email presence, and a specific visible conversion gap."
+    },
+    {
+      "role": "Public Data Verification Specialist",
+      "job": "Verifies owner or decision-maker evidence from official websites, state registries such as Sunbiz, BBB, chamber listings, or other public business records. No guessed owners."
+    },
+    {
+      "role": "Lead Data Operations Specialist",
+      "job": "Writes normalized CSV rows, triage artifacts, public_research_note fields, and manifest counts for raw, reviewed, final, pending, and rejected rows."
+    },
+    {
+      "role": "Opportunity Scoring Strategist",
+      "job": "Assigns risk_score_1_5 and priority_tier based on evidence strength, website/contact friction, duplication risk, and target-state fit."
+    },
+    {
+      "role": "Offer Readiness Architect",
+      "job": "Maps each clean lead to a concrete Elevor offer angle such as No Website Rescue Audit, Booking Path Cleanup Audit, Local Findability Check, or Private Homepage Concept Preview."
+    },
+    {
+      "role": "Rowan Pike",
+      "job": "QA gate. Blocks missing owners, weak sources, placeholder emails, third-party-only contact paths, target-state mismatches, duplicate websites, and suspicious cloned rows."
+    },
+    {
+      "role": "Quinn Slate",
+      "job": "Merge gate. Merges only final reviewed rows into data/master_leads.csv, preserving existing rows and rejecting raw or unresolved data."
+    }
+  ],
+  "mergeRules": [
+    "Never merge raw CSV output.",
+    "Never overwrite or delete current master leads to make room for new rows.",
+    "A clean merge row needs business_name, niche, city, state, website or public_phone, owner_name, owner_title, owner_source, source_evidence, visible_gap, offer_angle, risk_score_1_5, validation_status, priority_tier, and last_checked.",
+    "If owner_name or owner_source is missing, keep the row pending with public_research_note instead of guessing.",
+    "Reject target-state mismatches, supplier/manufacturer rows, low-signal listings with no website/phone, placeholder emails, and suspicious business/domain mismatches.",
+    "After every merge or rejection cycle, rebuild contamination audit, owner backlog, pending report, and ops snapshot before commit."
+  ],
+  "contactDataPolicy": "Contact data is context, not an action trigger. Record public phone/email/contact paths only when visibly public and useful for lead context. Do not send outreach, verify deliverability, OCR hidden contact data, scrape private sources, upload to external tools, or use logged-in/private data."
+}

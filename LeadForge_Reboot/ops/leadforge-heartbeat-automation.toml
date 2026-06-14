@@ -8,14 +8,19 @@ rrule = "FREQ=MINUTELY;INTERVAL=30"
 # This file is the repo-owned reference for the Codex app heartbeat.
 # The live automation lives under CODEX_HOME/automations and should match this intent.
 prompt = """
-Continue the LeadForge lead factory in C:\Users\loc9o\Desktop\AGR 1226. Treat this as an ongoing Codex automation loop, not a one-shot summary.
-First read LeadForge_Reboot\agent_shared\status\OPS_SNAPSHOT.json, LeadForge_Reboot\config\source-lanes.json, the latest run manifests under LeadForge_Reboot\data\runs, and git status.
+Continue the LeadForge lead factory in C:\Users\loc9o\Desktop\AGR 1226 as a LeadForge Seven loop, not a one-shot summary and not a lane-rotation-only loop.
+First read LeadForge_Reboot\agent_shared\status\OPS_SNAPSHOT.json, LeadForge_Reboot\config\source-lanes.json, LeadForge_Reboot\config\leadforge-seven-loop.json, LeadForge_Reboot\docs\leadforge-seven-loop.md, latest run manifests under LeadForge_Reboot\data\runs, and git status.
 Use config/source-lanes.json targetState as the selected state.
-If the tree has uncommitted work, understand and commit durable in-scope changes before opening new work.
-If no GitHub remote exists or gh is unauthenticated, keep local commits safe and retry publish only when a remote/auth path is available; do not stop lead production just because push is blocked.
-Before each collector run, run LeadForge_Reboot\scripts\get-collector-guard-status.ps1 and only proceed when can_start_collector is true.
-Do not merge raw leads. Stage collector outputs into a run folder, triage, enrich owners/decision makers from public sources, QA reviewed rows, reject suspicious or mismatched businesses, keep unresolved rows in pending with public_research_note, and merge only clean reviewed/final rows.
+Protect existing leads: never overwrite, delete, or raw-merge current data/master_leads.csv rows while trying to get new leads.
+If the tree has uncommitted work, understand it first. Finish durable in-scope staged/review/pending work before opening new collector work, then commit.
+Work priority: 1) unfinished raw_staged/reviewed runs, 2) pending owner-enrichment rows with public evidence, 3) fresh collector sourcing, 4) lane rotation after proven dry runs.
+Run the LeadForge Seven sequence for every candidate: market lane check, public business discovery, website/contact-path audit, public owner or decision-maker verification, data normalization, scoring, offer readiness, Rowan QA, Quinn reviewed-only merge.
+Before each collector run, run LeadForge_Reboot\scripts\get-collector-guard-status.ps1 and proceed only when can_start_collector is true. If a collector claim is active, wait and poll; do not overlap.
+Do not merge raw leads. Stage collector outputs into a run folder, triage, enrich owners/decision makers from public sources, QA reviewed rows, reject suspicious/duplicate/mismatched/low-signal businesses, keep unresolved rows in pending with public_research_note, and merge only clean reviewed/final rows.
+Clean final rows need business_name, niche, city, state, website or public_phone, owner_name, owner_title, owner_source, source_evidence, visible_gap, offer_angle, risk_score_1_5, validation_status, priority_tier, and last_checked. If owner evidence is missing or weak, do not guess; keep pending.
+Reject target-state mismatches, supplier/manufacturer rows, placeholder emails, third-party-only contact paths without stronger evidence, no-website/no-phone rows, and suspicious cloned/domain-mismatched rows.
 After each merge or rejection cycle, run contamination audit, owner backlog, pending report, ops snapshot, then commit.
-If latest lanes produce no fresh leads or only fully rejected reviewed runs, rotate lanes and continue.
+If latest lanes produce no fresh leads and no staged/pending work can be advanced, rotate lanes and continue.
+If no GitHub remote exists or gh is unauthenticated, keep local commits safe and retry publish only when a remote/auth path is available; do not stop lead production just because push is blocked.
 Preserve all existing files; never delete user/archive data. Only remove stale generated pending artifacts when the manifest has been updated and the replacement reviewed/rejected state exists.
 """

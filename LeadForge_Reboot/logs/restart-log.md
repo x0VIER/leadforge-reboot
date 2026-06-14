@@ -28,3 +28,9 @@
 - Fixed reviewed-merge behavior so newer `last_checked` dates from enrichment batches can update existing master rows instead of leaving them looking stale after a successful owner merge.
 - Added a master contamination audit so suspicious duplicate-website and cloned Florida rows can be surfaced into a review queue before more enrichment effort is spent on them.
 - Added a reversible quarantine flow for suspicious master rows so contamination-review lead IDs can be excluded from rebuilt master output without destroying the audit trail.
+
+## 2026-06-14
+
+- Restored the recovered LeadForge Seven loop contract from `Codex_Data_Recovery`: staged-run-first priority, seven-role candidate processing, owner/decision-maker verification, website/contact-path audit, QA gate, reviewed-only merge, and local commit checkpoints.
+- Added missing `agent_shared` handoff folders (`inbox`, `queue`, `outbox`, `triggers`, `logs`) so future agents can use the same file-based handoff pattern described in the old transcript.
+- Tightened the heartbeat automation template so the loop prioritizes unfinished runs and pending owner enrichment before opening more collector work, and protects existing master leads while adding new owner-enriched rows.

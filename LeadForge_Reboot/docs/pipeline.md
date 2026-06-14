@@ -16,14 +16,15 @@
 ## Run flow
 
 1. Create a run folder and manifest.
-2. Collect candidate businesses from public websites, directories, or search results.
-3. Store raw candidate rows in the run folder.
-4. Triage raw rows into rejected, pending enrichment, and reviewed candidates.
-5. Review evidence, visible gap, and offer angle.
-6. Score and tier the leads.
-7. Run QA against the reviewed CSV before merge.
-8. Merge approved rows into `data/master_leads.csv`.
-9. Log the run and preserve all artifacts.
+2. If a previous run is `raw_staged` or partially reviewed, finish that run before opening a new collector.
+3. Collect candidate businesses from public websites, directories, or search results.
+4. Store raw candidate rows in the run folder.
+5. Triage raw rows into rejected, pending enrichment, and reviewed candidates.
+6. Review website evidence, first-party contact path, owner/decision-maker source, visible gap, and offer angle.
+7. Score and tier the leads.
+8. Run QA against the reviewed CSV before merge.
+9. Merge only approved final rows into `data/master_leads.csv`.
+10. Log the run and preserve all artifacts.
 
 ## Runtime guards
 
@@ -40,6 +41,7 @@
 - Fresh source batches write to temp files first and then move into `data/output/` and `data/run-logs/`.
 - `config/source-lanes.json` is the state selector: update `targetState`, `targetStateName`, `lanePool`, and `lanes` together when moving the factory to another state.
 - If a completed pass returns no fresh rows, rotate to the next configured city window before the next sourcing run.
+- Do not rotate-and-source repeatedly while a staged run or resolvable pending owner-enrichment row is waiting.
 - When triaging a partial run, exclude already reviewed rows so pending-enrichment artifacts represent only unresolved work.
 - `data/master_leads.csv` should be rebuilt from archive plus reviewed batches if a raw merge ever contaminates master.
 - When a just-written status report matters, rebuild it and re-read it sequentially instead of relying on parallel reads from immediately adjacent writes.
@@ -50,3 +52,4 @@
 - No automated outreach
 - No paid API assumptions
 - Human review before anything leaves the system
+- Existing master leads are protected; new collection must not overwrite or delete them.
