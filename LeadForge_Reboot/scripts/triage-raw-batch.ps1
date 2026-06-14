@@ -49,6 +49,16 @@ function Test-ThirdPartyContactPath([string]$url) {
     return $contactHost -match 'facebook\.com|instagram\.com|x\.com|twitter\.com|linkedin\.com|youtube\.com|tiktok\.com|housecallpro\.com'
 }
 
+function Test-ContactDomainMismatch($row) {
+    if (-not $row.website -or -not $row.contact_url) { return $false }
+    $websiteHost = Get-Host $row.website
+    $contactHost = Get-Host $row.contact_url
+    if (-not $websiteHost -or -not $contactHost) { return $false }
+    if ($websiteHost -eq $contactHost) { return $false }
+    if ($websiteHost.EndsWith(".$contactHost") -or $contactHost.EndsWith(".$websiteHost")) { return $false }
+    return $true
+}
+
 function Test-NonLocalSupplierOrManufacturer($row) {
     $name = ([string]$row.business_name).ToLower()
     $websiteHost = Get-Host $row.website
@@ -77,6 +87,9 @@ function Get-RecommendedAction($reasons) {
     }
     if ($reasons -contains 'third_party_contact_path') {
         return 'hold_pending_until_first_party_contact_or_stronger_owner_evidence'
+    }
+    if ($reasons -contains 'contact_domain_mismatch') {
+        return 'hold_pending_until_domain_redirect_or_brand_relationship_is_verified'
     }
     return 'monitor_or_move_on_until_stronger_public_evidence'
 }
@@ -145,6 +158,7 @@ foreach ($row in $rows) {
     if (-not $row.owner_name) { $pendingReasons += 'missing_owner' }
     if (-not $row.owner_source) { $pendingReasons += 'missing_owner_source' }
     if (Test-ThirdPartyContactPath $row.contact_url) { $pendingReasons += 'third_party_contact_path' }
+    if (Test-ContactDomainMismatch $row) { $pendingReasons += 'contact_domain_mismatch' }
     if (-not $row.contact_url) { $pendingReasons += 'missing_first_party_contact_path' }
 
     if ($pendingReasons.Count -gt 0) {

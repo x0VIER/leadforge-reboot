@@ -25,7 +25,7 @@ if (-not (Test-Path $python)) {
 $outputXlsx = Join-Path $OutputDir "LeadForge_Master_Viewer.xlsx"
 $desktopDir = Join-Path ([Environment]::GetFolderPath("Desktop")) "LeadForge Lead Files"
 New-Item -ItemType Directory -Force -Path $desktopDir | Out-Null
-$desktopXlsx = Join-Path $desktopDir "LeadForge Master Viewer.xlsx"
+$desktopXlsx = Join-Path $desktopDir "OPEN ME - LeadForge Master Viewer.xlsx"
 
 $builder = Join-Path $env:TEMP "leadforge_viewer_builder.py"
 @'
@@ -135,29 +135,44 @@ ws_guide = wb.create_sheet("Field Guide")
 ws_guide.sheet_properties.tabColor = "111827"
 
 palette = {
-    "navy": "111827",
-    "slate": "1F2937",
-    "muted": "64748B",
-    "line": "CBD5D9",
-    "soft": "F7F3EA",
-    "paper": "FFFBF2",
-    "blue": "0EA5E9",
-    "teal": "0D9488",
-    "orange": "B45309",
-    "coral": "F97378",
-    "violet": "7C3AED",
-    "green": "059669",
-    "amber": "B45309",
+    "navy": "101820",
+    "slate": "243447",
+    "muted": "617080",
+    "line": "C9BFAF",
+    "canvas": "E6DED0",
+    "soft": "F3EBDD",
+    "paper": "FFF8EA",
+    "blue": "256D85",
+    "teal": "0E7C7B",
+    "orange": "B7791F",
+    "coral": "C08440",
+    "violet": "6C5CE7",
+    "green": "0F7B55",
+    "amber": "B7791F",
     "white": "FFFFFF",
 }
 thin = Side(style="thin", color=palette["line"])
 border = Border(left=thin, right=thin, top=thin, bottom=thin)
 
+def safe_sheet_name(label, existing):
+    cleaned = "".join(ch for ch in label if ch not in r'[]:*?/\\').strip()
+    if not cleaned:
+        cleaned = "Leads"
+    cleaned = cleaned[:31]
+    base = cleaned
+    suffix = 2
+    while cleaned in existing:
+        tail = f" {suffix}"
+        cleaned = (base[:31-len(tail)] + tail)
+        suffix += 1
+    existing.add(cleaned)
+    return cleaned
+
 def style_title(ws, title, subtitle):
     ws.sheet_view.showGridLines = False
     for row in ws.iter_rows(min_row=1, max_row=80, min_col=1, max_col=18):
         for cell in row:
-            cell.fill = PatternFill("solid", fgColor="D9E2DD")
+            cell.fill = PatternFill("solid", fgColor=palette["canvas"])
     ws["A1"] = title
     ws["A1"].font = Font(name="Segoe UI Semibold", size=24, bold=True, color=palette["white"])
     ws["A1"].fill = PatternFill("solid", fgColor=palette["navy"])
@@ -238,7 +253,7 @@ def apply_status_colors(ws, table_headers, first_row, last_row):
         )
         ws.conditional_formatting.add(
             f"{col}{first_row}:{col}{last_row}",
-            FormulaRule(formula=[f'ISNUMBER(SEARCH("reject",{col}{first_row}))'], fill=PatternFill("solid", fgColor="FEE2E2"), font=Font(color="991B1B", bold=True))
+            FormulaRule(formula=[f'ISNUMBER(SEARCH("reject",{col}{first_row}))'], fill=PatternFill("solid", fgColor="FDECC8"), font=Font(color="7C2D12", bold=True))
         )
     if "priority_tier" in table_headers:
         col = get_column_letter(table_headers.index("priority_tier") + 1)
@@ -344,6 +359,27 @@ for idx, header in enumerate(headers, start=1):
         ws_source.column_dimensions[col_letter].width = max(ws_source.column_dimensions[col_letter].width or 0, 18)
 
 write_table(ws_board, selected, rows, "Lead Board", "Readable selling view with owners, websites, offer angles, risk, priority, and validation.", palette["violet"])
+
+existing_sheet_names = set(wb.sheetnames)
+niche_palette = [palette["teal"], palette["blue"], palette["orange"], palette["violet"], palette["green"], palette["slate"]]
+for niche_index, (niche_name, _count) in enumerate(niche_counts.most_common()):
+    niche_rows = [r for r in rows if (clean(r.get("niche", "")) or "Unknown") == niche_name]
+    if not niche_rows:
+        continue
+    label = pretty_value("niche", niche_name)
+    sheet_name = safe_sheet_name(f"{label} Leads", existing_sheet_names)
+    ws_niche = wb.create_sheet(sheet_name)
+    ws_niche.sheet_properties.tabColor = niche_palette[niche_index % len(niche_palette)]
+    write_table(
+        ws_niche,
+        selected,
+        niche_rows,
+        f"{label} Leads",
+        "Filtered polished view for this service category. Full source details remain in Full Lead Data.",
+        niche_palette[niche_index % len(niche_palette)],
+        compact_rows=False,
+        wrap_text=True,
+    )
 
 write_table(ws_evidence, evidence_cols, rows, "Owner Evidence", "Owner and decision-maker evidence trail. Use this when checking whether a row is outreach-ready.", palette["teal"])
 

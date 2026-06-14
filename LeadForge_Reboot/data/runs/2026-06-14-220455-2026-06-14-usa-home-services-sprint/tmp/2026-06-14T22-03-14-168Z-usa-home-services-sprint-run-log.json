@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T22:04:55.959Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T22-03-14-168Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 2,
+  "lanes": [
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "landscaping",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 504 for query on attempt 1"
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "landscaping",
+      "scanned": 6,
+      "added": 0,
+      "rejected": 6,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "landscaping",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "locksmith",
+      "scanned": 2,
+      "added": 2,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "locksmith",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "locksmith",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}
