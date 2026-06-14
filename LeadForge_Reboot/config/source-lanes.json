@@ -31,7 +31,7 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Naples",
+                      "city":  "Ocala",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -42,7 +42,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Sarasota",
+                      "city":  "Daytona Beach",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -53,7 +53,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Bradenton",
+                      "city":  "Melbourne",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -64,7 +64,7 @@
                       "perNicheLimit":  3
                   },
                   {
-                      "city":  "Lakeland",
+                      "city":  "Clearwater",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
