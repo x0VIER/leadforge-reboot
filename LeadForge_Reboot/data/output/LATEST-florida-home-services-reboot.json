@@ -1,11 +1,11 @@
 {
   "batchName": "florida-home-services-reboot",
   "datedBatchName": "2026-06-14-florida-home-services-reboot",
-  "createdAt": "2026-06-14T13:09:26.152Z",
-  "outputCsv": "data\\output\\2026-06-14T13-06-38-300Z-florida-home-services-reboot-fresh-leads.csv",
-  "runLog": "data\\run-logs\\2026-06-14T13-06-38-300Z-florida-home-services-reboot-run-log.json",
-  "dailyOutputCsv": "data\\output\\2026-06-14\\2026-06-14T13-06-38-300Z-florida-home-services-reboot-fresh-leads.csv",
-  "dailyRunLog": "data\\run-logs\\2026-06-14\\2026-06-14T13-06-38-300Z-florida-home-services-reboot-run-log.json",
-  "stagedRunRoot": "data\\runs\\2026-06-14-130926-2026-06-14-florida-home-services-reboot",
+  "createdAt": "2026-06-14T13:23:53.340Z",
+  "outputCsv": "data\\output\\2026-06-14T13-20-19-679Z-florida-home-services-reboot-fresh-leads.csv",
+  "runLog": "data\\run-logs\\2026-06-14T13-20-19-679Z-florida-home-services-reboot-run-log.json",
+  "dailyOutputCsv": "data\\output\\2026-06-14\\2026-06-14T13-20-19-679Z-florida-home-services-reboot-fresh-leads.csv",
+  "dailyRunLog": "data\\run-logs\\2026-06-14\\2026-06-14T13-20-19-679Z-florida-home-services-reboot-run-log.json",
+  "stagedRunRoot": "data\\runs\\2026-06-14-132353-2026-06-14-florida-home-services-reboot",
   "rowsWritten": 7
 }
