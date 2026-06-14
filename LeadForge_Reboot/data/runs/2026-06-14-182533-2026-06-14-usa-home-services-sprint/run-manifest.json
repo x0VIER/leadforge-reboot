@@ -1,0 +1,31 @@
+{
+  "run_name": "2026-06-14-usa-home-services-sprint",
+  "slug": "2026-06-14-usa-home-services-sprint",
+  "created_at": "2026-06-14T18:25:33",
+  "status": "merged_to_master_partial",
+  "owner": "Hermes",
+  "notes": "Collector produced 6 Texas service rows. Outside, A-1 Locksmith, and Howard Locksmith Heights were owner/decision-maker verified from public sources and moved to final. Dr Lock and Locknology remain pending for owner evidence. High Quality Landscape Services was rejected as a low-signal phone-only listing.",
+  "raw_files": [
+    "2026-06-14T18-24-16-848Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-texas-service-owner-enriched-batch-044.csv"
+  ],
+  "final_files": [
+    "2026-06-14-texas-service-owner-enriched-batch-044.csv"
+  ],
+  "pending_files": [
+    "2026-06-14T18-24-16-848Z-usa-home-services-sprint-fresh-leads.pending-enrichment.csv"
+  ],
+  "rejected_files": [
+    "2026-06-14-texas-low-signal-landscaping-batch-044.rejected.csv"
+  ],
+  "source_log": "2026-06-14T18-24-16-848Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 6,
+  "reviewed_rows": 3,
+  "pending_rows": 2,
+  "rejected_rows": 1,
+  "staged_at": "2026-06-14T18:25:33",
+  "merged_rows": 3,
+  "merged_at": "2026-06-14T14:33:21"
+}
