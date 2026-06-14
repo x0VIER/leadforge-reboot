@@ -1,0 +1,31 @@
+{
+    "run_name":  "2026-06-14-usa-home-services-sprint",
+    "slug":  "2026-06-14-usa-home-services-sprint",
+    "created_at":  "2026-06-14T15:06:40",
+    "status":  "merged_to_master_partial",
+    "owner":  "Hermes",
+    "notes":  "Merged seven owner/decision-maker verified Raleigh and Knoxville leads from reviewed/final batch 022; seven rows remain pending for stronger owner evidence.",
+    "raw_files":  [
+                      "2026-06-14T15-04-29-026Z-usa-home-services-sprint-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-14-usa-raleigh-knoxville-owner-enriched-batch-022.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-14-usa-raleigh-knoxville-owner-enriched-batch-022.csv"
+                    ],
+    "source_log":  "2026-06-14T15-04-29-026Z-usa-home-services-sprint-run-log.json",
+    "raw_rows":  14,
+    "staged_at":  "2026-06-14T15:06:40",
+    "pending_files":  [
+                          "2026-06-14-usa-raleigh-knoxville-batch-022.pending-enrichment.csv"
+                      ],
+    "rejected_files":  [
+
+                       ],
+    "reviewed_rows":  7,
+    "pending_rows":  7,
+    "rejected_rows":  0,
+    "merged_rows":  7,
+    "merged_at":  "2026-06-14T11:10:00"
+}
