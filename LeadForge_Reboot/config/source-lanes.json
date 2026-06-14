@@ -142,31 +142,7 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Knoxville",
-                      "state":  "TN",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac",
-                                     "landscaping",
-                                     "pest_control",
-                                     "cleaning",
-                                     "locksmith",
-                                     "painting",
-                                     "flooring",
-                                     "carpentry",
-                                     "masonry",
-                                     "windows_doors",
-                                     "tree_service",
-                                     "pool_service"
-                                 ],
-                      "perNicheLimit":  null,
-                      "querySampleLimit":  null,
-                      "stateName":  "Tennessee"
-                  },
-                  {
-                      "city":  "Dallas",
+                      "city":  "Austin",
                       "state":  "TX",
                       "niches":  [
                                      "roofing",
@@ -190,8 +166,8 @@
                       "stateName":  "Texas"
                   },
                   {
-                      "city":  "Houston",
-                      "state":  "TX",
+                      "city":  "Columbus",
+                      "state":  "OH",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -211,7 +187,31 @@
                                  ],
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
-                      "stateName":  "Texas"
+                      "stateName":  "Ohio"
+                  },
+                  {
+                      "city":  "Cincinnati",
+                      "state":  "OH",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac",
+                                     "landscaping",
+                                     "pest_control",
+                                     "cleaning",
+                                     "locksmith",
+                                     "painting",
+                                     "flooring",
+                                     "carpentry",
+                                     "masonry",
+                                     "windows_doors",
+                                     "tree_service",
+                                     "pool_service"
+                                 ],
+                      "perNicheLimit":  null,
+                      "querySampleLimit":  null,
+                      "stateName":  "Ohio"
                   }
               ]
 }
