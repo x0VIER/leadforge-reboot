@@ -1,6 +1,6 @@
 # LeadForge Factory Metrics
 
-- Generated: 2026-06-14T12:59:40
+- Generated: 2026-06-14T13:02:49
 - Master rows: 405
 - States covered: 12
 - Niches covered: 12
