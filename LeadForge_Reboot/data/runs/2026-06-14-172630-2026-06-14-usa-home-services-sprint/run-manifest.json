@@ -1,0 +1,26 @@
+{
+  "run_name": "2026-06-14-usa-home-services-sprint",
+  "slug": "2026-06-14-usa-home-services-sprint",
+  "created_at": "2026-06-14T17:26:30",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Collector produced 1 Jacksonville masonry/monument row. Affordable Monument, LLC was owner-verified from official website and Florida Sunbiz evidence. Search surfaced complaint coverage that could not be fetched, so the row is marked P2/manual reputation review instead of P0.",
+  "raw_files": [
+    "2026-06-14T17-24-35-634Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-jacksonville-masonry-owner-enriched-batch-037.csv"
+  ],
+  "final_files": [
+    "2026-06-14-jacksonville-masonry-owner-enriched-batch-037.csv"
+  ],
+  "pending_files": [],
+  "source_log": "2026-06-14T17-24-35-634Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 1,
+  "reviewed_rows": 1,
+  "pending_rows": 0,
+  "rejected_rows": 0,
+  "merged_rows": 1,
+  "merged_at": "2026-06-14T13:28:20",
+  "staged_at": "2026-06-14T17:26:30"
+}

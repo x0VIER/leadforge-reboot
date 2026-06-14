@@ -14,9 +14,7 @@
   "final_files": [
     "2026-06-14-jacksonville-rooflife-owner-enriched-batch-035.csv"
   ],
-  "pending_files": [
-    "2026-06-14T17-12-57-473Z-usa-home-services-sprint-fresh-leads.pending-enrichment.csv"
-  ],
+  "pending_files": [],
   "source_log": "2026-06-14T17-12-57-473Z-usa-home-services-sprint-run-log.json",
   "raw_rows": 1,
   "reviewed_rows": 1,
