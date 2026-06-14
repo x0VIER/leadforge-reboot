@@ -27,3 +27,13 @@
 - Rejected Champion because it was a generic phone-only listing with no website, owner, registration, or first-party identity evidence.
 - Merged through `scripts/merge-new-leads.ps1`; master moved from 449 to 453 rows with 4 added and 0 existing-row enrichments.
 - Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, and the desktop viewer workbook.
+
+## 2026-06-14 16:20 EDT - Dry Collector Rotation
+
+- Re-read operating rules, ops snapshot, source lanes, LeadForge Seven config, lead memory index, collector guard, latest manifests, and git status before opening new work.
+- Confirmed the only manual-review pending row, Aire Texas Residential Services, still has conflicted public evidence and should remain pending rather than be forced into master.
+- Ran the guarded collector after `can_start_collector` returned true; it completed without overlap or timeout but produced 0 fresh rows.
+- Root cause: the active Austin, Columbus, and Cincinnati lane window had gone dry/stale for the current schedule cursor, with prior Overpass timeout noise already tracked in health reports.
+- Safe fix: rotated the active lane window to Pittsburgh, PA; Philadelphia, PA; and Richmond, VA using `scripts/rotate-source-lanes.ps1` instead of retrying the same dry lanes.
+- Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, and the desktop viewer workbook after the lane rotation.
+- Health remains yellow only because of accumulated `recent_failure_noise`; duplicate master key count is 0 and collector guard is clear for the next sourcing pass.
