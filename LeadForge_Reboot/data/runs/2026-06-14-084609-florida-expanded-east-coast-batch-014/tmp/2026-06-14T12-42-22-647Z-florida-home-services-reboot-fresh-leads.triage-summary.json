@@ -1,0 +1,10 @@
+{
+    "input_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-14-084609-florida-expanded-east-coast-batch-014\\raw\\2026-06-14T12-42-22-647Z-florida-home-services-reboot-fresh-leads.csv",
+    "total_rows":  12,
+    "excluded_reviewed_rows":  9,
+    "reviewed_ready_rows":  0,
+    "pending_enrichment_rows":  2,
+    "rejected_rows":  1,
+    "pending_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-14-084609-florida-expanded-east-coast-batch-014\\tmp\\2026-06-14T12-42-22-647Z-florida-home-services-reboot-fresh-leads.pending-enrichment.csv",
+    "rejected_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-14-084609-florida-expanded-east-coast-batch-014\\tmp\\2026-06-14T12-42-22-647Z-florida-home-services-reboot-fresh-leads.rejected.csv"
+}

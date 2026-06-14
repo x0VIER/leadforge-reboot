@@ -1,0 +1,32 @@
+{
+    "run_name":  "florida-expanded-east-coast-batch-014",
+    "slug":  "florida-expanded-east-coast-batch-014",
+    "created_at":  "2026-06-14T08:46:09",
+    "status":  "merged_to_master_partial",
+    "owner":  "Hermes",
+    "notes":  "Fill raw candidates, review evidence, run QA, then merge approved rows.",
+    "raw_files":  [
+                      "2026-06-14T12-42-22-647Z-florida-home-services-reboot-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-14-florida-expanded-east-coast-owner-enriched-batch-014.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-14-florida-expanded-east-coast-owner-enriched-batch-014.csv"
+                    ],
+    "pending_files":  [
+                          "2026-06-14T12-42-22-647Z-florida-home-services-reboot-fresh-leads.pending-enrichment.csv"
+                      ],
+    "rejected_files":  [
+                           "2026-06-14T12-42-22-647Z-florida-home-services-reboot-fresh-leads.rejected.csv"
+                       ],
+    "staged_at":  "2026-06-14T08:46:09",
+    "reviewed_at":  "2026-06-14T09:04:00",
+    "merged_at":  "2026-06-14T09:05:00",
+    "raw_rows":  12,
+    "reviewed_rows":  9,
+    "merged_rows":  9,
+    "pending_rows":  2,
+    "rejected_rows":  1,
+    "merge_note":  "Merged only QA-clean owner-enriched rows. K2 Plumbing and Unclog Plumbing Services 24/7 Hollywood remain pending for stronger owner/contact evidence. West Palm Beach Pro General Contractors rejected as generic/SEO lead with mismatched placeholder website copy."
+}
