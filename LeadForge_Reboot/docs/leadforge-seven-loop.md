@@ -7,7 +7,7 @@ This loop is the professional lead-team contract recovered from the old transcri
 1. Protect the current master. Read `git status`, `agent_shared/status/OPS_SNAPSHOT.json`, `config/source-lanes.json`, latest run manifests, and collector guard before doing work.
 2. If any run is `raw_staged`, `reviewed`, or otherwise unfinished, finish that run before opening new sourcing.
 3. If pending rows have enough public evidence to resolve, owner-enrich those rows before starting another collector.
-4. Run the collector only when `scripts/get-collector-guard-status.ps1` returns `can_start_collector: true`.
+4. Run the collector only through `scripts/run-collector-guarded.ps1` and only when `scripts/get-collector-guard-status.ps1` returns `can_start_collector: true`.
 5. Stage raw output into a run folder. Never merge raw output.
 6. Process each row through the LeadForge Seven roles: market lane check, business discovery, website audit, public owner verification, data ops, scoring, and offer readiness.
 7. QA reviewed/final rows with `scripts/qa-review-batch.ps1`.
@@ -43,6 +43,8 @@ This loop is the professional lead-team contract recovered from the old transcri
 - Certify with QA, ops health, contamination audit, owner backlog, pending report, ops snapshot, and a local commit.
 
 If the loop repeats the same failure twice, stop retrying blindly. Log the cause, fix or rotate the blocked lane, and leave a callback note so the next worker knows why the decision was made.
+
+Collector work must be bounded. Do not call `node scripts/run-source-batch.mjs` directly from a long Codex shell command. Use `run-collector-guarded.ps1` so a timeout moves the claim to `failed/`, updates `CURRENT_STATUS.json`, logs the blockage, and prevents ghost overlap.
 
 ## New-Only Lead Rules
 

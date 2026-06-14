@@ -1,6 +1,6 @@
 # LeadForge Ops Health
 
-- Generated: 2026-06-14T09:56:12
+- Generated: 2026-06-14T10:07:28
 - Health: green
 - Target state: FL
 - Master rows: 342

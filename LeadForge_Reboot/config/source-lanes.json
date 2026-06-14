@@ -3,10 +3,10 @@
     "collectorName":  "Hermes",
     "targetState":  "FL",
     "targetStateName":  "Florida",
-    "maxOutputRows":  18,
-    "overpassPauseMs":  7000,
-    "lanePauseMs":  2500,
-    "activeLaneWindowSize":  4,
+    "maxOutputRows":  8,
+    "overpassPauseMs":  4500,
+    "lanePauseMs":  1200,
+    "activeLaneWindowSize":  2,
     "lanePool":  [
                      "Jacksonville",
                      "Tampa",
@@ -47,28 +47,6 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Bonita Springs",
-                      "state":  "FL",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac"
-                                 ],
-                      "perNicheLimit":  3
-                  },
-                  {
-                      "city":  "Dunedin",
-                      "state":  "FL",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac"
-                                 ],
-                      "perNicheLimit":  3
-                  },
-                  {
                       "city":  "Largo",
                       "state":  "FL",
                       "niches":  [
@@ -77,7 +55,7 @@
                                      "electrician",
                                      "hvac"
                                  ],
-                      "perNicheLimit":  3
+                      "perNicheLimit":  2
                   },
                   {
                       "city":  "Plantation",
@@ -88,7 +66,7 @@
                                      "electrician",
                                      "hvac"
                                  ],
-                      "perNicheLimit":  3
+                      "perNicheLimit":  2
                   }
               ]
 }

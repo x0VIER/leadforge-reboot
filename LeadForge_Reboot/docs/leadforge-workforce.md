@@ -25,6 +25,10 @@ This is the human-reviewable company model for LeadForge. The loop is: clarify, 
 - `Echo`: memory and callback auditor. Makes sure runs are easy to resume by checking manifests, logs, notes, and file names.
 - `Cato`: automation auditor. Keeps the Codex automation prompt short, current, non-duplicated, and aligned with the repo workflow.
 
+## Timing Contract
+
+Hermes must use `scripts/run-collector-guarded.ps1` for collector work. Direct long-running `node scripts/run-source-batch.mjs` calls are not allowed in Codex turns because they can outlive the shell timeout and leave ghost claims. If a collector exceeds its budget, Knox marks it `timeout_killed`, moves the claim to `failed/`, and keeps the next collector from overlapping dirty state.
+
 ## Anti-Stagnation Rules
 
 - Clarify: read current status, target state, latest manifests, and guard before acting.
