@@ -1,0 +1,31 @@
+{
+  "run_name": "2026-06-14-usa-home-services-sprint",
+  "slug": "2026-06-14-usa-home-services-sprint",
+  "created_at": "2026-06-14T15:34:01",
+  "status": "merged_to_master_partial",
+  "owner": "Hermes",
+  "notes": "Merged five owner-verified Texas leads from the second Texas pass. Kept five unresolved rows pending, rejected one suspicious Bluebonnet domain/brand mismatch, then rotated active lanes to Columbus, Cincinnati, and Pittsburgh because Texas yield dropped and rate-limit/duplicate noise repeated.",
+  "raw_files": [
+    "2026-06-14T15-30-06-398Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-texas-owner-enriched-batch-025.csv"
+  ],
+  "final_files": [
+    "2026-06-14-texas-owner-enriched-batch-025.csv"
+  ],
+  "source_log": "2026-06-14T15-30-06-398Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 11,
+  "staged_at": "2026-06-14T15:34:01",
+  "pending_files": [
+    "2026-06-14-texas-batch-025.pending-enrichment.csv"
+  ],
+  "rejected_files": [
+    "2026-06-14-texas-batch-025.rejected.csv"
+  ],
+  "reviewed_rows": 5,
+  "pending_rows": 5,
+  "rejected_rows": 1,
+  "merged_rows": 5,
+  "merged_at": "2026-06-14T11:39:45"
+}

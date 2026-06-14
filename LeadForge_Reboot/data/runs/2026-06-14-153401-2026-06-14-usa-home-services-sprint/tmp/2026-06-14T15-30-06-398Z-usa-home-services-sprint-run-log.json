@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T15:34:01.292Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T15-30-06-398Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 11,
+  "lanes": [
+    {
+      "city": "Dallas",
+      "state": "TX",
+      "niche": "roofing",
+      "scanned": 3,
+      "added": 0,
+      "rejected": 3,
+      "note": ""
+    },
+    {
+      "city": "Dallas",
+      "state": "TX",
+      "niche": "plumbing",
+      "scanned": 2,
+      "added": 0,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Dallas",
+      "state": "TX",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for query on attempt 2"
+    },
+    {
+      "city": "Dallas",
+      "state": "TX",
+      "niche": "hvac",
+      "scanned": 3,
+      "added": 3,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Houston",
+      "state": "TX",
+      "niche": "roofing",
+      "scanned": 3,
+      "added": 0,
+      "rejected": 3,
+      "note": ""
+    },
+    {
+      "city": "Houston",
+      "state": "TX",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for query on attempt 2"
+    },
+    {
+      "city": "Houston",
+      "state": "TX",
+      "niche": "electrician",
+      "scanned": 5,
+      "added": 2,
+      "rejected": 3,
+      "note": ""
+    },
+    {
+      "city": "Houston",
+      "state": "TX",
+      "niche": "hvac",
+      "scanned": 6,
+      "added": 2,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "roofing",
+      "scanned": 6,
+      "added": 2,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "plumbing",
+      "scanned": 2,
+      "added": 2,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "electrician",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 12000ms on attempt 2"
+    }
+  ]
+}
