@@ -142,31 +142,7 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Greenville",
-                      "state":  "SC",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac",
-                                     "landscaping",
-                                     "pest_control",
-                                     "cleaning",
-                                     "locksmith",
-                                     "painting",
-                                     "flooring",
-                                     "carpentry",
-                                     "masonry",
-                                     "windows_doors",
-                                     "tree_service",
-                                     "pool_service"
-                                 ],
-                      "perNicheLimit":  null,
-                      "querySampleLimit":  null,
-                      "stateName":  "South Carolina"
-                  },
-                  {
-                      "city":  "Orlando",
+                      "city":  "Jacksonville",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -190,8 +166,8 @@
                       "stateName":  "Florida"
                   },
                   {
-                      "city":  "Tampa",
-                      "state":  "FL",
+                      "city":  "Atlanta",
+                      "state":  "GA",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -211,7 +187,31 @@
                                  ],
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
-                      "stateName":  "Florida"
+                      "stateName":  "Georgia"
+                  },
+                  {
+                      "city":  "Savannah",
+                      "state":  "GA",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac",
+                                     "landscaping",
+                                     "pest_control",
+                                     "cleaning",
+                                     "locksmith",
+                                     "painting",
+                                     "flooring",
+                                     "carpentry",
+                                     "masonry",
+                                     "windows_doors",
+                                     "tree_service",
+                                     "pool_service"
+                                 ],
+                      "perNicheLimit":  null,
+                      "querySampleLimit":  null,
+                      "stateName":  "Georgia"
                   }
               ]
 }
