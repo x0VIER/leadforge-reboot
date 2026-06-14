@@ -1,0 +1,31 @@
+{
+  "run_name": "2026-06-14-usa-home-services-sprint",
+  "slug": "2026-06-14-usa-home-services-sprint",
+  "created_at": "2026-06-14T17:19:55",
+  "status": "merged_to_master_partial",
+  "owner": "Hermes",
+  "notes": "Collector produced 4 broad service rows across landscaping and locksmith. Mosley Architecture & Gardens and Knowell's Lock & Safe were owner/decision-maker verified from public evidence. RAP'S Community Garden and Atlanta Landscape Life Saver Designer were rejected as non-commercial or low-signal directory-only leads.",
+  "raw_files": [
+    "2026-06-14T17-18-10-212Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-landscaping-locksmith-owner-enriched-batch-036.csv"
+  ],
+  "final_files": [
+    "2026-06-14-landscaping-locksmith-owner-enriched-batch-036.csv"
+  ],
+  "pending_files": [
+    "2026-06-14T17-18-10-212Z-usa-home-services-sprint-fresh-leads.pending-enrichment.csv"
+  ],
+  "rejected_files": [
+    "2026-06-14-landscaping-low-signal-batch-036.rejected.csv"
+  ],
+  "source_log": "2026-06-14T17-18-10-212Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 4,
+  "reviewed_rows": 2,
+  "pending_rows": 0,
+  "rejected_rows": 2,
+  "merged_rows": 2,
+  "merged_at": "2026-06-14T13:22:35",
+  "staged_at": "2026-06-14T17:19:55"
+}
