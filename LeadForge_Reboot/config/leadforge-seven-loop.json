@@ -59,8 +59,47 @@
     {
       "role": "Quinn Slate",
       "job": "Merge gate. Merges only final reviewed rows into data/master_leads.csv, preserving existing rows and rejecting raw or unresolved data."
+    },
+    {
+      "role": "Iris",
+      "job": "Health auditor. Runs collector guard, ops health, pending queue, duplicate, and status checks before new collector work."
+    },
+    {
+      "role": "Knox",
+      "job": "Blockage analyst. When commands fail, time out, or repeat stale work, documents cause, fix, safety check, and outcome before the loop continues."
+    },
+    {
+      "role": "Vale",
+      "job": "Contamination auditor. Checks master and candidate rows for state mismatches, duplicate keys, suspicious domains, placeholder data, and low-signal rows."
+    },
+    {
+      "role": "Echo",
+      "job": "Callback and memory auditor. Makes sure run folders, manifests, logs, notes, and git commits are easy for a human or future Codex worker to resume."
+    },
+    {
+      "role": "Cato",
+      "job": "Automation auditor. Keeps the Codex automation clean, non-duplicated, state-aware, and aligned with the current LeadForge workflow."
     }
   ],
+  "adaptationLoop": [
+    "Clarify current state from OPS_SNAPSHOT, source lanes, run manifests, collector guard, and git status.",
+    "Verify candidate facts from public sources and verify workflow safety before editing or merging.",
+    "Apply the smallest safe fix when a blocker is root-caused.",
+    "Adapt lanes, scripts, roles, or timing when the same blocker repeats or wastes cycles.",
+    "Certify with QA, health report, contamination audit, owner backlog, pending report, ops snapshot, and a local commit."
+  ],
+  "antiStagnationRules": [
+    "Do not retry the same failing lane or command forever. After two similar failures, log the cause and either fix, rotate, or mark pending with a public note.",
+    "Do not open a collector when any raw_staged or reviewed run can be advanced.",
+    "Do not overlap collectors. get-collector-guard-status.ps1 is the gate before every collector run.",
+    "Split work into role-specific worker tasks when research, QA, and system fixes can proceed independently.",
+    "Every system fix must explain why it was needed and how it avoids damaging current leads."
+  ],
+  "stateProgression": {
+    "currentStateSource": "config/source-lanes.json targetState",
+    "rule": "Finish all available cities in the target state's lanePool before proposing the next state. A state change must be committed and documented in the activity log.",
+    "nextStatePolicy": "When the current state is exhausted and no pending/reviewed work can advance, rotate to the next approved state by updating source-lanes.json instead of editing master data directly."
+  },
   "mergeRules": [
     "Never merge raw CSV output.",
     "Never overwrite or delete current master leads to make room for new rows.",
@@ -68,6 +107,13 @@
     "If owner_name or owner_source is missing, keep the row pending with public_research_note instead of guessing.",
     "Reject target-state mismatches, supplier/manufacturer rows, low-signal listings with no website/phone, placeholder emails, and suspicious business/domain mismatches.",
     "After every merge or rejection cycle, rebuild contamination audit, owner backlog, pending report, and ops snapshot before commit."
+  ],
+  "rejectionRules": [
+    "Every rejected row must include triage_reason, public_research_note, recommended_action, and lead_type.",
+    "Rejected public_research_note must explain what kind of lead it is, what public checks were attempted, and why the business should not be contacted for this campaign.",
+    "When public sources expose them, rejected rows should capture business_address, registration_source, registration_status, registration_notes, owner_name, owner_title, and owner_source even though the row will not merge.",
+    "Never invent owner names, owner phone numbers, registration status, or addresses. If the public evidence is weak, say that in public_research_note and keep the row pending or rejected as appropriate.",
+    "Owner phone numbers are not required and should only be recorded when they are clearly public business contact data, not private/personal contact data."
   ],
   "contactDataPolicy": "Contact data is context, not an action trigger. Record public phone/email/contact paths only when visibly public and useful for lead context. Do not send outreach, verify deliverability, OCR hidden contact data, scrape private sources, upload to external tools, or use logged-in/private data."
 }

@@ -61,6 +61,50 @@ function Test-NonLocalSupplierOrManufacturer($row) {
     return $false
 }
 
+function Get-LeadType($row) {
+    $niche = if ($row.niche) { ([string]$row.niche).Trim() } else { 'unknown_niche' }
+    $city = if ($row.city) { ([string]$row.city).Trim() } else { 'unknown_city' }
+    $state = if ($row.state) { ([string]$row.state).Trim() } else { 'unknown_state' }
+    return "$niche local service candidate in $city, $state"
+}
+
+function Get-RecommendedAction($reasons) {
+    if ($reasons -contains 'non_local_supplier_or_manufacturer') {
+        return 'reject_for_this_campaign_non_local_supplier_or_manufacturer'
+    }
+    if ($reasons -contains 'no_public_website_or_phone' -or $reasons -contains 'low_signal_listing') {
+        return 'reject_until_public_website_or_phone_is_found'
+    }
+    if ($reasons -contains 'third_party_contact_path') {
+        return 'hold_pending_until_first_party_contact_or_stronger_owner_evidence'
+    }
+    return 'monitor_or_move_on_until_stronger_public_evidence'
+}
+
+function Get-PublicResearchNote($row, $reasons, [string]$decision) {
+    $leadType = Get-LeadType $row
+    $evidence = if ($row.source_evidence) { ([string]$row.source_evidence).Trim() } else { 'Collector surfaced limited public business evidence.' }
+    $reasonText = ($reasons -join ';')
+    if ($decision -eq 'rejected') {
+        return "$leadType rejected for this campaign. Public checks available in the collector row: $evidence Blockers: $reasonText. Do not contact until the blocker is resolved with stronger public evidence."
+    }
+    return "$leadType held for owner/contact enrichment. Public checks available in the collector row: $evidence Blockers: $reasonText. Do not guess missing owner, registration, or contact details."
+}
+
+function Add-TriageMetadata($row, $reasons, [string]$decision) {
+    $copy = $row.PSObject.Copy()
+    Add-Member -InputObject $copy -NotePropertyName 'triage_reason' -NotePropertyValue ($reasons -join ';') -Force
+    Add-Member -InputObject $copy -NotePropertyName 'lead_type' -NotePropertyValue (Get-LeadType $row) -Force
+    Add-Member -InputObject $copy -NotePropertyName 'public_research_note' -NotePropertyValue (Get-PublicResearchNote -row $row -reasons $reasons -decision $decision) -Force
+    Add-Member -InputObject $copy -NotePropertyName 'recommended_action' -NotePropertyValue (Get-RecommendedAction $reasons) -Force
+    foreach ($field in @('business_address','registration_source','registration_status','registration_notes')) {
+        if ($copy.PSObject.Properties.Name -notcontains $field) {
+            Add-Member -InputObject $copy -NotePropertyName $field -NotePropertyValue '' -Force
+        }
+    }
+    return $copy
+}
+
 $pending = @()
 $rejected = @()
 $ready = @()
@@ -93,9 +137,7 @@ foreach ($row in $rows) {
     }
 
     if ($reasons.Count -gt 0) {
-        $copy = $row.PSObject.Copy()
-        Add-Member -InputObject $copy -NotePropertyName 'triage_reason' -NotePropertyValue ($reasons -join ';') -Force
-        $rejected += $copy
+        $rejected += Add-TriageMetadata -row $row -reasons $reasons -decision 'rejected'
         continue
     }
 
@@ -106,9 +148,7 @@ foreach ($row in $rows) {
     if (-not $row.contact_url) { $pendingReasons += 'missing_first_party_contact_path' }
 
     if ($pendingReasons.Count -gt 0) {
-        $copy = $row.PSObject.Copy()
-        Add-Member -InputObject $copy -NotePropertyName 'triage_reason' -NotePropertyValue ($pendingReasons -join ';') -Force
-        $pending += $copy
+        $pending += Add-TriageMetadata -row $row -reasons $pendingReasons -decision 'pending'
         continue
     }
 

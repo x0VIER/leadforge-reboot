@@ -28,6 +28,21 @@ This loop is the professional lead-team contract recovered from the old transcri
 - `Offer Readiness Architect`: maps leads to concrete Elevor offers.
 - `Rowan Pike`: QA gate.
 - `Quinn Slate`: reviewed-only merge gate.
+- `Iris`: health auditor for collector guard, ops health, pending queue, duplicate checks, and status checks.
+- `Knox`: blockage analyst for command failures, timeouts, repeated stale work, and documented fixes.
+- `Vale`: contamination auditor for state mismatches, duplicate keys, suspicious domains, placeholder data, and low-signal rows.
+- `Echo`: callback and memory auditor for manifests, logs, notes, file naming, and commit hygiene.
+- `Cato`: automation auditor for keeping the Codex automation prompt clean, current, and non-duplicated.
+
+## Clarify, Verify, Apply, Adapt, Certify
+
+- Clarify current state from `OPS_SNAPSHOT.json`, `source-lanes.json`, run manifests, collector guard, and `git status`.
+- Verify candidate facts from public sources before a row reaches `final/`.
+- Apply the smallest safe script, config, or documentation fix when a blocker is root-caused.
+- Adapt lanes, timing, worker roles, or checks when the same problem repeats.
+- Certify with QA, ops health, contamination audit, owner backlog, pending report, ops snapshot, and a local commit.
+
+If the loop repeats the same failure twice, stop retrying blindly. Log the cause, fix or rotate the blocked lane, and leave a callback note so the next worker knows why the decision was made.
 
 ## New-Only Lead Rules
 
@@ -39,6 +54,14 @@ This loop is the professional lead-team contract recovered from the old transcri
 - Reject low-signal rows that have no website and no phone.
 - Reject supplier/manufacturer rows when the campaign target is local service businesses.
 - Reject placeholder emails and suspicious mismatches.
+
+## Rejected Row Notes
+
+Rejected leads must be useful later, not throwaway rows. Every rejected CSV should include `triage_reason`, `public_research_note`, `recommended_action`, and `lead_type`.
+
+When public evidence is available, rejected rows should also preserve `business_address`, `registration_source`, `registration_status`, `registration_notes`, `owner_name`, `owner_title`, and `owner_source`. The note should say what type of lead it was, which public checks were done, and why the lead should not be contacted for this campaign.
+
+Do not invent owner names, owner phone numbers, addresses, or registration details. Owner phone data should only be recorded when it is clearly public business contact data, not private personal data.
 
 ## Clean Row Minimum
 

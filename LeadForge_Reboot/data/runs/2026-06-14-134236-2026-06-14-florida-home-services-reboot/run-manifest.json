@@ -1,0 +1,28 @@
+{
+  "run_name": "2026-06-14-florida-home-services-reboot",
+  "slug": "2026-06-14-florida-home-services-reboot",
+  "created_at": "2026-06-14T13:42:36",
+  "status": "raw_staged",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-14T13-36-04-246Z-florida-home-services-reboot-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-florida-coastal-owner-enriched-batch-017.csv"
+  ],
+  "final_files": [
+    "2026-06-14-florida-coastal-owner-enriched-batch-017.csv"
+  ],
+  "source_log": "2026-06-14T13-36-04-246Z-florida-home-services-reboot-run-log.json",
+  "raw_rows": 3,
+  "staged_at": "2026-06-14T13:42:36",
+  "reviewed_at": "2026-06-14T09:55:00",
+  "merged_at": "2026-06-14T09:55:00",
+  "reviewed_rows": 3,
+  "merged_rows": 3,
+  "pending_rows": 0,
+  "rejected_rows": 0,
+  "status": "merged_to_master_partial",
+  "merge_note": "Batch 017 merged 3 new coastal Florida owner-verified leads. No raw rows were merged directly. QA returned no flags; triage found zero pending and zero rejected rows after reviewed exclusions. System rules were expanded so future rejected rows include reasons, lead type, public research notes, recommended action, and registration/owner placeholders."
+}
