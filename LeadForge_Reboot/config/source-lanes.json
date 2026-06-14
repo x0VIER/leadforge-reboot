@@ -142,55 +142,7 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Birmingham",
-                      "state":  "AL",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac",
-                                     "landscaping",
-                                     "pest_control",
-                                     "cleaning",
-                                     "locksmith",
-                                     "painting",
-                                     "flooring",
-                                     "carpentry",
-                                     "masonry",
-                                     "windows_doors",
-                                     "tree_service",
-                                     "pool_service"
-                                 ],
-                      "perNicheLimit":  null,
-                      "querySampleLimit":  null,
-                      "stateName":  "Alabama"
-                  },
-                  {
-                      "city":  "Greenville",
-                      "state":  "SC",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac",
-                                     "landscaping",
-                                     "pest_control",
-                                     "cleaning",
-                                     "locksmith",
-                                     "painting",
-                                     "flooring",
-                                     "carpentry",
-                                     "masonry",
-                                     "windows_doors",
-                                     "tree_service",
-                                     "pool_service"
-                                 ],
-                      "perNicheLimit":  null,
-                      "querySampleLimit":  null,
-                      "stateName":  "South Carolina"
-                  },
-                  {
-                      "city":  "Orlando",
+                      "city":  "Tampa",
                       "state":  "FL",
                       "niches":  [
                                      "roofing",
@@ -212,6 +164,54 @@
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
                       "stateName":  "Florida"
+                  },
+                  {
+                      "city":  "Jacksonville",
+                      "state":  "FL",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac",
+                                     "landscaping",
+                                     "pest_control",
+                                     "cleaning",
+                                     "locksmith",
+                                     "painting",
+                                     "flooring",
+                                     "carpentry",
+                                     "masonry",
+                                     "windows_doors",
+                                     "tree_service",
+                                     "pool_service"
+                                 ],
+                      "perNicheLimit":  null,
+                      "querySampleLimit":  null,
+                      "stateName":  "Florida"
+                  },
+                  {
+                      "city":  "Atlanta",
+                      "state":  "GA",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac",
+                                     "landscaping",
+                                     "pest_control",
+                                     "cleaning",
+                                     "locksmith",
+                                     "painting",
+                                     "flooring",
+                                     "carpentry",
+                                     "masonry",
+                                     "windows_doors",
+                                     "tree_service",
+                                     "pool_service"
+                                 ],
+                      "perNicheLimit":  null,
+                      "querySampleLimit":  null,
+                      "stateName":  "Georgia"
                   }
               ]
 }
