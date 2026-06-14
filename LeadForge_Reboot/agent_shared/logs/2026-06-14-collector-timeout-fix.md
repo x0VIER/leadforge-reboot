@@ -14,6 +14,7 @@ The collector scans multiple city/niche lanes with network calls and configured 
 - Moved its claim from `agent_shared/working` to `agent_shared/failed` as `timeout_killed`.
 - Updated `CURRENT_STATUS.json` to `timeout_killed` with an error note.
 - Added `scripts/run-collector-guarded.ps1` to launch collectors with a max runtime, poll safely, and clean up claims/status on timeout.
+- Patched the guarded runner to quote the Node script path and capture stdout/stderr logs because the workspace path contains a space.
 - Tuned `config/source-lanes.json` to smaller faster batches: 2 active cities, 2 per-niche limit, 8 max output rows, shorter pauses.
 - Documented that direct long-running collector calls are not allowed from Codex turns.
 

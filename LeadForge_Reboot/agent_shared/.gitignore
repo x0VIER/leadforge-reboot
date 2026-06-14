@@ -3,7 +3,10 @@ status/*.json
 working/*.json
 done/*.json
 failed/*.json
+logs/*guarded-collector.stdout.log
+logs/*guarded-collector.stderr.log
 !status/.gitkeep
 !working/.gitkeep
 !done/.gitkeep
 !failed/.gitkeep
+!logs/.gitkeep

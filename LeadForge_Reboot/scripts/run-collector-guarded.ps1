@@ -7,6 +7,7 @@ $ScriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyI
 $root = Resolve-Path -LiteralPath (Join-Path $ScriptDir '..')
 $nodeScript = Join-Path $ScriptDir 'run-source-batch.mjs'
 $activityLog = Join-Path $root 'agent_shared\shared_activity_log.md'
+$logsDir = Join-Path $root 'agent_shared\logs'
 $statusPath = Join-Path $root 'agent_shared\status\CURRENT_STATUS.json'
 $failedDir = Join-Path $root 'agent_shared\failed'
 $workingDir = Join-Path $root 'agent_shared\working'
@@ -71,7 +72,12 @@ if (-not $guard.can_start_collector) {
 }
 
 Add-Activity "Hermes guarded collector starting with max runtime ${MaxSeconds}s."
-$process = Start-Process -FilePath 'node' -ArgumentList @($nodeScript) -WorkingDirectory $root -PassThru -WindowStyle Hidden
+New-Item -ItemType Directory -Force -Path $logsDir | Out-Null
+$runStamp = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH-mm-ssZ')
+$stdoutPath = Join-Path $logsDir "$runStamp-guarded-collector.stdout.log"
+$stderrPath = Join-Path $logsDir "$runStamp-guarded-collector.stderr.log"
+$quotedNodeScript = '"' + $nodeScript + '"'
+$process = Start-Process -FilePath 'node' -ArgumentList $quotedNodeScript -WorkingDirectory $root -PassThru -WindowStyle Hidden -RedirectStandardOutput $stdoutPath -RedirectStandardError $stderrPath
 $startedAt = Get-Date
 
 while (-not $process.HasExited) {
@@ -94,12 +100,17 @@ while (-not $process.HasExited) {
     }
 }
 
-Add-Activity "Hermes guarded collector finished with exit code $($process.ExitCode)."
+$process.WaitForExit()
+$process.Refresh()
+$exitCode = if ($null -ne $process.ExitCode) { [int]$process.ExitCode } else { 1 }
+Add-Activity "Hermes guarded collector finished with exit code $exitCode."
 [pscustomobject]@{
     started = $true
     timed_out = $false
     max_seconds = $MaxSeconds
     process_id = $process.Id
-    exit_code = $process.ExitCode
+    exit_code = $exitCode
+    stdout_log = $stdoutPath
+    stderr_log = $stderrPath
 } | Format-List
-exit $process.ExitCode
+exit $exitCode
