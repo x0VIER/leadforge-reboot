@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T21:32:49.898Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T21-30-53-632Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 2,
+  "lanes": [
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "landscaping",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "landscaping",
+      "scanned": 8,
+      "added": 2,
+      "rejected": 6,
+      "note": ""
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "landscaping",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for query on attempt 1"
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "locksmith",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "locksmith",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "locksmith",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    }
+  ]
+}

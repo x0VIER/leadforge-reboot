@@ -82,3 +82,12 @@
 - Merged through `scripts/merge-new-leads.ps1`; master moved from 460 to 462 rows with 2 added and 0 existing-row enrichments.
 - Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, and the desktop viewer workbook.
 - Health remains yellow only because of accumulated `recent_failure_noise`; duplicate master key count is 0 and collector guard is clear for continued sourcing.
+
+## 2026-06-14 17:36 EDT - Batch 056 Phoenix Landscaping Merge
+
+- Ran the guarded collector with no overlap; it completed inside the 180-second budget and staged 2 Phoenix landscaping candidates after Tucson landscaping timed out.
+- Enriched Goodman's Landscape Maintenance LLC and Apex Turf from official website, contact, license, and BBB owner/principal evidence, then promoted both rows to reviewed/final.
+- No raw rows were merged. The run folder now has raw, reviewed, final, and header-only pending artifacts with manifest counts.
+- Merged through `scripts/merge-new-leads.ps1`; master moved from 462 to 464 rows with 2 added and 0 existing-row enrichments.
+- Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, and the desktop viewer workbook.
+- Health remains yellow only because of accumulated `recent_failure_noise`; duplicate master key count is 0 and collector guard is clear for continued sourcing.
