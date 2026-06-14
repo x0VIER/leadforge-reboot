@@ -37,3 +37,12 @@
 - Safe fix: rotated the active lane window to Pittsburgh, PA; Philadelphia, PA; and Richmond, VA using `scripts/rotate-source-lanes.ps1` instead of retrying the same dry lanes.
 - Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, and the desktop viewer workbook after the lane rotation.
 - Health remains yellow only because of accumulated `recent_failure_noise`; duplicate master key count is 0 and collector guard is clear for the next sourcing pass.
+
+## 2026-06-14 16:26 EDT - Batch 052 Philadelphia HVAC Merge
+
+- Ran the guarded collector on the rotated Pittsburgh, Philadelphia, and Richmond lane window; it completed inside the 180-second budget with no overlap and wrote 5 fresh Philadelphia HVAC/plumbing candidates.
+- Enriched all 5 rows from public official/BBB/site evidence and promoted them to reviewed/final: Jarman Sales & Service Inc, Tinneny Plumbing & Heating Inc, AirMaster Heating & Cooling Specialists, Summers Quality Service, and EMCO Tech Heating & Cooling.
+- No raw rows were merged. The run folder now has raw, reviewed, final, and header-only pending artifacts with manifest counts.
+- Merged through `scripts/merge-new-leads.ps1`; master moved from 453 to 458 rows with 5 added and 0 existing-row enrichments.
+- Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, and the desktop viewer workbook.
+- Health remains yellow only because of accumulated `recent_failure_noise`; duplicate master key count is 0 and collector guard is clear for continued sourcing.
