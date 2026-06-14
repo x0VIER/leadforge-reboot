@@ -1,0 +1,32 @@
+﻿{
+    "run_name":  "2026-06-14-usa-home-services-sprint",
+    "slug":  "2026-06-14-usa-home-services-sprint",
+    "created_at":  "2026-06-14T19:09:58",
+    "status":  "merged_to_master_partial",
+    "owner":  "Hermes",
+    "notes":  "Collected 14 Austin/Columbus roofing/HVAC candidates; merged 8 owner-verified rows, pended 3 weak-owner rows, rejected 3 supplier/domain-mismatch rows. Merge was initially blocked by LibreOffice locking master_leads.csv; lock was cleared and viewer workflow is being moved to formatted workbook copies.",
+    "raw_files":  [
+                      "2026-06-14T19-07-51-768Z-usa-home-services-sprint-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-14-austin-columbus-owner-enriched-batch-048.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-14-austin-columbus-owner-enriched-batch-048.csv"
+                    ],
+    "source_log":  "2026-06-14T19-07-51-768Z-usa-home-services-sprint-run-log.json",
+    "raw_rows":  14,
+    "staged_at":  "2026-06-14T19:09:58",
+    "pending_files":  [
+                          "2026-06-14T19-07-51-768Z-usa-home-services-sprint-fresh-leads.pending-enrichment.csv"
+                      ],
+    "rejected_files":  [
+                           "2026-06-14-austin-columbus-supplier-domain-rejects-batch-048.rejected.csv"
+                       ],
+    "reviewed_rows":  8,
+    "final_rows":  8,
+    "pending_rows":  3,
+    "rejected_rows":  3,
+    "merged_rows":  8,
+    "merged_at":  "2026-06-14T15:21:26"
+}

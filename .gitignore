@@ -2,3 +2,5 @@ LeadForge_Reboot/node_modules/
 LeadForge_Reboot/.env
 LeadForge_Reboot/data/run-logs/*.tmp
 Thumbs.db
+*.~lock.*#
+.~lock.*#

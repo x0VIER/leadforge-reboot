@@ -1,0 +1,117 @@
+{
+  "createdAt": "2026-06-14T19:09:58.856Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-14T19-07-51-768Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 14,
+  "lanes": [
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "roofing",
+      "scanned": 8,
+      "added": 2,
+      "rejected": 6,
+      "note": ""
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "roofing",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "roofing",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "plumbing",
+      "scanned": 2,
+      "added": 0,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 9000ms on attempt 1"
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "niche": "hvac",
+      "scanned": 8,
+      "added": 8,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "niche": "hvac",
+      "scanned": 5,
+      "added": 4,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "hvac",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    }
+  ]
+}

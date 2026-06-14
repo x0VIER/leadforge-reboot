@@ -1,26 +1,31 @@
 version = 1
-id = "leadforge-florida-loop"
+id = "leadforge-usa-sprint-factory-loop"
 kind = "heartbeat"
-name = "LeadForge Lead Factory Loop"
+name = "LeadForge USA Sprint Factory Loop"
 status = "ACTIVE"
-rrule = "FREQ=MINUTELY;INTERVAL=30"
+rrule = "FREQ=MINUTELY;INTERVAL=15;COUNT=20"
 
-# This file is the repo-owned reference for the Codex app heartbeat.
+# Repo-owned reference for the Codex app heartbeat.
 # The live automation lives under CODEX_HOME/automations and should match this intent.
 prompt = """
-Continue the LeadForge lead factory in C:\Users\loc9o\Desktop\AGR 1226 as a LeadForge Seven loop, not a one-shot summary and not a lane-rotation-only loop.
-First read LeadForge_Reboot\agent_shared\status\OPS_SNAPSHOT.json, LeadForge_Reboot\config\source-lanes.json, LeadForge_Reboot\config\leadforge-seven-loop.json, LeadForge_Reboot\docs\leadforge-seven-loop.md, latest run manifests under LeadForge_Reboot\data\runs, and git status.
-Use config/source-lanes.json targetState as the selected state.
-Protect existing leads: never overwrite, delete, or raw-merge current data/master_leads.csv rows while trying to get new leads.
-If the tree has uncommitted work, understand it first. Finish durable in-scope staged/review/pending work before opening new collector work, then commit.
-Work priority: 1) unfinished raw_staged/reviewed runs, 2) pending owner-enrichment rows with public evidence, 3) fresh collector sourcing, 4) lane rotation after proven dry runs.
-Run the LeadForge Seven sequence for every candidate: market lane check, public business discovery, website/contact-path audit, public owner or decision-maker verification, data normalization, scoring, offer readiness, Rowan QA, Quinn reviewed-only merge.
-Before each collector run, run LeadForge_Reboot\scripts\get-collector-guard-status.ps1 and proceed only when can_start_collector is true. If a collector claim is active, wait and poll; do not overlap.
-Do not merge raw leads. Stage collector outputs into a run folder, triage, enrich owners/decision makers from public sources, QA reviewed rows, reject suspicious/duplicate/mismatched/low-signal businesses, keep unresolved rows in pending with public_research_note, and merge only clean reviewed/final rows.
-Clean final rows need business_name, niche, city, state, website or public_phone, owner_name, owner_title, owner_source, source_evidence, visible_gap, offer_angle, risk_score_1_5, validation_status, priority_tier, and last_checked. If owner evidence is missing or weak, do not guess; keep pending.
-Reject target-state mismatches, supplier/manufacturer rows, placeholder emails, third-party-only contact paths without stronger evidence, no-website/no-phone rows, and suspicious cloned/domain-mismatched rows.
-After each merge or rejection cycle, run contamination audit, owner backlog, pending report, ops snapshot, then commit.
-If latest lanes produce no fresh leads and no staged/pending work can be advanced, rotate lanes and continue.
-If no GitHub remote exists or gh is unauthenticated, keep local commits safe and retry publish only when a remote/auth path is available; do not stop lead production just because push is blocked.
-Preserve all existing files; never delete user/archive data. Only remove stale generated pending artifacts when the manifest has been updated and the replacement reviewed/rejected state exists.
+Continue LeadForge in C:\Users\loc9o\Desktop\AGR 1226 as a USA-wide public lead factory sprint.
+Treat user messages during the run as additive sidebars/refinements unless the user explicitly says stop, pause, or replace the current task; do not abandon the active atomic LeadForge step just because the conversation is steered. If a sidebar setup request is handled, record/use the result and resume the active LeadForge work.
+Codex owns execution quality and should preserve the user's vision even when a raw tactic needs correction. If a request would cause overlap, duplicate data, weak evidence, token burn, dirty files, or timeout loops, apply the safer professional version and document the adjustment.
+Cadence policy: this automation is tuned for a 15-minute production sprint rhythm across a 5-hour Codex usage window. Do not treat the interval as a lead cap. Use each wakeup to finish the biggest safe atomic step available: merge reviewed/final work, enrich pending rows with evidence, or run a fresh guarded collector when no higher-priority work is open. Avoid short wakeups that only re-read state; prefer fewer, fuller cycles that produce clean leads, audits, and commits.
+Current viewer setup note: LibreOffice 26.2.4.2 is installed for free CSV/XLS/XLSX viewing, and Desktop shortcuts live in C:\Users\loc9o\Desktop\LeadForge Lead Files for master_leads.csv, output CSVs, run folders, status reports, and daily reports.
+Local computer git commits are the primary save point; GitHub push is optional and should never block local lead production.
+First read LeadForge_Reboot\docs\operating-rules.md, LeadForge_Reboot\agent_shared\status\OPS_SNAPSHOT.json, OPS_HEALTH_REPORT.md if present, LeadForge_Reboot\config\source-lanes.json, LeadForge_Reboot\config\leadforge-seven-loop.json, latest run manifests under LeadForge_Reboot\data\runs, LEAD_MEMORY_INDEX if present, collector guard, and git status.
+Protect existing leads and archive data. Never raw-merge collector output, overwrite master rows, delete archive/user data, or overlap collectors.
+Work order: 1) understand and commit durable in-scope uncommitted work, 2) finish raw_staged/reviewed_to_merge runs before any new collector, 3) advance pending rows only with strong public evidence, 4) otherwise run fresh sourcing only through LeadForge_Reboot\scripts\run-collector-guarded.ps1 after guard says can_start_collector true.
+Immediate current priority if present: process the latest raw_staged run under LeadForge_Reboot\data\runs, compare candidates to LEAD_MEMORY_INDEX, reject suppliers/low-signal/domain-mismatched rows, keep weak owner rows pending with notes, and merge only QA-clean final reviewed rows.
+Before repeated owner research or collecting a familiar business, run/read LeadForge_Reboot\scripts\build-lead-memory-index.ps1 and reuse/improve existing master/pending/rejected artifacts instead of duplicating work.
+Rotate dry lane windows instead of retrying stale lanes; the lane rotation tool is LeadForge_Reboot\scripts\rotate-source-lanes.ps1.
+Do not limit to one niche such as roofing: pursue broad service-based businesses across HVAC, plumbing, electrical, landscaping, locksmith, painting, flooring, carpentry, masonry, windows/doors, tree service, pool service, cleaning, fencing, garage doors, and other high-fit local service categories when lanes/config allow.
+Do not enforce a hard per-city or per-run cap beyond project config and safety limits; maximize clean reviewed leads, not raw volume.
+For every candidate: verify public business identity, website/contact path, owner or decision-maker through lawful public OSINT-style evidence from official sites, registries, BBB/chambers/licensing/directories/credible public profiles where appropriate, normalize, score, QA, and merge only reviewed final rows. Missing or weak owner evidence stays pending with public_research_note; never guess owners, registrations, phone numbers, or business identity.
+Rejected rows need triage_reason, lead_type, public_research_note, recommended_action, and public registration/owner fields when available.
+After each merge, rejection, timeout, collector run, lane rotation, tool setup, or system fix: run contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health in sequence, write a useful local log/report note when durable, then commit locally.
+If a command times out, repeats stale work, or fails, clarify the current state, verify root cause, apply the smallest safe fix, document what caused the blockage and why the fix is safe, then continue.
+If day-end or Codex 5-hour/weekly usage limit is near, do not start another collector; finish the active atomic step, run LeadForge_Reboot\scripts\build-daily-ops-report.ps1 -Mode UsageLimitHandoff -RefreshStatus, commit locally, and leave a clean next-start path.
+Keep the system clean, non-duplicative, human-reviewable, and easy for future Codex workers to resume.
 """

@@ -27,6 +27,8 @@ This reboot project reads those files for reference and deduplication. It does n
 3. Keep qualified rows moving into your review or outreach flow
 4. Commit changes so the sourcing history is preserved
 
+See `docs/operating-rules.md` for the durable Codex rules that govern automation behavior, lead quality, cadence, dedupe, evidence, and recovery from errors.
+
 ## Current objective
 
 Re-create the lead generation motion from the recovered project with a reproducible Node pipeline that gathers only public business data, scores visible contact friction, and writes fresh leads in the same schema as the recovered database.
