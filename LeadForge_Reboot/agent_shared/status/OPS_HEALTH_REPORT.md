@@ -1,6 +1,6 @@
 # LeadForge Ops Health
 
-- Generated: 2026-06-14T19:40:29
+- Generated: 2026-06-14T19:56:20
 - Health: yellow
 - Target state: USA
 - Master rows: 475

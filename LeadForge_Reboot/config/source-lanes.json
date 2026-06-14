@@ -142,8 +142,8 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Savannah",
-                      "state":  "GA",
+                      "city":  "Nashville",
+                      "state":  "TN",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -163,11 +163,11 @@
                                  ],
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
-                      "stateName":  "Georgia"
+                      "stateName":  "Tennessee"
                   },
                   {
-                      "city":  "Charlotte",
-                      "state":  "NC",
+                      "city":  "Knoxville",
+                      "state":  "TN",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -187,11 +187,11 @@
                                  ],
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
-                      "stateName":  "North Carolina"
+                      "stateName":  "Tennessee"
                   },
                   {
-                      "city":  "Raleigh",
-                      "state":  "NC",
+                      "city":  "Dallas",
+                      "state":  "TX",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -211,7 +211,7 @@
                                  ],
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
-                      "stateName":  "North Carolina"
+                      "stateName":  "Texas"
                   }
               ]
 }
