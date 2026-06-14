@@ -13,6 +13,53 @@ if (-not $OutputCsv) {
     $OutputCsv = Join-Path $ScriptDir '..\data\master_leads.csv'
 }
 
+$script:MergeLock = $null
+$script:MergeLockPath = $null
+trap {
+    if ($script:MergeLock) {
+        $script:MergeLock.Close()
+        $script:MergeLock.Dispose()
+    }
+    if ($script:MergeLockPath -and (Test-Path -LiteralPath $script:MergeLockPath)) {
+        Remove-Item -LiteralPath $script:MergeLockPath -Force
+    }
+    break
+}
+
+function Acquire-MergeLock([string]$Path, [int]$TimeoutSeconds = 60) {
+    $lockPath = "$Path.lock"
+    $deadline = (Get-Date).AddSeconds($TimeoutSeconds)
+
+    while ((Get-Date) -lt $deadline) {
+        try {
+            $stream = [System.IO.File]::Open($lockPath, [System.IO.FileMode]::CreateNew, [System.IO.FileAccess]::ReadWrite, [System.IO.FileShare]::None)
+            $bytes = [System.Text.Encoding]::UTF8.GetBytes("pid=$PID started=$((Get-Date).ToString('o'))")
+            $stream.Write($bytes, 0, $bytes.Length)
+            $stream.Flush()
+            $script:MergeLock = $stream
+            $script:MergeLockPath = $lockPath
+            return
+        }
+        catch {
+            Start-Sleep -Milliseconds 500
+        }
+    }
+
+    throw "Timed out waiting for merge lock: $lockPath"
+}
+
+function Release-MergeLock() {
+    if ($script:MergeLock) {
+        $script:MergeLock.Close()
+        $script:MergeLock.Dispose()
+        $script:MergeLock = $null
+    }
+    if ($script:MergeLockPath -and (Test-Path -LiteralPath $script:MergeLockPath)) {
+        Remove-Item -LiteralPath $script:MergeLockPath -Force
+    }
+    $script:MergeLockPath = $null
+}
+
 function Get-ColumnOrder() {
     @(
         'lead_id',
@@ -156,6 +203,8 @@ function Merge-PreferredFields($targetRow, $incomingRow) {
     }
 }
 
+Acquire-MergeLock -Path $OutputCsv
+
 $masterRows = @()
 if (Test-Path -LiteralPath $MasterCsv) {
     $masterRows = @(Import-Csv -LiteralPath (Resolve-Path -LiteralPath $MasterCsv))
@@ -203,6 +252,7 @@ $normalized = foreach ($row in $merged) {
 }
 
 $normalized | Export-Csv -LiteralPath $OutputCsv -NoTypeInformation
+Release-MergeLock
 
 [pscustomobject]@{
     master_before = $masterRows.Count
