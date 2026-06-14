@@ -1,0 +1,24 @@
+{
+    "run_name":  "florida-ocala-melbourne-batch-013",
+    "slug":  "florida-ocala-melbourne-batch-013",
+    "created_at":  "2026-06-13T22:09:47",
+    "status":  "merged_to_master_partial",
+    "owner":  "Hermes",
+    "notes":  "Merged three reviewed public-source owner-enriched roofing leads; left Mac 5 Services pending stronger first-party owner evidence.",
+    "raw_files":  [
+                      "2026-06-14T02-07-31-888Z-florida-home-services-reboot-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-14-florida-ocala-melbourne-owner-enriched-batch-013.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-14-florida-ocala-melbourne-owner-enriched-batch-013.csv"
+                    ],
+    "staged_at":  "2026-06-13T22:09:47",
+    "pending_files":  [
+                          "2026-06-14T02-07-31-888Z-florida-home-services-reboot-fresh-leads.pending-enrichment.csv"
+                      ],
+    "rejected_files":  [
+
+                       ]
+}
