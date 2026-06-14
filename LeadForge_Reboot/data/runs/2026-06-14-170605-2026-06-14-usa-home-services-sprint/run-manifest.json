@@ -1,0 +1,28 @@
+{
+  "run_name": "2026-06-14-usa-home-services-sprint",
+  "slug": "2026-06-14-usa-home-services-sprint",
+  "created_at": "2026-06-14T17:06:05",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Collector produced 1 Orlando painting row. Paint Orlando Beautiful was owner-verified from BBB and Blue Book public contractor evidence and moved to reviewed/final for QA.",
+  "raw_files": [
+    "2026-06-14T17-04-06-271Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-14-orlando-painting-owner-enriched-batch-034.csv"
+  ],
+  "final_files": [
+    "2026-06-14-orlando-painting-owner-enriched-batch-034.csv"
+  ],
+  "pending_files": [
+    "2026-06-14T17-04-06-271Z-usa-home-services-sprint-fresh-leads.pending-enrichment.csv"
+  ],
+  "source_log": "2026-06-14T17-04-06-271Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 1,
+  "reviewed_rows": 1,
+  "pending_rows": 0,
+  "rejected_rows": 0,
+  "merged_rows": 1,
+  "merged_at": "2026-06-14T13:07:34",
+  "staged_at": "2026-06-14T17:06:05"
+}
