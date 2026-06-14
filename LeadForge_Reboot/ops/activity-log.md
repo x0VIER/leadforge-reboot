@@ -97,3 +97,9 @@
 - Advanced the only immediate/manual pending research row instead of opening a new collector run.
 - Rechecked Aire Texas Residential Services against public sources: official site remains active with 2026/contact/license signals, BBB lists Chad Faith but says the business has no rating because it is out of business, and official TDLR Active License Search returned no records for license 38788 or Aire Texas / Faith name searches.
 - Safe decision: did not merge the row and did not guess current status. Updated the pending artifact, manifest notes, registration notes, and recommended action so future workers do not repeat the same TDLR check without new evidence.
+
+## 2026-06-14 17:54 EDT - Dry Collector Lane Rotation
+
+- Ran the guarded collector with no overlap; it completed inside the 180-second budget and produced 0 fresh rows.
+- Root cause: the remaining Virginia Beach, Phoenix, and Tucson niche window had become dry, with Phoenix painting scanned/rejected and several later niche checks hitting timeout or HTTP 429 noise.
+- Safe fix: rotated the active lane window to Chicago, IL; Indianapolis, IN; and Louisville, KY using `scripts/rotate-source-lanes.ps1` instead of retrying the stale window.

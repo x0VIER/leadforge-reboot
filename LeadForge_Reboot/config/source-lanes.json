@@ -142,8 +142,8 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Virginia Beach",
-                      "state":  "VA",
+                      "city":  "Chicago",
+                      "state":  "IL",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -163,11 +163,11 @@
                                  ],
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
-                      "stateName":  "Virginia"
+                      "stateName":  "Illinois"
                   },
                   {
-                      "city":  "Phoenix",
-                      "state":  "AZ",
+                      "city":  "Indianapolis",
+                      "state":  "IN",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -187,11 +187,11 @@
                                  ],
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
-                      "stateName":  "Arizona"
+                      "stateName":  "Indiana"
                   },
                   {
-                      "city":  "Tucson",
-                      "state":  "AZ",
+                      "city":  "Louisville",
+                      "state":  "KY",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -211,7 +211,7 @@
                                  ],
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
-                      "stateName":  "Arizona"
+                      "stateName":  "Kentucky"
                   }
               ]
 }
