@@ -160,3 +160,10 @@
 - No raw rows were merged. Merged only the QA-clean final row through `scripts/merge-new-leads.ps1`; master moved from 488 to 489 rows with 1 added and 0 existing-row enrichments.
 - Removed only the stale generated pending artifact after the manifest recorded the replacement reviewed/final/rejected state, preserving raw output and rejected intelligence.
 - Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, offer readiness, the polished viewer workbook, and the desktop lead hub. Health remains yellow only for recent failure noise; collector guard is clear for the next atomic step.
+
+## 2026-06-15 00:18 EDT - Dry Wrap And Lane Rotation
+
+- Ran one guarded collector with no overlap from the clean `bb8b748` handoff.
+- The final active-window segment returned 0 fresh rows: Richmond, Virginia Beach, and Phoenix pool-service lanes scanned 0 each, then the wrapped roofing segment scanned 12 Phoenix candidates and collector filters rejected all 12.
+- The source cursor wrapped from 42 to 3, so retrying the same window would waste cycles. Applied the safe professional fix: rotated lanes with `scripts/rotate-source-lanes.ps1` instead of repeating stale Richmond/Virginia Beach/Phoenix work.
+- New active lane window is Tucson, AZ; Chicago, IL; Indianapolis, IN. No raw rows were created or merged, and no master data changed during this dry pass.

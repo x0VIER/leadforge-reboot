@@ -1,6 +1,6 @@
 ﻿# Offer Readiness Report
 
-Generated: 2026-06-15T00:08:09
+Generated: 2026-06-15T00:18:32
 
 Source: C:\Users\loc9o\Desktop\AGR 1226\LeadForge_Reboot\data\master_leads.csv
 
