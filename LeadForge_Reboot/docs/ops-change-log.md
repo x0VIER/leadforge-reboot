@@ -1,5 +1,14 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T00:31Z - Dry cursor rotation fix
+
+- Root cause: `complete_no_rows` was treated as a full lane-window failure even when the source cursor had only scanned the first 12 of 45 city/niche combinations. This made the loop look stuck and encouraged premature city rotation after a partial duplicate-heavy pass.
+- Fix: `scripts/rotate-source-lanes.ps1` now reads `SOURCE_LANE_CURSOR.json` and refuses to rotate when `nextIndex` is still inside the current schedule. It reports the cursor position instead, so the next sprint continues the remaining niches in the same city window.
+- Fix: `scripts/build-ops-snapshot.ps1` now includes source-cursor status and explains when a dry pass is only partial cursor progress. It also treats documented unresolved pending rows, including status-conflict rows already marked monitor/hold, as blocked-but-documented instead of immediate collector blockers.
+- Verification: after the dry Houston/Austin/Columbus collector pass, the rotation tool returned `rotated = False` with cursor `12 of 45`, the full health/report/viewer stack rebuilt successfully, and health remained yellow only for historical `recent_failure_noise`.
+- Contamination handling: the USA audit flagged 167 older/imported suspicious rows, mostly non-resolving website hosts. A fresh quarantine artifact was created with `scripts/quarantine-suspicious-leads.ps1 -State USA`; this copies the suspicious rows and lead IDs for review without deleting or changing the master.
+- Safety: no master rows, archive files, pending rows, or rejected artifacts were deleted or overwritten. This change only prevents wasted lane rotation and makes the next action clearer for future Codex workers.
+
 ## 2026-06-14T23:25Z - Offer Audit Engine sidecar
 
 - Added the Offer Audit Engine as a sidecar system instead of mixing offer planning into the raw collector. The lead factory still owns clean public-source collection and reviewed merges; the sidecar reads master leads and produces offer-readiness views without mutating source lead rows.

@@ -11,6 +11,7 @@ $configPath = Join-Path $root 'config\source-lanes.json'
 $currentStatusPath = Join-Path $statusDir 'CURRENT_STATUS.json'
 $lastSuccessPath = Join-Path $statusDir 'LAST_SUCCESS.json'
 $pendingQueuePath = Join-Path $statusDir 'PENDING_ENRICHMENT_QUEUE.json'
+$sourceLaneCursorPath = Join-Path $statusDir 'SOURCE_LANE_CURSOR.json'
 $outputPath = Join-Path $statusDir 'OPS_SNAPSHOT.json'
 $workingDir = Join-Path $root 'agent_shared\working'
 $quarantineDir = Join-Path $root 'data\quarantine'
@@ -35,6 +36,7 @@ $contaminationAuditPath = Join-Path $statusDir "MASTER_CONTAMINATION_AUDIT_$targ
 $currentStatus = if (Test-Path -LiteralPath $currentStatusPath) { Get-Content -LiteralPath $currentStatusPath -Raw | ConvertFrom-Json } else { $null }
 $lastSuccess = if (Test-Path -LiteralPath $lastSuccessPath) { Get-Content -LiteralPath $lastSuccessPath -Raw | ConvertFrom-Json } else { $null }
 $pendingQueue = if (Test-Path -LiteralPath $pendingQueuePath) { Get-Content -LiteralPath $pendingQueuePath -Raw | ConvertFrom-Json } else { $null }
+$sourceLaneCursor = if (Test-Path -LiteralPath $sourceLaneCursorPath) { Get-Content -LiteralPath $sourceLaneCursorPath -Raw | ConvertFrom-Json } else { $null }
 $ownerBacklog = if (Test-Path -LiteralPath $ownerBacklogPath) { Get-Content -LiteralPath $ownerBacklogPath -Raw | ConvertFrom-Json } else { $null }
 $contaminationAudit = if (Test-Path -LiteralPath $contaminationAuditPath) { Get-Content -LiteralPath $contaminationAuditPath -Raw | ConvertFrom-Json } else { $null }
 $latestQuarantine = $null
@@ -160,8 +162,27 @@ $runSummaries = foreach ($manifestFile in $recentRuns) {
 
 $collectorGuard = Get-CollectorGuardStatus
 $pendingItems = if ($pendingQueue) { @(Normalize-ObjectArray $pendingQueue.items) } else { @() }
-$pendingNeedsImmediateResearch = @($pendingItems | Where-Object { $_.pending_state -ne 'researched_owner_unresolved' }).Count
-$pendingBlockedButDocumented = @($pendingItems | Where-Object { $_.pending_state -eq 'researched_owner_unresolved' }).Count
+$documentedUnresolvedStates = @(
+    'researched_owner_unresolved',
+    'researched_status_conflict_unresolved'
+)
+$holdOrMonitorActionPattern = '^(monitor_|hold_pending_|keep pending|Keep pending)'
+$pendingNeedsImmediateResearch = @($pendingItems | Where-Object {
+    $state = [string]$_.pending_state
+    $action = [string]$_.recommended_action
+    $documentedUnresolvedStates -notcontains $state -and $action -notmatch $holdOrMonitorActionPattern
+}).Count
+$pendingBlockedButDocumented = @($pendingItems | Where-Object {
+    $state = [string]$_.pending_state
+    $action = [string]$_.recommended_action
+    $documentedUnresolvedStates -contains $state -or $action -match $holdOrMonitorActionPattern
+}).Count
+$sourceCursorNext = if ($sourceLaneCursor -and $sourceLaneCursor.nextIndex -ne $null) { [int]$sourceLaneCursor.nextIndex } else { 0 }
+$sourceCursorSize = if ($sourceLaneCursor -and $sourceLaneCursor.scheduleSize -ne $null) { [int]$sourceLaneCursor.scheduleSize } else { 0 }
+$partialDryCursorProgress = $currentStatus -and
+    $currentStatus.state -eq 'complete_no_rows' -and
+    $sourceCursorSize -gt 0 -and
+    $sourceCursorNext -gt 0
 $contaminationSuspiciousCount = if ($contaminationAudit -and $contaminationAudit.suspicious_row_count) { [int]$contaminationAudit.suspicious_row_count } else { 0 }
 $quarantineCoversContamination = $false
 if ($latestQuarantine -and $contaminationSuspiciousCount -gt 0) {
@@ -201,6 +222,16 @@ $snapshot = [ordered]@{
         $null
     }
     collector_guard = $collectorGuard
+    source_lane_cursor = if ($sourceLaneCursor) {
+        [ordered]@{
+            next_index = $sourceCursorNext
+            schedule_size = $sourceCursorSize
+            last_attempted_lane = $sourceLaneCursor.lastAttemptedLane
+            updated_at = $sourceLaneCursor.updatedAt
+        }
+    } else {
+        $null
+    }
     current_status = $currentStatus
     last_success = $lastSuccess
     recent_runs = @($runSummaries)
@@ -216,6 +247,8 @@ $snapshot = [ordered]@{
         }
     } elseif (-not $collectorGuard.can_start_collector) {
         'Collector is not clear to start yet; inspect active claims or fresh running status before opening a new run.'
+    } elseif ($partialDryCursorProgress) {
+        "Current lane window had a dry partial pass; continue remaining source cursor niches ($sourceCursorNext of $sourceCursorSize) before rotating cities."
     } elseif ($currentStatus -and $currentStatus.state -eq 'complete_no_rows') {
         'Current lane window is dry; rotate cities before the next collector run.'
     } else {

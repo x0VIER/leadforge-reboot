@@ -5,12 +5,17 @@ param(
 $ScriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
 $configPath = Join-Path $ScriptDir '..\config\source-lanes.json'
 $statusPath = Join-Path $ScriptDir '..\agent_shared\status\CURRENT_STATUS.json'
+$cursorPath = Join-Path $ScriptDir '..\agent_shared\status\SOURCE_LANE_CURSOR.json'
 $runsRoot = Join-Path $ScriptDir '..\data\runs'
 
 $config = Get-Content -LiteralPath $configPath -Raw | ConvertFrom-Json
 $status = $null
 if (Test-Path -LiteralPath $statusPath) {
     $status = Get-Content -LiteralPath $statusPath -Raw | ConvertFrom-Json
+}
+$cursor = $null
+if (Test-Path -LiteralPath $cursorPath) {
+    $cursor = Get-Content -LiteralPath $cursorPath -Raw | ConvertFrom-Json
 }
 
 if (-not $Force -and $status -and $status.state -notin @('complete_no_rows', 'complete')) {
@@ -87,6 +92,23 @@ if (Test-Path -LiteralPath $runsRoot) {
 }
 
 $latestReviewedRunWasDry = $latestRunManifest -and $latestRunManifest.status -in @('rejected', 'merged_no_approved_rows')
+$partialDryCursorProgress = -not $Force -and
+    $status -and $status.state -eq 'complete_no_rows' -and
+    $cursor -and $cursor.scheduleSize -and
+    [int]$cursor.scheduleSize -gt 0 -and
+    [int]$cursor.nextIndex -gt 0
+
+if ($partialDryCursorProgress) {
+    [pscustomobject]@{
+        rotated = $false
+        reason = "Current lane window had a dry partial pass, but source cursor is at $($cursor.nextIndex) of $($cursor.scheduleSize); continue remaining niches before rotating."
+        cities = ($currentCities -join ', ')
+        source_cursor_next = [int]$cursor.nextIndex
+        source_cursor_size = [int]$cursor.scheduleSize
+    } | Format-List
+    exit 0
+}
+
 $advance = $Force -or ($status -and $status.state -eq 'complete_no_rows') -or $latestReviewedRunWasDry
 if (-not $advance) {
     [pscustomobject]@{
