@@ -1,0 +1,63 @@
+{
+  "createdAt": "2026-06-15T04:47:33.559Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-15T04-46-05-672Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 8,
+  "lanes": [
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "electrician",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "electrician",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for query on attempt 1"
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "hvac",
+      "scanned": 8,
+      "added": 8,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "hvac",
+      "scanned": 6,
+      "added": 0,
+      "rejected": 6,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "hvac",
+      "scanned": 9,
+      "added": 0,
+      "rejected": 9,
+      "note": ""
+    }
+  ]
+}

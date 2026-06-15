@@ -174,3 +174,14 @@
 - The roofing/plumbing segment returned 0 fresh rows: Tucson roofing scanned 1/rejected 1, Chicago roofing scanned 4/rejected 4, Indianapolis roofing scanned 12/rejected 12, Tucson plumbing scanned 4/rejected 4, Chicago plumbing scanned 7/rejected 7, and Indianapolis plumbing scanned 4/rejected 4.
 - No output CSV or run folder was created, so there was nothing safe to triage or merge. Master data was not changed.
 - Safe decision: did not rotate lanes yet because the new active window only advanced from cursor 0 to 6 inside the 45-lane schedule. Continue with the next guarded segment rather than retrying roofing/plumbing immediately.
+
+## 2026-06-15 00:58 EDT - Batch 069 Tucson HVAC Review And Merge
+
+- Ran one guarded collector with no overlap from the clean `01ed5a3` handoff. It staged 8 Tucson HVAC candidates and one Indianapolis electrician lane hit HTTP 429, which should be respected by the guard/cooldown check before the next collector.
+- Promoted Covenant Aire Solutions, Air Conditioning Associates Inc, SAYCO Heating and Air Conditioning, and Rincon Air Conditioning & Heating Co. after public official website/contact evidence plus public owner or decision-maker evidence.
+- Kept Espinoza Heating and Cooling LLC pending because the website was not readable and owner/member evidence needs an official registry or first-party contact confirmation.
+- Kept Temco AC Repair & Replacement pending because public acquisition evidence complicates current owner/decision-maker context and the collector domain differed from the surfaced official site variant.
+- Kept Air Maintenance Heating & Cooling pending because official site/booking and BBB evidence verified the business, but no named owner or decision-maker was found.
+- Rejected Spartan Plumbing because public business/owner evidence exists but BBB shows an out-of-business/status-conflict alert.
+- Merged only the 4 QA-clean final rows through `scripts/merge-new-leads.ps1`; master moved from 489 to 493 rows with 4 added and 0 existing-row enrichments. No raw rows were merged.
+- Removed only the stale generated pending artifact after writing replacement reviewed/final/pending/rejected artifacts and updating the manifest.

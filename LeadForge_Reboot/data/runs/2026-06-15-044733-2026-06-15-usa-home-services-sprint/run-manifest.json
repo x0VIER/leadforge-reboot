@@ -1,0 +1,36 @@
+{
+  "run_name": "2026-06-15-usa-home-services-sprint",
+  "slug": "2026-06-15-usa-home-services-sprint",
+  "created_at": "2026-06-15T04:47:33",
+  "status": "merged_to_master_partial",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-15T04-46-05-672Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-15-tucson-hvac-reviewed-batch-069.csv"
+  ],
+  "final_files": [
+    "2026-06-15-tucson-hvac-final-batch-069.csv"
+  ],
+  "source_log": "2026-06-15T04-46-05-672Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 8,
+  "staged_at": "2026-06-15T04:47:33",
+  "reviewed_count": 8,
+  "final_count": 4,
+  "pending_count": 3,
+  "rejected_count": 1,
+  "pending_files": [
+    "2026-06-15-tucson-hvac-pending-batch-069.csv"
+  ],
+  "rejected_files": [
+    "2026-06-15-tucson-hvac-rejected-batch-069.csv"
+  ],
+  "reviewed_at": "2026-06-15T00:55:00-04:00",
+  "review_notes": "Manual public review promoted Covenant Aire Solutions, Air Conditioning Associates Inc, SAYCO Heating and Air Conditioning, and Rincon Air Conditioning & Heating Co. after official site/contact evidence plus public owner or decision-maker evidence. Espinoza Heating and Cooling, Temco AC Repair & Replacement, and Air Maintenance Heating & Cooling remain pending because owner/current decision-maker or first-party contact evidence is still weak. Spartan Plumbing was rejected because public identity/owner evidence exists but BBB shows an out-of-business/status-conflict alert. No raw rows merged.",
+  "qa_status": "passed_no_blocking_output",
+  "merged_rows": 4,
+  "merged_to_master_at": "2026-06-15T00:57:00-04:00",
+  "merge_notes": "Merged 4 Tucson HVAC rows only after QA-clean final review. Master row count 489 -> 493. Stale generated pending artifact for this run may be removed because reviewed/final/pending/rejected replacement artifacts and manifest state exist. Indianapolis electrician source hit HTTP 429 during collection; guard/certification should confirm cooldown state before the next collector."
+}

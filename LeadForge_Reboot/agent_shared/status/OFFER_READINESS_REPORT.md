@@ -1,6 +1,6 @@
 ﻿# Offer Readiness Report
 
-Generated: 2026-06-15T00:33:25
+Generated: 2026-06-15T00:53:10
 
 Source: C:\Users\loc9o\Desktop\AGR 1226\LeadForge_Reboot\data\master_leads.csv
 
@@ -8,14 +8,14 @@ This report is a sidecar planning view. It does not mutate master leads and it d
 
 ## Tier Counts
 
-- A - Offer Ready: 197
+- A - Offer Ready: 201
 - B - Strong Audit Candidate: 11
 - C - Needs More Evidence: 264
 - D - Hold / Research First: 17
 
 ## Contact Path Counts
 
-- Contact form or booking URL: 374
+- Contact form or booking URL: 378
 - No safe public contact path yet: 8
 - Public business email: 24
 - Public business phone: 82
@@ -26,6 +26,7 @@ This report is a sidecar planning view. It does not mutate master leads and it d
 - LFR-20260614-0012 | 24/7 Electrician LLC | electrician | Hollywood, FL | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LF-0037 | AAA City Plumbing | plumbing | Charlotte, NC | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LF-0055 | Acuity Electric | electrician | Houston, TX | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
+- LF-0176 | Air Conditioning Associates Inc | hvac | Tucson, AZ | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Reviews and local prominence improvement; Conversion path cleanup; Best services listing placement
 - LFR-20260613-0006 | Air Necessity, Inc. | hvac | Cape Coral, FL | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LF-0141 | AirMaster Heating & Cooling Specialists | hvac | Philadelphia, PA | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LF-0107 | All Flooring Install | flooring | Dallas, TX | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Reviews and local prominence improvement; Conversion path cleanup; Best services listing placement
@@ -42,7 +43,6 @@ This report is a sidecar planning view. It does not mutate master leads and it d
 - LF-0103 | Chapman Air & Heat | hvac | Dallas, TX | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LF-0029 | Colony Roofers | roofing | Atlanta, GA | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LFR-20260613-0001 | Coral Air Conditioning Repair | hvac | Cape Coral, FL | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
-- LFR-20260614-0002 | Custom Plumbing, Inc. | plumbing | West Palm Beach, FL | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 
 ## Process Notes
 
