@@ -1,5 +1,11 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T09:10Z - Jacksonville pest-control owner-verified merge
+
+- Collector output produced 1 Jacksonville pest-control candidate: Ratchet Roach Pest Control. Jacksonville landscaping hit HTTP 429 and Orlando/Tampa pest-control hit HTTP 504, so the next collector must respect guard status before any retry.
+- Ratchet Roach Pest Control was promoted after official site/contact/about evidence verified the Jacksonville pest-control business, public phone, Gate Parkway address, contact page, local owned/operated positioning, and residential/commercial pest services. Florida Sunbiz verified Rachet Roach Pest Control Inc. as an active Florida profit corporation with Daryl Alvin Jr. listed as President and a matching Gate Parkway mailing/officer address.
+- Safety: no raw rows were merged. The QA-clean final row merged as `LF-0193`, and master grew from 507 to 508 rows. Public phone remains the business phone only; no private owner-direct number was inferred.
+
 ## 2026-06-15T08:55Z - Second Florida dry partial pass, no rotation
 
 - Guarded collector ran on the Orlando / Tampa / Jacksonville window with a longer shell timeout and completed cleanly with no fresh rows. No raw rows were staged and no master rows were changed.

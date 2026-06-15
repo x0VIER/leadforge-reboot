@@ -1,0 +1,33 @@
+{
+  "run_name": "2026-06-15-usa-home-services-sprint",
+  "slug": "2026-06-15-usa-home-services-sprint",
+  "created_at": "2026-06-15T09:02:32",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-15T09-01-03-271Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-15-jacksonville-pest-control-reviewed-batch-078.csv"
+  ],
+  "final_files": [
+    "2026-06-15-jacksonville-pest-control-final-batch-078.csv"
+  ],
+  "source_log": "2026-06-15T09-01-03-271Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 1,
+  "staged_at": "2026-06-15T09:02:32",
+  "reviewed_count": 1,
+  "final_count": 1,
+  "pending_count": 0,
+  "rejected_count": 0,
+  "reviewed_at": "2026-06-15T05:07:00-04:00",
+  "review_notes": "Manual public review promoted Ratchet Roach Pest Control after official site/contact/about evidence verified Jacksonville pest-control services, public phone, contact path, Gate Parkway address, locally owned positioning, and service mix. Florida Sunbiz evidence verified the active Rachet Roach Pest Control Inc. corporation, matching Gate Parkway mailing/officer address, and Daryl Alvin Jr. as President. No raw rows merged.",
+  "qa_status": "passed_no_blocking_output",
+  "merged_rows": 1,
+  "merged_lead_ids": [
+    "LF-0193"
+  ],
+  "merged_to_master_at": "2026-06-15T05:10:00-04:00",
+  "merge_notes": "Merged 1 Jacksonville pest-control row after reviewed final artifacts and QA. Master row count 507 -> 508. Ratchet Roach Pest Control was verified through official site/contact/about evidence plus Florida Sunbiz owner/officer evidence for Daryl Alvin Jr. Source cycle hit HTTP 429 on Jacksonville landscaping and HTTP 504 on Orlando/Tampa pest-control lanes, so guard/certification must be checked before the next collector."
+}
