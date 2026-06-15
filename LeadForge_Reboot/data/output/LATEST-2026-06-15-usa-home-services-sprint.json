@@ -1,11 +1,11 @@
 {
   "batchName": "usa-home-services-sprint",
   "datedBatchName": "2026-06-15-usa-home-services-sprint",
-  "createdAt": "2026-06-15T04:47:33.578Z",
-  "outputCsv": "data\\output\\2026-06-15T04-46-05-672Z-usa-home-services-sprint-fresh-leads.csv",
-  "runLog": "data\\run-logs\\2026-06-15T04-46-05-672Z-usa-home-services-sprint-run-log.json",
-  "dailyOutputCsv": "data\\output\\2026-06-15\\2026-06-15T04-46-05-672Z-usa-home-services-sprint-fresh-leads.csv",
-  "dailyRunLog": "data\\run-logs\\2026-06-15\\2026-06-15T04-46-05-672Z-usa-home-services-sprint-run-log.json",
-  "stagedRunRoot": "data\\runs\\2026-06-15-044733-2026-06-15-usa-home-services-sprint",
-  "rowsWritten": 8
+  "createdAt": "2026-06-15T05:03:40.304Z",
+  "outputCsv": "data\\output\\2026-06-15T05-02-23-942Z-usa-home-services-sprint-fresh-leads.csv",
+  "runLog": "data\\run-logs\\2026-06-15T05-02-23-942Z-usa-home-services-sprint-run-log.json",
+  "dailyOutputCsv": "data\\output\\2026-06-15\\2026-06-15T05-02-23-942Z-usa-home-services-sprint-fresh-leads.csv",
+  "dailyRunLog": "data\\run-logs\\2026-06-15\\2026-06-15T05-02-23-942Z-usa-home-services-sprint-run-log.json",
+  "stagedRunRoot": "data\\runs\\2026-06-15-050340-2026-06-15-usa-home-services-sprint",
+  "rowsWritten": 1
 }

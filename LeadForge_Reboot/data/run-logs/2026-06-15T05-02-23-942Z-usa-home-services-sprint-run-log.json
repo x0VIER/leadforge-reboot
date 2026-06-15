@@ -1,0 +1,63 @@
+{
+  "createdAt": "2026-06-15T05:03:40.288Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-15T05-02-23-942Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 1,
+  "lanes": [
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "landscaping",
+      "scanned": 3,
+      "added": 1,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "landscaping",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "landscaping",
+      "scanned": 6,
+      "added": 0,
+      "rejected": 6,
+      "note": ""
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}

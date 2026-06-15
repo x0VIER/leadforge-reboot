@@ -1,5 +1,13 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T05:15Z - Tucson landscaping owner-verified merge
+
+- Collector output produced 1 fresh Tucson landscaping candidate, All Yard Work, after scanning Tucson/Chicago/Indianapolis landscaping and pest-control lanes. The remaining candidates were rejected by collector filters before staging.
+- All Yard Work was promoted to reviewed/final after public evidence verified business identity, phone, website/contact path, and Juan Rosales as owner or decision-maker. Evidence used BBB owner listing plus TucsonDirect's verified owner-published page with the same business phone, address, website, and key contact.
+- Data cleanup: the automated triage first placed the row in a generated pending scratch file because the raw collector row lacked owner evidence. After public owner evidence was verified and reviewed/final artifacts were written, the stale `data/tmp` pending scratch files for this batch were removed so future workers do not see contradictory state.
+- Safety: no raw rows were merged. The final row passed QA before merge, master grew from 493 to 494 rows, the durable lead ID is `LF-0179`, and the public phone remains labeled as business phone only rather than an owner-direct number.
+- Certification: contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, offer readiness, master viewer workbook, and desktop lead hub were rebuilt. Health is yellow due to historical recent failure noise; collector guard is clear to continue.
+
 ## 2026-06-15T03:05Z - Phoenix roofing/plumbing owner-verified merge
 
 - Collector output produced 3 Phoenix candidates: Hardacker Roofing LLC, Reliant Plumbing & Rooter, and Zippity Split Plumbing. Virginia Beach roofing timed out, and Richmond plumbing hit HTTP 429, so the guard cooldown should be respected before another source run.
