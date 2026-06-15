@@ -25,6 +25,12 @@
 - Contamination handling: the USA audit flagged 167 older/imported suspicious rows, mostly non-resolving website hosts. A fresh quarantine artifact was created with `scripts/quarantine-suspicious-leads.ps1 -State USA`; this copies the suspicious rows and lead IDs for review without deleting or changing the master.
 - Safety: no master rows, archive files, pending rows, or rejected artifacts were deleted or overwritten. This change only prevents wasted lane rotation and makes the next action clearer for future Codex workers.
 
+## 2026-06-15T01:39Z - Cincinnati landscaping merge and pest-control rejection
+
+- Collector output produced 2 Cincinnati candidates. Druffel Design & Landscape was promoted to reviewed/final after official website/contact evidence and BBB evidence verified the business identity, public phone/email/contact path, corporation context, and Dan Druffel as President/principal contact.
+- OCP Bed Bug Exterminator was rejected instead of merged. Public evidence looked like a bed-bug lead-generation or directory-style listing, the website did not return readable HTML during collection, and no clean owner, registration, BBB/licensing profile, or first-party contact path was verified.
+- Safety: no raw rows were merged. The rejected row includes triage reason, lead type, public research note, recommended action, and registration-status note for future callback/source-quality analysis.
+
 ## 2026-06-15T01:27Z - Pittsburgh HVAC owner-verified batch
 
 - Collector output produced 2 Pittsburgh HVAC candidates. Boehmer Heating & Cooling and Spurk HVAC, LLC were promoted to reviewed/final after public evidence verified official contact paths, business phone numbers, licensing/registration context, and owner or decision-maker sources.

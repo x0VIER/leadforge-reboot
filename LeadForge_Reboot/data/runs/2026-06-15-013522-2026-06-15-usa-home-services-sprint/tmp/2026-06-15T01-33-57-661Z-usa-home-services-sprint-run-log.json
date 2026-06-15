@@ -1,0 +1,63 @@
+{
+  "createdAt": "2026-06-15T01:35:22.510Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-15T01-33-57-661Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 2,
+  "lanes": [
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "landscaping",
+      "scanned": 3,
+      "added": 1,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Pittsburgh",
+      "state": "PA",
+      "niche": "landscaping",
+      "scanned": 2,
+      "added": 0,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Philadelphia",
+      "state": "PA",
+      "niche": "landscaping",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "pest_control",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Pittsburgh",
+      "state": "PA",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for query on attempt 1"
+    },
+    {
+      "city": "Philadelphia",
+      "state": "PA",
+      "niche": "pest_control",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    }
+  ]
+}
