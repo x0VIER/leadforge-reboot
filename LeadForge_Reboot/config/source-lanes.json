@@ -6,12 +6,12 @@
     "targetStateName":  "United States",
     "sprintTargetRows":  30,
     "maxOutputRows":  30,
-    "overpassPauseMs":  2500,
-    "lanePauseMs":  700,
+    "overpassPauseMs":  10000,
+    "lanePauseMs":  1500,
     "overpassTimeoutMs":  15000,
     "overpassAttempts":  1,
     "querySampleLimit":  6,
-    "maxLaneNicheChecksPerRun":  9,
+    "maxLaneNicheChecksPerRun":  6,
     "activeLaneWindowSize":  3,
     "lanePool":  [
                      {
