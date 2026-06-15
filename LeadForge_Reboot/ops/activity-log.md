@@ -167,3 +167,10 @@
 - The final active-window segment returned 0 fresh rows: Richmond, Virginia Beach, and Phoenix pool-service lanes scanned 0 each, then the wrapped roofing segment scanned 12 Phoenix candidates and collector filters rejected all 12.
 - The source cursor wrapped from 42 to 3, so retrying the same window would waste cycles. Applied the safe professional fix: rotated lanes with `scripts/rotate-source-lanes.ps1` instead of repeating stale Richmond/Virginia Beach/Phoenix work.
 - New active lane window is Tucson, AZ; Chicago, IL; Indianapolis, IN. No raw rows were created or merged, and no master data changed during this dry pass.
+
+## 2026-06-15 00:33 EDT - Dry Tucson/Chicago/Indianapolis Roofing-Plumbing Pass
+
+- Ran one guarded collector with no overlap from the clean `2922d63` handoff.
+- The roofing/plumbing segment returned 0 fresh rows: Tucson roofing scanned 1/rejected 1, Chicago roofing scanned 4/rejected 4, Indianapolis roofing scanned 12/rejected 12, Tucson plumbing scanned 4/rejected 4, Chicago plumbing scanned 7/rejected 7, and Indianapolis plumbing scanned 4/rejected 4.
+- No output CSV or run folder was created, so there was nothing safe to triage or merge. Master data was not changed.
+- Safe decision: did not rotate lanes yet because the new active window only advanced from cursor 0 to 6 inside the 45-lane schedule. Continue with the next guarded segment rather than retrying roofing/plumbing immediately.
