@@ -2,6 +2,7 @@ param()
 
 $ScriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
 $root = Join-Path $ScriptDir '..'
+$configPath = Join-Path $root 'config\source-lanes.json'
 $workingDir = Join-Path $root 'agent_shared\working'
 $statusPath = Join-Path $root 'agent_shared\status\CURRENT_STATUS.json'
 $staleClaimHours = 2
@@ -48,6 +49,7 @@ if (Test-Path -LiteralPath $workingDir) {
 
 $activeClaims = @($claims | Where-Object { -not $_.is_stale })
 $staleClaims = @($claims | Where-Object { $_.is_stale })
+$config = Read-JsonFile $configPath
 $currentStatus = Read-JsonFile $statusPath
 $currentRunStartedAt = $null
 $currentRunIsFresh = $false
@@ -64,7 +66,23 @@ if ($currentStatus -and $currentStatus.startedAt) {
 }
 
 $hasFreshRunningStatus = $currentStatus -and $currentStatus.state -eq 'running' -and $currentRunIsFresh
-$canStartCollector = ($activeClaims.Count -eq 0) -and (-not $hasFreshRunningStatus)
+$rateLimitCooldownMinutes = if ($config -and $config.sourceCooldownMinutesAfterRateLimit) {
+    [int]$config.sourceCooldownMinutesAfterRateLimit
+} else {
+    0
+}
+$rateLimitCooldownActive = $false
+$rateLimitCooldownUntil = $null
+$rateLimitNoteCount = 0
+if ($currentStatus -and $currentStatus.lanes -and $rateLimitCooldownMinutes -gt 0 -and $currentRunStartedAt) {
+    $rateLimitNoteCount = @($currentStatus.lanes | Where-Object { [string]$_.note -match 'HTTP 429' }).Count
+    if ($rateLimitNoteCount -gt 0) {
+        $rateLimitCooldownUntil = $currentRunStartedAt.AddMinutes($rateLimitCooldownMinutes)
+        $rateLimitCooldownActive = (Get-Date) -lt $rateLimitCooldownUntil
+    }
+}
+
+$canStartCollector = ($activeClaims.Count -eq 0) -and (-not $hasFreshRunningStatus) -and (-not $rateLimitCooldownActive)
 $reasons = @()
 
 if ($activeClaims.Count -gt 0) {
@@ -76,6 +94,9 @@ if ($hasFreshRunningStatus) {
 if ($staleClaims.Count -gt 0) {
     $reasons += "stale_claims_detected:$($staleClaims.Count)"
 }
+if ($rateLimitCooldownActive) {
+    $reasons += "source_rate_limit_cooldown_until:$($rateLimitCooldownUntil.ToUniversalTime().ToString('s'))Z"
+}
 if ($reasons.Count -eq 0) {
     $reasons += 'collector_clear_to_start'
 }
@@ -85,6 +106,12 @@ if ($reasons.Count -eq 0) {
     stale_claim_hours = $staleClaimHours
     can_start_collector = $canStartCollector
     reasons = @($reasons)
+    source_rate_limit_cooldown = [ordered]@{
+        active = $rateLimitCooldownActive
+        cooldown_minutes = $rateLimitCooldownMinutes
+        rate_limit_note_count = $rateLimitNoteCount
+        until = if ($rateLimitCooldownUntil) { $rateLimitCooldownUntil.ToUniversalTime().ToString('s') + 'Z' } else { $null }
+    }
     active_claim_count = $activeClaims.Count
     stale_claim_count = $staleClaims.Count
     active_claims = @($activeClaims)

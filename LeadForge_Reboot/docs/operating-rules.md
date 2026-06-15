@@ -23,6 +23,7 @@ If a user request has the right intent but the tactic would cause overlap, dupli
 11. At usage-limit or day-end risk, stop opening new collector work, finish the current atomic step, build the handoff report, run health checks, and commit.
 12. Keep the system human-reviewable. Every run should leave clear files, manifests, logs, evidence, counts, and next actions.
 13. After lead collection or merge work, run the Offer Audit Engine sidecar so each lead has an owner/contact view, qualification tier, audit angles, offer recommendations, and next action without mutating the source master data.
+14. If a public source returns rate-limit errors, pause collection through the guard instead of retrying immediately. Cooldowns protect future source access and prevent wasted wakeups.
 
 ## Cadence Rules
 

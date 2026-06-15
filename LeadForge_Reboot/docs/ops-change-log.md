@@ -1,5 +1,12 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T00:42Z - Source rate-limit cooldown guard
+
+- Root cause: after the tuned collector pass, Overpass returned multiple HTTP 429 rate-limit responses. The normal collector guard still reported `collector_clear_to_start`, which could let a near-immediate heartbeat hammer the public source again.
+- Fix: `config/source-lanes.json` now defines `sourceCooldownMinutesAfterRateLimit = 15`, and `scripts/get-collector-guard-status.ps1` blocks new collector starts when the latest completed status contains HTTP 429 lane notes inside that cooldown window.
+- Verification: the guard now reports `can_start_collector = false` with `source_rate_limit_cooldown_until:2026-06-15T00:52:06Z`, zero active claims, and five rate-limit notes from the latest collector status.
+- Safety: no lead data was changed. This only prevents overlapping or too-fast collector starts after rate limits; pending, rejected, quarantine, and master lead artifacts remain intact.
+
 ## 2026-06-15T00:31Z - Dry cursor rotation fix
 
 - Root cause: `complete_no_rows` was treated as a full lane-window failure even when the source cursor had only scanned the first 12 of 45 city/niche combinations. This made the loop look stuck and encouraged premature city rotation after a partial duplicate-heavy pass.
