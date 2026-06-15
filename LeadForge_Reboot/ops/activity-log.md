@@ -138,3 +138,9 @@
 - Ran one additional guarded collector with no overlap after committing Batch 067.
 - The cleaning/locksmith lane segment returned 0 fresh rows across Richmond, Virginia Beach, and Phoenix; no output CSV or run folder was created.
 - Safe decision: did not rotate yet because the source cursor advanced from 18 to 24 inside the active 45-lane schedule and has not wrapped or proven the full window dry.
+
+## 2026-06-14 23:48 EDT - Partial Dry Painting/Flooring Pass
+
+- Ran one guarded collector with no overlap from the clean `e80407f` handoff.
+- The painting/flooring lane segment returned 0 fresh rows; Phoenix painting timed out once, and Phoenix flooring scanned 2 candidates that were rejected by collector filters.
+- Safe decision: did not rotate yet because the source cursor advanced from 24 to 30 inside the active 45-lane schedule and has not wrapped or proven the full window dry.
