@@ -1,5 +1,12 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T01:02Z - Rotation preserves source cooldown
+
+- Root cause: after rotating from the fully dry Houston/Austin/Columbus window to Cincinnati/Pittsburgh/Philadelphia, `rotate-source-lanes.ps1` rewrote `source-lanes.json` without preserving `sourceCooldownMinutesAfterRateLimit`.
+- Fix: restored `sourceCooldownMinutesAfterRateLimit = 15` in `config/source-lanes.json` and updated the rotation script to carry that setting forward on future lane rotations.
+- Verification: this was caught before opening a new collector on the fresh lane window, so no collection ran with the cooldown safety missing.
+- Safety: no lead data changed. This only preserves source-protection behavior across lane rotations.
+
 ## 2026-06-15T00:42Z - Source rate-limit cooldown guard
 
 - Root cause: after the tuned collector pass, Overpass returned multiple HTTP 429 rate-limit responses. The normal collector guard still reported `collector_clear_to_start`, which could let a near-immediate heartbeat hammer the public source again.

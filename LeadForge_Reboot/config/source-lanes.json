@@ -10,6 +10,7 @@
     "lanePauseMs":  1500,
     "overpassTimeoutMs":  15000,
     "overpassAttempts":  1,
+    "sourceCooldownMinutesAfterRateLimit":  15,
     "querySampleLimit":  6,
     "maxLaneNicheChecksPerRun":  6,
     "activeLaneWindowSize":  3,

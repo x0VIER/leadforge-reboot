@@ -141,6 +141,7 @@ $updatedConfig = [ordered]@{
     lanePauseMs = $config.lanePauseMs
     overpassTimeoutMs = $config.overpassTimeoutMs
     overpassAttempts = $config.overpassAttempts
+    sourceCooldownMinutesAfterRateLimit = $config.sourceCooldownMinutesAfterRateLimit
     querySampleLimit = $config.querySampleLimit
     maxLaneNicheChecksPerRun = $config.maxLaneNicheChecksPerRun
     activeLaneWindowSize = $windowSize
