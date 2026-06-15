@@ -25,6 +25,12 @@
 - Contamination handling: the USA audit flagged 167 older/imported suspicious rows, mostly non-resolving website hosts. A fresh quarantine artifact was created with `scripts/quarantine-suspicious-leads.ps1 -State USA`; this copies the suspicious rows and lead IDs for review without deleting or changing the master.
 - Safety: no master rows, archive files, pending rows, or rejected artifacts were deleted or overwritten. This change only prevents wasted lane rotation and makes the next action clearer for future Codex workers.
 
+## 2026-06-15T01:27Z - Pittsburgh HVAC owner-verified batch
+
+- Collector output produced 2 Pittsburgh HVAC candidates. Boehmer Heating & Cooling and Spurk HVAC, LLC were promoted to reviewed/final after public evidence verified official contact paths, business phone numbers, licensing/registration context, and owner or decision-maker sources.
+- Data cleanup: the raw Spurk row surfaced a `connect.facebook.net` tracking URL as the contact path. The reviewed row replaced it with the first-party official contact page so QA and the human viewer show the usable business path instead of a tracking endpoint.
+- Safety: no raw rows were merged. Both rows passed `scripts/qa-review-batch.ps1` before merge, and evidence was preserved in `source_evidence`, `owner_source`, `visible_gap`, and `offer_angle`.
+
 ## 2026-06-15T01:12Z - Pittsburgh/Cincinnati plumbing QA cleanup
 
 - Collector output produced 4 plumbing candidates across Cincinnati and Pittsburgh. All 4 were promoted to reviewed/final after public evidence verified business identity, contact path, and owner or decision-maker context from official sites plus BBB profiles.

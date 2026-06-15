@@ -1,0 +1,63 @@
+{
+  "createdAt": "2026-06-15T01:19:45.242Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-15T01-18-23-876Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 2,
+  "lanes": [
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Pittsburgh",
+      "state": "PA",
+      "niche": "electrician",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Philadelphia",
+      "state": "PA",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for query on attempt 1"
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "niche": "hvac",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Pittsburgh",
+      "state": "PA",
+      "niche": "hvac",
+      "scanned": 3,
+      "added": 2,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Philadelphia",
+      "state": "PA",
+      "niche": "hvac",
+      "scanned": 6,
+      "added": 0,
+      "rejected": 6,
+      "note": ""
+    }
+  ]
+}

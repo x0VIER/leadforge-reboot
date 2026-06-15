@@ -1,0 +1,38 @@
+{
+    "run_name":  "2026-06-15-usa-home-services-sprint",
+    "slug":  "2026-06-15-usa-home-services-sprint",
+    "created_at":  "2026-06-15T01:19:45",
+    "status":  "merged_to_master",
+    "owner":  "Hermes",
+    "notes":  "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+    "raw_files":  [
+                      "2026-06-15T01-18-23-876Z-usa-home-services-sprint-fresh-leads.csv"
+                  ],
+    "reviewed_files":  [
+                           "2026-06-15T01-18-23-876Z-usa-home-services-sprint-fresh-leads.reviewed.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-15T01-18-23-876Z-usa-home-services-sprint-fresh-leads.final.csv"
+                    ],
+    "source_log":  "2026-06-15T01-18-23-876Z-usa-home-services-sprint-run-log.json",
+    "raw_rows":  2,
+    "staged_at":  "2026-06-15T01:19:45",
+    "pending_files":  [
+
+                      ],
+    "rejected_files":  [
+
+                       ],
+    "reviewed_rows":  2,
+    "final_rows":  2,
+    "pending_rows":  0,
+    "rejected_rows":  0,
+    "qa_status":  "passed",
+    "review_notes":  "Two raw Pittsburgh HVAC candidates were public-source enriched and QA-reviewed. Boehmer and Spurk owner/decision-maker evidence verified from BBB plus official/public profile evidence. No raw rows merged.",
+    "reviewed_at":  "2026-06-15T01:27:00Z",
+    "merged_rows":  2,
+    "added_rows":  2,
+    "enriched_existing_rows":  0,
+    "merged_at":  "2026-06-15T01:28:00Z",
+    "merge_notes":  "Merged through scripts/merge-new-leads.ps1 after QA passed. Master row count 479 -\u003e 481."
+}
