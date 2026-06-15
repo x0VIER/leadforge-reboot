@@ -1,0 +1,34 @@
+{
+  "run_name": "2026-06-15-usa-home-services-sprint",
+  "slug": "2026-06-15-usa-home-services-sprint",
+  "created_at": "2026-06-15T06:02:54",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-15T06-01-26-746Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "source_log": "2026-06-15T06-01-26-746Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 2,
+  "staged_at": "2026-06-15T06:02:54",
+  "reviewed_count": 2,
+  "final_count": 2,
+  "pending_count": 0,
+  "rejected_count": 0,
+  "reviewed_files": [
+    "2026-06-15-tucson-windows-doors-reviewed-batch-074.csv"
+  ],
+  "final_files": [
+    "2026-06-15-tucson-windows-doors-final-batch-074.csv"
+  ],
+  "reviewed_at": "2026-06-15T02:08:00-04:00",
+  "review_notes": "Manual public review promoted Window Depot and Olander's Window Replacement. Window Depot was verified through official site/location pages plus BBB/corporate context; the reviewed row uses Michael Kron as store-level decision maker for the Tucson Speedway location and records corporate owner context in owner_source. Olander's Window Replacement was verified through official site/about/contact pages, BBB managing-member evidence, Milgard dealer profile, and public Patrick Olander owner profile evidence. Public phones are business/location phones only. No raw rows merged.",
+  "qa_status": "passed_no_blocking_output",
+  "merged_rows": 2,
+  "merged_lead_ids": [
+    "LF-0184",
+    "LF-0185"
+  ],
+  "merged_to_master_at": "2026-06-15T02:12:00-04:00",
+  "merge_notes": "Merged 2 Tucson windows/doors rows after reviewed final artifacts and QA. Master row count 498 -> 500. Window Depot uses store-level official decision-maker evidence plus corporate owner context; Olander's uses BBB managing-member owner evidence."
+}

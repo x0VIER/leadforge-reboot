@@ -1,5 +1,13 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T06:15Z - Tucson windows/doors merge and 500-row milestone
+
+- Collector output produced 2 Tucson windows/doors candidates: Window Depot and Olander's Window Replacement. Chicago and Indianapolis windows/doors rows were filtered out by the collector, and tree-service lanes returned no staged rows.
+- Window Depot was promoted after official site/location evidence verified the Tucson Speedway location, contact path, Michael Kron as Store Manager, and corporate BBB/Real Estate Daily News context for The Window Depot / Solar Industries Inc.
+- Olander's Window Replacement was promoted after official site/about/contact evidence, BBB managing-member evidence, Milgard dealer profile evidence, and public Patrick Olander owner-profile evidence verified identity, contact path, and owner or decision-maker context.
+- Safety: no raw rows were merged. The generated pending scratch file from initial triage was removed only after reviewed/final artifacts, QA, merge, and manifest state existed. Master grew from 498 to 500 rows; durable IDs are `LF-0184` and `LF-0185`.
+- Certification: contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, offer readiness, master viewer workbook, and desktop lead hub were rebuilt. Health remains yellow only because of historical recent failure noise; collector guard is clear.
+
 ## 2026-06-15T06:00Z - Tucson carpentry and no-website property-management merge
 
 - Collector output produced 2 Tucson carpentry-lane candidates: Gover Property Management and Tom White Carpentry. The same source cycle hit HTTP 429 on Indianapolis carpentry and Tucson masonry, so the collector guard entered cooldown after certification.
