@@ -1,10 +1,10 @@
 # LeadForge Ops Health
 
-- Generated: 2026-06-14T20:32:24
+- Generated: 2026-06-14T20:36:30
 - Health: yellow
 - Target state: USA
 - Master rows: 475
 - Pending queue rows: 61
 - Collector can start: True
-- Issues: recent_failure_noise:37
+- Issues: recent_failure_noise:38
 - Next action: System can continue with pending enrichment or fresh collector sourcing.

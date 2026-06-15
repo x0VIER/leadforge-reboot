@@ -8,10 +8,10 @@
     "maxOutputRows":  30,
     "overpassPauseMs":  2500,
     "lanePauseMs":  700,
-    "overpassTimeoutMs":  9000,
+    "overpassTimeoutMs":  15000,
     "overpassAttempts":  1,
-    "querySampleLimit":  4,
-    "maxLaneNicheChecksPerRun":  12,
+    "querySampleLimit":  6,
+    "maxLaneNicheChecksPerRun":  9,
     "activeLaneWindowSize":  3,
     "lanePool":  [
                      {
