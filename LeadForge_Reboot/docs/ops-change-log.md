@@ -1,5 +1,11 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T09:20Z - Third Florida dry partial pass, no rotation
+
+- Guarded collector ran on the Orlando / Tampa / Jacksonville window and completed cleanly with no fresh rows. No raw rows were staged and no master rows were changed.
+- Rotation check refused to rotate because the source cursor is at `24` of `45`; the Florida lane window still has remaining niche slots to scan before it should be treated as exhausted.
+- Safety: no raw output was merged, no overlapping collector was started, and the correct next action is to continue the Florida window after the guard is clear.
+
 ## 2026-06-15T09:10Z - Jacksonville pest-control owner-verified merge
 
 - Collector output produced 1 Jacksonville pest-control candidate: Ratchet Roach Pest Control. Jacksonville landscaping hit HTTP 429 and Orlando/Tampa pest-control hit HTTP 504, so the next collector must respect guard status before any retry.
