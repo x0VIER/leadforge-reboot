@@ -1,5 +1,11 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T07:15Z - Partial dry pass, no rotation
+
+- Guarded collector ran after the Louisville HVAC source cooldown cleared and produced no fresh rows. No raw rows were staged and no master rows were changed.
+- Rotation check refused to rotate because this was only a partial dry pass: source cursor is at `18` of `45`, so the Louisville / Birmingham / Greenville window still has remaining niches to scan.
+- Safety: the correct next action is certification and a local commit, then the next heartbeat can continue the remaining current-window niches after checking the guard. Do not force-rotate this window yet.
+
 ## 2026-06-15T07:00Z - Birmingham/Greenville HVAC merge
 
 - Collector output produced 4 HVAC candidates while scanning Louisville, Birmingham, and Greenville. Louisville HVAC hit HTTP 429, so the next collector must respect guard status before any retry.
