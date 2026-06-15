@@ -1,0 +1,63 @@
+{
+  "createdAt": "2026-06-15T06:32:27.082Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-15T06-31-16-793Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 3,
+  "lanes": [
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "roofing",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Birmingham",
+      "state": "AL",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Greenville",
+      "state": "SC",
+      "niche": "roofing",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "plumbing",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Birmingham",
+      "state": "AL",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Greenville",
+      "state": "SC",
+      "niche": "plumbing",
+      "scanned": 3,
+      "added": 3,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}

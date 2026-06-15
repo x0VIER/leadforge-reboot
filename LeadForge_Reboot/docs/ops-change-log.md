@@ -1,5 +1,13 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T06:45Z - Greenville plumbing owner-verified merge
+
+- Collector output produced 3 Greenville plumbing-lane candidates after the lane window rotated to Louisville, Birmingham, and Greenville. H2Flow Plumbing and Chisholm Plumbing, Heating & Air Conditioning were promoted; Gateway Supply Co was rejected.
+- H2Flow Plumbing was promoted after official site evidence verified Greenville/Upstate plumbing service, public phone/contact path, and owner-led positioning; BBB verified Phillip H. Waters as Owner/principal/customer contact.
+- Chisholm Plumbing, Heating & Air Conditioning was promoted after official site/contact/about evidence verified public contact path, Greenville-area addresses, phone, email, license number, and founder context; BBB verified John B Chisholm as Owner/principal/customer contact.
+- Gateway Supply Co was rejected as a real but out-of-scope plumbing/HVAC supplier and distributor. Official Gateway/Watsco evidence confirms showroom/supply-counter and distributor/acquisition context, so it was kept out of the local service-contractor master.
+- Safety: no raw rows were merged. The final QA-clean rows merged as `LF-0186` and `LF-0187`, and master grew from 500 to 502 rows. Public phones remain business phones only; no owner-direct private number was inferred.
+
 ## 2026-06-15T06:30Z - Dry Tucson/Chicago/Indianapolis pass rotated
 
 - Guarded collector completed cleanly with no fresh rows and no timeout. The collector log explicitly reported that no fresh leads were produced, so the current lane window was treated as dry rather than retried.

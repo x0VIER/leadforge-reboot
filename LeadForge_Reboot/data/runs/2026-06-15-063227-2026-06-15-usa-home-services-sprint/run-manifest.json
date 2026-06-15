@@ -1,0 +1,37 @@
+{
+  "run_name": "2026-06-15-usa-home-services-sprint",
+  "slug": "2026-06-15-usa-home-services-sprint",
+  "created_at": "2026-06-15T06:32:27",
+  "status": "merged_to_master_partial",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-15T06-31-16-793Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "source_log": "2026-06-15T06-31-16-793Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 3,
+  "staged_at": "2026-06-15T06:32:27",
+  "reviewed_count": 3,
+  "final_count": 2,
+  "pending_count": 0,
+  "rejected_count": 1,
+  "reviewed_files": [
+    "2026-06-15-greenville-plumbing-reviewed-batch-075.csv"
+  ],
+  "final_files": [
+    "2026-06-15-greenville-plumbing-final-batch-075.csv"
+  ],
+  "rejected_files": [
+    "2026-06-15-greenville-plumbing-rejected-batch-075.csv"
+  ],
+  "reviewed_at": "2026-06-15T02:41:00-04:00",
+  "review_notes": "Manual public review promoted H2Flow Plumbing and Chisholm Plumbing, Heating & Air Conditioning after official site/contact evidence plus BBB owner evidence verified public business identity, public business contact paths, and owners Phillip H. Waters and John B Chisholm. Gateway Supply Co was rejected because official and Watsco public evidence verify it as a plumbing/HVAC supplier/distributor and showroom, not a local plumbing service contractor. No raw rows merged.",
+  "qa_status": "passed_no_blocking_output",
+  "merged_rows": 2,
+  "merged_lead_ids": [
+    "LF-0186",
+    "LF-0187"
+  ],
+  "merged_to_master_at": "2026-06-15T02:46:00-04:00",
+  "merge_notes": "Merged 2 Greenville plumbing rows after reviewed final artifacts and QA. Master row count 500 -> 502. H2Flow Plumbing uses BBB owner evidence for Phillip H. Waters plus official site contact evidence. Chisholm Plumbing, Heating & Air Conditioning uses official contact/about pages and BBB owner evidence for John B Chisholm. Gateway Supply Co remains rejected as a supplier/distributor and was not merged."
+}

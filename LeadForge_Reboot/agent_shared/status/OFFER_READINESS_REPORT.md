@@ -1,6 +1,6 @@
 ﻿# Offer Readiness Report
 
-Generated: 2026-06-15T02:18:04
+Generated: 2026-06-15T02:36:55
 
 Source: C:\Users\loc9o\Desktop\AGR 1226\LeadForge_Reboot\data\master_leads.csv
 
@@ -8,14 +8,14 @@ This report is a sidecar planning view. It does not mutate master leads and it d
 
 ## Tier Counts
 
-- A - Offer Ready: 207
+- A - Offer Ready: 209
 - B - Strong Audit Candidate: 12
 - C - Needs More Evidence: 264
 - D - Hold / Research First: 17
 
 ## Contact Path Counts
 
-- Contact form or booking URL: 385
+- Contact form or booking URL: 387
 - No safe public contact path yet: 8
 - Public business email: 24
 - Public business phone: 82
@@ -41,8 +41,8 @@ This report is a sidecar planning view. It does not mutate master leads and it d
 - LF-0111 | Century Glass | windows_doors | Dallas, TX | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LF-0046 | Chaffee HVAC, Plumbing, & Electrical | hvac | Knoxville, TN | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LF-0103 | Chapman Air & Heat | hvac | Dallas, TX | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
+- LF-0187 | Chisholm Plumbing, Heating & Air Conditioning | plumbing | Greenville, SC | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Reviews and local prominence improvement; Conversion path cleanup; Best services listing placement
 - LF-0029 | Colony Roofers | roofing | Atlanta, GA | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
-- LFR-20260613-0001 | Coral Air Conditioning Repair | hvac | Cape Coral, FL | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 
 ## Process Notes
 
