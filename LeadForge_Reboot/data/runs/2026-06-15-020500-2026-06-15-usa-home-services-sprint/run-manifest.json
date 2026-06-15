@@ -1,0 +1,39 @@
+﻿{
+    "run_name":  "2026-06-15-usa-home-services-sprint",
+    "slug":  "2026-06-15-usa-home-services-sprint",
+    "created_at":  "2026-06-15T02:05:00",
+    "status":  "merged_to_master",
+    "owner":  "Hermes",
+    "notes":  [
+                  "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+                  "Collector returned one Cincinnati painting candidate; Philadelphia painting hit HTTP 429 and Pittsburgh flooring hit an Overpass timeout, so this run did not force retries inside the same guarded cycle.",
+                  "Automatic triage held the row for missing owner evidence; manual public review found BBB owner/principal evidence and official website contact evidence.",
+                  "Merged one reviewed/final row only; no raw rows merged."
+              ],
+    "raw_files":  [
+                      "2026-06-15T02-03-26-915Z-usa-home-services-sprint-fresh-leads.csv"
+                  ],
+    "source_log":  "2026-06-15T02-03-26-915Z-usa-home-services-sprint-run-log.json",
+    "raw_rows":  1,
+    "staged_at":  "2026-06-15T02:05:00",
+    "reviewed_files":  [
+                           "2026-06-15-cincinnati-painting-reviewed-batch-063.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-15-cincinnati-painting-final-batch-063.csv"
+                    ],
+    "pending_files":  [
+
+                      ],
+    "rejected_files":  [
+
+                       ],
+    "reviewed_count":  1,
+    "final_count":  1,
+    "pending_count":  0,
+    "rejected_count":  0,
+    "qa_status":  "passed_no_blocking_output",
+    "merged_rows":  1,
+    "merged_to_master_at":  "2026-06-14T22:07:17",
+    "merge_notes":  "Merged Bill\u0027s Painting \u0026 Carpentry after official-site and BBB owner verification. BBB lists Bill Charles as Owner/principal/customer contact; final row uses canonical home-page website and separate contact URL."
+}

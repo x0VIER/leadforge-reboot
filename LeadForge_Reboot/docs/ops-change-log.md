@@ -1,5 +1,12 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T02:08Z - Cincinnati painting owner-verified merge
+
+- Collector output produced 1 Cincinnati painting/carpentry candidate and recorded transient source pressure on later lanes: Philadelphia painting hit HTTP 429 and Pittsburgh flooring hit an Overpass timeout. The loop did not force immediate retries inside the same guarded cycle.
+- Automatic triage correctly held Bill's Painting & Carpentry for missing owner fields. Manual public review found strong evidence from the official site and BBB: the site verifies business identity/contact details, and BBB lists Bill Charles as Owner/principal/customer contact.
+- Fix applied: the reviewed row uses the canonical home-page website with the contact page kept in `contact_url`, preventing contact-page URLs from becoming separate duplicate website keys in master.
+- Safety: no raw rows were merged. One QA-clean reviewed/final row was merged, and unresolved source-rate/timeout notes remain documented in the run manifest for future lane handling.
+
 ## 2026-06-15T01:02Z - Rotation preserves source cooldown
 
 - Root cause: after rotating from the fully dry Houston/Austin/Columbus window to Cincinnati/Pittsburgh/Philadelphia, `rotate-source-lanes.ps1` rewrote `source-lanes.json` without preserving `sourceCooldownMinutesAfterRateLimit`.

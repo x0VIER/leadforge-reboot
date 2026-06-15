@@ -1,6 +1,6 @@
 ﻿# Offer Readiness Report
 
-Generated: 2026-06-14T21:53:38
+Generated: 2026-06-14T22:08:13
 
 Source: C:\Users\loc9o\Desktop\AGR 1226\LeadForge_Reboot\data\master_leads.csv
 
@@ -8,14 +8,14 @@ This report is a sidecar planning view. It does not mutate master leads and it d
 
 ## Tier Counts
 
-- A - Offer Ready: 191
+- A - Offer Ready: 192
 - B - Strong Audit Candidate: 11
 - C - Needs More Evidence: 264
 - D - Hold / Research First: 17
 
 ## Contact Path Counts
 
-- Contact form or booking URL: 368
+- Contact form or booking URL: 369
 - No safe public contact path yet: 8
 - Public business email: 24
 - Public business phone: 82
@@ -33,6 +33,7 @@ This report is a sidecar planning view. It does not mutate master leads and it d
 - LF-0149 | Apex Turf | landscaping | Phoenix, AZ | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Reviews and local prominence improvement; Conversion path cleanup; Best services listing placement
 - LF-0081 | Arizona Native Roofing | roofing | Phoenix, AZ | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LF-0059 | Beckett Electrical Services | electrician | Austin, TX | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
+- LF-0169 | Bill's Painting & Carpentry | painting | Cincinnati, OH | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Reviews and local prominence improvement; Conversion path cleanup; Best services listing placement
 - LFR-20260614-0002 | Brehm Roofing & Restoration | roofing | Ocala, FL | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LFR-20260613-0005 | Bright Spark Electric | electrician | Tampa, FL | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LF-0097 | Carefree Coatings & Windows Inc | windows_doors | Charlotte, NC | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Reviews and local prominence improvement; Conversion path cleanup; Best services listing placement
@@ -42,7 +43,6 @@ This report is a sidecar planning view. It does not mutate master leads and it d
 - LF-0029 | Colony Roofers | roofing | Atlanta, GA | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LFR-20260613-0001 | Coral Air Conditioning Repair | hvac | Cape Coral, FL | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LFR-20260614-0002 | Custom Plumbing, Inc. | plumbing | West Palm Beach, FL | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
-- LFR-20260614-0009 | Distinctive Roofing | roofing | Pompano Beach, FL | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 
 ## Process Notes
 
