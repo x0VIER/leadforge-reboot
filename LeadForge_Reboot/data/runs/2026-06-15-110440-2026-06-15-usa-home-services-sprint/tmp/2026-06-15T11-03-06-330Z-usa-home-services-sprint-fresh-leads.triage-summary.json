@@ -1,0 +1,10 @@
+{
+    "input_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-15-110440-2026-06-15-usa-home-services-sprint\\raw\\2026-06-15T11-03-06-330Z-usa-home-services-sprint-fresh-leads.csv",
+    "total_rows":  null,
+    "excluded_reviewed_rows":  0,
+    "reviewed_ready_rows":  0,
+    "pending_enrichment_rows":  1,
+    "rejected_rows":  0,
+    "pending_csv":  "C:\\Users\\loc9o\\Desktop\\AGR 1226\\LeadForge_Reboot\\data\\runs\\2026-06-15-110440-2026-06-15-usa-home-services-sprint\\tmp\\2026-06-15T11-03-06-330Z-usa-home-services-sprint-fresh-leads.pending-enrichment.csv",
+    "rejected_csv":  ""
+}

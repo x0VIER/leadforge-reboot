@@ -1,0 +1,33 @@
+{
+  "run_name": "2026-06-15-usa-home-services-sprint",
+  "slug": "2026-06-15-usa-home-services-sprint",
+  "created_at": "2026-06-15T11:04:40",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-15T11-03-06-330Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-15-savannah-landscaping-reviewed-batch-080.csv"
+  ],
+  "final_files": [
+    "2026-06-15-savannah-landscaping-final-batch-080.csv"
+  ],
+  "source_log": "2026-06-15T11-03-06-330Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 1,
+  "staged_at": "2026-06-15T11:04:40",
+  "reviewed_count": 1,
+  "final_count": 1,
+  "pending_count": 0,
+  "rejected_count": 0,
+  "reviewed_at": "2026-06-15T07:06:14-04:00",
+  "review_notes": "Manual public review promoted GrassMaster Lawn Care, Inc. Official site/contact page verified Savannah landscaping identity, phone, email, address, service scope, and free-estimate contact path. Public owner evidence from 24-7 PressRelease and Manta identified Mike Schuman as President/owner. No raw row merged before QA.",
+  "qa_status": "passed",
+  "merged_rows": 1,
+  "merged_lead_ids": [
+    "LF-0198"
+  ],
+  "merged_to_master_at": "2026-06-15T07:07:18-04:00",
+  "merge_notes": "Merged after qa-review-batch.ps1 returned clean. Master row count moved from 512 to 513 with 1 added row and 0 enriched existing rows."
+}
