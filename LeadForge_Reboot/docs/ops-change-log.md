@@ -1,5 +1,12 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T02:51Z - Dry window completed and rotated
+
+- The final Cincinnati/Pittsburgh/Philadelphia pool-service pass produced no fresh leads, then the source cursor wrapped from `42` back to `3` after replaying the first roofing lanes. This proved the current city window had fully cycled and was starting stale work again.
+- Fix: `scripts/rotate-source-lanes.ps1` now recognizes a dry-pass cursor wrap using `scheduleCursorStart` and `scheduleCursorNext`, so a wrapped cursor is not misclassified as ordinary partial progress.
+- Rotation: the active lane window moved to Richmond, VA, Virginia Beach, VA, and Phoenix, AZ without using `-Force`.
+- Safety: no raw rows were staged or merged during the dry pass. The fix only prevents stale city-window replay; it does not delete archive data, pending rows, rejected rows, or master rows.
+
 ## 2026-06-15T02:36Z - Partial dry pass, no rotation
 
 - Collector output produced no fresh rows while scanning Cincinnati/Pittsburgh/Philadelphia windows/doors and tree-service lanes. Philadelphia windows/doors hit HTTP 429, so the guard cooldown must be respected again.

@@ -92,11 +92,17 @@ if (Test-Path -LiteralPath $runsRoot) {
 }
 
 $latestReviewedRunWasDry = $latestRunManifest -and $latestRunManifest.status -in @('rejected', 'merged_no_approved_rows')
+$cursorWrappedDuringDryPass = -not $Force -and
+    $status -and $status.state -eq 'complete_no_rows' -and
+    $status.PSObject.Properties.Name -contains 'scheduleCursorStart' -and
+    $status.PSObject.Properties.Name -contains 'scheduleCursorNext' -and
+    [int]$status.scheduleCursorStart -gt [int]$status.scheduleCursorNext
 $partialDryCursorProgress = -not $Force -and
     $status -and $status.state -eq 'complete_no_rows' -and
     $cursor -and $cursor.scheduleSize -and
     [int]$cursor.scheduleSize -gt 0 -and
-    [int]$cursor.nextIndex -gt 0
+    [int]$cursor.nextIndex -gt 0 -and
+    -not $cursorWrappedDuringDryPass
 
 if ($partialDryCursorProgress) {
     [pscustomobject]@{
