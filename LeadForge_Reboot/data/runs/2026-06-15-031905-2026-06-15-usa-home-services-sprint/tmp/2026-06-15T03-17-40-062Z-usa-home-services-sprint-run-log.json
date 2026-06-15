@@ -1,0 +1,63 @@
+{
+  "createdAt": "2026-06-15T03:19:05.169Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-15T03-17-40-062Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 1,
+  "lanes": [
+    {
+      "city": "Richmond",
+      "state": "VA",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "electrician",
+      "scanned": 12,
+      "added": 0,
+      "rejected": 12,
+      "note": ""
+    },
+    {
+      "city": "Richmond",
+      "state": "VA",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for query on attempt 1"
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "hvac",
+      "scanned": 12,
+      "added": 1,
+      "rejected": 11,
+      "note": ""
+    }
+  ]
+}

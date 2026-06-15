@@ -1,0 +1,30 @@
+{
+  "run_name": "2026-06-15-usa-home-services-sprint",
+  "slug": "2026-06-15-usa-home-services-sprint",
+  "created_at": "2026-06-15T03:19:05",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-15T03-17-40-062Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-15-phoenix-hvac-reviewed-batch-066.csv"
+  ],
+  "final_files": [
+    "2026-06-15-phoenix-hvac-final-batch-066.csv"
+  ],
+  "source_log": "2026-06-15T03-17-40-062Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 1,
+  "staged_at": "2026-06-15T03:19:05",
+  "reviewed_count": 1,
+  "final_count": 1,
+  "pending_count": 0,
+  "rejected_count": 0,
+  "reviewed_at": "2026-06-15T03:25:00Z",
+  "review_notes": "Manual public review promoted Mountainside Air Conditioning Repair after official site/contact/terms evidence verified business identity and public contact paths; Go Local Arizona and PRLog corroborated Tom Doepke as owner/operator. No raw rows merged.",
+  "qa_status": "passed_no_blocking_output",
+  "merged_rows": 1,
+  "merged_to_master_at": "2026-06-14T23:28:00",
+  "merge_notes": "Merged Mountainside Air Conditioning Repair after official public owner/contact evidence verified Tom Doepke and the Phoenix HVAC business. Master row count 487 -> 488."
+}

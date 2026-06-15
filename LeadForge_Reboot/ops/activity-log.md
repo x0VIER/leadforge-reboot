@@ -116,3 +116,12 @@
 - Advanced the highest-priority pending owner-research row before opening another collector run.
 - Rechecked Palmetto Outdoor Lighting from public sources. Official website/contact data is valid, but search results surfaced unrelated Palmetto lighting/exterior-lighting entities and no reliable owner, founder, officer, BBB principal, registry contact, or first-party leadership source for the exact Charlotte business.
 - Safe fix: did not merge and did not guess an owner. Updated the pending artifact to `monitor_or_move_on_until_stronger_public_evidence` with registration notes so future workers avoid repeating the same weak search.
+
+## 2026-06-14 23:28 EDT - Batch 066 Phoenix HVAC Merge
+
+- Ran the guarded collector with no overlap after the prior cooldown cleared; it completed inside the 180-second budget and staged 1 Phoenix HVAC candidate.
+- Enriched Mountainside Air Conditioning Repair from public official site/contact/terms evidence, plus public directory and press corroboration, and verified Tom Doepke as the public business owner/contact.
+- No raw rows were merged. The collector-local `LFR-*` ID was allowed through the final reviewed file because `scripts/merge-new-leads.ps1` strips those temporary IDs and assigns the next durable `LF-*` master ID.
+- Merged through `scripts/merge-new-leads.ps1`; master moved from 487 to 488 rows with 1 added and 0 existing-row enrichments.
+- Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, offer readiness, the polished viewer workbook, and the desktop lead hub.
+- Health remains yellow because Virginia Beach HVAC hit an HTTP 429 and the collector guard is cooling down until `2026-06-15T03:32:40Z`; next worker should wait for the guard instead of retrying immediately.
