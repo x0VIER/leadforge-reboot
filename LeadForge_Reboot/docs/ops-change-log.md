@@ -1,5 +1,12 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T08:25Z - Louisville/Birmingham/Greenville window exhausted and rotated
+
+- Guarded collector ran after the source cooldown cleared and produced no fresh rows. No raw rows were staged and no master rows were changed.
+- Rotation check succeeded because the previous run completed with no fresh rows after the active lane window finished its remaining scan slots.
+- Rotation: `scripts/rotate-source-lanes.ps1` moved the active window from Louisville, KY / Birmingham, AL / Greenville, SC to Orlando, FL / Tampa, FL / Jacksonville, FL.
+- Safety: no collector output was raw-merged, no master rows were overwritten, and the lane change only updates sourcing direction for the next guarded collector cycle.
+
 ## 2026-06-15T08:15Z - Louisville windows/doors owner-verified merge
 
 - Collector output produced 1 Louisville windows/doors candidate: Louisville Window Company. Birmingham and Greenville tree-service queries returned HTTP 429, so the next collector must respect guard status before any retry.
