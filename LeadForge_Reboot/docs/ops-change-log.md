@@ -1,5 +1,12 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T06:30Z - Dry Tucson/Chicago/Indianapolis pass rotated
+
+- Guarded collector completed cleanly with no fresh rows and no timeout. The collector log explicitly reported that no fresh leads were produced, so the current lane window was treated as dry rather than retried.
+- Rotation: `scripts/rotate-source-lanes.ps1` moved the active window from Tucson, AZ / Chicago, IL / Indianapolis, IN to Louisville, KY / Birmingham, AL / Greenville, SC.
+- Safety: no raw rows were staged, no rows were merged, and no master rows were changed. The action only advanced source lanes to avoid stale repeated collection.
+- Certification: contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, offer readiness, master viewer workbook, and desktop lead hub were rebuilt. Master remains at 500 rows; health remains yellow only because of historical recent failure noise.
+
 ## 2026-06-15T06:15Z - Tucson windows/doors merge and 500-row milestone
 
 - Collector output produced 2 Tucson windows/doors candidates: Window Depot and Olander's Window Replacement. Chicago and Indianapolis windows/doors rows were filtered out by the collector, and tree-service lanes returned no staged rows.
