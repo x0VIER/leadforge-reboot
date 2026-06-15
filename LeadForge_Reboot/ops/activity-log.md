@@ -144,3 +144,9 @@
 - Ran one guarded collector with no overlap from the clean `e80407f` handoff.
 - The painting/flooring lane segment returned 0 fresh rows; Phoenix painting timed out once, and Phoenix flooring scanned 2 candidates that were rejected by collector filters.
 - Safe decision: did not rotate yet because the source cursor advanced from 24 to 30 inside the active 45-lane schedule and has not wrapped or proven the full window dry.
+
+## 2026-06-14 23:50 EDT - Partial Dry Carpentry/Masonry Pass
+
+- Ran one guarded collector with no overlap from the clean `5445525` handoff.
+- The carpentry/masonry lane segment returned 0 fresh rows; Phoenix carpentry and masonry scanned 24 total candidates that were rejected by collector filters.
+- Safe decision: did not rotate yet because the source cursor advanced from 30 to 36 inside the active 45-lane schedule and has not wrapped or proven the full window dry.
