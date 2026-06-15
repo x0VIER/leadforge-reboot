@@ -143,8 +143,8 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Orlando",
-                      "state":  "FL",
+                      "city":  "Atlanta",
+                      "state":  "GA",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -164,11 +164,11 @@
                                  ],
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
-                      "stateName":  "Florida"
+                      "stateName":  "Georgia"
                   },
                   {
-                      "city":  "Tampa",
-                      "state":  "FL",
+                      "city":  "Savannah",
+                      "state":  "GA",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -188,11 +188,11 @@
                                  ],
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
-                      "stateName":  "Florida"
+                      "stateName":  "Georgia"
                   },
                   {
-                      "city":  "Jacksonville",
-                      "state":  "FL",
+                      "city":  "Charlotte",
+                      "state":  "NC",
                       "niches":  [
                                      "roofing",
                                      "plumbing",
@@ -212,7 +212,7 @@
                                  ],
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
-                      "stateName":  "Florida"
+                      "stateName":  "North Carolina"
                   }
               ]
 }
