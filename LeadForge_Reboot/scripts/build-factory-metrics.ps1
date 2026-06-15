@@ -42,6 +42,21 @@ function Get-IntValue($value) {
     }
 }
 
+function Get-ManifestCount($manifest, [string]$rowsName, [string]$countName) {
+    $rowsValue = $manifest.PSObject.Properties[$rowsName]
+    if ($rowsValue) {
+        $parsedRows = Get-IntValue $rowsValue.Value
+        if ($parsedRows -ne 0) { return $parsedRows }
+    }
+
+    $countValue = $manifest.PSObject.Properties[$countName]
+    if ($countValue) {
+        return Get-IntValue $countValue.Value
+    }
+
+    return 0
+}
+
 if (Test-Path -LiteralPath $runsRoot) {
     $manifestRows = @(Get-ChildItem -LiteralPath $runsRoot -Recurse -File -Filter run-manifest.json | ForEach-Object {
         $manifest = Read-JsonFile $_.FullName
@@ -51,10 +66,10 @@ if (Test-Path -LiteralPath $runsRoot) {
                 status = $manifest.status
                 created_at = $manifest.created_at
                 raw_rows = Get-IntValue $manifest.raw_rows
-                reviewed_rows = Get-IntValue $manifest.reviewed_rows
+                reviewed_rows = Get-ManifestCount $manifest 'reviewed_rows' 'reviewed_count'
                 merged_rows = Get-IntValue $manifest.merged_rows
-                pending_rows = Get-IntValue $manifest.pending_rows
-                rejected_rows = Get-IntValue $manifest.rejected_rows
+                pending_rows = Get-ManifestCount $manifest 'pending_rows' 'pending_count'
+                rejected_rows = Get-ManifestCount $manifest 'rejected_rows' 'rejected_count'
             }
         }
     })

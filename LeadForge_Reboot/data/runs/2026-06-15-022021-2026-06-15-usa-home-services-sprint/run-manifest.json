@@ -1,0 +1,39 @@
+﻿{
+    "run_name":  "2026-06-15-usa-home-services-sprint",
+    "slug":  "2026-06-15-usa-home-services-sprint",
+    "created_at":  "2026-06-15T02:20:21",
+    "status":  "rejected",
+    "owner":  "Hermes",
+    "notes":  [
+                  "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+                  "Collector produced one Philadelphia carpentry candidate; Cincinnati/Pittsburgh carpentry candidates were rejected by collector dedupe/filters, and Pittsburgh masonry hit HTTP 429.",
+                  "Manual public review verified Philadelphia Furniture Workshop is a legitimate woodworking/furniture-making school and 501(c)(3) educational nonprofit, not a service contractor.",
+                  "Rejected with detailed reason and public registration/leadership notes. No rows merged."
+              ],
+    "raw_files":  [
+                      "2026-06-15T02-18-48-474Z-usa-home-services-sprint-fresh-leads.csv"
+                  ],
+    "source_log":  "2026-06-15T02-18-48-474Z-usa-home-services-sprint-run-log.json",
+    "raw_rows":  1,
+    "staged_at":  "2026-06-15T02:20:21",
+    "reviewed_files":  [
+
+                       ],
+    "final_files":  [
+
+                    ],
+    "pending_files":  [
+
+                      ],
+    "rejected_files":  [
+                           "2026-06-15-philadelphia-carpentry-rejected-batch-064.csv"
+                       ],
+    "reviewed_count":  0,
+    "final_count":  0,
+    "pending_count":  0,
+    "rejected_count":  1,
+    "qa_status":  "not_applicable_rejected_before_merge",
+    "merged_rows":  0,
+    "rejected_at":  "2026-06-14T22:22:45",
+    "rejection_notes":  "Rejected Philadelphia Furniture Workshop because public evidence verifies a woodworking/furniture-making school and 501(c)(3) educational nonprofit, not a service-based carpentry contractor lead for this campaign."
+}

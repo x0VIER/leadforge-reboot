@@ -1,5 +1,13 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T02:23Z - Philadelphia carpentry target-mismatch rejection
+
+- Collector output produced 1 Philadelphia carpentry candidate and recorded fresh source pressure: Pittsburgh masonry hit HTTP 429, so the next collector must respect the guard cooldown again.
+- Philadelphia Furniture Workshop was rejected instead of merged. Public evidence verified a real organization, but it is a woodworking/furniture-making school and 501(c)(3) educational nonprofit, not a service-based carpentry contractor for this campaign.
+- Blockage fixed: the raw row did not include rejection-note columns, so direct property assignment failed before writing. The rejected row was rebuilt as an explicit extended object with `triage_reason`, `lead_type`, `public_research_note`, `recommended_action`, and registration/leadership fields.
+- Metrics fix: `build-factory-metrics.ps1` now reads both legacy `*_rows` manifest fields and newer `*_count` fields, so reviewed/pending/rejected totals stay accurate across old and current run manifests.
+- Safety: no raw rows were merged. The run manifest now marks the run `rejected`, and the rejected artifact preserves phone, address, nonprofit status, founder/executive-director context, and why it should not be contacted in this contractor lead lane.
+
 ## 2026-06-15T02:08Z - Cincinnati painting owner-verified merge
 
 - Collector output produced 1 Cincinnati painting/carpentry candidate and recorded transient source pressure on later lanes: Philadelphia painting hit HTTP 429 and Pittsburgh flooring hit an Overpass timeout. The loop did not force immediate retries inside the same guarded cycle.
