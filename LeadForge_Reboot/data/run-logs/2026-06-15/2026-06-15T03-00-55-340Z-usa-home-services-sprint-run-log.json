@@ -1,0 +1,63 @@
+{
+  "createdAt": "2026-06-15T03:02:24.761Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-15T03-00-55-340Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 3,
+  "lanes": [
+    {
+      "city": "Richmond",
+      "state": "VA",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "roofing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 15000ms on attempt 1"
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "roofing",
+      "scanned": 12,
+      "added": 1,
+      "rejected": 11,
+      "note": ""
+    },
+    {
+      "city": "Richmond",
+      "state": "VA",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for query on attempt 1"
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "plumbing",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "plumbing",
+      "scanned": 12,
+      "added": 2,
+      "rejected": 10,
+      "note": ""
+    }
+  ]
+}

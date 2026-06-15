@@ -1,0 +1,39 @@
+﻿{
+    "run_name":  "2026-06-15-usa-home-services-sprint",
+    "slug":  "2026-06-15-usa-home-services-sprint",
+    "created_at":  "2026-06-15T03:02:24",
+    "status":  "merged_to_master",
+    "owner":  "Hermes",
+    "notes":  [
+                  "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+                  "Collector produced three Phoenix candidates: one roofing and two plumbing. Virginia Beach roofing timed out, and Richmond plumbing hit HTTP 429; guard cooldown should be respected after this cycle.",
+                  "All three Phoenix candidates were promoted after public owner/decision-maker verification from BBB, official websites/team pages, and trade profile evidence.",
+                  "Merged three reviewed/final rows only; no raw rows merged."
+              ],
+    "raw_files":  [
+                      "2026-06-15T03-00-55-340Z-usa-home-services-sprint-fresh-leads.csv"
+                  ],
+    "source_log":  "2026-06-15T03-00-55-340Z-usa-home-services-sprint-run-log.json",
+    "raw_rows":  3,
+    "staged_at":  "2026-06-15T03:02:24",
+    "reviewed_files":  [
+                           "2026-06-15-phoenix-roofing-plumbing-reviewed-batch-065.csv"
+                       ],
+    "final_files":  [
+                        "2026-06-15-phoenix-roofing-plumbing-final-batch-065.csv"
+                    ],
+    "pending_files":  [
+
+                      ],
+    "rejected_files":  [
+
+                       ],
+    "reviewed_count":  3,
+    "final_count":  3,
+    "pending_count":  0,
+    "rejected_count":  0,
+    "qa_status":  "passed_no_blocking_output",
+    "merged_rows":  3,
+    "merged_to_master_at":  "2026-06-14T23:04:52",
+    "merge_notes":  "Merged Hardacker Roofing LLC, Reliant Plumbing \u0026 Rooter, and Zippity Split Plumbing after public owner/decision-maker evidence from BBB, official sites/team pages, and trade profile evidence. No raw rows merged."
+}

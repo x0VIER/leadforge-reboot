@@ -1,5 +1,12 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T03:05Z - Phoenix roofing/plumbing owner-verified merge
+
+- Collector output produced 3 Phoenix candidates: Hardacker Roofing LLC, Reliant Plumbing & Rooter, and Zippity Split Plumbing. Virginia Beach roofing timed out, and Richmond plumbing hit HTTP 429, so the guard cooldown should be respected before another source run.
+- All 3 Phoenix candidates were promoted to reviewed/final after public owner or decision-maker evidence was verified. Hardacker Roofing LLC was verified through BBB and Arizona Roofing Contractors Association evidence; Reliant Plumbing & Rooter was verified through official website and BBB owner/operator evidence; Zippity Split Plumbing was verified through official website/team-page owner evidence.
+- Data cleanup: Hardacker's collector row had no readable website/contact path during the sweep, so the reviewed row preserved the website as an offer gap while relying on BBB/trade-profile evidence for owner and business identity.
+- Safety: no raw rows were merged. All 3 rows passed QA before merge, and master grew from 484 to 487 rows.
+
 ## 2026-06-15T02:51Z - Dry window completed and rotated
 
 - The final Cincinnati/Pittsburgh/Philadelphia pool-service pass produced no fresh leads, then the source cursor wrapped from `42` back to `3` after replaying the first roofing lanes. This proved the current city window had fully cycled and was starting stale work again.
