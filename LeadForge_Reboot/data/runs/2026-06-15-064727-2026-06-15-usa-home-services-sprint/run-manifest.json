@@ -1,0 +1,36 @@
+{
+  "run_name": "2026-06-15-usa-home-services-sprint",
+  "slug": "2026-06-15-usa-home-services-sprint",
+  "created_at": "2026-06-15T06:47:27",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-15T06-45-59-010Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "source_log": "2026-06-15T06-45-59-010Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 4,
+  "staged_at": "2026-06-15T06:47:27",
+  "reviewed_count": 4,
+  "final_count": 4,
+  "pending_count": 0,
+  "rejected_count": 0,
+  "reviewed_files": [
+    "2026-06-15-birmingham-greenville-hvac-reviewed-batch-076.csv"
+  ],
+  "final_files": [
+    "2026-06-15-birmingham-greenville-hvac-final-batch-076.csv"
+  ],
+  "reviewed_at": "2026-06-15T02:55:00-04:00",
+  "review_notes": "Manual public review promoted 4 HVAC rows. Wilbur's, Hiller, and Home Service Nerds were verified through official site/contact evidence plus BBB owner or management evidence. Air Conditioning Experts was promoted with caution after public Nextdoor and Zillow profile evidence matched business name, phone, address, website, and Chris Allen as owner; risk score remains 3 because no BBB or first-party owner page surfaced. The source cycle also hit HTTP 429 on Louisville HVAC, so guard/certification must be checked before the next collector. No raw rows merged.",
+  "qa_status": "passed_no_blocking_output",
+  "merged_rows": 4,
+  "merged_lead_ids": [
+    "LF-0188",
+    "LF-0189",
+    "LF-0190",
+    "LF-0191"
+  ],
+  "merged_to_master_at": "2026-06-15T03:00:00-04:00",
+  "merge_notes": "Merged 4 Birmingham/Greenville HVAC rows after reviewed final artifacts and QA. Master row count 502 -> 506. Air Conditioning Experts was merged with a higher risk score using matching Nextdoor/Zillow public profile owner evidence for Chris Allen. Wilbur's, Hiller, and Home Service Nerds used official site/contact evidence plus BBB owner or management evidence. No raw rows merged. Source cycle hit HTTP 429 on Louisville HVAC, so guard must be checked before the next collector."
+}

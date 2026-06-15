@@ -1,5 +1,14 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T07:00Z - Birmingham/Greenville HVAC merge
+
+- Collector output produced 4 HVAC candidates while scanning Louisville, Birmingham, and Greenville. Louisville HVAC hit HTTP 429, so the next collector must respect guard status before any retry.
+- Air Conditioning Experts was promoted cautiously after public Nextdoor and Zillow profile evidence matched business name, phone, address, website, and Chris Allen as owner. Because no BBB or first-party owner page surfaced, its risk score remains `3` and the row is marked public-profile verified rather than BBB-verified.
+- Wilbur's Air Conditioning, Heating & Plumbing was promoted after official site/contact evidence and BBB evidence verified the Birmingham service business, corporation context, and Wilbur Doonan as President/principal/customer contact.
+- Hiller Plumbing, Heating, Cooling & Electrical was promoted after official Birmingham location evidence plus BBB headquarters evidence verified service categories and James/Jimmy Hiller president/owner context.
+- Home Service Nerds HVAC, AC & Furnace Repair was promoted after official Greenville service-page evidence and BBB evidence verified Home Service Nerds LLC and Jason Poucher as Owner.
+- Safety: no raw rows were merged. The QA-clean final rows merged as `LF-0188` through `LF-0191`, and master grew from 502 to 506 rows. Public phones remain business phones only; no private owner-direct number was inferred.
+
 ## 2026-06-15T06:45Z - Greenville plumbing owner-verified merge
 
 - Collector output produced 3 Greenville plumbing-lane candidates after the lane window rotated to Louisville, Birmingham, and Greenville. H2Flow Plumbing and Chisholm Plumbing, Heating & Air Conditioning were promoted; Gateway Supply Co was rejected.

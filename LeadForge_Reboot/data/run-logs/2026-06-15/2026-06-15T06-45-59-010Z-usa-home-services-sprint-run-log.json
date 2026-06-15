@@ -1,0 +1,63 @@
+{
+  "createdAt": "2026-06-15T06:47:27.785Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-15T06-45-59-010Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 4,
+  "lanes": [
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Birmingham",
+      "state": "AL",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Greenville",
+      "state": "SC",
+      "niche": "electrician",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "niche": "hvac",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for query on attempt 1"
+    },
+    {
+      "city": "Birmingham",
+      "state": "AL",
+      "niche": "hvac",
+      "scanned": 4,
+      "added": 3,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Greenville",
+      "state": "SC",
+      "niche": "hvac",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}
