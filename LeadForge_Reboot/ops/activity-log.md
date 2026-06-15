@@ -132,3 +132,9 @@
 - Rejected Mike's Swat Team Pest & Termite Control because public evidence verifies Michelle Ledune as President/CEO, but BBB also shows an out-of-business status conflict.
 - Rejected Arizona's Best Choice Pest & Termite Services because the row now routes to Green Mango contact paths and public transition/acquisition evidence, creating a current-brand/contact mismatch.
 - No raw rows were merged. Removed only the stale generated pending artifact after writing the replacement rejected artifact and updating the manifest.
+
+## 2026-06-14 23:39 EDT - Partial Dry Collector Pass
+
+- Ran one additional guarded collector with no overlap after committing Batch 067.
+- The cleaning/locksmith lane segment returned 0 fresh rows across Richmond, Virginia Beach, and Phoenix; no output CSV or run folder was created.
+- Safe decision: did not rotate yet because the source cursor advanced from 18 to 24 inside the active 45-lane schedule and has not wrapped or proven the full window dry.
