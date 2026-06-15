@@ -10,7 +10,6 @@
     "lanePauseMs":  1500,
     "overpassTimeoutMs":  15000,
     "overpassAttempts":  1,
-    "sourceCooldownMinutesAfterRateLimit":  15,
     "querySampleLimit":  6,
     "maxLaneNicheChecksPerRun":  6,
     "activeLaneWindowSize":  3,
@@ -143,55 +142,7 @@
                  ],
     "lanes":  [
                   {
-                      "city":  "Houston",
-                      "state":  "TX",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac",
-                                     "landscaping",
-                                     "pest_control",
-                                     "cleaning",
-                                     "locksmith",
-                                     "painting",
-                                     "flooring",
-                                     "carpentry",
-                                     "masonry",
-                                     "windows_doors",
-                                     "tree_service",
-                                     "pool_service"
-                                 ],
-                      "perNicheLimit":  null,
-                      "querySampleLimit":  null,
-                      "stateName":  "Texas"
-                  },
-                  {
-                      "city":  "Austin",
-                      "state":  "TX",
-                      "niches":  [
-                                     "roofing",
-                                     "plumbing",
-                                     "electrician",
-                                     "hvac",
-                                     "landscaping",
-                                     "pest_control",
-                                     "cleaning",
-                                     "locksmith",
-                                     "painting",
-                                     "flooring",
-                                     "carpentry",
-                                     "masonry",
-                                     "windows_doors",
-                                     "tree_service",
-                                     "pool_service"
-                                 ],
-                      "perNicheLimit":  null,
-                      "querySampleLimit":  null,
-                      "stateName":  "Texas"
-                  },
-                  {
-                      "city":  "Columbus",
+                      "city":  "Cincinnati",
                       "state":  "OH",
                       "niches":  [
                                      "roofing",
@@ -213,6 +164,54 @@
                       "perNicheLimit":  null,
                       "querySampleLimit":  null,
                       "stateName":  "Ohio"
+                  },
+                  {
+                      "city":  "Pittsburgh",
+                      "state":  "PA",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac",
+                                     "landscaping",
+                                     "pest_control",
+                                     "cleaning",
+                                     "locksmith",
+                                     "painting",
+                                     "flooring",
+                                     "carpentry",
+                                     "masonry",
+                                     "windows_doors",
+                                     "tree_service",
+                                     "pool_service"
+                                 ],
+                      "perNicheLimit":  null,
+                      "querySampleLimit":  null,
+                      "stateName":  "Pennsylvania"
+                  },
+                  {
+                      "city":  "Philadelphia",
+                      "state":  "PA",
+                      "niches":  [
+                                     "roofing",
+                                     "plumbing",
+                                     "electrician",
+                                     "hvac",
+                                     "landscaping",
+                                     "pest_control",
+                                     "cleaning",
+                                     "locksmith",
+                                     "painting",
+                                     "flooring",
+                                     "carpentry",
+                                     "masonry",
+                                     "windows_doors",
+                                     "tree_service",
+                                     "pool_service"
+                                 ],
+                      "perNicheLimit":  null,
+                      "querySampleLimit":  null,
+                      "stateName":  "Pennsylvania"
                   }
               ]
 }
