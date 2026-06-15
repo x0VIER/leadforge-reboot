@@ -1,5 +1,13 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T05:45Z - Tucson floor-plan service niche-corrected merge
+
+- Collector output produced 1 Tucson candidate in the flooring lane, Floor Plans First, after painting/flooring scans across Tucson, Chicago, and Indianapolis. Collector-level filters rejected 10 other painting/flooring candidates.
+- Floor Plans First was promoted to reviewed/final after official site/contact evidence, BBB, Tucson Association of Executives, and Real Producers evidence verified business identity, contact path, and David Goff as Owner / Architect.
+- Data cleanup: the raw lane labeled the row as `flooring`, but public evidence showed a floor-plan measurement and real-estate marketing service, not a flooring contractor. The reviewed/final row corrected the niche to `floor plan services`, keeping the business because it is still a service-based local company with clear offer fit.
+- Safety: no raw rows were merged. The generated pending scratch file from initial triage was removed only after reviewed/final artifacts, QA, merge, and manifest state existed. Master grew from 495 to 496 rows, and the durable lead ID is `LF-0181`.
+- Certification: contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, offer readiness, master viewer workbook, and desktop lead hub were rebuilt. The Desktop hub now includes `Floor Plan Services Leads.xlsx`; health remains yellow because of historical recent failure noise.
+
 ## 2026-06-15T05:30Z - Chicago cleaning phone-corrected merge
 
 - Collector output produced 1 Chicago cleaning/disinfecting candidate, Environmental Virus Removal. Tucson locksmith hit a single Overpass timeout during the same collector cycle, but the run completed and staged one raw row.
