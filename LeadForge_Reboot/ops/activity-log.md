@@ -150,3 +150,13 @@
 - Ran one guarded collector with no overlap from the clean `5445525` handoff.
 - The carpentry/masonry lane segment returned 0 fresh rows; Phoenix carpentry and masonry scanned 24 total candidates that were rejected by collector filters.
 - Safe decision: did not rotate yet because the source cursor advanced from 30 to 36 inside the active 45-lane schedule and has not wrapped or proven the full window dry.
+
+## 2026-06-15 00:12 EDT - Batch 068 Phoenix Windows/Doors Review And Merge
+
+- Ran one guarded collector with no overlap; it completed inside the 180-second guard budget and staged 3 Phoenix windows/doors candidates.
+- Promoted Mirage Glass & Mirror Inc after official website/contact/about evidence verified Phoenix-area custom glass/window services and contact paths, BBB corroborated the window/glass category, and a public decision-maker profile identified Richard Craft as President.
+- Rejected Hirschi Masonry because public evidence verified a real masonry/specialty contractor, not a windows/doors lead; merging it under the collected niche would contaminate niche accuracy.
+- Rejected Prime Builders because official public evidence points to a broad general contractor, the collector phone mismatched official site phone references, and no public owner/decision-maker source was found.
+- No raw rows were merged. Merged only the QA-clean final row through `scripts/merge-new-leads.ps1`; master moved from 488 to 489 rows with 1 added and 0 existing-row enrichments.
+- Removed only the stale generated pending artifact after the manifest recorded the replacement reviewed/final/rejected state, preserving raw output and rejected intelligence.
+- Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, offer readiness, the polished viewer workbook, and the desktop lead hub. Health remains yellow only for recent failure noise; collector guard is clear for the next atomic step.
