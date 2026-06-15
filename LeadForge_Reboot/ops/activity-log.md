@@ -125,3 +125,10 @@
 - Merged through `scripts/merge-new-leads.ps1`; master moved from 487 to 488 rows with 1 added and 0 existing-row enrichments.
 - Rebuilt contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, offer readiness, the polished viewer workbook, and the desktop lead hub.
 - Health remains yellow because Virginia Beach HVAC hit an HTTP 429 and the collector guard is cooling down until `2026-06-15T03:32:40Z`; next worker should wait for the guard instead of retrying immediately.
+
+## 2026-06-14 23:42 EDT - Batch 067 Phoenix Pest-Control Rejection
+
+- Waited for the source-rate cooldown to clear, then ran one guarded collector with no overlap; it completed inside the 180-second budget and staged 2 Phoenix pest-control candidates.
+- Rejected Mike's Swat Team Pest & Termite Control because public evidence verifies Michelle Ledune as President/CEO, but BBB also shows an out-of-business status conflict.
+- Rejected Arizona's Best Choice Pest & Termite Services because the row now routes to Green Mango contact paths and public transition/acquisition evidence, creating a current-brand/contact mismatch.
+- No raw rows were merged. Removed only the stale generated pending artifact after writing the replacement rejected artifact and updating the manifest.

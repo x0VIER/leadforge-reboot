@@ -1,0 +1,27 @@
+{
+  "run_name": "2026-06-15-usa-home-services-sprint",
+  "slug": "2026-06-15-usa-home-services-sprint",
+  "created_at": "2026-06-15T03:34:27",
+  "status": "rejected",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-15T03-33-01-215Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [],
+  "final_files": [],
+  "pending_files": [],
+  "rejected_files": [
+    "2026-06-15-phoenix-pest-control-rejected-batch-067.csv"
+  ],
+  "source_log": "2026-06-15T03-33-01-215Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 2,
+  "staged_at": "2026-06-15T03:34:27",
+  "reviewed_count": 0,
+  "final_count": 0,
+  "pending_count": 0,
+  "rejected_count": 2,
+  "qa_status": "not_applicable_rejected_before_merge",
+  "rejected_at": "2026-06-14T23:42:00",
+  "rejection_notes": "Rejected two Phoenix pest-control candidates after public review. Mike's Swat Team has owner evidence but BBB out-of-business status conflict. Arizona's Best Choice routes to Green Mango/PestCo transition and acquisition evidence, creating a current-brand/contact mismatch. No raw rows merged."
+}

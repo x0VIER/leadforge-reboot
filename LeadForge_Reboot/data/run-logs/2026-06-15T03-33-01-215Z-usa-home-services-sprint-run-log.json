@@ -1,0 +1,63 @@
+{
+  "createdAt": "2026-06-15T03:34:27.488Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-15T03-33-01-215Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 2,
+  "lanes": [
+    {
+      "city": "Richmond",
+      "state": "VA",
+      "niche": "landscaping",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "landscaping",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "landscaping",
+      "scanned": 12,
+      "added": 0,
+      "rejected": 12,
+      "note": ""
+    },
+    {
+      "city": "Richmond",
+      "state": "VA",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "VA",
+      "niche": "pest_control",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "niche": "pest_control",
+      "scanned": 2,
+      "added": 2,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}
