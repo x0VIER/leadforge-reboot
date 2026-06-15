@@ -25,6 +25,12 @@
 - Contamination handling: the USA audit flagged 167 older/imported suspicious rows, mostly non-resolving website hosts. A fresh quarantine artifact was created with `scripts/quarantine-suspicious-leads.ps1 -State USA`; this copies the suspicious rows and lead IDs for review without deleting or changing the master.
 - Safety: no master rows, archive files, pending rows, or rejected artifacts were deleted or overwritten. This change only prevents wasted lane rotation and makes the next action clearer for future Codex workers.
 
+## 2026-06-15T01:56Z - Pittsburgh locksmith merge and Philadelphia pending
+
+- Collector output produced 2 locksmith candidates. Murray Avenue Locksmith was promoted to reviewed/final after official website evidence and BBB evidence verified the storefront, public phone, alternate-name relationship, license context, and David Dvir as Owner/principal contact.
+- Auto Locksmith Philadelphia Inc stayed pending. Official site and BBB confirm business identity, phone, email, address, A+ rating, and corporation dates, but no clean public owner, principal contact, officer, or decision-maker source surfaced during this pass.
+- Safety: no raw rows were merged. The pending Philadelphia row has a public research note, registration/status context, and a specific next action to find owner or decision-maker evidence before any merge.
+
 ## 2026-06-15T01:39Z - Cincinnati landscaping merge and pest-control rejection
 
 - Collector output produced 2 Cincinnati candidates. Druffel Design & Landscape was promoted to reviewed/final after official website/contact evidence and BBB evidence verified the business identity, public phone/email/contact path, corporation context, and Dan Druffel as President/principal contact.
