@@ -1,6 +1,6 @@
 ﻿# Offer Readiness Report
 
-Generated: 2026-06-15T03:50:45
+Generated: 2026-06-15T04:07:53
 
 Source: C:\Users\loc9o\Desktop\AGR 1226\LeadForge_Reboot\data\master_leads.csv
 
@@ -8,14 +8,14 @@ This report is a sidecar planning view. It does not mutate master leads and it d
 
 ## Tier Counts
 
-- A - Offer Ready: 212
+- A - Offer Ready: 213
 - B - Strong Audit Candidate: 13
 - C - Needs More Evidence: 264
 - D - Hold / Research First: 17
 
 ## Contact Path Counts
 
-- Contact form or booking URL: 390
+- Contact form or booking URL: 391
 - No safe public contact path yet: 8
 - Public business email: 24
 - Public business phone: 83

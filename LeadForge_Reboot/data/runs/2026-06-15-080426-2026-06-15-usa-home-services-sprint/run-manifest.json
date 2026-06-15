@@ -1,0 +1,33 @@
+{
+  "run_name": "2026-06-15-usa-home-services-sprint",
+  "slug": "2026-06-15-usa-home-services-sprint",
+  "created_at": "2026-06-15T08:04:26",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-15T08-03-00-992Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-15-louisville-windows-doors-reviewed-batch-077.csv"
+  ],
+  "final_files": [
+    "2026-06-15-louisville-windows-doors-final-batch-077.csv"
+  ],
+  "source_log": "2026-06-15T08-03-00-992Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 1,
+  "staged_at": "2026-06-15T08:04:26",
+  "reviewed_count": 1,
+  "final_count": 1,
+  "pending_count": 0,
+  "rejected_count": 0,
+  "reviewed_at": "2026-06-15T04:11:00-04:00",
+  "review_notes": "Manual public review promoted Louisville Window Company after official site evidence verified local window/door services, public phone, contact page, address, quote path, and family-owned positioning. BBB evidence verified Matthew N. Duncan as President/Owner and principal contact, with Micah Cassidy also listed as Owner/Director. Cleared the collector noreply email from final rows because it is not a useful public contact address. No raw rows merged.",
+  "qa_status": "passed_no_blocking_output",
+  "merged_rows": 1,
+  "merged_lead_ids": [
+    "LF-0192"
+  ],
+  "merged_to_master_at": "2026-06-15T04:15:00-04:00",
+  "merge_notes": "Merged 1 Louisville windows/doors row after reviewed final artifacts and QA. Master row count 506 -> 507. Louisville Window Company was verified through official site/contact evidence plus BBB owner/principal-contact evidence for Matthew N. Duncan. Collector hit HTTP 429 on Birmingham and Greenville tree-service lanes, so guard/certification must be checked before the next collector."
+}

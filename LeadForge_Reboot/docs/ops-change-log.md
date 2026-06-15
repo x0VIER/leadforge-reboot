@@ -1,5 +1,11 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T08:15Z - Louisville windows/doors owner-verified merge
+
+- Collector output produced 1 Louisville windows/doors candidate: Louisville Window Company. Birmingham and Greenville tree-service queries returned HTTP 429, so the next collector must respect guard status before any retry.
+- Louisville Window Company was promoted after official site/contact evidence verified the local window and door installer, public phone, Chamberlain Lane address, contact page, quote path, and family-owned/in-house installation positioning. BBB verified Matthew N. Duncan as President/Owner and principal contact, with Micah Cassidy also listed as Owner/Director.
+- Safety: the collector `noreply@louisvillewindowcompany.com` address was removed from reviewed/final rows because it is not a useful public contact email. No raw rows were merged. The QA-clean final row merged as `LF-0192`, and master grew from 506 to 507 rows. Public phone remains the business phone only; no private owner-direct number was inferred.
+
 ## 2026-06-15T07:50Z - Fourth partial dry pass, no rotation
 
 - Guarded collector ran on the Louisville / Birmingham / Greenville window and produced no fresh rows. No raw rows were staged and no master rows were changed.
