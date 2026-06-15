@@ -1,5 +1,11 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T02:36Z - Partial dry pass, no rotation
+
+- Collector output produced no fresh rows while scanning Cincinnati/Pittsburgh/Philadelphia windows/doors and tree-service lanes. Philadelphia windows/doors hit HTTP 429, so the guard cooldown must be respected again.
+- Cursor check showed `nextIndex = 42` of `45`, with only the pool-service block left in the current city window. This is not a full lane-window exhaustion, so no lane rotation was applied.
+- Safety: no raw rows were staged or merged. The next safe action is to wait for the source cooldown to clear, finish the remaining cursor lanes, then rotate only if the full window stays dry and no pending/reviewed work can advance.
+
 ## 2026-06-15T02:23Z - Philadelphia carpentry target-mismatch rejection
 
 - Collector output produced 1 Philadelphia carpentry candidate and recorded fresh source pressure: Pittsburgh masonry hit HTTP 429, so the next collector must respect the guard cooldown again.
