@@ -1,0 +1,35 @@
+{
+  "run_name": "2026-06-15-usa-home-services-sprint",
+  "slug": "2026-06-15-usa-home-services-sprint",
+  "created_at": "2026-06-15T05:47:32",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-15T05-46-05-689Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "source_log": "2026-06-15T05-46-05-689Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 2,
+  "staged_at": "2026-06-15T05:47:32",
+  "reviewed_count": 2,
+  "final_count": 2,
+  "pending_count": 0,
+  "rejected_count": 0,
+  "reviewed_files": [
+    "2026-06-15-tucson-carpentry-property-reviewed-batch-073.csv"
+  ],
+  "final_files": [
+    "2026-06-15-tucson-carpentry-property-final-batch-073.csv"
+  ],
+  "reviewed_at": "2026-06-15T01:55:00-04:00",
+  "review_notes": "Manual public review promoted Gover Property Management and Tom White Carpentry. Gover Property Management was corrected from carpentry to property management after public entity evidence verified Gover Property Management LLC and William C Gover as Member/Manager; no first-party website surfaced, so it is kept as a no-website service-business opportunity with public phone only. Tom White Carpentry was promoted after BuildZoom, Procore, SAHBA, and ROC-style evidence verified contractor identity, phone/address, active licensing context, and Darlene White / Thomas White officer context. Public phones are business phones only. No raw rows merged. Source run also hit HTTP 429 on Indianapolis carpentry and Tucson masonry, so guard/certification should confirm cooldown before the next collector.",
+  "qa_status": "passed_with_expected_no_website_advisory",
+  "qa_notes": "QA flagged Gover Property Management with missing_website only. This is an intentional no-website service-business lead with public registry owner evidence and public business phone, preserved for website/intake offer work.",
+  "merged_rows": 2,
+  "merged_lead_ids": [
+    "LF-0182",
+    "LF-0183"
+  ],
+  "merged_to_master_at": "2026-06-15T02:00:00-04:00",
+  "merge_notes": "Merged 2 Tucson rows after reviewed final artifacts and QA review. Master row count 496 -> 498. Gover Property Management niche corrected to property management/no-website lead; Tom White Carpentry preserved as carpentry with public contractor/license decision-maker evidence."
+}

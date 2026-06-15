@@ -1,0 +1,63 @@
+{
+  "createdAt": "2026-06-15T05:47:32.734Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-15T05-46-05-689Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 2,
+  "lanes": [
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "carpentry",
+      "scanned": 2,
+      "added": 2,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "carpentry",
+      "scanned": 3,
+      "added": 0,
+      "rejected": 3,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "carpentry",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for query on attempt 1"
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "masonry",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for query on attempt 1"
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "masonry",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "masonry",
+      "scanned": 4,
+      "added": 0,
+      "rejected": 4,
+      "note": ""
+    }
+  ]
+}

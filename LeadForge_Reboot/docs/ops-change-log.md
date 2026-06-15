@@ -1,5 +1,13 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T06:00Z - Tucson carpentry and no-website property-management merge
+
+- Collector output produced 2 Tucson carpentry-lane candidates: Gover Property Management and Tom White Carpentry. The same source cycle hit HTTP 429 on Indianapolis carpentry and Tucson masonry, so the collector guard entered cooldown after certification.
+- Gover Property Management was corrected from `carpentry` to `property management` after public entity evidence verified Gover Property Management LLC and William C Gover as Member/Manager. No first-party website surfaced, so it was intentionally kept as a no-website service-business lead with a website/intake offer angle.
+- Tom White Carpentry was promoted as a carpentry contractor after BuildZoom, Procore, Southern Arizona Home Builders Association, and ROC-style public evidence verified the contractor identity, Tucson contact data, active license context, and Darlene White / Thomas White decision-maker context.
+- Safety: no raw rows were merged. QA flagged Gover Property Management with `missing_website`, which was expected and recorded in the manifest as a no-website lead rather than a blocking error. Master grew from 496 to 498 rows; durable IDs are `LF-0182` and `LF-0183`.
+- Certification: contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, offer readiness, master viewer workbook, and desktop lead hub were rebuilt. The Desktop hub now includes `Property Management Leads.xlsx`; collector guard is blocked by source cooldown until `2026-06-15T06:01:05Z`.
+
 ## 2026-06-15T05:45Z - Tucson floor-plan service niche-corrected merge
 
 - Collector output produced 1 Tucson candidate in the flooring lane, Floor Plans First, after painting/flooring scans across Tucson, Chicago, and Indianapolis. Collector-level filters rejected 10 other painting/flooring candidates.
