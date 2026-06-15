@@ -1,0 +1,63 @@
+{
+  "createdAt": "2026-06-15T05:17:31.867Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-15T05-16-10-636Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 1,
+  "lanes": [
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "cleaning",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "cleaning",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "niche": "locksmith",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: Overpass request timed out after 15000ms on attempt 1"
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "niche": "locksmith",
+      "scanned": 2,
+      "added": 0,
+      "rejected": 2,
+      "note": ""
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "niche": "locksmith",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    }
+  ]
+}

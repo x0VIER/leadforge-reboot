@@ -1,0 +1,33 @@
+{
+  "run_name": "2026-06-15-usa-home-services-sprint",
+  "slug": "2026-06-15-usa-home-services-sprint",
+  "created_at": "2026-06-15T05:17:31",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-15T05-16-10-636Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "source_log": "2026-06-15T05-16-10-636Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 1,
+  "staged_at": "2026-06-15T05:17:31",
+  "reviewed_count": 1,
+  "final_count": 1,
+  "pending_count": 0,
+  "rejected_count": 0,
+  "reviewed_files": [
+    "2026-06-15-chicago-cleaning-reviewed-batch-071.csv"
+  ],
+  "final_files": [
+    "2026-06-15-chicago-cleaning-final-batch-071.csv"
+  ],
+  "reviewed_at": "2026-06-15T01:24:00-04:00",
+  "review_notes": "Manual public review promoted Environmental Virus Removal after BBB verified business identity, service category, sole proprietorship context, corrected public phone, and Anthony Wilson as Member/principal/customer contact. CityOf.com matched the Chicago public phone and 24-hour service listing. The raw collector phone was treated as stale or mismatched and was replaced with the stronger BBB/CityOf public business phone. Public phone is business phone only; no owner-direct number is inferred. No raw rows merged.",
+  "qa_status": "passed_no_blocking_output",
+  "merged_rows": 1,
+  "merged_lead_ids": [
+    "LF-0180"
+  ],
+  "merged_to_master_at": "2026-06-15T01:28:00-04:00",
+  "merge_notes": "Merged 1 Chicago cleaning/disinfecting row only after QA-clean final review. Master row count 494 -> 495. The raw phone was not carried forward because BBB and CityOf matched a different public Chicago business phone. Public phone remains business phone only."
+}

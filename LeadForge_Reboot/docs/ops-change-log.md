@@ -1,5 +1,13 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T05:30Z - Chicago cleaning phone-corrected merge
+
+- Collector output produced 1 Chicago cleaning/disinfecting candidate, Environmental Virus Removal. Tucson locksmith hit a single Overpass timeout during the same collector cycle, but the run completed and staged one raw row.
+- Environmental Virus Removal was promoted to reviewed/final after BBB verified the business profile, service category, sole proprietorship context, and Anthony Wilson as Member/principal/customer contact. CityOf.com matched the stronger Chicago public phone and 24-hour listing.
+- Data cleanup: the raw Overpass row carried `+1-563-661-2157`, but BBB and CityOf both showed `(773) 673-0772`; the final row uses the BBB/CityOf phone and records the mismatch in `source_evidence`, `visible_gap`, and review notes. The phone remains public business phone only, not owner-direct.
+- Safety: no raw rows were merged. The generated pending scratch file from initial triage was removed only after reviewed/final artifacts, QA, merge, and manifest state existed. Master grew from 494 to 495 rows, and the durable lead ID is `LF-0180`.
+- Certification: contamination audit, owner backlog, pending report, lead memory index, factory metrics, ops snapshot, ops health, offer readiness, master viewer workbook, and desktop lead hub were rebuilt. Health remains yellow because of historical recent failure noise; collector guard is clear.
+
 ## 2026-06-15T05:15Z - Tucson landscaping owner-verified merge
 
 - Collector output produced 1 fresh Tucson landscaping candidate, All Yard Work, after scanning Tucson/Chicago/Indianapolis landscaping and pest-control lanes. The remaining candidates were rejected by collector filters before staging.
