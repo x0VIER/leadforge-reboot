@@ -1,5 +1,11 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T07:30Z - Second partial dry pass, no rotation
+
+- Guarded collector ran after the source cooldown cleared and produced no fresh rows. No raw rows were staged and no master rows were changed.
+- Rotation check refused to rotate because the Louisville / Birmingham / Greenville window is still partially scanned: source cursor is at `24` of `45`, so remaining niches should continue on the next safe collector cycle.
+- Safety: this was a correct no-merge/no-rotation cycle. Certification and commit preserve the current state so future wakeups do not retry stale assumptions or force an early city-window change.
+
 ## 2026-06-15T07:15Z - Partial dry pass, no rotation
 
 - Guarded collector ran after the Louisville HVAC source cooldown cleared and produced no fresh rows. No raw rows were staged and no master rows were changed.
