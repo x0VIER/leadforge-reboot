@@ -1,5 +1,11 @@
 # LeadForge Ops Change Log
 
+## 2026-06-15T08:55Z - Second Florida dry partial pass, no rotation
+
+- Guarded collector ran on the Orlando / Tampa / Jacksonville window with a longer shell timeout and completed cleanly with no fresh rows. No raw rows were staged and no master rows were changed.
+- Rotation check refused to rotate because the source cursor is at `12` of `45`; the Florida lane window still has remaining niche slots to scan before it should be treated as exhausted.
+- Safety: no retry loop or overlapping collector was opened. Continue the Florida window on the next safe collector cycle after guard verification.
+
 ## 2026-06-15T08:40Z - First Florida dry partial pass, no rotation
 
 - Guarded collector ran on the Orlando / Tampa / Jacksonville window and produced no fresh rows. The shell wrapper timed out while waiting, but guard/status verification showed the collector had completed as `complete_no_rows`, with no active claims and no staged raw rows.

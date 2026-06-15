@@ -1,10 +1,10 @@
 # LeadForge Ops Health
 
-- Generated: 2026-06-15T04:38:25
+- Generated: 2026-06-15T04:54:04
 - Health: yellow
 - Target state: USA
 - Master rows: 507
 - Pending queue rows: 65
-- Collector can start: False
-- Issues: collector_guard_blocked:source_rate_limit_cooldown_until:2026-06-15T08:50:24Z; recent_failure_noise:17
-- Next action: Wait for collector guard to clear or resolve stale claim.
+- Collector can start: True
+- Issues: recent_failure_noise:16
+- Next action: System can continue with pending enrichment or fresh collector sourcing.
