@@ -25,6 +25,13 @@
 - Contamination handling: the USA audit flagged 167 older/imported suspicious rows, mostly non-resolving website hosts. A fresh quarantine artifact was created with `scripts/quarantine-suspicious-leads.ps1 -State USA`; this copies the suspicious rows and lead IDs for review without deleting or changing the master.
 - Safety: no master rows, archive files, pending rows, or rejected artifacts were deleted or overwritten. This change only prevents wasted lane rotation and makes the next action clearer for future Codex workers.
 
+## 2026-06-15T01:12Z - Pittsburgh/Cincinnati plumbing QA cleanup
+
+- Collector output produced 4 plumbing candidates across Cincinnati and Pittsburgh. All 4 were promoted to reviewed/final after public evidence verified business identity, contact path, and owner or decision-maker context from official sites plus BBB profiles.
+- QA initially flagged The Brookline Plumber because its official public contact email uses `msn.com`; the QA common-mailbox allowlist recognized Hotmail/Outlook/Live but not MSN, causing a false `email_domain_mismatch`.
+- Fix: `scripts/qa-review-batch.ps1` now treats `msn.com` as a common mailbox domain while preserving placeholder-email and real off-domain mismatch checks. This keeps verified contact data instead of deleting it to satisfy the checker.
+- Safety: no raw rows were merged. The final merge file keeps the master schema stable and carries source evidence in the existing `source_evidence`, `owner_source`, `visible_gap`, and `offer_angle` fields.
+
 ## 2026-06-14T23:25Z - Offer Audit Engine sidecar
 
 - Added the Offer Audit Engine as a sidecar system instead of mixing offer planning into the raw collector. The lead factory still owns clean public-source collection and reviewed merges; the sidecar reads master leads and produces offer-readiness views without mutating source lead rows.

@@ -9,7 +9,7 @@ $rows = Import-Csv -LiteralPath $resolved
 function Test-CommonMailboxDomain([string]$email) {
     if (-not $email) { return $false }
     $domain = ($email -split '@')[-1].ToLower()
-    $common = @('gmail.com','outlook.com','hotmail.com','live.com','yahoo.com','icloud.com','aol.com','proton.me','protonmail.com')
+    $common = @('gmail.com','outlook.com','hotmail.com','live.com','msn.com','yahoo.com','icloud.com','aol.com','proton.me','protonmail.com')
     return $common -contains $domain
 }
 
