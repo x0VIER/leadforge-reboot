@@ -1,0 +1,63 @@
+{
+  "createdAt": "2026-06-15T09:34:43.190Z",
+  "config": "usa-home-services-sprint",
+  "recoveredCsvPath": "C:\\Users\\loc9o\\Desktop\\AGR 1226\\Recovered_Leads_Database.csv",
+  "outputCsv": "2026-06-15T09-33-22-495Z-usa-home-services-sprint-fresh-leads.csv",
+  "rowsWritten": 4,
+  "lanes": [
+    {
+      "city": "Orlando",
+      "state": "FL",
+      "niche": "painting",
+      "scanned": 1,
+      "added": 0,
+      "rejected": 1,
+      "note": ""
+    },
+    {
+      "city": "Tampa",
+      "state": "FL",
+      "niche": "painting",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Jacksonville",
+      "state": "FL",
+      "niche": "painting",
+      "scanned": 3,
+      "added": 3,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Orlando",
+      "state": "FL",
+      "niche": "flooring",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Tampa",
+      "state": "FL",
+      "niche": "flooring",
+      "scanned": 1,
+      "added": 1,
+      "rejected": 0,
+      "note": ""
+    },
+    {
+      "city": "Jacksonville",
+      "state": "FL",
+      "niche": "flooring",
+      "scanned": 0,
+      "added": 0,
+      "rejected": 0,
+      "note": "query failed: HTTP 429 for query on attempt 1"
+    }
+  ]
+}

@@ -125,6 +125,10 @@ def pretty_value(header, value):
         return label.replace("Hvac", "HVAC").replace("Seo", "SEO").replace("Url", "URL")
     return text
 
+def canonical_niche(value):
+    text = clean(value).lower().replace("_", " ").replace("-", " ")
+    return " ".join(text.split()) or "Unknown"
+
 with open(source_csv, "r", encoding="utf-8-sig", newline="") as f:
     rows = list(csv.DictReader(f))
 
@@ -468,7 +472,7 @@ def count_missing(field):
     return sum(1 for r in rows if not clean(r.get(field, "")))
 
 state_counts = Counter(clean(r.get("state", "")) or "Unknown" for r in rows)
-niche_counts = Counter(clean(r.get("niche", "")) or "Unknown" for r in rows)
+niche_counts = Counter(canonical_niche(r.get("niche", "")) for r in rows)
 status_counts = Counter(clean(r.get("validation_status", "")) or "Unknown" for r in rows)
 
 field_descriptions = {
@@ -579,7 +583,7 @@ write_table(ws_board, selected, rows, "Lead Board", "Readable selling view with 
 existing_sheet_names = set(wb.sheetnames)
 niche_palette = [palette["teal"], palette["blue"], palette["orange"], palette["violet"], palette["green"], palette["slate"]]
 for niche_index, (niche_name, _count) in enumerate(niche_counts.most_common()):
-    niche_rows = [r for r in rows if (clean(r.get("niche", "")) or "Unknown") == niche_name]
+    niche_rows = [r for r in rows if canonical_niche(r.get("niche", "")) == niche_name]
     if not niche_rows:
         continue
     label = pretty_value("niche", niche_name)

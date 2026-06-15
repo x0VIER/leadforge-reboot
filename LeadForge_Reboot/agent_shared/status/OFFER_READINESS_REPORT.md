@@ -1,6 +1,6 @@
 ﻿# Offer Readiness Report
 
-Generated: 2026-06-15T05:19:55
+Generated: 2026-06-15T05:44:43
 
 Source: C:\Users\loc9o\Desktop\AGR 1226\LeadForge_Reboot\data\master_leads.csv
 
@@ -8,14 +8,14 @@ This report is a sidecar planning view. It does not mutate master leads and it d
 
 ## Tier Counts
 
-- A - Offer Ready: 214
+- A - Offer Ready: 218
 - B - Strong Audit Candidate: 13
 - C - Needs More Evidence: 264
 - D - Hold / Research First: 17
 
 ## Contact Path Counts
 
-- Contact form or booking URL: 392
+- Contact form or booking URL: 396
 - No safe public contact path yet: 8
 - Public business email: 24
 - Public business phone: 83
@@ -24,6 +24,7 @@ This report is a sidecar planning view. It does not mutate master leads and it d
 ## Top Offer-Ready Leads
 
 - LFR-20260614-0012 | 24/7 Electrician LLC | electrician | Hollywood, FL | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
+- LF-0196 | A New Leaf Painting | painting | Jacksonville, FL | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Reviews and local prominence improvement; Conversion path cleanup; Best services listing placement
 - LF-0037 | AAA City Plumbing | plumbing | Charlotte, NC | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LF-0055 | Acuity Electric | electrician | Houston, TX | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LF-0176 | Air Conditioning Associates Inc | hvac | Tucson, AZ | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Reviews and local prominence improvement; Conversion path cleanup; Best services listing placement
@@ -42,7 +43,6 @@ This report is a sidecar planning view. It does not mutate master leads and it d
 - LF-0046 | Chaffee HVAC, Plumbing, & Electrical | hvac | Knoxville, TN | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LF-0103 | Chapman Air & Heat | hvac | Dallas, TX | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 - LF-0187 | Chisholm Plumbing, Heating & Air Conditioning | plumbing | Greenville, SC | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Reviews and local prominence improvement; Conversion path cleanup; Best services listing placement
-- LF-0029 | Colony Roofers | roofing | Atlanta, GA | score 100 | A - Offer Ready | AI website and conversion audit; AI SEO / GEO local visibility audit; Conversion path cleanup; Best services listing placement
 
 ## Process Notes
 

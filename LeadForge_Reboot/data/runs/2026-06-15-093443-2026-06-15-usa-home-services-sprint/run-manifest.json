@@ -1,0 +1,36 @@
+{
+  "run_name": "2026-06-15-usa-home-services-sprint",
+  "slug": "2026-06-15-usa-home-services-sprint",
+  "created_at": "2026-06-15T09:34:43",
+  "status": "merged_to_master",
+  "owner": "Hermes",
+  "notes": "Auto-staged from the source batch runner. Review evidence, enrich, run QA, then merge approved rows.",
+  "raw_files": [
+    "2026-06-15T09-33-22-495Z-usa-home-services-sprint-fresh-leads.csv"
+  ],
+  "reviewed_files": [
+    "2026-06-15-jacksonville-tampa-paint-floor-reviewed-batch-079.csv"
+  ],
+  "final_files": [
+    "2026-06-15-jacksonville-tampa-paint-floor-final-batch-079.csv"
+  ],
+  "source_log": "2026-06-15T09-33-22-495Z-usa-home-services-sprint-run-log.json",
+  "raw_rows": 4,
+  "staged_at": "2026-06-15T09:34:43",
+  "reviewed_count": 4,
+  "final_count": 4,
+  "pending_count": 0,
+  "rejected_count": 0,
+  "reviewed_at": "2026-06-15T05:42:00-04:00",
+  "review_notes": "Manual public review promoted 4 painting/flooring rows. Myers Painting Inc used official Myers Painting of Jax contact/founder evidence plus BBB owner evidence for Michael Myers. Colorwise Painting used official site/contact evidence, Florida Sunbiz evidence for Matthew C. Matheson, and public professional profile owner/operator evidence. A New Leaf Painting used official about/contact evidence plus BBB Thomas Drake president evidence. Bob's Carpet and Flooring was promoted cautiously as a larger family-owned flooring business using official site, BBB flooring-contractor profile, and public industry owner evidence for Ashlie Butler. No raw rows merged.",
+  "qa_status": "passed",
+  "merged_rows": 4,
+  "merged_lead_ids": [
+    "LF-0194",
+    "LF-0195",
+    "LF-0196",
+    "LF-0197"
+  ],
+  "merged_to_master_at": "2026-06-15T05:40:52-04:00",
+  "merge_notes": "Merged after qa-review-batch.ps1 returned clean. Master row count moved from 508 to 512 with 4 added rows and 0 enriched existing rows."
+}
